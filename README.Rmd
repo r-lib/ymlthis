@@ -12,48 +12,41 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
-# ymlthis
+# ymlthis: write YAML for R Markdown, bookdown, blogdown, and more
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of ymlthis is to ...
+ymlthis makes it easy to write YAML front matter for R Markdown and related documents. `yml_*()` functions write functions and `use_*()` functions let you write the resulting YAML to your clipboard or to `.yaml` files related to your project.
 
 ## Installation
 
-You can install the released version of ymlthis from [CRAN](https://CRAN.R-project.org) with:
+You can install the development version of ymlthis from GitHub with:
 
 ``` r
-install.packages("ymlthis")
+# install.packages("remotes")
+remotes::install_github("rstudio-education/ymlthis")
 ```
 
-And the development version from [GitHub](https://github.com/) with:
-
-``` r
-# install.packages("devtools")
-devtools::install_github("rstudio-education/ymlthis")
-```
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+`yml()` creates a basic `yml` object returns simple YAML with the author and date.
 
 ```{r example}
 library(ymlthis)
-## basic example code
+
+yml()
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+ymlthis supports many YAML arguments, with YAML-generating functions prefixed with `yml_*()`:
 
-```{r cars}
-summary(cars)
+```{r example-2}
+yml() %>% 
+  yml_author(c("Yihui Xie", "Hadley Wickham"), affiliation = "RStudio") %>% 
+  yml_date(lubridate::today()) %>% 
+  yml_output(
+    pdf_document(keep_tex = TRUE, includes = includes2(after_body = "footer.tex")), 
+    bookdown::html_document2()
+  ) %>% 
+  yml_latex_opts(biblio_style = "apa-like")
 ```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!

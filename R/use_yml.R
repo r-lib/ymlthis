@@ -17,10 +17,11 @@ use_yml <- function(.yml = NULL) {
     return(return_yml_code(.yml))
   }
 
+
   #  stop if no YAML found
   usethis::ui_stop(
     "`{usethis::ui_code(.yml)}` must be specified or \\
-     default `{usethis::ui_code(ymlthis)}` options must \\
+     default `{usethis::ui_code('ymlthis')}` options must \\
      be set. See `{usethis::ui_code(?use_yml_defaults())}`"
   )
 }
@@ -50,7 +51,7 @@ use_yml_defaults <- function(.yml) {
  if (is.character(.yml)) .yml <- as_yml(.yml)
 
  .yml_text <- capture_yml(.yml)
-
+ .yml_text <- glue::glue_collapse(.yml, sep = "\n")
  .yml_code <- glue::glue("options(ymlthis.default_yaml = {.yml_text})")
 
  usethis::ui_code_block(.yml_code)

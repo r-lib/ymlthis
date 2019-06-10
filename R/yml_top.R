@@ -15,7 +15,7 @@ yml_author <- function(.yml, name = NULL, affiliation = NULL) {
     return(.yml)
   }
 
-  if (!is.null(name) && is.null(affiliation)) {
+  if (!is.null(name) && !is.null(affiliation)) {
     stop_if_not_all_type(name, "character")
     stop_if_not_all_type(affiliation, "character")
     .yml$author <- data.frame(name, affiliation)
@@ -200,5 +200,9 @@ yml_category <- function(.yml, category) {
 #'
 #' @examples
 yml_toplevel <- function(.yml, ...) {
-  as_yml(c(.yml, ...))
+  toplevel_yml <- c(...)
+
+  .yml[names(toplevel_yml)] <- toplevel_yml
+
+  .yml
 }

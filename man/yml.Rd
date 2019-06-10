@@ -4,7 +4,7 @@
 \alias{yml}
 \title{Title}
 \usage{
-yml(.yml = NULL, author = TRUE, date = TRUE)
+yml(.yml = NULL, author = TRUE, date = TRUE, yml_handlers = NULL)
 }
 \arguments{
 \item{date}{}

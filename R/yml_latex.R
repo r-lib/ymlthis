@@ -1,51 +1,104 @@
-yml_latex <- function(
-  block_headings = NULL,
-  classoption = NULL,
-  documentclass = NULL,
-  geometry = NULL,
-  indent = NULL,
-  linestretch = NULL,
-  margin_left = NULL,
-  margin_right = NULL,
-  margin_top = NULL,
-  margin_bottom = NULL,
-  pagestyle = NULL,
-  papersize = NULL,
-  secnumdepth = NULL,
-  fontenc = NULL,
-  fontfamily = NULL,
-  fontfamilyoptions = NULL,
-  fontsize = NULL,
-  mainfont = NULL,
-  sansfont = NULL,
-  monofont = NULL,
-  mathfont = NULL,
-  CJKmainfont = NULL,
-  mainfontoptions = NULL,
-  sansfontoptions = NULL,
-  monofontoptions = NULL,
-  mathfontoptions = NULL,
-  CJKoptions = NULL,
-  microtypeoptions = NULL,
-  colorlinks = NULL,
-  linkcolor = NULL,
-  filecolor = NULL,
-  citecolor = NULL,
-  urlcolor = NULL,
-  toccolor = NULL,
-  links_as_notes = NULL,
-  lof = NULL,
-  lot = NULL,
-  thanks = NULL,
-  toc = NULL,
-  toc_depth = NULL,
-  biblatexoptions = NULL,
-  biblio_style = NULL,
-  biblio_title = NULL,
-  bibliography = NULL,
-  natbiboptions = NULL
+#' Title
+#'
+#' @param block_headings
+#' @param classoption
+#' @param documentclass
+#' @param geometry
+#' @param indent
+#' @param linestretch
+#' @param margin_left
+#' @param margin_right
+#' @param margin_top
+#' @param margin_bottom
+#' @param pagestyle
+#' @param papersize
+#' @param secnumdepth
+#' @param fontenc
+#' @param fontfamily
+#' @param fontfamilyoptions
+#' @param fontsize
+#' @param mainfont
+#' @param sansfont
+#' @param monofont
+#' @param mathfont
+#' @param CJKmainfont
+#' @param mainfontoptions
+#' @param sansfontoptions
+#' @param monofontoptions
+#' @param mathfontoptions
+#' @param CJKoptions
+#' @param microtypeoptions
+#' @param colorlinks
+#' @param linkcolor
+#' @param filecolor
+#' @param citecolor
+#' @param urlcolor
+#' @param toccolor
+#' @param links_as_notes
+#' @param lof
+#' @param lot
+#' @param thanks
+#' @param toc
+#' @param toc_depth
+#' @param biblatexoptions
+#' @param biblio_style
+#' @param biblio_title
+#' @param bibliography
+#' @param natbiboptions
+#'
+#' @return
+#' @export
+#'
+#' @examples
+yml_latex_opts <- function(
+  .yml,
+  block_headings = yml_blank(),
+  classoption = yml_blank(),
+  documentclass = yml_blank(),
+  geometry = yml_blank(),
+  indent = yml_blank(),
+  linestretch = yml_blank(),
+  margin_left = yml_blank(),
+  margin_right = yml_blank(),
+  margin_top = yml_blank(),
+  margin_bottom = yml_blank(),
+  pagestyle = yml_blank(),
+  papersize = yml_blank(),
+  secnumdepth = yml_blank(),
+  fontenc = yml_blank(),
+  fontfamily = yml_blank(),
+  fontfamilyoptions = yml_blank(),
+  fontsize = yml_blank(),
+  mainfont = yml_blank(),
+  sansfont = yml_blank(),
+  monofont = yml_blank(),
+  mathfont = yml_blank(),
+  CJKmainfont = yml_blank(),
+  mainfontoptions = yml_blank(),
+  sansfontoptions = yml_blank(),
+  monofontoptions = yml_blank(),
+  mathfontoptions = yml_blank(),
+  CJKoptions = yml_blank(),
+  microtypeoptions = yml_blank(),
+  colorlinks = yml_blank(),
+  linkcolor = yml_blank(),
+  filecolor = yml_blank(),
+  citecolor = yml_blank(),
+  urlcolor = yml_blank(),
+  toccolor = yml_blank(),
+  links_as_notes = yml_blank(),
+  lof = yml_blank(),
+  lot = yml_blank(),
+  thanks = yml_blank(),
+  toc = yml_blank(),
+  toc_depth = yml_blank(),
+  biblatexoptions = yml_blank(),
+  biblio_style = yml_blank(),
+  biblio_title = yml_blank(),
+  bibliography = yml_blank(),
+  natbiboptions = yml_blank()
 ) {
-  list(
+  latex_opts <- list(
     "block-headings" = block_headings,
     classoption = classoption,
     documentclass = documentclass,
@@ -92,4 +145,10 @@ yml_latex <- function(
     bibliography = bibliography,
     natbiboptions = natbiboptions
   )
+
+  latex_opts <- purrr::discard(latex_opts, is_yml_blank)
+
+  .yml[names(latex_opts)] <- latex_opts
+
+  .yml
 }

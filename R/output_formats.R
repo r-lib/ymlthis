@@ -51,11 +51,8 @@ parse_output_yml <- function(args, function_name, use_default = FALSE) {
     return(output_yml)
   }
 
-  yml_list <- list(args)
+  yml_list <- list(purrr::map_if(args, rlang::is_call, rlang::eval_tidy))
   names(yml_list) <- function_name
+
   yml_list
-}
-
-return_no_arguments <- function(function_name) {
-
 }

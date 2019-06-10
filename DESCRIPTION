@@ -18,6 +18,7 @@ Imports:
     fs,
     glue,
     usethis,
-    magrittr
+    magrittr,
+    stringr
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
