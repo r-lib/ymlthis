@@ -11,11 +11,22 @@ yml <- function(.yml = NULL, author = TRUE, date = TRUE, yml_handlers = NULL) {
   if (is.null(.yml)) .yml <- list()
   .yml <- as_yml(.yml)
 
+  default_yml <- get_yml_defaults()
+  if (!is.null(default_yml)) {
+    default_fields <- names(default_yml)
+    if ("author" %in% default_fields) author <- FALSE
+    if ("date" %in% default_fields) date <- FALSE
+    .yml[default_fields] <- default_yml
+  }
+
   if (author) .yml$author <- tryCatch(
     get_author_name(),
     error = function(e) yml_blank()
   )
   if (date) .yml$date <- format_sys_date()
+
+
+
 
   .yml
 }
