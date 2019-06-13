@@ -25,3 +25,11 @@ stop_must_be_type <- function(x, type) {
 capture_yml <- function(.yml) {
   capture.output(print(.yml))
 }
+
+prepend_namespace <- function(function_namespace, function_name) {
+  ifelse(
+    is.null(function_namespace),
+    function_name,
+    paste0(function_namespace, "::", function_name)
+  )
+}

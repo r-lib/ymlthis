@@ -39,6 +39,14 @@ use_output_yml <- function(x = NULL, path = ".") {
 }
 
 
+#' Title
+#'
+#' @param .yml
+#'
+#' @return
+#' @export
+#'
+#' @examples
 use_yml_defaults <- function(.yml) {
   if (!is_yml(.yml) && !is.character(.yml)) {
     usethis::ui_stop(
@@ -50,13 +58,15 @@ use_yml_defaults <- function(.yml) {
 
  if (is.character(.yml)) .yml <- as_yml(.yml)
 
- .yml_text <- capture_yml(.yml)
- .yml_text <- glue::glue_collapse(.yml, sep = "\n")
- .yml_code <- glue::glue("options(ymlthis.default_yaml = {.yml_text})")
+ .yml_text <- capture_yml(.yml) %>%
+   purrr::discard(~ .x == "---") %>%
+   glue::glue_collapse(sep = "\n")
+
+ .yml_code <- glue::glue("options(ymlthis.default_yml = \"{.yml_text}\")")
 
  usethis::ui_code_block(.yml_code)
  usethis::ui_todo(
-   "Run interactively or paste into .Rprofile //
+   "Run interactively or paste into .Rprofile \\
    (perhaps using {usethis::ui_code('usethis::edit_r_profile()')})"
  )
 
@@ -68,7 +78,7 @@ get_yml_defaults <- function() {
 
   if (is.character(.yml)) .yml <- yaml::yaml.load(.yml)
 
-  .yml
+  as_yml(.yml)
 }
 
 raw_yml <- function(x) {

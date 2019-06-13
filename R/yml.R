@@ -49,7 +49,8 @@ yml_handlers <- function() {
   list(
     NULL = function(x) yml_verbatim("null"),
     glue = function(x) as.character(x),
-    Date = function(x) as.character(x)
+    Date = function(x) as.character(x),
+    logical = function(x) yml_verbatim(ifelse(x, "true", "false"))
   )
 }
 
@@ -69,8 +70,9 @@ print.yml <- function(x, ...) {
     paste(collapse = "|")
 
   yml_txt <- yml_txt %>%
-    #  color list hyphens silver
+    #  color list hyphens and single colons silver
     stringr::str_replace_all("-\\s", crayon::silver) %>%
+    stringr::str_replace_all("(?<!\\:)\\:(?!\\:)", crayon::silver) %>%
     #  color fields green
     stringr::str_replace_all(field_names, crayon::green)
 
