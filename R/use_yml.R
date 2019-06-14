@@ -73,8 +73,15 @@ use_yml_defaults <- function(.yml) {
  invisible(.yml)
 }
 
+#' Title
+#'
+#' @return
+#' @export
+#'
+#' @examples
 get_yml_defaults <- function() {
   .yml <- getOption("ymlthis.default_yml")
+  if (is.null(.yml)) return(NULL)
 
   if (is.character(.yml)) .yml <- yaml::yaml.load(.yml)
 

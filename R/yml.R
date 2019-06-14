@@ -85,7 +85,10 @@ print.yml <- function(x, ...) {
     stringr::str_replace_all("-\\s", crayon::silver) %>%
     stringr::str_replace_all("(?<!\\:)\\:(?!\\:)", crayon::silver) %>%
     #  color fields green
-    stringr::str_replace_all(field_names, crayon::green)
+    stringr::str_split("\n") %>%
+    purrr::pluck(1) %>%
+    stringr::str_replace(field_names, crayon::green) %>%
+    paste(collapse = "\n")
 
   cat_silver("---\n")
   cat(yml_txt, ...)
