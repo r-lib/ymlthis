@@ -6,24 +6,8 @@
 #' @export
 #'
 #' @examples
-use_yml <- function(.yml = NULL) {
-  if (!is.null(.yml)) {
-    return(return_yml_code(.yml))
-  }
-
-  # find existing YAML options
-  .yml <- get_yml_defaults()
-  if (!is.null(.yml)) {
-    return(return_yml_code(.yml))
-  }
-
-
-  #  stop if no YAML found
-  usethis::ui_stop(
-    "`{usethis::ui_code(.yml)}` must be specified or \\
-     default `{usethis::ui_code('ymlthis')}` options must \\
-     be set. See `{usethis::ui_code(?use_yml_defaults())}`"
-  )
+use_yml <- function(.yml = last_yml()) {
+  return_yml_code(.yml)
 }
 
 return_yml_code <- function(.yml) {
@@ -34,8 +18,75 @@ return_yml_code <- function(.yml) {
   invisible(.yml)
 }
 
+#' Write YAML to file
+#'
+#' @param x
+#' @param path
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' @rdname use_file_yml
 use_output_yml <- function(x = NULL, path = ".") {
-  fs::file_create(file.path(path, "_output.yml"))
+  file_path <- "_output.yml"
+  if (path != ".") file_path <- file.path(p, file_path)
+
+  write_yml_file(x, file_path)
+}
+
+#' @export
+#' @rdname use_file_yml
+use_site_yml <- function(x = NULL, path = ".") {
+  file_path <- "_site.yml"
+  if (path != ".") file_path <- file.path(p, file_path)
+
+  write_yml_file(x, file_path)
+}
+
+#' @export
+#' @rdname use_file_yml
+use_pkgdown_yml <- function(x = NULL, path = ".") {
+  file_path <- "_pkgdown.yml"
+  if (path != ".") file_path <- file.path(p, file_path)
+
+  write_yml_file(x, file_path)
+}
+
+#' @export
+#' @rdname use_file_yml
+use_bookdown_yml <- function(x = NULL, path = ".") {
+  file_path <- "_bookdown.yml"
+  if (path != ".") file_path <- file.path(p, file_path)
+
+  write_yml_file(x, file_path)
+}
+
+
+write_yml_file <- function(x, path) {
+  if (file.exists(path)) {
+    question <- glue::glue("Overwrite pre-existing file {usethis::ui_path(path)}?")
+    go_ahead <- usethis::ui_yeah(question)
+
+    if (!go_ahead) return(invisible(path))
+    fs::file_delete(path)
+  }
+
+  if (!is.null(x)) {
+    yml_txt <- yaml::as.yaml(
+      x,
+      handlers = yml_handlers(),
+      column.major = FALSE
+    )
+
+    usethis::write_over(path, yml_txt)
+    return(invisible(path))
+  }
+
+  fs::file_create(path)
+  usethis::ui_done("Writing {usethis::ui_path(path)}")
+
+  invisible(path)
 }
 
 

@@ -8,7 +8,22 @@ shiny_file(label, multiple = FALSE, accept = NULL, width = NULL,
   buttonLabel = "Browse...", placeholder = "No file selected")
 }
 \arguments{
-\item{placeholder}{}
+\item{label}{Display label for the control, or \code{NULL} for no label.}
+
+\item{multiple}{Whether the user should be allowed to select and upload
+multiple files at once. \bold{Does not work on older browsers, including
+Internet Explorer 9 and earlier.}}
+
+\item{accept}{A character vector of MIME types; gives the browser a hint of
+what kind of files the server is expecting.}
+
+\item{width}{The width of the input, e.g. \code{'400px'}, or \code{'100\%'};
+see \code{\link{validateCssUnit}}.}
+
+\item{buttonLabel}{The label used on the button. Can be text or an HTML tag
+object.}
+
+\item{placeholder}{The text to show before a file has been uploaded.}
 }
 \description{
 Title

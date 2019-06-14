@@ -7,7 +7,16 @@
 shiny_text(label, value = "", width = NULL, placeholder = NULL)
 }
 \arguments{
-\item{placeholder}{}
+\item{label}{Display label for the control, or \code{NULL} for no label.}
+
+\item{value}{Initial value.}
+
+\item{width}{The width of the input, e.g. \code{'400px'}, or \code{'100\%'};
+see \code{\link{validateCssUnit}}.}
+
+\item{placeholder}{A character string giving the user a hint as to what can
+be entered into the control. Internet Explorer 8 and 9 do not support this
+option.}
 }
 \description{
 Title

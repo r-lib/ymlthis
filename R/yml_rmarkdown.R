@@ -172,9 +172,7 @@ stop_if_not_shiny_param <- function(.function_name) {
 
 #' Title
 #'
-#' @param label
-#' @param value
-#' @param width
+#' @inheritParams shiny::checkboxInput
 #'
 #' @return
 #' @export
@@ -192,12 +190,7 @@ shiny_checkbox <- function(label, value = FALSE, width = NULL) {
 
 #' Title
 #'
-#' @param label
-#' @param value
-#' @param min
-#' @param max
-#' @param step
-#' @param width
+#' @inheritParams shiny::numericInput
 #'
 #' @return
 #' @export
@@ -223,23 +216,7 @@ shiny_numeric <- function(label, value, min = NA, max = NA, step = NA,  width = 
 
 #' Title
 #'
-#' @param label
-#' @param min
-#' @param max
-#' @param value
-#' @param step
-#' @param round
-#' @param format
-#' @param locale
-#' @param ticks
-#' @param animate
-#' @param width
-#' @param sep
-#' @param pre
-#' @param post
-#' @param timeFormat
-#' @param timezone
-#' @param dragRange
+#' @inheritParams shiny::sliderInput
 #'
 #' @return
 #' @export
@@ -278,18 +255,7 @@ shiny_slider <- function(label, min, max, value, step = NULL,
 
 #' Title
 #'
-#' @param label
-#' @param value
-#' @param min
-#' @param max
-#' @param format
-#' @param startview
-#' @param weekstart
-#' @param language
-#' @param width
-#' @param autoclose
-#' @param datesdisabled
-#' @param daysofweekdisabled
+#' @inheritParams shiny::dateInput
 #'
 #' @return
 #' @export
@@ -324,10 +290,7 @@ shiny_date <- function(label, value = NULL, min = NULL, max = NULL,
 
 #' Title
 #'
-#' @param label
-#' @param value
-#' @param width
-#' @param placeholder
+#' @inheritParams shiny::textInput
 #'
 #' @return
 #' @export
@@ -351,12 +314,7 @@ shiny_text <- function(label, value = "", width = NULL, placeholder = NULL) {
 
 #' Title
 #'
-#' @param label
-#' @param multiple
-#' @param accept
-#' @param width
-#' @param buttonLabel
-#' @param placeholder
+#' @inheritParams shiny::fileInput
 #'
 #' @return
 #' @export
@@ -383,13 +341,7 @@ shiny_file <- function(label, multiple = FALSE, accept = NULL, width = NULL,
 
 #' Title
 #'
-#' @param label
-#' @param choices
-#' @param selected
-#' @param inline
-#' @param width
-#' @param choiceNames
-#' @param choiceValues
+#' @inheritParams shiny::radioButtons
 #'
 #' @return
 #' @export
@@ -417,13 +369,7 @@ shiny_radio <- function(label, choices = NULL, selected = NULL,  inline = FALSE,
 
 #' Title
 #'
-#' @param label
-#' @param choices
-#' @param selected
-#' @param multiple
-#' @param selectize
-#' @param width
-#' @param size
+#' @inheritParams shiny::selectInput
 #'
 #' @return
 #' @export
@@ -451,10 +397,7 @@ shiny_select <- function(label, choices, selected = NULL, multiple = FALSE,
 
 #' Title
 #'
-#' @param label
-#' @param value
-#' @param width
-#' @param placeholder
+#' @inheritParams shiny::passwordInput
 #'
 #' @return
 #' @export

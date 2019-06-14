@@ -8,7 +8,18 @@ shiny_numeric(label, value, min = NA, max = NA, step = NA,
   width = NULL)
 }
 \arguments{
-\item{width}{}
+\item{label}{Display label for the control, or \code{NULL} for no label.}
+
+\item{value}{Initial value.}
+
+\item{min}{Minimum allowed value}
+
+\item{max}{Maximum allowed value}
+
+\item{step}{Interval to use when stepping between min and max}
+
+\item{width}{The width of the input, e.g. \code{'400px'}, or \code{'100\%'};
+see \code{\link{validateCssUnit}}.}
 }
 \description{
 Title

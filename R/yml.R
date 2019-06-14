@@ -1,18 +1,21 @@
-#' Title
+#' Create a new yml object
 #'
-#' @param author
-#' @param date
+#' @param .yml a character vector, `yml` object, or YAML-like list. See details.
+#' @param get_yml logical. Use YAML stored in `getOption("ymlthis.default_option")`?
+#' @param author logical. Get default author name?
+#' @param date logical. Get default date?
+#' @param yml_handlers a `list` containing functions to handle YAML printing. See details.
 #'
 #' @return
 #' @export
 #'
 #' @examples
-yml <- function(.yml = NULL, author = TRUE, date = TRUE, yml_handlers = NULL) {
+yml <- function(.yml = NULL, get_yml = FALSE, author = TRUE, date = TRUE, yml_handlers = NULL) {
   if (is.null(.yml)) .yml <- list()
   .yml <- as_yml(.yml)
 
-  default_yml <- get_yml_defaults()
-  if (!is.null(default_yml)) {
+  if (get_yml) default_yml <- get_yml_defaults()
+  if (get_yml && !is.null(default_yml)) {
     default_fields <- names(default_yml)
     if ("author" %in% default_fields) author <- FALSE
     if ("date" %in% default_fields) date <- FALSE
@@ -24,9 +27,6 @@ yml <- function(.yml = NULL, author = TRUE, date = TRUE, yml_handlers = NULL) {
     error = function(e) yml_blank()
   )
   if (date) .yml$date <- format_sys_date()
-
-
-
 
   .yml
 }

@@ -7,7 +7,12 @@
 shiny_checkbox(label, value = FALSE, width = NULL)
 }
 \arguments{
-\item{width}{}
+\item{label}{Display label for the control, or \code{NULL} for no label.}
+
+\item{value}{Initial value (\code{TRUE} or \code{FALSE}).}
+
+\item{width}{The width of the input, e.g. \code{'400px'}, or \code{'100\%'};
+see \code{\link{validateCssUnit}}.}
 }
 \description{
 Title

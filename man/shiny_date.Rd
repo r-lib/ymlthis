@@ -10,7 +10,47 @@ shiny_date(label, value = NULL, min = NULL, max = NULL,
   datesdisabled = NULL, daysofweekdisabled = NULL)
 }
 \arguments{
-\item{daysofweekdisabled}{}
+\item{label}{Display label for the control, or \code{NULL} for no label.}
+
+\item{value}{The starting date. Either a Date object, or a string in
+\code{yyyy-mm-dd} format. If NULL (the default), will use the current date
+in the client's time zone.}
+
+\item{min}{The minimum allowed date. Either a Date object, or a string in
+\code{yyyy-mm-dd} format.}
+
+\item{max}{The maximum allowed date. Either a Date object, or a string in
+\code{yyyy-mm-dd} format.}
+
+\item{format}{The format of the date to display in the browser. Defaults to
+\code{"yyyy-mm-dd"}.}
+
+\item{startview}{The date range shown when the input object is first clicked.
+Can be "month" (the default), "year", or "decade".}
+
+\item{weekstart}{Which day is the start of the week. Should be an integer
+from 0 (Sunday) to 6 (Saturday).}
+
+\item{language}{The language used for month and day names. Default is "en".
+Other valid values include "ar", "az", "bg", "bs", "ca", "cs", "cy", "da",
+"de", "el", "en-AU", "en-GB", "eo", "es", "et", "eu", "fa", "fi", "fo",
+"fr-CH", "fr", "gl", "he", "hr", "hu", "hy", "id", "is", "it-CH", "it",
+"ja", "ka", "kh", "kk", "ko", "kr", "lt", "lv", "me", "mk", "mn", "ms",
+"nb", "nl-BE", "nl", "no", "pl", "pt-BR", "pt", "ro", "rs-latin", "rs",
+"ru", "sk", "sl", "sq", "sr-latin", "sr", "sv", "sw", "th", "tr", "uk",
+"vi", "zh-CN", and "zh-TW".}
+
+\item{width}{The width of the input, e.g. \code{'400px'}, or \code{'100\%'};
+see \code{\link{validateCssUnit}}.}
+
+\item{autoclose}{Whether or not to close the datepicker immediately when a
+date is selected.}
+
+\item{datesdisabled}{Which dates should be disabled. Either a Date object,
+or a string in \code{yyyy-mm-dd} format.}
+
+\item{daysofweekdisabled}{Days of the week that should be disabled. Should be
+a integer vector with values from 0 (Sunday) to 6 (Saturday).}
 }
 \description{
 Title

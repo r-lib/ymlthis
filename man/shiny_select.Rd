@@ -8,7 +8,31 @@ shiny_select(label, choices, selected = NULL, multiple = FALSE,
   selectize = TRUE, width = NULL, size = NULL)
 }
 \arguments{
-\item{size}{}
+\item{label}{Display label for the control, or \code{NULL} for no label.}
+
+\item{choices}{List of values to select from. If elements of the list are
+named, then that name rather than the value is displayed to the user.
+This can also be a named list whose elements are (either named or
+unnamed) lists or vectors. If this is the case, the outermost names
+will be used as the "optgroup" label for the elements in the respective
+sublist. This allows you to group and label similar choices. See the
+example section for a small demo of this feature.}
+
+\item{selected}{The initially selected value (or multiple values if
+\code{multiple = TRUE}). If not specified then defaults to the first value
+for single-select lists and no values for multiple select lists.}
+
+\item{multiple}{Is selection of multiple items allowed?}
+
+\item{selectize}{Whether to use \pkg{selectize.js} or not.}
+
+\item{width}{The width of the input, e.g. \code{'400px'}, or \code{'100\%'};
+see \code{\link{validateCssUnit}}.}
+
+\item{size}{Number of items to show in the selection box; a larger number
+will result in a taller box. Not compatible with \code{selectize=TRUE}.
+Normally, when \code{multiple=FALSE}, a select input will be a drop-down
+list, but when \code{size} is set, it will be a box instead.}
 }
 \description{
 Title

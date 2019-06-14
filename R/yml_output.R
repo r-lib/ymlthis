@@ -17,8 +17,8 @@ yml_output <- function(.yml, ...) {
   #  add namespaces to functions when used
   function_namespaces <-  purrr::map(x, rlang::call_ns)
   function_name_list <- purrr::map2(
-    function_name_list,
     function_namespaces,
+    function_name_list,
     prepend_namespace
   )
 

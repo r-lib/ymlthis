@@ -4,7 +4,7 @@
 \alias{use_yml}
 \title{Title}
 \usage{
-use_yml(.yml = NULL)
+use_yml(.yml = last_yml())
 }
 \arguments{
 \item{.yml}{}

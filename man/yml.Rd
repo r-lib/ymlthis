@@ -2,13 +2,22 @@
 % Please edit documentation in R/yml.R
 \name{yml}
 \alias{yml}
-\title{Title}
+\title{Create a new yml object}
 \usage{
-yml(.yml = NULL, author = TRUE, date = TRUE, yml_handlers = NULL)
+yml(.yml = NULL, get_yml = FALSE, author = TRUE, date = TRUE,
+  yml_handlers = NULL)
 }
 \arguments{
-\item{date}{}
+\item{.yml}{a character vector, \code{yml} object, or YAML-like list. See details.}
+
+\item{get_yml}{logical. Use YAML stored in \code{getOption("ymlthis.default_option")}?}
+
+\item{author}{logical. Get default author name?}
+
+\item{date}{logical. Get default date?}
+
+\item{yml_handlers}{a \code{list} containing functions to handle YAML printing. See details.}
 }
 \description{
-Title
+Create a new yml object
 }
