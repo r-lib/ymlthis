@@ -18,13 +18,23 @@ yml_author <- function(.yml, name = NULL, affiliation = NULL) {
   if (!is.null(name) && !is.null(affiliation)) {
     stop_if_not_all_type(name, "character")
     stop_if_not_all_type(affiliation, "character")
-    .yml$author <- data.frame(name, affiliation)
+    #  use unnamed inner list to create `-` group:
+    #  - author
+    #    affiliation
+    .yml$author <- purrr::map2(name, affiliation, ~author_list(.x, .y))
     return(.yml)
   }
 
   .yml$author <- get_author_name()
 
   .yml
+}
+
+author_list <- function(.x, .y) {
+  if (is.na(.x)) return(list(affiliation = .y))
+  if (is.na(.y)) return(list(name = .x))
+
+  list(name = .x, affiliation = .y)
 }
 
 get_author_name <- function() {

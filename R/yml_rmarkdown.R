@@ -13,8 +13,6 @@ yml_runtime <- function(.yml, runtime = c("static", "shiny", "shiny_prerendered"
   .yml
 }
 
-
-
 #' Title
 #'
 #' @param .yml
@@ -44,9 +42,9 @@ yml_clean <- function(.yml, clean) {
 #' @examples
 yml_vignette <- function(.yml, title, engine = "knitr::rmarkdown", encoding = "UTF-8") {
   .yml$vignette <- glue::glue(
-    ">
-    %\\VignetteIndexEntry{<<title>>}
-    %\\VignetteEngine{<<engine>>}
+    "> \\
+    %\\VignetteIndexEntry{<<title>>} \\
+    %\\VignetteEngine{<<engine>>} \\
     %\\VignetteEncoding{<<encoding>>})",
     .open = "<<",
     .close = ">>"
@@ -124,10 +122,8 @@ yml_navbar <- function(.yml, title, type, left, right) {
   .yml
 }
 
-navbar_separator <- function() {
-  "---------"
-}
-
+#' @export
+#' @rdname yml_navbar
 navbar_page <- function(text = yml_blank(), href = yml_blank(), icon = yml_blank(), menu = yml_blank()) {
   list(
     text,
@@ -136,6 +132,12 @@ navbar_page <- function(text = yml_blank(), href = yml_blank(), icon = yml_blank
     menu
   ) %>%
     purrr::discard(is_yml_blank)
+}
+
+#' @export
+#' @rdname yml_navbar
+navbar_separator <- function() {
+  "---------"
 }
 
 #' Title
