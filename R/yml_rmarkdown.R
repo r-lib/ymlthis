@@ -34,6 +34,113 @@ yml_clean <- function(.yml, clean) {
 #' Title
 #'
 #' @param .yml
+#' @param title
+#' @param engine
+#' @param encoding
+#'
+#' @return
+#' @export
+#'
+#' @examples
+yml_vignette <- function(.yml, title, engine = "knitr::rmarkdown", encoding = "UTF-8") {
+  .yml$vignette <- glue::glue(
+    ">
+    %\\VignetteIndexEntry{<<title>>}
+    %\\VignetteEngine{<<engine>>}
+    %\\VignetteEncoding{<<encoding>>})",
+    .open = "<<",
+    .close = ">>"
+  )
+
+  .yml
+}
+
+#' Title
+#'
+#' * https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#site_navigation
+#'
+#' @param .yml
+#' @param name
+#' @param favicon
+#' @param output_dir
+#' @param include
+#' @param exclude
+#' @param new_session
+#'
+#' @return
+#' @export
+#'
+#' @examples
+yml_site_opts <- function(
+  .yml,
+  name = yml_blank(),
+  favicon = yml_blank(),
+  output_dir = yml_blank(),
+  include = yml_blank(),
+  exclude = yml_blank(),
+  new_session = yml_blank()
+) {
+  site_opts <- list(
+    name = name,
+    favicon = favicon,
+    output_dir = output_dir,
+    include = include,
+    exclude = exclude,
+    new_session = new_session
+  ) %>%
+    purrr::discard(is_yml_blank)
+
+  .yml[names(site_opts)] <- site_opts
+
+  site_opts
+}
+
+#' Title
+#'
+#' * https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#site_navigation
+#' * ?rmarkdown::render_site
+#'
+#' @param .yml
+#' @param title
+#' @param type
+#' @param left
+#' @param right
+#'
+#' @return
+#' @export
+#'
+#' @examples
+yml_navbar <- function(.yml, title, type, left, right) {
+  navbar <- list(
+    title = title,
+    type = type,
+    left = left,
+    right = right
+  ) %>%
+    purrr::discard(is_yml_blank)
+
+  .yml$navbar <- navbar
+
+  .yml
+}
+
+navbar_separator <- function() {
+  "---------"
+}
+
+navbar_page <- function(text = yml_blank(), href = yml_blank(), icon = yml_blank(), menu = yml_blank()) {
+  list(
+    text,
+    href,
+    icon,
+    menu
+  ) %>%
+    purrr::discard(is_yml_blank)
+}
+
+#' Title
+#'
+#' @param .yml
 #' @param ...
 #'
 #' @return

@@ -44,6 +44,8 @@ as_yml <- function(x, ...) {
   UseMethod("as_yml")
 }
 
+
+#' @export
 as_yml.list <- function(x, ...) {
   structure(
     x,
@@ -51,6 +53,7 @@ as_yml.list <- function(x, ...) {
   )
 }
 
+#' @export
 as_yml.character <- function(x, ...) {
   .yml <- yaml::yaml.load(x)
   as_yml(.yml)

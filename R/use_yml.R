@@ -28,6 +28,12 @@ return_yml_code <- function(.yml) {
 #'
 #' @examples
 #' @rdname use_file_yml
+use_yml_file <- function(x = NULL, path) {
+  write_yml_file(x, path)
+}
+
+#' @export
+#' @rdname use_file_yml
 use_output_yml <- function(x = NULL, path = ".") {
   file_path <- "_output.yml"
   if (path != ".") file_path <- file.path(p, file_path)

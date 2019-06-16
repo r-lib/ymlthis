@@ -1,0 +1,119 @@
+#' Title
+#'
+#'  * https://bookdown.org/yihui/blogdown/content.html#yaml-metadata
+#'  * https://gohugo.io/content-management/front-matter/
+#'
+#' @param .yml
+#' @param draft You can mark a document as a draft by setting `TRUE`. Draft
+#'   posts will not be rendered if the site is built via
+#'   `blogdown::build_site()` or `blogdown::hugo_build()`, but will be rendered
+#'   in the local preview mode. See [Section D.3 of the Blogdown
+#'   book](https://bookdown.org/yihui/blogdown/local-preview.html#local-preview).
+#' @param publishdate You may specify a future date to publish a post. Similar
+#'   to draft posts, future posts are only rendered in the local preview mode
+#' @param weight This field can take a numeric value to tell Hugo the order of
+#'   pages when sorting them, e.g., when you generate a list of all pages under
+#'   a directory, and two posts have the same date, you may assign different
+#'   weights to them to get your desired order on the list
+#' @param slug A character string as the tail of the URL. It is particularly
+#'   useful when you define custom rules for permanent URLs See [Section 2.2.2
+#'   of the Blogdown
+#'   book](https://bookdown.org/yihui/blogdown/configuration.html#options).
+#' @param aliases an array of one or more aliases (e.g., old published paths of
+#'   renamed content) that will be created in the output directory structure
+#' @param audio an array of paths to audio files related to the page
+#' @param date the datetime assigned to this page. This is usually fetched from
+#'   the `date` field in front matter, but this behaviour is configurable.
+#' @param description the description for the content
+#' @param expiration_date the datetime at which the content should no longer be
+#'   published by Hugo; expired content will not be rendered unless the
+#'   --buildExpired flag is passed to the hugo command.
+#' @param headless if true, sets a leaf bundle to be
+#'   [headless](https://gohugo.io/content-management/page-bundles/#headless-bundle).
+#'
+#' @param images an array of paths to images related to the page
+#' @param keywords the meta keywords for the content.
+#' @param layout the layout Hugo should select from the lookup order when
+#'   rendering the content. If a type is not specified in the front matter, Hugo
+#'   will look for the layout of the same name in the layout directory that
+#'   corresponds with a content’s section. See [Defining a Content
+#'   Type](https://gohugo.io/content-management/types/#defining-a-content-type).
+#' @param lastmod the datetime at which the content was last modified.
+#' @param link_title used for creating links to content
+#' @param resources used for configuring page bundle resources. See [Page
+#'   Resources](https://gohugo.io/content-management/page-resources/)
+#' @param series an array of series this page belongs to
+#' @param summary text used when providing a summary of the article in the
+#'   .Summary page variable; details available in the
+#'   [content-summaries](https://gohugo.io/content-management/summaries/)
+#'   section.
+#' @param title the title for the content
+#' @param type the type of the content; this value will be automatically derived
+#'   from the directory (i.e., the
+#'   [section](https://gohugo.io/content-management/sections/)) if not specified
+#'   in front matter
+#' @param url the full path to the content from the web root. It makes no
+#'   assumptions about the path of the content file. It also ignores any
+#'   language prefixes of the multilingual feature.
+#' @param videos an array of paths to videos related to the page
+#'
+#' @return
+#' @export
+#'
+#' @examples
+yml_blogdown_opts <- function(
+  .yml,
+  draft = yml_blank(),
+  publishdate = yml_blank(),
+  weight = yml_blank(),
+  slug = yml_blank(),
+  aliases = yml_blank(),
+  audio = yml_blank(),
+  date = yml_blank(),
+  description = yml_blank(),
+  expiration_date = yml_blank(),
+  headless = yml_blank(),
+  images = yml_blank(),
+  keywords = yml_blank(),
+  layout = yml_blank(),
+  lastmod = yml_blank(),
+  link_title = yml_blank(),
+  resources = yml_blank(),
+  series = yml_blank(),
+  summary = yml_blank(),
+  title = yml_blank(),
+  type = yml_blank(),
+  url = yml_blank(),
+  videos = yml_blank()
+) {
+  blogdown_opts <- list(
+    draft = draft,
+    publishdate = publishdate,
+    weight = weight,
+    slug = slug,
+    aliases = aliases,
+    audio = audio,
+    date = date,
+    description = description,
+    draft = draft,
+    expiryDate = expiration_date,
+    headless = headless,
+    images = images,
+    keywords = keywords,
+    layout = layout,
+    lastmod = lastmod,
+    linkTitle = link_title,
+    resources = resources,
+    series = series,
+    summary = summary,
+    title = title,
+    type = type,
+    url = url,
+    videos = videos
+  ) %>%
+    purrr::discard(is_yml_blank)
+
+  .yml[names(blogdown_opts)] <- blogdown_opts
+
+  .yml
+}
