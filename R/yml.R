@@ -83,15 +83,17 @@ print.yml <- function(x, ...) {
     unlist(use.names = FALSE) %>%
     paste(collapse = "|")
 
+  field_names <- paste0("(?:(?<=[- ])|^)(", field_names, ")(?=:)")
+
   yml_txt <- yml_txt %>%
-    #  color list hyphens and single colons silver
-    stringr::str_replace_all("-\\s", crayon::silver) %>%
-    stringr::str_replace_all("(?<!\\:)\\:(?!\\:)", crayon::silver) %>%
     #  color fields green
     stringr::str_split("\n") %>%
     purrr::pluck(1) %>%
     stringr::str_replace(field_names, crayon::green) %>%
-    paste(collapse = "\n")
+    paste(collapse = "\n") %>%
+    # color list hyphens and single colons silver
+    stringr::str_replace_all("-\\s", crayon::silver) %>%
+    stringr::str_replace_all("(?<!\\:)\\:(?!\\:)", crayon::silver)
 
   cat_silver("---\n")
   cat(yml_txt, ...)
