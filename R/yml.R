@@ -72,6 +72,16 @@ yml_handlers <- function() {
 print.yml <- function(x, ...) {
   #  save to be grabbed by last_yml()
   .ymlthis$.yml <- x
+  yml_txt <- color_yml(x)
+
+  cat_silver("---\n")
+  cat(yml_txt, ...)
+  cat_silver("---\n")
+
+  invisible(x)
+}
+
+color_yml <- function(x) {
   yml_txt <- yaml::as.yaml(
     x,
     handlers = yml_handlers(),
@@ -83,23 +93,19 @@ print.yml <- function(x, ...) {
     unlist(use.names = FALSE) %>%
     paste(collapse = "|")
 
+  # start with `-`, spaces, or beginning line, and end with a colon
   field_names <- paste0("(?:(?<=[- ])|^)(", field_names, ")(?=:)")
 
   yml_txt <- yml_txt %>%
     #  color fields green
-    stringr::str_split("\n") %>%
-    purrr::pluck(1) %>%
+    split_pluck() %>%
     stringr::str_replace(field_names, crayon::green) %>%
     paste(collapse = "\n") %>%
     # color list hyphens and single colons silver
     stringr::str_replace_all("-\\s", crayon::silver) %>%
     stringr::str_replace_all("(?<!\\:)\\:(?!\\:)", crayon::silver)
 
-  cat_silver("---\n")
-  cat(yml_txt, ...)
-  cat_silver("---\n")
-
-  invisible(x)
+  yml_txt
 }
 
 cat_silver <- function(x) {

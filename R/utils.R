@@ -26,6 +26,11 @@ capture_yml <- function(.yml) {
   capture.output(print(.yml))
 }
 
+split_pluck <- function(string) {
+  x <- stringr::str_split(string, "\n")
+  x[[1]]
+}
+
 prepend_namespace <- function(function_namespace, function_name) {
   ifelse(
     is.null(function_namespace),
