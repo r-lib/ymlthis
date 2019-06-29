@@ -42,7 +42,7 @@ yml_citations <- function(
 #'
 #' @examples
 yml_reference <- function(.yml, ...) {
-  .yml$reference <- rbind(...)
+  .yml$reference <- list(...)
   .yml
 }
 
@@ -50,8 +50,8 @@ yml_reference <- function(.yml, ...) {
 #' @rdname yml_reference
 reference <- function(id, ...) {
   stop_if_not_type(id, "character")
-  data.frame(
-    id,
+  list(
+    id = id,
     ...
   )
 }

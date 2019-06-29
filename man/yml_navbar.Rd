@@ -2,9 +2,16 @@
 % Please edit documentation in R/yml_rmarkdown.R
 \name{yml_navbar}
 \alias{yml_navbar}
+\alias{navbar_page}
+\alias{navbar_separator}
 \title{Title}
 \usage{
 yml_navbar(.yml, title, type, left, right)
+
+navbar_page(text = yml_blank(), href = yml_blank(),
+  icon = yml_blank(), menu = yml_blank())
+
+navbar_separator()
 }
 \arguments{
 \item{right}{}
