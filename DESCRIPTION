@@ -19,7 +19,8 @@ Imports:
     glue,
     usethis,
     magrittr,
-    stringr
+    stringr,
+    withr
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
 Suggests: 
@@ -29,3 +30,5 @@ Suggests:
     rmarkdown,
     pkgdown
 VignetteBuilder: knitr
+URL: https://github.com/rstudio-education/ymlthis
+BugReports: https://github.com/rstudio-education/ymlthis/issues
