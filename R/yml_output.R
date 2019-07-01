@@ -40,6 +40,13 @@ yml_output <- function(.yml, ...) {
   .yml
 }
 
+eval_with_rmarkdown <- function(x) {
+  withr::with_namespace(
+    "rmarkdown",
+    rlang::eval_tidy(x)
+  )
+}
+
 parse_output_yml <- function(args, function_name, use_default = FALSE) {
   if (!rlang::has_length(args) && !use_default) {
     return(function_name)
@@ -51,7 +58,7 @@ parse_output_yml <- function(args, function_name, use_default = FALSE) {
     return(output_yml)
   }
 
-  yml_list <- list(purrr::map_if(args, rlang::is_call, rlang::eval_tidy))
+  yml_list <- list(purrr::map_if(args, rlang::is_call, eval_with_rmarkdown))
   names(yml_list) <- function_name
 
   yml_list
@@ -69,7 +76,7 @@ stop_yml_eval <- function(e, x) {
 
 eval_tidy_yml <- function(x) {
   out <- rlang::catch_cnd(
-    rlang::eval_tidy(x)
+    eval_with_rmarkdown(x)
   )
 
   if (!is.null(out)) stop_yml_eval(out, x)
