@@ -88,6 +88,20 @@ yml_bookdown_opts <- function(
   .yml
 }
 
+#' Title
+#'
+#' @param .yml
+#'
+#' @return
+#' @export
+#'
+#' @examples
+yml_bookdown_site <- function(.yml) {
+  warn_if_duplicate_fields(.yml, list(site = ""))
+  .yml$site <- "bookdown::bookdown_site"
+  .yml
+}
+
 
 #' Title
 #'
