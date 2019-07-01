@@ -28,6 +28,7 @@ yml_output <- function(.yml, ...) {
     return(.yml)
   }
 
+  warn_if_duplicate_fields(.yml, list(output = ""))
   .yml$output <- purrr::map2(
     args_list,
     function_name_list,

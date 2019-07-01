@@ -27,6 +27,7 @@
 #'
 #' @examples
 yml_rticles_opts <- function(
+  .yml,
   title = yml_blank(),
   runninghead = yml_blank(),
   author = yml_blank(),
@@ -46,7 +47,7 @@ yml_rticles_opts <- function(
   header_includes = yml_blank(),
   include_after = yml_blank()
 ) {
-  list(
+  rticles_opts <- list(
     title = title,
     runninghead = runninghead,
     author = author,
@@ -66,4 +67,11 @@ yml_rticles_opts <- function(
     "header-includes" = header_includes,
     "include-after" = include_after
   )
+
+  rticles_opts <- purrr::discard(rticles_opts, is_yml_blank)
+
+  warn_if_duplicate_fields(.yml, rticles_opts)
+  .yml[names(rticles_opts)] <- rticles_opts
+
+  .yml
 }

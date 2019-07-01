@@ -1,5 +1,6 @@
 #' Title
 #'
+#' @param .yml
 #' @param bibliography
 #' @param csl
 #' @param citation_abbreviations
@@ -11,6 +12,7 @@
 #'
 #' @examples
 yml_citations <- function(
+  .yml,
   bibliography = yml_blank(),
   csl = yml_blank(),
   citation_abbreviations = yml_blank(),
@@ -27,6 +29,7 @@ yml_citations <- function(
 
   citation_opts <- purrr::discard(citation_opts, is_yml_blank)
 
+  warn_if_duplicate_fields(.yml, citation_opts)
   .yml[names(citation_opts)] <- citation_opts
 
   .yml
@@ -42,6 +45,7 @@ yml_citations <- function(
 #'
 #' @examples
 yml_reference <- function(.yml, ...) {
+  warn_if_duplicate_fields(.yml, list(reference = ""))
   .yml$reference <- list(...)
   .yml
 }

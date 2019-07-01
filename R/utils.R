@@ -38,3 +38,5 @@ prepend_namespace <- function(function_namespace, function_name) {
     paste0(function_namespace, "::", function_name)
   )
 }
+
+`%nin%` <- Negate("%in%")

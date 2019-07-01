@@ -39,6 +39,7 @@ pkgdown_template <- function(path = ".") {
 #'
 #' @examples
 yml_pkgdown_reference <- function(.yml, ...) {
+  warn_if_duplicate_fields(.yml, list(references = ""))
   .yml$references <- c(...)
   .yml
 }
@@ -91,6 +92,7 @@ yml_pkgdown <- function(.yml, as_is = yml_blank(), extension = yml_blank()) {
 #'
 #' @examples
 yml_pkgdown_news <- function(.yml, one_page = yml_blank()) {
+  warn_if_duplicate_fields(.yml, list(news = ""))
   .yml$news <- list(one_page = one_page)
   .yml
 }
@@ -112,6 +114,7 @@ yml_pkgdown_news <- function(.yml, one_page = yml_blank()) {
 #'
 #' @examples
 yml_pkgdown_articles <- function(.yml, ...) {
+  warn_if_duplicate_fields(.yml, list(articles = ""))
   .yml$articles <- c(...)
 
   .yml
@@ -164,6 +167,7 @@ yml_pkgdown_figures <- function(
   fig.retina = yml_blank(),
   fig.asp = yml_blank()
 ) {
+  warn_if_duplicate_fields(.yml, list(figures = ""))
   .yml$figures <- list(
     dev = dev,
     dpi = dpi,
@@ -205,6 +209,7 @@ yml_pkgdown_docsearch <- function(.yml, api_key, index_name) {
     )
   )
 
+  warn_if_duplicate_fields(.yml, docsearch)
   .yml[names(docsearch)] <- docsearch
 
   .yml

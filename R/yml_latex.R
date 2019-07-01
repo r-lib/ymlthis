@@ -148,6 +148,7 @@ yml_latex_opts <- function(
 
   latex_opts <- purrr::discard(latex_opts, is_yml_blank)
 
+  warn_if_duplicate_fields(.yml, latex_opts)
   .yml[names(latex_opts)] <- latex_opts
 
   .yml

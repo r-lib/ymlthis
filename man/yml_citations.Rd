@@ -4,7 +4,7 @@
 \alias{yml_citations}
 \title{Title}
 \usage{
-yml_citations(bibliography = yml_blank(), csl = yml_blank(),
+yml_citations(.yml, bibliography = yml_blank(), csl = yml_blank(),
   citation_abbreviations = yml_blank(), natbib = yml_blank(),
   biblatex = yml_blank())
 }

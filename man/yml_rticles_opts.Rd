@@ -4,7 +4,7 @@
 \alias{yml_rticles_opts}
 \title{Title}
 \usage{
-yml_rticles_opts(title = yml_blank(), runninghead = yml_blank(),
+yml_rticles_opts(.yml, title = yml_blank(), runninghead = yml_blank(),
   author = yml_blank(), authormark = yml_blank(),
   address = yml_blank(), corrauth = yml_blank(),
   corres = yml_blank(), email = yml_blank(), abstract = yml_blank(),

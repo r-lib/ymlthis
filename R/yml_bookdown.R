@@ -82,6 +82,7 @@ yml_bookdown_opts <- function(
   ) %>%
     purrr::discard(is_yml_blank)
 
+  warn_if_duplicate_fields(.yml, bookdown_opts)
   .yml[names(bookdown_opts)] <- bookdown_opts
 
   .yml

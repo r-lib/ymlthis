@@ -8,6 +8,7 @@
 #'
 #' @examples
 yml_runtime <- function(.yml, runtime = c("static", "shiny", "shiny_prerendered")) {
+   warn_if_duplicate_fields(.yml, list(runtime = ""))
   .yml$runtime <- match.arg(runtime)
 
   .yml
@@ -24,6 +25,7 @@ yml_runtime <- function(.yml, runtime = c("static", "shiny", "shiny_prerendered"
 #' @examples
 yml_clean <- function(.yml, clean) {
   stop_if_not_type(clean, "logical")
+  warn_if_duplicate_fields(.yml, list(clean = ""))
   .yml$clean <- clean
 
   .yml
@@ -41,6 +43,7 @@ yml_clean <- function(.yml, clean) {
 #'
 #' @examples
 yml_vignette <- function(.yml, title, engine = "knitr::rmarkdown", encoding = "UTF-8") {
+  warn_if_duplicate_fields(.yml, list(vignette = ""))
   .yml$vignette <- glue::glue(
     "> \\
     %\\VignetteIndexEntry{<<title>>} \\
@@ -88,9 +91,10 @@ yml_site_opts <- function(
   ) %>%
     purrr::discard(is_yml_blank)
 
+  warn_if_duplicate_fields(.yml, site_opts)
   .yml[names(site_opts)] <- site_opts
 
-  site_opts
+  .yml
 }
 
 #' Title
@@ -117,6 +121,7 @@ yml_navbar <- function(.yml, title, type, left, right) {
   ) %>%
     purrr::discard(is_yml_blank)
 
+  warn_if_duplicate_fields(.yml, list(navbar = ""))
   .yml$navbar <- navbar
 
   .yml
@@ -150,6 +155,7 @@ navbar_separator <- function() {
 #'
 #' @examples
 yml_params <- function(.yml, ...) {
+  warn_if_duplicate_fields(.yml, list(params = ""))
   .yml$params <- list(...)
 
   .yml

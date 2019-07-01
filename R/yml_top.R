@@ -25,6 +25,7 @@ yml_author <- function(.yml, name = NULL, affiliation = NULL) {
     return(.yml)
   }
 
+  warn_if_duplicate_fields(.yml, list(author = ""))
   .yml$author <- get_author_name()
 
   .yml
@@ -78,6 +79,7 @@ yml_date <- function(.yml, date = NULL, format = "") {
     return(.yml)
   }
 
+  warn_if_duplicate_fields(.yml, list(date = ""))
   .yml$date <- format_sys_date(format = format)
 
   .yml
@@ -104,6 +106,7 @@ format_sys_date <- function(format = "") {
 #' @rdname yml_title
 yml_title <- function(.yml, title) {
   stop_if_not_type(title, "character")
+  warn_if_duplicate_fields(.yml, list(title = ""))
   .yml$title <- title
 
   .yml
@@ -113,6 +116,7 @@ yml_title <- function(.yml, title) {
 #' @rdname yml_title
 yml_subtitle <- function(.yml, subtitle) {
   stop_if_not_type(subtitle, "character")
+  warn_if_duplicate_fields(.yml, list(subtitle = ""))
   .yml$subtitle <- subtitle
 
   .yml
@@ -130,6 +134,7 @@ yml_subtitle <- function(.yml, subtitle) {
 #' @rdname yml_top_description
 yml_abstract <- function(.yml, abstract) {
   stop_if_not_type(abstract, "character")
+  warn_if_duplicate_fields(.yml, list(abstract = ""))
   .yml$abstract <- abstract
 
   .yml
@@ -146,6 +151,7 @@ yml_abstract <- function(.yml, abstract) {
 #' @examples
 yml_keywords <- function(.yml, keywords) {
   stop_if_not_all_type(keywords, "character")
+  warn_if_duplicate_fields(.yml, list(keywords = ""))
   .yml$keywords <- keywords
 
   .yml
@@ -162,6 +168,7 @@ yml_keywords <- function(.yml, keywords) {
 #' @examples
 yml_subject <- function(.yml, subject) {
   stop_if_not_all_type(subject, "character")
+  warn_if_duplicate_fields(.yml, list(subject = ""))
   .yml$subject <- subject
 
   .yml
@@ -178,6 +185,7 @@ yml_subject <- function(.yml, subject) {
 #' @examples
 yml_description <- function(.yml, description) {
   stop_if_not_all_type(description, "character")
+  warn_if_duplicate_fields(.yml, list(description = ""))
   .yml$description <- description
 
   .yml
@@ -195,6 +203,7 @@ yml_description <- function(.yml, description) {
 #' @rdname yml_top_description
 yml_category <- function(.yml, category) {
   stop_if_not_all_type(category, "character")
+  warn_if_duplicate_fields(.yml, list(category = ""))
   .yml$category <- category
 
   .yml
@@ -212,6 +221,7 @@ yml_category <- function(.yml, category) {
 yml_toplevel <- function(.yml, ...) {
   toplevel_yml <- c(...)
 
+  warn_if_duplicate_fields(.yml, toplevel_yml)
   .yml[names(toplevel_yml)] <- toplevel_yml
 
   .yml

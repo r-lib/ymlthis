@@ -113,6 +113,7 @@ yml_blogdown_opts <- function(
   ) %>%
     purrr::discard(is_yml_blank)
 
+  warn_if_duplicate_fields(.yml, blogdown_opts)
   .yml[names(blogdown_opts)] <- blogdown_opts
 
   .yml
