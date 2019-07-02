@@ -41,10 +41,16 @@ yml_output <- function(.yml, ...) {
 }
 
 eval_with_rmarkdown <- function(x) {
-  withr::with_namespace(
+  x <- withr::with_namespace(
     "rmarkdown",
     rlang::eval_tidy(x)
   )
+
+  if (!inherits(x, "rmarkdown_output_format")) {
+    stop("`output` must return object of class `rmarkdown_output_format`", call. = FALSE)
+  }
+
+  x
 }
 
 parse_output_yml <- function(args, function_name, use_default = FALSE) {
