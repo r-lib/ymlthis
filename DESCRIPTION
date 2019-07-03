@@ -21,8 +21,7 @@ Imports:
     magrittr,
     stringr,
     withr,
-    rstudioapi,
-    gh
+    rstudioapi
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
 Suggests: 

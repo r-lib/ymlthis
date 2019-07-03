@@ -5,11 +5,53 @@
 #'
 #' @examples
 pandoc_template_types <- function() {
-  templates <- gh::gh("/repos/jgm/pandoc-templates/contents") %>%
-    purrr::map_chr("name")
+  c(
+    "asciidoc",
+    "asciidoctor",
+    "commonmark",
+    "context",
+    "docbook4",
+    "docbook5",
+    "dokuwiki",
+    "dzslides",
+    "epub2",
+    "epub3",
+    "haddock",
+    "html4",
+    "html5",
+    "icml",
+    "jats",
+    "jira",
+    "latex",
+    "latex.orig",
+    "latex.rej",
+    "man",
+    "markdown",
+    "mediawiki",
+    "ms",
+    "muse",
+    "opendocument",
+    "opml",
+    "org",
+    "plain",
+    "revealjs",
+    "rst",
+    "rtf",
+    "s5",
+    "slideous",
+    "slidy",
+    "tei",
+    "texinfo",
+    "textile",
+    "xwiki",
+    "zimwiki"
+  )
+}
 
-  templates[!grepl("^README", templates)] %>%
-    stringr::str_remove_all("default\\.")
+#' @export
+#' @rdname pandoc_template_types
+pandoc_highlight_styles <- function() {
+  system("pandoc --list-highlight-styles", intern = TRUE)
 }
 
 #' Title
@@ -37,10 +79,12 @@ use_pandoc_template <- function(type, path, source = c("rmarkdown", "pandoc")) {
   }
 
   if (source == "pandoc") {
-    template_file <- glue::glue(
-      "https://raw.githubusercontent.com/jgm/pandoc-templates/master/default.{type}"
-    )
-    x <- readLines(template_file)
+    x <- glue::glue("pandoc --print-default-template={type}") %>%
+    system(intern = TRUE)
+    # template_file <- glue::glue(
+    #   "https://raw.githubusercontent.com/jgm/pandoc-templates/master/default.{type}"
+    # )
+    # x <- readLines(template_file)
   }
 
   usethis::write_over(path, x)
@@ -66,7 +110,7 @@ read_file <- function(...) {
 #' @export
 #'
 #' @examples
-use_pandoc_highlight_theme <- function(theme, path) {
+use_pandoc_highlight_style <- function(theme, path) {
   if (!grepl("//.theme$", path)) {
     stop("`path` must end in `.theme`", call. = FALSE)
   }

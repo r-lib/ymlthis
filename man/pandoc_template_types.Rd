@@ -2,9 +2,12 @@
 % Please edit documentation in R/use_pandoc.R
 \name{pandoc_template_types}
 \alias{pandoc_template_types}
+\alias{pandoc_highlight_styles}
 \title{Title}
 \usage{
 pandoc_template_types()
+
+pandoc_highlight_styles()
 }
 \description{
 Title
