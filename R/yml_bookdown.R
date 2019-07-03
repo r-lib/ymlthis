@@ -107,25 +107,24 @@ yml_bookdown_site <- function(.yml) {
 #'
 #' * defaults and descriptions are available at https://bookdown.org/yihui/bookdown/html.html
 #'
-#' @param toc_collapse
-#' @param toc_scroll_highlight
-#' @param toc_before
-#' @param toc_after
-#' @param toolbar_position
-#' @param edit
-#' @param download
-#' @param search
-#' @param fontsettings_theme
-#' @param fontsettings_family
-#' @param fontsettings_size
-#' @param sharing_facebook
-#' @param sharing_twitter
-#' @param sharing_google
-#' @param sharing_linkedin
-#' @param sharing_weibo
-#' @param sharing_instapaper
-#' @param sharing_vk
-#' @param sharing_all
+#' @param toc_collapse Collapse some items initially when a page is loaded via the collapse option. Its possible values are subsection (the default), section, none (or null)
+#' @param toc_scroll_highlight enable highlighting of TOC items as you scroll the book body (by default this feature is enabled)
+#' @param toc_before,toc_after add more items before and after the TOC using the HTML tag <li>. These items will be separated from the TOC using a horizontal divider
+#' @param toolbar_position The toolbar option has a sub-option position, which can take values fixed or static. The default is that the toolbar will be fixed at the top of the page, so even if you scroll down the page, the toolbar is still visible there.
+#' @param edit If not empty, an edit button will be added to the toolbar.
+#' @param download This option takes either a character vector, or a list of character vectors with the length of each vector being 2. When it is a character vector, it should be either a vector of filenames, or filename extensions, e.g., both of the following settings are okay. When you only provide the filename extensions, the filename is derived from the book filename of the configuration file _bookdown.yml
+#' @param search Include a search bar?
+#' @param fontsettings_theme "White" (the default), "Sepia", or "Night".
+#' @param fontsettings_family The font family. "sans" (the default) or "serif".
+#' @param fontsettings_size The font size. Default is 2.
+#' @param sharing_facebook Include Facebook share link?
+#' @param sharing_twitter Include Twitter share link?
+#' @param sharing_google Include Google share link?
+#' @param sharing_linkedin Include LinkedIn share link?
+#' @param sharing_weibo Include Weibo share link?
+#' @param sharing_instapaper Include Instapaper share link?
+#' @param sharing_vk Include VK share link?
+#' @param sharing_all Include all share links?
 #'
 #' @return
 #' @export

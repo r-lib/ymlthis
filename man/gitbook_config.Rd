@@ -16,7 +16,41 @@ gitbook_config(toc_collapse = yml_blank(),
   sharing_all = yml_blank())
 }
 \arguments{
-\item{sharing_all}{}
+\item{toc_collapse}{Collapse some items initially when a page is loaded via the collapse option. Its possible values are subsection (the default), section, none (or null)}
+
+\item{toc_scroll_highlight}{enable highlighting of TOC items as you scroll the book body (by default this feature is enabled)}
+
+\item{toc_before, toc_after}{add more items before and after the TOC using the HTML tag <li>. These items will be separated from the TOC using a horizontal divider}
+
+\item{toolbar_position}{The toolbar option has a sub-option position, which can take values fixed or static. The default is that the toolbar will be fixed at the top of the page, so even if you scroll down the page, the toolbar is still visible there.}
+
+\item{edit}{If not empty, an edit button will be added to the toolbar.}
+
+\item{download}{This option takes either a character vector, or a list of character vectors with the length of each vector being 2. When it is a character vector, it should be either a vector of filenames, or filename extensions, e.g., both of the following settings are okay. When you only provide the filename extensions, the filename is derived from the book filename of the configuration file _bookdown.yml}
+
+\item{search}{Include a search bar?}
+
+\item{fontsettings_theme}{"White" (the default), "Sepia", or "Night".}
+
+\item{fontsettings_family}{The font family. "sans" (the default) or "serif".}
+
+\item{fontsettings_size}{The font size. Default is 2.}
+
+\item{sharing_facebook}{Include Facebook share link?}
+
+\item{sharing_twitter}{Include Twitter share link?}
+
+\item{sharing_google}{Include Google share link?}
+
+\item{sharing_linkedin}{Include LinkedIn share link?}
+
+\item{sharing_weibo}{Include Weibo share link?}
+
+\item{sharing_instapaper}{Include Instapaper share link?}
+
+\item{sharing_vk}{Include VK share link?}
+
+\item{sharing_all}{Include all share links?}
 }
 \description{
 \itemize{

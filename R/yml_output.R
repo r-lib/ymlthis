@@ -47,7 +47,10 @@ eval_with_rmarkdown <- function(x) {
   )
 
   if (!inherits(x, "rmarkdown_output_format")) {
-    stop("`output` must return object of class `rmarkdown_output_format`", call. = FALSE)
+    stop(
+      "`output` must return object of class `rmarkdown_output_format`",
+      call. = FALSE
+    )
   }
 
   x
