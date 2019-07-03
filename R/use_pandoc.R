@@ -81,10 +81,6 @@ use_pandoc_template <- function(type, path, source = c("rmarkdown", "pandoc")) {
   if (source == "pandoc") {
     x <- glue::glue("pandoc --print-default-template={type}") %>%
     system(intern = TRUE)
-    # template_file <- glue::glue(
-    #   "https://raw.githubusercontent.com/jgm/pandoc-templates/master/default.{type}"
-    # )
-    # x <- readLines(template_file)
   }
 
   usethis::write_over(path, x)
