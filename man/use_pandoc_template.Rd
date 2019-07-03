@@ -4,7 +4,7 @@
 \alias{use_pandoc_template}
 \title{Title}
 \usage{
-use_pandoc_template(type, path)
+use_pandoc_template(type, path, source = c("rmarkdown", "pandoc"))
 }
 \arguments{
 \item{path}{}

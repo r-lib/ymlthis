@@ -21,13 +21,40 @@ pandoc_template_types <- function() {
 #' @export
 #'
 #' @examples
-use_pandoc_template <- function(type, path) {
-  x <- glue::glue(
-    "https://raw.githubusercontent.com/jgm/pandoc-templates/master/default.{type}"
-  ) %>%
-    readLines()
+use_pandoc_template <- function(type, path, source = c("rmarkdown", "pandoc")) {
+  source <- match.arg(source)
+
+  if (source == "rmarkdown") {
+    x <- switch(
+      type,
+      latex = read_file("latex", "default.tex"),
+      html = read_file("h", "default.html"),
+      slidy = read_file("slidy", "default.html"),
+      ioslides = read_file("ioslides", "default.html"),
+      html_fragment = read_file("fragment", "default.html"),
+      latex_fragment = read_file("fragment", "default.tex"),
+    )
+  }
+
+  if (source == "pandoc") {
+    template_file <- glue::glue(
+      "https://raw.githubusercontent.com/jgm/pandoc-templates/master/default.{type}"
+    )
+    x <- readLines(template_file)
+  }
 
   usethis::write_over(path, x)
+}
+
+read_file <- function(...) {
+  readLines(
+    system.file(
+      "rmd",
+      ...,
+      package = "rmarkdown",
+      mustWork = TRUE
+    )
+  )
 }
 
 #' Title
