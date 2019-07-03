@@ -20,7 +20,8 @@ Imports:
     usethis,
     magrittr,
     stringr,
-    withr
+    withr,
+    rstudioapi
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
 Suggests: 

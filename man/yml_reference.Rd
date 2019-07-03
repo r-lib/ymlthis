@@ -5,13 +5,13 @@
 \alias{reference}
 \title{Title}
 \usage{
-yml_reference(.yml, ...)
+yml_reference(.yml, ..., .bibentry = NULL)
 
-reference(id, ...)
+reference(id = NULL, ...)
 }
 \arguments{
 \item{...}{}
 }
 \description{
-Title
+See ?bibentry
 }
