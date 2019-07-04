@@ -4,20 +4,65 @@
 \alias{yml}
 \title{Create a new yml object}
 \usage{
-yml(.yml = NULL, get_yml = FALSE, author = TRUE, date = TRUE,
+yml(.yml = NULL, get_yml = TRUE, author = TRUE, date = TRUE,
   yml_handlers = NULL)
 }
 \arguments{
 \item{.yml}{a character vector, \code{yml} object, or YAML-like list. See details.}
 
-\item{get_yml}{logical. Use YAML stored in \code{getOption("ymlthis.default_option")}?}
+\item{get_yml}{logical. Use YAML stored in
+\code{getOption("ymlthis.default_option")}? By default, \code{yml()} includes if it
+exists.}
 
 \item{author}{logical. Get default author name?}
 
 \item{date}{logical. Get default date?}
 
-\item{yml_handlers}{a \code{list} containing functions to handle YAML printing. See details.}
+\item{yml_handlers}{a \code{list} containing functions to handle YAML printing.
+See details.}
+}
+\value{
+a \code{yml} object
 }
 \description{
-Create a new yml object
+\code{yml()} creates a \code{yml} object used to create YAML. \code{yml} objects print valid
+YAML cleanly to the console. By default, \code{yml()} looks for your name and uses
+today's date to use in the \code{author} and \code{date} fields, respectively. If
+you've set default YAML in \code{getOption("ymlthis.default_option")} (see
+\code{\link[=use_yml_defaults]{use_yml_defaults()}}), \code{yml()} will also use include those fields by default.
+}
+\details{
+\code{.yml} accepts a character vector of YAML, such as "author: Hadley
+Wickham\ndate: 07/04/2019", an object returned by ymlthis functions that
+start with \code{yml_*()}, or a \code{list} object (e.g. \code{list(author = "Hadley Wickham", date = "07/04/2019")}). \code{.yml} objects are processed with
+\code{\link[=as_yaml]{as_yaml()}}, a wrapper around \code{\link[yaml:yaml.load]{yaml::yaml.load()}}. See that function
+for more details.
+}
+\examples{
+
+yml()
+
+yml(date = FALSE)
+
+"author: Hadley Wickham\\ndate: 2014-09-12" \%>\%
+  yml() \%>\%
+  yml_title("Tidy Data") \%>\%
+  yml_keywords(
+    c("data cleaning", "data tidying", "relational databases", "R")
+  )
+
+yml() \%>\%
+  yml_author(
+    c("Yihui Xie", "Hadley Wickham"),
+    affiliation = rep("RStudio", 2)
+  ) \%>\%
+  yml_date("07/04/2019")) \%>\%
+  yml_output(
+    pdf_document(
+    keep_tex = TRUE,
+    includes = includes2(after_body = "footer.tex")
+   )
+  ) \%>\%
+  yml_latex_opts(biblio_style = "apalike")
+
 }

@@ -2,10 +2,22 @@
 % Please edit documentation in R/yml.R
 \name{last_yml}
 \alias{last_yml}
-\title{Title}
+\title{Return the most recently printed YAML}
 \usage{
 last_yml()
 }
+\value{
+a \code{yml} object
+}
 \description{
-Title
+ymlthis stores the most recently printed \code{yml} object; you can use
+\code{last_yml()} to retrieve it to modify, pass to \code{use_*()} functions, and so
+on.
+}
+\examples{
+yml() \%>\%
+  yml_author("Yihui Xie")
+
+last_yml()
+
 }

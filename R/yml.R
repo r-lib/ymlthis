@@ -1,18 +1,64 @@
 #' Create a new yml object
 #'
+#' `yml()` creates a `yml` object used to create YAML. `yml` objects print valid
+#' YAML cleanly to the console. By default, `yml()` looks for your name and uses
+#' today's date to use in the `author` and `date` fields, respectively. If
+#' you've set default YAML in `getOption("ymlthis.default_option")` (see
+#' [use_yml_defaults()]), `yml()` will also use include those fields by default.
+#'
+#' @details
+#'
+#' `.yml` accepts a character vector of YAML, such as "author: Hadley
+#' Wickham\ndate: 07/04/2019", an object returned by ymlthis functions that
+#' start with `yml_*()`, or a `list` object (e.g. `list(author = "Hadley
+#' Wickham", date = "07/04/2019")`). `.yml` objects are processed with
+#' [`as_yaml()`], a wrapper around [`yaml::yaml.load()`]. See that function
+#' for more details.
+#'
 #' @param .yml a character vector, `yml` object, or YAML-like list. See details.
-#' @param get_yml logical. Use YAML stored in `getOption("ymlthis.default_option")`?
+#' @param get_yml logical. Use YAML stored in
+#'   `getOption("ymlthis.default_option")`? By default, `yml()` includes if it
+#'   exists.
 #' @param author logical. Get default author name?
 #' @param date logical. Get default date?
-#' @param yml_handlers a `list` containing functions to handle YAML printing. See details.
+#' @param yml_handlers a `list` containing functions to handle YAML printing.
+#'   See details.
 #'
-#' @return
+#' @return a `yml` object
 #' @export
 #'
 #' @examples
-yml <- function(.yml = NULL, get_yml = FALSE, author = TRUE, date = TRUE, yml_handlers = NULL) {
+#'
+#' yml()
+#'
+#' yml(date = FALSE)
+#'
+#' "author: Hadley Wickham\ndate: 2014-09-12" %>%
+#'   yml() %>%
+#'   yml_title("Tidy Data") %>%
+#'   yml_keywords(
+#'     c("data cleaning", "data tidying", "relational databases", "R")
+#'   )
+#'
+#' yml() %>%
+#'   yml_author(
+#'     c("Yihui Xie", "Hadley Wickham"),
+#'     affiliation = rep("RStudio", 2)
+#'   ) %>%
+#'   yml_date("07/04/2019")) %>%
+#'   yml_output(
+#'     pdf_document(
+#'     keep_tex = TRUE,
+#'     includes = includes2(after_body = "footer.tex")
+#'    )
+#'   ) %>%
+#'   yml_latex_opts(biblio_style = "apalike")
+#'
+yml <- function(.yml = NULL, get_yml = TRUE, author = TRUE, date = TRUE, yml_handlers = NULL) {
   if (is.null(.yml)) .yml <- list()
   .yml <- as_yml(.yml)
+  if (!is.null(.yml$author)) author <- FALSE
+  if (!is.null(.yml$date)) date <- FALSE
 
   if (get_yml) default_yml <- get_yml_defaults()
   if (get_yml && !is.null(default_yml)) {
@@ -31,22 +77,43 @@ yml <- function(.yml = NULL, get_yml = FALSE, author = TRUE, date = TRUE, yml_ha
   .yml
 }
 
-#' Title
+#' Convert to yml object
 #'
-#' @param x
-#' @param ...
+#' `as_yml` is a wrapper for [`yaml::yaml.load()`] that stores YAML as a `yml`
+#' object, which prints cleanly to the console and is easy to work with using
+#' ymlthis functions.
 #'
-#' @return
+#' @param x An object, either a character vector of length 1 or list, to convert
+#'   to `yml`.
+#'
+#' @return a `yml` object
 #' @export
 #'
 #' @examples
-as_yml <- function(x, ...) {
+#'
+#' x <- as_yml("---
+#'   author: Hadley Wickham
+#'   date: '2014-09-12'
+#'   title: Tidy Data
+#'   keywords:
+#'   - data cleaning
+#'   - data tidying
+#'   - relational databases
+#'   - R
+#'   ---")
+#'
+#'   x
+#'
+#'   x %>%
+#'     yml_subtitle("Hadley's Tidy Data Paper")
+#'
+as_yml <- function(x) {
   UseMethod("as_yml")
 }
 
 
 #' @export
-as_yml.list <- function(x, ...) {
+as_yml.list <- function(x) {
   structure(
     x,
     class = "yml"
@@ -54,7 +121,7 @@ as_yml.list <- function(x, ...) {
 }
 
 #' @export
-as_yml.character <- function(x, ...) {
+as_yml.character <- function(x) {
   .yml <- yaml::yaml.load(x)
   as_yml(.yml)
 }
@@ -112,26 +179,33 @@ cat_silver <- function(x) {
   cat(crayon::silver(x))
 }
 
-#' Title
+#' Is object a yml object?
 #'
-#' @param x
+#' @param x An object to test
 #'
-#' @return
+#' @return A logical vector
 #' @export
-#'
-#' @examples
 is_yml <- function(x) inherits(x, "yml")
 
 #  set environment to store last yml
 .ymlthis <- new.env(parent = emptyenv())
 .ymlthis$.yml <- list()
 
-#' Title
+#' Return the most recently printed YAML
 #'
-#' @return
+#' ymlthis stores the most recently printed `yml` object; you can use
+#' `last_yml()` to retrieve it to modify, pass to `use_*()` functions, and so
+#' on.
+#'
+#' @return a `yml` object
 #' @export
 #'
 #' @examples
+#' yml() %>%
+#'   yml_author("Yihui Xie")
+#'
+#' last_yml()
+#'
 last_yml <- function() {
   if (rlang::is_empty(.ymlthis$.yml)) .ymlthis$.yml <- yml()
   .ymlthis$.yml

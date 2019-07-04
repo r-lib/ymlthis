@@ -2,13 +2,16 @@
 % Please edit documentation in R/yml.R
 \name{is_yml}
 \alias{is_yml}
-\title{Title}
+\title{Is object a yml object?}
 \usage{
 is_yml(x)
 }
 \arguments{
-\item{x}{}
+\item{x}{An object to test}
+}
+\value{
+A logical vector
 }
 \description{
-Title
+Is object a yml object?
 }
