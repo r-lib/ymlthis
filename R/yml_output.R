@@ -40,13 +40,13 @@ yml_output <- function(.yml, ...) {
   .yml
 }
 
-eval_with_rmarkdown <- function(x) {
+eval_with_rmarkdown <- function(x, check_type = TRUE) {
   x <- withr::with_namespace(
     "rmarkdown",
     rlang::eval_tidy(x)
   )
 
-  if (!inherits(x, "rmarkdown_output_format")) {
+  if (check_type && !inherits(x, "rmarkdown_output_format")) {
     stop(
       "`output` must return object of class `rmarkdown_output_format`",
       call. = FALSE
@@ -67,7 +67,8 @@ parse_output_yml <- function(args, function_name, use_default = FALSE) {
     return(output_yml)
   }
 
-  yml_list <- list(purrr::map_if(args, rlang::is_call, eval_with_rmarkdown))
+  yml_list <- list(
+    purrr::map_if(args, rlang::is_call, eval_with_rmarkdown, check_type = FALSE))
   names(yml_list) <- function_name
 
   yml_list
