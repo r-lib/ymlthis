@@ -1,8 +1,12 @@
-#' Title
+#' Copy YAML code to your clipboard
 #'
-#' @param .yml
+#' `use_yml()` takes a `yml` object and puts the resulting YAML on your
+#' clipboard to paste into an R Markdown or YAML file. By default, `use_yml()`
+#' uses the most recently printed YAML via `last_yml()`.
 #'
-#' @return
+#' @param .yml A `yml` object, the most recently printed by default.
+#'
+#' @return `use_yml()` invisibly returns the input `yml` object
 #' @export
 #'
 #' @examples
@@ -10,6 +14,39 @@ use_yml <- function(.yml = last_yml()) {
   return_yml_code(.yml)
 }
 
+#' @rdname use_yml
+#' @export
+use_rmarkdown <- function(.yml = last_yml(), path, template = NULL) {
+  if (!is.null(template)) {
+    existing_header <- read_yaml(template)
+    printed_yaml <- existing_header %>%
+      as_yml() %>%
+      combine_yml(.yml) %>%
+      capture_yml()
+
+    rmarkdown_header <- c(printed_yaml, "\n")
+
+    usethis::write_over(path, rmarkdown_header)
+    rstudioapi::navigateToFile(path)
+
+    return(invisible(.yml))
+  }
+
+  printed_yaml <- capture_yml(.yml)
+  rmarkdown_template <- c(printed_yaml, "\n")
+
+  usethis::write_over(path, rmarkdown_template)
+  rstudioapi::navigateToFile(path)
+
+  invisible(.yml)
+}
+
+combine_yml <- function(x, y) {
+  warn_if_duplicate_fields(x, y)
+  x[names(y)] <- y
+
+  x
+}
 return_yml_code <- function(.yml) {
   yaml_text <- capture_yml(.yml)
   usethis::ui_code_block(yaml_text)
@@ -113,21 +150,21 @@ use_yml_defaults <- function(.yml) {
     )
   }
 
- if (is.character(.yml)) .yml <- as_yml(.yml)
+  if (is.character(.yml)) .yml <- as_yml(.yml)
 
- .yml_text <- capture_yml(.yml) %>%
-   purrr::discard(~ .x == "---") %>%
-   glue::glue_collapse(sep = "\n")
+  .yml_text <- capture_yml(.yml) %>%
+    purrr::discard(~ .x == "---") %>%
+    glue::glue_collapse(sep = "\n")
 
- .yml_code <- glue::glue("options(ymlthis.default_yml = \"{.yml_text}\")")
+  .yml_code <- glue::glue("options(ymlthis.default_yml = \"{.yml_text}\")")
 
- usethis::ui_code_block(.yml_code)
- usethis::ui_todo(
-   "Run interactively or paste into .Rprofile \\
+  usethis::ui_code_block(.yml_code)
+  usethis::ui_todo(
+    "Run interactively or paste into .Rprofile \\
    (perhaps using {usethis::ui_code('usethis::edit_r_profile()')})"
- )
+  )
 
- invisible(.yml)
+  invisible(.yml)
 }
 
 #' Title

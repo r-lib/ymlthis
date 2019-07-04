@@ -2,13 +2,21 @@
 % Please edit documentation in R/use_yml.R
 \name{use_yml}
 \alias{use_yml}
-\title{Title}
+\alias{use_rmarkdown}
+\title{Copy YAML code to your clipboard}
 \usage{
 use_yml(.yml = last_yml())
+
+use_rmarkdown(.yml = last_yml(), path, template = NULL)
 }
 \arguments{
-\item{.yml}{}
+\item{.yml}{A \code{yml} object, the most recently printed by default.}
+}
+\value{
+\code{use_yml()} invisibly returns the input \code{yml} object
 }
 \description{
-Title
+\code{use_yml()} takes a \code{yml} object and puts the resulting YAML on your
+clipboard to paste into an R Markdown or YAML file. By default, \code{use_yml()}
+uses the most recently printed YAML via \code{last_yml()}.
 }
