@@ -8,7 +8,7 @@
 #' @export
 #'
 #' @examples
-yml_author <- function(.yml, name = NULL, affiliation = NULL) {
+yml_author <- function(.yml, name = NULL, affiliation = NULL, ...) {
   if (!is.null(name) && is.null(affiliation)) {
     stop_if_not_all_type(name, "character")
     .yml$author <- name
@@ -21,21 +21,20 @@ yml_author <- function(.yml, name = NULL, affiliation = NULL) {
     #  use unnamed inner list to create `-` group:
     #  - author
     #    affiliation
-    .yml$author <- purrr::map2(name, affiliation, ~author_list(.x, .y))
+    .yml$author <- purrr::map2(name, affiliation, ~author_list(.x, .y, ...))
     return(.yml)
   }
 
-  warn_if_duplicate_fields(.yml, list(author = ""))
-  .yml$author <- get_author_name()
+  author_list <- list(author = get_author_name(), ...)
+  warn_if_duplicate_fields(.yml, author_list)
+  .yml[names(author_list)] <- author_list
 
   .yml
 }
 
-author_list <- function(.x, .y) {
-  if (is.na(.x)) return(list(affiliation = .y))
-  if (is.na(.y)) return(list(name = .x))
-
-  list(name = .x, affiliation = .y)
+author_list <- function(.x, .y, ...) {
+  list(name = .x, affiliation = .y, ...) %>%
+    purrr::discard(~is.na(.x))
 }
 
 get_author_name <- function() {

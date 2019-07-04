@@ -2,13 +2,38 @@
 % Please edit documentation in R/yml.R
 \name{as_yml}
 \alias{as_yml}
-\title{Title}
+\title{Convert to yml object}
 \usage{
-as_yml(x, ...)
+as_yml(x)
 }
 \arguments{
-\item{...}{}
+\item{x}{An object, either a character vector of length 1 or list, to convert
+to \code{yml}.}
+}
+\value{
+a \code{yml} object
 }
 \description{
-Title
+\code{as_yml} is a wrapper for \code{\link[yaml:yaml.load]{yaml::yaml.load()}} that stores YAML as a \code{yml}
+object, which prints cleanly to the console and is easy to work with using
+ymlthis functions.
+}
+\examples{
+
+x <- as_yml("---
+  author: Hadley Wickham
+  date: '2014-09-12'
+  title: Tidy Data
+  keywords:
+  - data cleaning
+  - data tidying
+  - relational databases
+  - R
+  ---")
+
+  x
+
+  x \%>\%
+    yml_subtitle("Hadley's Tidy Data Paper")
+
 }

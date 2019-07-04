@@ -4,7 +4,7 @@
 \alias{yml_author}
 \title{Title}
 \usage{
-yml_author(.yml, name = NULL, affiliation = NULL)
+yml_author(.yml, name = NULL, affiliation = NULL, ...)
 }
 \arguments{
 \item{affiliation}{}
