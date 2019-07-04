@@ -118,3 +118,83 @@ yml_blogdown_opts <- function(
 
   .yml
 }
+
+#' Create YAML based on blogdown theme archetypes
+#'
+#' @param type
+#' @param path
+#' @param theme
+#'
+#' @return
+#' @export
+#'
+#' @examples
+blogdown_template <- function(type, path = ".", theme = NULL) {
+  on.exit(unlink(tempdir(), recursive = TRUE, force = TRUE))
+
+  if (is.null(theme)) theme <- get_theme(path)
+
+  archetype_path <- file.path(path, "themes", theme, "archetypes")
+
+  if (!file.exists(file.path(archetype_path, paste0(type, ".md")))) {
+    stop("archetype ", type, " does not exist", call. = FALSE)
+  }
+
+  fs::dir_create(file.path(tempdir(), "content"))
+  fs::file_copy(
+    file.path(archetype_path, paste0(type, ".md")),
+    file.path(tempdir(), "content")
+  )
+
+  readr::write_lines(
+    c("baseurl = \"/\"", "builddrafts = true"),
+    file.path(tempdir(), "config.toml")
+  )
+
+  file_to_yamlify <- file.path(
+    tempdir(),
+    "content",
+    paste0(type, ".md")
+  )
+  clean_archetype_files(file_to_yamlify)
+
+  withr::with_dir(
+    tempdir(),
+    system("hugo convert toYAML --unsafe", intern = TRUE)
+  )
+
+  readLines(file.path(tempdir(), "content"))
+
+  post_yml <- yaml::yaml.load_file(file_to_yamlify) %>%
+    as_yml()
+
+  post_yml
+}
+
+#' @export
+#' @rdname blogdown_template
+blogdown_archetypes <- function(path = ".", theme = NULL) {
+  if (is.null(theme)) theme <- get_theme(path)
+  file.path(path, "themes", theme, "archetypes") %>%
+    fs::dir_ls() %>%
+    basename() %>%
+    stringr::str_remove(".md$")
+}
+
+clean_archetype_files <- function(path) {
+  readr::read_file(path) %>%
+    #  has trouble with these {{}} templates
+    stringr::str_replace_all('\\{\\{.+\\}\\}', '\\"\\"') %>%
+    stringr::str_replace_all('\\"\\"\\"\\"', '\\"\\"') %>%
+    readr::write_lines(path)
+}
+
+get_theme <- function(path) {
+  config_toml <- readLines(file.path(path, "config.toml"))
+  theme <- config_toml %>%
+    stringr::str_subset("^theme") %>%
+    stringr::str_remove_all("theme|=|\\s*") %>%
+    stringr::str_remove_all("\"|\'")
+
+  theme
+}
