@@ -33,7 +33,7 @@ you've set default YAML in \code{getOption("ymlthis.default_option")} (see
 }
 \details{
 \code{.yml} accepts a character vector of YAML, such as "author: Hadley
-Wickham\ndate: 07/04/2019", an object returned by ymlthis functions that
+Wickham", an object returned by ymlthis functions that
 start with \code{yml_*()}, or a \code{list} object (e.g. \code{list(author = "Hadley Wickham", date = "07/04/2019")}). \code{.yml} objects are processed with
 \code{\link[=as_yaml]{as_yaml()}}, a wrapper around \code{\link[yaml:yaml.load]{yaml::yaml.load()}}. See that function
 for more details.

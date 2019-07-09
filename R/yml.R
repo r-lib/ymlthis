@@ -9,7 +9,7 @@
 #' @details
 #'
 #' `.yml` accepts a character vector of YAML, such as "author: Hadley
-#' Wickham\ndate: 07/04/2019", an object returned by ymlthis functions that
+#' Wickham", an object returned by ymlthis functions that
 #' start with `yml_*()`, or a `list` object (e.g. `list(author = "Hadley
 #' Wickham", date = "07/04/2019")`). `.yml` objects are processed with
 #' [`as_yaml()`], a wrapper around [`yaml::yaml.load()`]. See that function
