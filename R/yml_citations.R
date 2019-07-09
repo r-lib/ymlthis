@@ -37,7 +37,7 @@ yml_citations <- function(
 
 #' Title
 #'
-#' See ?bibentry
+#' See ?bibentry ?knitr::write_bib()
 #'
 #' @param .yml
 #' @param ...
@@ -54,10 +54,7 @@ yml_reference <- function(.yml, ..., .bibentry = NULL) {
     # remove citation class if present
     if (inherits(.bibentry, "citation")) .bibentry <- as_bibentry(.bibentry)
 
-    on.exit(unlink(tempdir()))
-    .bibtex <- capture.output(print(.bibentry, style = "Bibtex"))
-    writeLines(.bibtex, file.path(tempdir(), "bibtex.bib"))
-    bib_yml <- bib2yml(path = file.path(tempdir(), "bibtex.bib"))
+    bib_yml <- bibentry2yml(.bibentry)
 
     .yml[names(bib_yml)] <- bib_yml
     return(.yml)
@@ -75,6 +72,14 @@ reference <- function(id = NULL, ...) {
     id = id,
     ...
   )
+}
+
+bibentry2yml <- function(.bibtex) {
+  on.exit(unlink(tempdir()))
+  .bibtex <- capture.output(print(.bibentry, style = "Bibtex"))
+  writeLines(.bibtex, file.path(tempdir(), "bibtex.bib"))
+
+  bib2yml(path = file.path(tempdir(), "bibtex.bib"))
 }
 
 as_bibentry <- function(x) {
