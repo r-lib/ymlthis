@@ -2,15 +2,58 @@
 % Please edit documentation in R/yml_citations.R
 \name{yml_citations}
 \alias{yml_citations}
-\title{Title}
+\title{Set citation-related YAML options}
 \usage{
 yml_citations(.yml, bibliography = yml_blank(), csl = yml_blank(),
   citation_abbreviations = yml_blank(), natbib = yml_blank(),
   biblatex = yml_blank())
 }
 \arguments{
-\item{biblatex}{}
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+a \code{yml_*()} function}
+
+\item{bibliography}{a path to a bibliography file, such as a .bib file}
+
+\item{csl}{a path to a Citation Style Language (CSL) file. CSL files are used
+to specify the citation style; see the \href{https://github.com/citation-style-language/styles}{CSL repository} for the CSL
+files of dozens of journals.}
+
+\item{citation_abbreviations}{Path to a CSL abbreviations JSON file. See the
+\href{http://manpages.ubuntu.com/manpages/xenial/man1/pandoc-citeproc.1.html}{pandoc-citeproc documentation}.}
+
+\item{natbib}{Use natbib for citations in LaTeX output. This option is not
+for use with the pandoc-citeproc filter or with PDF output. It is intended
+for use in producing a LaTeX file that can be processed with bibtex.}
+
+\item{biblatex}{Use biblatex for citations in LaTeX output. This option is
+not for use with the pandoc-citeproc filter or with PDF output. It is
+intended for use in producing a LaTeX file that can be processed with
+bibtex or biber.}
+}
+\value{
+a \code{yml} object
+
+a \code{yml} object
 }
 \description{
-Title
+\code{yml_citations()} sets citation-related YAML fields, such as specifying a
+bibligraphy file or style.
 }
+\examples{
+
+yml() \%>\%
+  yml_citations(bibliography = "references.bib", csl = "aje.csl")
+
+}
+\seealso{
+Other yml: \code{\link{bib2yml}},
+  \code{\link{use_yml_defaults}},
+  \code{\link{use_yml_file}}, \code{\link{yml_author}},
+  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
+  \code{\link{yml_reference}}
+
+Other citations: \code{\link{bib2yml}},
+  \code{\link{yml_reference}}
+}
+\concept{citations}
+\concept{yml}

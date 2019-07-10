@@ -7,8 +7,31 @@
 bib2yml(.yml = NULL, path)
 }
 \arguments{
-\item{path}{}
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+a \code{yml_*()} function}
+
+\item{path}{a path to the .bib file}
+}
+\value{
+a \code{yml} object
+
+a \code{yml} object
 }
 \description{
-use knitr example to write package bib
+\code{bib2yml()} converts a .bib file to YAML. It also accepts an option \code{yml}
+object to prepend to the the YAML from the .bib file. If you want to cite
+several R packages, se \code{\link[knitr:write_bib]{knitr::write_bib()}} to write a bibliography file and
+convert it with \code{[bib2yml()]}.
 }
+\seealso{
+Other yml: \code{\link{use_yml_defaults}},
+  \code{\link{use_yml_file}}, \code{\link{yml_author}},
+  \code{\link{yml_citations}},
+  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
+  \code{\link{yml_reference}}
+
+Other citations: \code{\link{yml_citations}},
+  \code{\link{yml_reference}}
+}
+\concept{citations}
+\concept{yml}

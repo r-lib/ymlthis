@@ -5,15 +5,17 @@
 #' today's date to use in the `author` and `date` fields, respectively. If
 #' you've set default YAML in `getOption("ymlthis.default_option")` (see
 #' [use_yml_defaults()]), `yml()` will also use include those fields by default.
+#' `yml()` and all related`yml_*()` functions validate that the results are
+#' indeed valid YAML syntax, although not every function is able to check that
+#' the input fields are valid for the setting they are used in.
 #'
 #' @details
 #'
-#' `.yml` accepts a character vector of YAML, such as "author: Hadley
-#' Wickham", an object returned by ymlthis functions that
-#' start with `yml_*()`, or a `list` object (e.g. `list(author = "Hadley
-#' Wickham", date = "07/04/2019")`). `.yml` objects are processed with
-#' [`as_yaml()`], a wrapper around [`yaml::yaml.load()`]. See that function
-#' for more details.
+#' `.yml` accepts a character vector of YAML, such as "author: Hadley Wickham",
+#' an object returned by ymlthis functions that start with `yml_*()`, or a
+#' `list` object (e.g. `list(author = "Hadley Wickham", date = "07/04/2019")`).
+#' `.yml` objects are processed with [`as_yaml()`], a wrapper around
+#' [`yaml::yaml.load()`]. See that function for more details.
 #'
 #' @param .yml a character vector, `yml` object, or YAML-like list. See details.
 #' @param get_yml logical. Use YAML stored in

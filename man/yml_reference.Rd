@@ -3,15 +3,110 @@
 \name{yml_reference}
 \alias{yml_reference}
 \alias{reference}
-\title{Title}
+\title{Write references as YAML fields}
 \usage{
 yml_reference(.yml, ..., .bibentry = NULL)
 
 reference(id = NULL, ...)
 }
 \arguments{
-\item{...}{}
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+a \code{yml_*()} function}
+
+\item{...}{Fields relevant to the citation (e.g. bibtex fields)}
+
+\item{.bibentry}{an object created by \code{bibentry()} or \code{citation()}}
+}
+\value{
+a \code{yml} object
+
+a \code{yml} object
 }
 \description{
-See ?bibentry
+\code{yml_reference()} creates YAML fields for references to be used in citation.
+\code{reference()} is a simple function to add references. The easiest way to add
+references to a R Markdown file is to use a bibliography file, such as .bib,
+in the \code{bibliography} field (see \code{\link[=yml_citations]{yml_citations()}}). For documents with very
+few references, however, it might be useful to make the references
+self-contained in the YAML. \code{yml_reference()} can also transform \code{bibentry}
+and \code{citation} objects to YAML. See \code{\link[=bibentry]{bibentry()}} and \code{\link[=citation]{citation()}}. To cite
+several R packages and convert the references to YAML, it may be better to
+use \code{\link[knitr:write_bib]{knitr::write_bib()}} to write a bibliography file and convert it with
+\code{[bib2yml()]}.
 }
+\examples{
+
+ref <- reference(
+  id = "fenner2012a",
+  title = "One-click science marketing",
+  author = list(
+    family = "Fenner",
+    given = "Martin"
+  ),
+  `container-title` = "Nature Materials",
+  volume = 11L,
+  URL = "http://dx.doi.org/10.1038/nmat3283",
+  DOI = "10.1038/nmat3283",
+  issue = 4L,
+  publisher = "Nature Publishing Group",
+  page = "261-263",
+  type = "article-journal",
+  issued = list(
+    year = 2012,
+    month = 3
+  )
+)
+
+yml() \%>\%
+  yml_reference(ref)
+
+# from ?bibentry
+bref <- c(
+   bibentry(
+     bibtype = "Manual",
+     title = "boot: Bootstrap R (S-PLUS) Functions",
+     author = c(
+       person("Angelo", "Canty", role = "aut",
+         comment = "S original"),
+       person(c("Brian", "D."), "Ripley", role = c("aut", "trl", "cre"),
+         comment = "R port, author of parallel support",
+         email = "ripley@stats.ox.ac.uk")
+     ),
+     year = "2012",
+     note = "R package version 1.3-4",
+     url = "https://CRAN.R-project.org/package=boot",
+     key = "boot-package"
+   ),
+
+   bibentry(
+     bibtype = "Book",
+     title = "Bootstrap Methods and Their Applications",
+     author = as.person("Anthony C. Davison [aut], David V. Hinkley [aut]"),
+     year = "1997",
+     publisher = "Cambridge University Press",
+     address = "Cambridge",
+     isbn = "0-521-57391-2",
+     url = "http://statwww.epfl.ch/davison/BMA/",
+     key = "boot-book"
+   )
+)
+
+yml() \%>\%
+  yml_reference(.bibentry = bref)
+
+yml() \%>\%
+  yml_reference(.bibentry = citation("purrr"))
+
+}
+\seealso{
+Other yml: \code{\link{bib2yml}},
+  \code{\link{use_yml_defaults}},
+  \code{\link{use_yml_file}}, \code{\link{yml_author}},
+  \code{\link{yml_citations}},
+  \code{\link{yml_latex_opts}}, \code{\link{yml_output}}
+
+Other citations: \code{\link{bib2yml}},
+  \code{\link{yml_citations}}
+}
+\concept{citations}
+\concept{yml}

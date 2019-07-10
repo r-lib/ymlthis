@@ -2,18 +2,24 @@
 #'
 #' `use_yml()` takes a `yml` object and puts the resulting YAML on your
 #' clipboard to paste into an R Markdown or YAML file. By default, `use_yml()`
-#' uses the most recently printed YAML via `last_yml()`.
+#' uses the most recently printed YAML via `last_yml()`. `use_rmarkdown()` takes
+#' the `yml` object and writes it to a new R Markdown file. You may also supply
+#' `use_rmarkdown()` with an existing R Markdown file from which to read the
+#' YAML header; the YAML header from the template is then combined with `.yml`,
+#' if it's supplied, and written to a new file.
 #'
 #' @param .yml A `yml` object, the most recently printed by default.
+#' @param path A file path to write R Markdown file to
+#' @param template An existing R Markdown file to read YAML from
 #'
 #' @return `use_yml()` invisibly returns the input `yml` object
 #' @export
-#'
-#' @examples
 use_yml <- function(.yml = last_yml()) {
   return_yml_code(.yml)
 }
 
+#' @param .yml
+#'
 #' @rdname use_yml
 #' @export
 use_rmarkdown <- function(.yml = last_yml(), path, template = NULL) {
@@ -57,56 +63,70 @@ return_yml_code <- function(.yml) {
 
 #' Write YAML to file
 #'
-#' @param x
-#' @param path
+#' Write `yml` objects to a file. `use_yml_file()` writes to any given file
+#' name. `use_output_yml()` creates file `_output.yml`, which can be used by
+#' multiple R Markdown documents. All documents located in the same directory as
+#' `_output.yml` will inherit its options. Options defined within document YAML
+#' headers will override those specified in `_output.yml`. `use_site_yml`
+#' creates `_site.yml` for use with R Markdown websites and third-party tools
+#' like the distill package (see [the R Markdown book for
+#' more](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#).
+#' `use_pkgdown_yml()` and `use_bookdown_yml()` write YAML files specific to
+#' those packages; see the
+#' [pkgdown](https://pkgdown.r-lib.org/articles/pkgdown.html) and
+#' [blogdown](https://bookdown.org/yihui/bookdown/configuration.html)
+#' documentation for more.
 #'
-#' @return
+#' @template describe_yml_param
+#' @param path a file path to write the file to
+#'
+#' @seealso yml_bookdown_opts yml_bookdown_site yml_pkgdown yml_pkgdown_articles
+#'   yml_pkgdown_docsearch yml_pkgdown_figures yml_pkgdown_news
+#'   yml_pkgdown_reference
 #' @export
-#'
-#' @examples
 #' @rdname use_file_yml
-use_yml_file <- function(x = NULL, path) {
-  write_yml_file(x, path)
+use_yml_file <- function(.yml = NULL, path) {
+  write_yml_file(.yml, path)
 }
 
 #' @export
 #' @rdname use_file_yml
-use_output_yml <- function(x = NULL, path = ".") {
+use_output_yml <- function(.yml = NULL, path = ".") {
   file_path <- "_output.yml"
-  if (path != ".") file_path <- file.path(p, file_path)
+  if (path != ".") file_path <- file.path(path, file_path)
 
-  write_yml_file(x, file_path)
+  write_yml_file(.yml, file_path)
 }
 
 #' @export
 #' @rdname use_file_yml
-use_site_yml <- function(x = NULL, path = ".") {
+use_site_yml <- function(.yml = NULL, path = ".") {
   file_path <- "_site.yml"
-  if (path != ".") file_path <- file.path(p, file_path)
+  if (path != ".") file_path <- file.path(path, file_path)
 
-  write_yml_file(x, file_path)
+  write_yml_file(.yml, file_path)
 }
 
 #' @export
 #' @rdname use_file_yml
-use_pkgdown_yml <- function(x = NULL, path = ".") {
+use_pkgdown_yml <- function(.yml = NULL, path = ".") {
   file_path <- "_pkgdown.yml"
-  if (path != ".") file_path <- file.path(p, file_path)
+  if (path != ".") file_path <- file.path(path, file_path)
 
-  write_yml_file(x, file_path)
+  write_yml_file(.yml, file_path)
 }
 
 #' @export
 #' @rdname use_file_yml
-use_bookdown_yml <- function(x = NULL, path = ".") {
+use_bookdown_yml <- function(.yml = NULL, path = ".") {
   file_path <- "_bookdown.yml"
-  if (path != ".") file_path <- file.path(p, file_path)
+  if (path != ".") file_path <- file.path(path, file_path)
 
-  write_yml_file(x, file_path)
+  write_yml_file(.yml, file_path)
 }
 
 
-write_yml_file <- function(x, path) {
+write_yml_file <- function(.yml, path) {
   if (file.exists(path)) {
     question <- glue::glue("Overwrite pre-existing file {usethis::ui_path(path)}?")
     go_ahead <- usethis::ui_yeah(question)
@@ -115,9 +135,9 @@ write_yml_file <- function(x, path) {
     fs::file_delete(path)
   }
 
-  if (!is.null(x)) {
+  if (!is.null(.yml)) {
     yml_txt <- yaml::as.yaml(
-      x,
+      .yml,
       handlers = yml_handlers(),
       column.major = FALSE
     )
@@ -133,14 +153,19 @@ write_yml_file <- function(x, path) {
 }
 
 
-#' Title
+#' Set up default YAML
 #'
-#' @param .yml
+#' `use_yml_defaults()` takes a `yml` object and places code on the clipboard
+#' that will save the resulting YAML as the default for `yml()`. The code that
+#' is placed on the clipboard is raw YAML passed to `ymlthis.default_yml` via
+#' `options()`. Saving this code to your `.Rprofile` (see
+#' [`usethis::edit_rprofile()`])) will allow [`yml()`] or [`get_yml_defaults()`]
+#' to return the saved YAML.
 #'
-#' @return
+#' @template describe_yml_param
+#'
+#' @seealso [yml()] [get_yml_defaults()]
 #' @export
-#'
-#' @examples
 use_yml_defaults <- function(.yml) {
   if (!is_yml(.yml) && !is.character(.yml)) {
     usethis::ui_stop(
@@ -167,12 +192,8 @@ use_yml_defaults <- function(.yml) {
   invisible(.yml)
 }
 
-#' Title
-#'
-#' @return
 #' @export
-#'
-#' @examples
+#' @rdname use_yml_defaults
 get_yml_defaults <- function() {
   .yml <- getOption("ymlthis.default_yml")
   if (is.null(.yml)) return(NULL)

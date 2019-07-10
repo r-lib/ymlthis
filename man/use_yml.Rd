@@ -11,6 +11,12 @@ use_rmarkdown(.yml = last_yml(), path, template = NULL)
 }
 \arguments{
 \item{.yml}{A \code{yml} object, the most recently printed by default.}
+
+\item{path}{A file path to write R Markdown file to}
+
+\item{template}{An existing R Markdown file to read YAML from}
+
+\item{.yml}{}
 }
 \value{
 \code{use_yml()} invisibly returns the input \code{yml} object
@@ -18,5 +24,9 @@ use_rmarkdown(.yml = last_yml(), path, template = NULL)
 \description{
 \code{use_yml()} takes a \code{yml} object and puts the resulting YAML on your
 clipboard to paste into an R Markdown or YAML file. By default, \code{use_yml()}
-uses the most recently printed YAML via \code{last_yml()}.
+uses the most recently printed YAML via \code{last_yml()}. \code{use_rmarkdown()} takes
+the \code{yml} object and writes it to a new R Markdown file. You may also supply
+\code{use_rmarkdown()} with an existing R Markdown file from which to read the
+YAML header; the YAML header from the template is then combined with \code{.yml},
+if it's supplied, and written to a new file.
 }

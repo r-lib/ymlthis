@@ -2,13 +2,126 @@
 % Please edit documentation in R/yml_top.R
 \name{yml_author}
 \alias{yml_author}
-\title{Title}
+\alias{yml_date}
+\alias{yml_title}
+\alias{yml_subtitle}
+\alias{yml_abstract}
+\alias{yml_keywords}
+\alias{yml_subject}
+\alias{yml_description}
+\alias{yml_category}
+\alias{yml_lang}
+\alias{yml_toplevel}
+\title{Top-level R Markdown YAML Fields}
 \usage{
 yml_author(.yml, name = NULL, affiliation = NULL, ...)
+
+yml_date(.yml, date = NULL, format = "")
+
+yml_title(.yml, title)
+
+yml_subtitle(.yml, subtitle)
+
+yml_abstract(.yml, abstract)
+
+yml_keywords(.yml, keywords)
+
+yml_subject(.yml, subject)
+
+yml_description(.yml, description)
+
+yml_category(.yml, category)
+
+yml_lang(.yml, lang)
+
+yml_toplevel(.yml, ...)
 }
 \arguments{
-\item{affiliation}{}
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+a \code{yml_*()} function}
+
+\item{name}{A character vector, name of the author(s)}
+
+\item{affiliation}{The author's affiliation; must match length of \code{name},
+e.g. if \code{name} has length of two, \code{affiliation} must as well; use \code{NA} for
+authors that don't have an affiliation to include.}
+
+\item{...}{any number of named R objects, most commonly a list or character
+vector}
+
+\item{date}{The date; by default this is "\code{r format(Sys.Date())}", which
+will populate the date automatically.}
+
+\item{format}{When the default \code{date} is used, the format passed to
+\code{[format.Date()]}.}
+
+\item{title}{A character vector, tThe title of the document}
+
+\item{subtitle}{A character vector, the subtitle of the document. Not all R
+Markdown formats use subtitles, so it may depend on what you use in the
+output field (see \code{\link[=yml_output]{yml_output()}}). It is available in \code{pdf_document()},
+\code{html_document()}, and \code{word_document()} by default.}
+
+\item{abstract}{A character vector, the abstract. Long characters are
+automatically wrapped using valid YAML syntax. This field is not available
+in all output formats; it is available in \code{pdf_document()} and
+\code{html_document()} by default.}
+
+\item{keywords}{A character vector of keywords. This field is not available
+in all output formats; it is available in \code{pdf_document()},
+\code{html_document()}, \code{word_document()}, \code{odt_document()}, and
+\code{powerpoint_presentation()} by default.}
+
+\item{subject}{A character vector, the subject of the document. This field is
+not available in all output formats; it is available in \code{pdf_document()},
+\code{html_document()}, \code{word_document()},  \code{odt_document()}, and
+\code{powerpoint_presentation()} by default.}
+
+\item{description}{A character vector, a description of the document. This
+field is not available in all output formats; it is available in
+\code{word_document()}, \code{odt_document()}, and \code{powerpoint_presentation()} by
+default.}
+
+\item{category}{A character vector, the category of the document. This field
+is not available in all output formats; it is available in
+\code{word_document()} and \code{powerpoint_presentation()} by default.}
+
+\item{lang}{The document language using IETF language tags such as "en" or
+"en-US". The \href{https://r12a.github.io/app-subtags/}{Language subtag lookup tool} can help find the appropriate
+tag.}
+}
+\value{
+a \code{yml} object
+
+a \code{yml} object
 }
 \description{
-Title
+These functions add top-level YAML fields related to R Markdown documents.
+Each takes a \code{yml} object and adds fields related to the function, as well as
+checking for duplicate fields and (where possible) checking for valid
+entries. \code{yml_toplevel()} is a catch-all function that will take any named R
+object and put in the top level of the YAML; it checks for duplicate fields
+but is unable to validate the input beyond that it is valid YAML.
 }
+\examples{
+yml(author = FALSE, date = FALSE) \%>\%
+  yml_author("Yihui Xie") \%>\%
+  yml_date("02-02-2002") \%>\%
+  yml_title("R Markdown: An Introduction") \%>\%
+  yml_subtitle("Introducing ymlthis") \%>\%
+  yml_abstract("This paper will discuss a very important topic") \%>\%
+  yml_keywords(c("r", "reproducible research")) \%>\%
+  yml_subject("R Markdown") \%>\%
+  yml_description("An R Markdown reader") \%>\%
+  yml_category("r") \%>\%
+  yml_lang("en-US")
+
+}
+\seealso{
+Other yml: \code{\link{bib2yml}},
+  \code{\link{use_yml_defaults}},
+  \code{\link{use_yml_file}}, \code{\link{yml_citations}},
+  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
+  \code{\link{yml_reference}}
+}
+\concept{yml}

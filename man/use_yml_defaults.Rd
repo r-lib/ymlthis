@@ -2,13 +2,35 @@
 % Please edit documentation in R/use_yml.R
 \name{use_yml_defaults}
 \alias{use_yml_defaults}
-\title{Title}
+\alias{get_yml_defaults}
+\title{Set up default YAML}
 \usage{
 use_yml_defaults(.yml)
+
+get_yml_defaults()
 }
 \arguments{
-\item{.yml}{}
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+a \code{yml_*()} function}
+}
+\value{
+a \code{yml} object
 }
 \description{
-Title
+\code{use_yml_defaults()} takes a \code{yml} object and places code on the clipboard
+that will save the resulting YAML as the default for \code{yml()}. The code that
+is placed on the clipboard is raw YAML passed to \code{ymlthis.default_yml} via
+\code{options()}. Saving this code to your \code{.Rprofile} (see
+\code{\link[usethis:edit_rprofile]{usethis::edit_rprofile()}})) will allow \code{\link[=yml]{yml()}} or \code{\link[=get_yml_defaults]{get_yml_defaults()}}
+to return the saved YAML.
 }
+\seealso{
+\code{\link[=yml]{yml()}} \code{\link[=get_yml_defaults]{get_yml_defaults()}}
+
+Other yml: \code{\link{bib2yml}},
+  \code{\link{use_yml_file}}, \code{\link{yml_author}},
+  \code{\link{yml_citations}},
+  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
+  \code{\link{yml_reference}}
+}
+\concept{yml}

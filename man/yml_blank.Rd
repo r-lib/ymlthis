@@ -3,12 +3,23 @@
 \name{yml_blank}
 \alias{yml_blank}
 \alias{is_yml_blank}
-\title{Title}
+\title{Return a blank object to be discarded from YAML}
 \usage{
 yml_blank()
 
 is_yml_blank(x)
 }
+\arguments{
+\item{x}{a field from a \code{yml} object}
+}
+\value{
+a \code{yml_blank} object
+}
 \description{
-Title
+ymlthis treats \code{NULL}, \code{NA}, and other common argument defaults as literal
+(e.g. author = NULL will produce "author: null"). \code{yml_blank()} is a helper
+function to indicate that the field should not be included.
+}
+\seealso{
+\code{\link[=yml_discard]{yml_discard()}}, \code{\link[=yml_replace]{yml_replace()}}
 }

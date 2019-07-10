@@ -2,7 +2,7 @@
 % Please edit documentation in R/yml_latex.R
 \name{yml_latex_opts}
 \alias{yml_latex_opts}
-\title{Title}
+\title{Set LaTeX YAML options for PDF output}
 \usage{
 yml_latex_opts(.yml, block_headings = yml_blank(),
   classoption = yml_blank(), documentclass = yml_blank(),
@@ -29,8 +29,118 @@ yml_latex_opts(.yml, block_headings = yml_blank(),
   natbiboptions = yml_blank())
 }
 \arguments{
-\item{natbiboptions}{}
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+a \code{yml_*()} function}
+
+\item{block_headings}{make paragraph and subparagraph (fourth- and
+fifth-level headings, or fifth- and sixth-level with book classes)
+free-standing rather than run-in; requires further formatting to distinguish
+from subsubsection (third- or fourth-level headings)}
+
+\item{classoption}{option for document class, e.g. oneside; repeat for
+multiple options.}
+
+\item{documentclass}{document class: usually one of the standard classes,
+article, book, and report}
+
+\item{geometry}{option for geometry package, e.g. margin=1in; repeat for
+multiple options:}
+
+\item{indent}{uses document class settings for indentation (the default LaTeX
+template otherwise removes indentation and adds space between paragraphs)}
+
+\item{linestretch}{adjusts line spacing using the setspace package, e.g. 1.25,
+1.5}
+
+\item{margin_left, margin_right, margin_top, margin_bottom}{sets margins if
+geometry is not used (otherwise geometry overrides these)}
+
+\item{pagestyle}{control pagestyle{}: the default article class supports
+plain (default), empty (no running heads or page numbers), and headings
+(section titles in running heads)}
+
+\item{papersize}{paper size, e.g. letter, a4}
+
+\item{secnumdepth}{numbering depth for sections (with --number-sections option
+or numbersections variable)}
+
+\item{fontenc}{allows font encoding to be specified through fontenc package
+(with pdflatex); default is T1 (see \href{https://ctan.org/pkg/encguide}{LaTeX font encodings guide})}
+
+\item{fontfamily}{font package for use with pdflatex: TeX Live includes many
+options, documented in the LaTeX Font Catalogue. The default is Latin
+Modern.}
+
+\item{fontfamilyoptions}{options for package used as fontfamily; repeat for
+multiple options.}
+
+\item{fontsize}{font size for body text. The standard classes allow 10pt,
+11pt, and 12pt.}
+
+\item{mainfont, sansfont, monofont, mathfont, CJKmainfont}{font families for use
+with xelatex or lualatex: take the name of any system font, using the
+fontspec package. CJKmainfont uses the xecjk package.}
+
+\item{mainfontoptions, sansfontoptions, monofontoptions, mathfontoptions, CJKoptions}{options to use with mainfont, sansfont, monofont, mathfont, CJKmainfont in
+xelatex and lualatex. Allow for any choices available through fontspec; repeat
+for multiple options.}
+
+\item{microtypeoptions}{options to pass to the microtype LaTeX package}
+
+\item{colorlinks}{add color to link text; automatically enabled if any of
+linkcolor, filecolor, citecolor, urlcolor, or toccolor are set}
+
+\item{linkcolor, filecolor, citecolor, urlcolor, toccolor}{color for internal
+links, external links, citation links, linked URLs, and links in table of
+contents, respectively: uses options allowed by xcolor, including the
+dvipsnames, svgnames, and x11names lists}
+
+\item{links_as_notes}{causes links to be printed as footnotes}
+
+\item{lof, lot}{include list of figures, list of tables}
+
+\item{thanks}{contents of acknowledgments footnote after document title}
+
+\item{toc}{include table of contents}
+
+\item{toc_depth}{level of section to include in table of contents}
+
+\item{biblatexoptions}{list of options for biblatex}
+
+\item{biblio_style}{bibliography style, when used with natbib and biblatex.}
+
+\item{biblio_title}{bibliography title, when used with natbib and biblatex.}
+
+\item{bibliography}{bibliography to use for resolving references}
+
+\item{natbiboptions}{list of options for natbib}
+}
+\value{
+a \code{yml} object
+
+a \code{yml} object
 }
 \description{
-Title
+\code{yml_latex_opts()} sets top-level YAML fields for LaTeX options used by
+pandoc (\href{https://pandoc.org/MANUAL.html}{see the documentation}), as when
+making a PDF document with \code{pdf_document()}.
 }
+\examples{
+
+yml() \%>\%
+   yml_output(pdf_document()) \%>\%
+   yml_latex_opts(
+     fontfamily = "Fira Sans Thin",
+     fontsize = "11pt",
+     links_as_note = TRUE
+   )
+
+}
+\seealso{
+Other yml: \code{\link{bib2yml}},
+  \code{\link{use_yml_defaults}},
+  \code{\link{use_yml_file}}, \code{\link{yml_author}},
+  \code{\link{yml_citations}}, \code{\link{yml_output}},
+  \code{\link{yml_reference}}
+}
+\concept{yml}

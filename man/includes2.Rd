@@ -2,14 +2,33 @@
 % Please edit documentation in R/yml_helpers.R
 \name{includes2}
 \alias{includes2}
-\title{Title}
+\title{Include content within output}
 \usage{
 includes2(in_header = yml_blank(), before_body = yml_blank(),
   after_body = yml_blank())
 }
 \arguments{
-\item{after_body}{}
+\item{in_header}{One or more files with content to be included in the header
+of the document.}
+
+\item{before_body}{One or more files with content to be included before the
+document body.}
+
+\item{after_body}{One or more files with content to be included after the
+document body.}
+}
+\value{
+a list
 }
 \description{
-Title
+\code{includes2()} is a version of the \code{includes()} helper function from rmarkdown
+that uses \code{yml_blank()} instead of \code{NULL} as the argument defaults, as
+ymlthis treats NULLs as literal YAML syntax ("null").
+}
+\examples{
+
+yml() \%>\%
+  yml_output(
+    pdf_document(includes = includes2(after_body = "footer.tex"))
+  )
 }

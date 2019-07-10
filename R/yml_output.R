@@ -1,12 +1,33 @@
-#' Title
+#' Caputure, validate, and write output YAML
 #'
-#' @param .yml
-#' @param ...
+#' `yml_output()` writes valid YAML for the `output` field of R Markdown YAML.
+#' `yml_output()` captures the actual output functions, such as
+#' `pdf_document()`, and translates them to YAML. This function accepts multiple
+#' output formats (separated by commas) and validates each by evaluating the
+#' function internally. The fields in output-related YAML come from arguments in
+#' their respective R functions. If you wanted to see the available fields in
+#' `pdf_document()`, for instance, you would read the documentation for that
+#' function using `?pdf_document`.
 #'
-#' @return
+#' @template describe_yml_param
+#' @param ... valid R code calling functions that return objects of class
+#'   `rmarkdown_output_format`, such as the `*_document()` functions in
+#'   rmarkdown.
+#'
+#' @return a `yml` object
 #' @export
 #'
 #' @examples
+#'
+#' yml() %>%
+#'   yml_output(html_document())
+#'
+#' yml() %>%
+#'   yml_output(
+#'     pdf_document(keep_tex = TRUE, includes = includes2(after_body = "footer.tex")),
+#'     bookdown::html_document2()
+#'   )
+#'
 yml_output <- function(.yml, ...) {
   x <- rlang::enquos(...)
   validate_output_yml(x)

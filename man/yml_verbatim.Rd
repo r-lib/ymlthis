@@ -2,13 +2,25 @@
 % Please edit documentation in R/yml_helpers.R
 \name{yml_verbatim}
 \alias{yml_verbatim}
-\title{Title}
+\title{Write YAML field or content verbatim}
 \usage{
 yml_verbatim(x)
 }
 \arguments{
-\item{x}{}
+\item{x}{a character vector}
+}
+\value{
+an object of class \code{verbatim}
 }
 \description{
-Title
+\code{yml_verbatim()} is a helper function to write YAML precisely as given to the
+\code{yml_*()} function rather than the defaults in ymlthis and yaml. ymlthis uses
+the yaml package to check for valid syntax; yaml and ymlthis together make
+decisions about how to write syntax, which can often be done in numerous
+valid ways.
+}
+\examples{
+# "yes" and "no" serve as alternatives to `true` and `false`. This writes
+# "yes" literally.
+yml_verbatim("yes")
 }

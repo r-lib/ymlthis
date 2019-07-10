@@ -8,19 +8,48 @@
 \alias{use_bookdown_yml}
 \title{Write YAML to file}
 \usage{
-use_yml_file(x = NULL, path)
+use_yml_file(.yml = NULL, path)
 
-use_output_yml(x = NULL, path = ".")
+use_output_yml(.yml = NULL, path = ".")
 
-use_site_yml(x = NULL, path = ".")
+use_site_yml(.yml = NULL, path = ".")
 
-use_pkgdown_yml(x = NULL, path = ".")
+use_pkgdown_yml(.yml = NULL, path = ".")
 
-use_bookdown_yml(x = NULL, path = ".")
+use_bookdown_yml(.yml = NULL, path = ".")
 }
 \arguments{
-\item{path}{}
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+a \code{yml_*()} function}
+
+\item{path}{a file path to write the file to}
+}
+\value{
+a \code{yml} object
 }
 \description{
-Write YAML to file
+Write \code{yml} objects to a file. \code{use_yml_file()} writes to any given file
+name. \code{use_output_yml()} creates file \code{_output.yml}, which can be used by
+multiple R Markdown documents. All documents located in the same directory as
+\code{_output.yml} will inherit its options. Options defined within document YAML
+headers will override those specified in \code{_output.yml}. \code{use_site_yml}
+creates \code{_site.yml} for use with R Markdown websites and third-party tools
+like the distill package (see \href{https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#}{the R Markdown book for more}.
+\code{use_pkgdown_yml()} and \code{use_bookdown_yml()} write YAML files specific to
+those packages; see the
+\href{https://pkgdown.r-lib.org/articles/pkgdown.html}{pkgdown} and
+\href{https://bookdown.org/yihui/bookdown/configuration.html}{blogdown}
+documentation for more.
 }
+\seealso{
+yml_bookdown_opts yml_bookdown_site yml_pkgdown yml_pkgdown_articles
+yml_pkgdown_docsearch yml_pkgdown_figures yml_pkgdown_news
+yml_pkgdown_reference
+
+Other yml: \code{\link{bib2yml}},
+  \code{\link{use_yml_defaults}}, \code{\link{yml_author}},
+  \code{\link{yml_citations}},
+  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
+  \code{\link{yml_reference}}
+}
+\concept{yml}
