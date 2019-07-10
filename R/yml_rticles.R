@@ -21,6 +21,8 @@
 #' @param classoption
 #' @param header_includes
 #' @param include_after
+#' @param ... additional named R objects, such as characters or lists, to
+#'   transform into YAML
 #'
 #' @return
 #' @export
@@ -45,7 +47,8 @@ yml_rticles_opts <- function(
   longtable = yml_blank(),
   classoption = yml_blank(),
   header_includes = yml_blank(),
-  include_after = yml_blank()
+  include_after = yml_blank(),
+  ...
 ) {
   rticles_opts <- list(
     title = title,
@@ -65,7 +68,8 @@ yml_rticles_opts <- function(
     longtable = longtable,
     classoption = classoption,
     "header-includes" = header_includes,
-    "include-after" = include_after
+    "include-after" = include_after,
+    ...
   )
 
   rticles_opts <- purrr::discard(rticles_opts, is_yml_blank)

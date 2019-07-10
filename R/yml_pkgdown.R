@@ -33,6 +33,8 @@ pkgdown_template <- function(path = ".") {
 #' @param desc
 #' @param contents
 #' @param exclude
+#' @param ... additional named R objects, such as characters or lists, to
+#'   transform into YAML
 #'
 #' @return
 #' @export
@@ -50,13 +52,15 @@ pkgdown_ref <- function(
   title = yml_blank(),
   desc = yml_blank(),
   contents = yml_blank(),
-  exclude = yml_blank()
+  exclude = yml_blank(),
+  ...
 ) {
   list(
     title = title,
     desc = desc,
     contents = contents,
-    exclude = exclude
+    exclude = exclude,
+    ...
   ) %>%
     purrr::discard(is_yml_blank)
 }
@@ -104,7 +108,9 @@ yml_pkgdown_news <- function(.yml, one_page = yml_blank()) {
 #' * ?pkgdown::build_articles
 #'
 #' @param .yml
-#' @param ...
+#' @param ... A list created by `pkgdown_article()` or, in the case of that
+#'   function, additional named R objects, such as characters or lists, to
+#'   transform into YAML
 #' @param title
 #' @param desc
 #' @param exclude
@@ -125,12 +131,14 @@ yml_pkgdown_articles <- function(.yml, ...) {
 pkgdown_article <- function(
   title = yml_blank(),
   desc = yml_blank(),
-  contents = yml_blank()
+  contents = yml_blank(),
+  ...
 ) {
   list(
     title = title,
     desc = desc,
-    contents = contents
+    contents = contents,
+    ...
   ) %>%
     purrr::discard(is_yml_blank)
 }
@@ -150,6 +158,8 @@ pkgdown_article <- function(
 #' @param fig.height
 #' @param fig.retina
 #' @param fig.asp
+#' @param ... additional named R objects, such as characters or lists, to
+#'   transform into YAML
 #'
 #' @return
 #' @export
@@ -165,7 +175,8 @@ yml_pkgdown_figures <- function(
   fig.width = yml_blank(),
   fig.height = yml_blank(),
   fig.retina = yml_blank(),
-  fig.asp = yml_blank()
+  fig.asp = yml_blank(),
+  ...
 ) {
   warn_if_duplicate_fields(.yml, list(figures = ""))
   .yml$figures <- list(
@@ -176,7 +187,8 @@ yml_pkgdown_figures <- function(
     fig.width = fig.width,
     fig.height = fig.height,
     fig.retina = fig.retina,
-    fig.asp = fig.asp
+    fig.asp = fig.asp,
+    ...
   ) %>%
     purrr::discard(is_yml_blank)
 

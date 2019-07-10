@@ -56,6 +56,8 @@
 #'   assumptions about the path of the content file. It also ignores any
 #'   language prefixes of the multilingual feature.
 #' @param videos an array of paths to videos related to the page
+#' @param ... additional named R objects, such as characters or lists, to
+#'   transform into YAML
 #'
 #' @return
 #' @export
@@ -84,7 +86,8 @@ yml_blogdown_opts <- function(
   title = yml_blank(),
   type = yml_blank(),
   url = yml_blank(),
-  videos = yml_blank()
+  videos = yml_blank(),
+  ...
 ) {
   blogdown_opts <- list(
     draft = draft,
@@ -109,7 +112,8 @@ yml_blogdown_opts <- function(
     title = title,
     type = type,
     url = url,
-    videos = videos
+    videos = videos,
+    ...
   ) %>%
     purrr::discard(is_yml_blank)
 

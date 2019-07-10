@@ -32,6 +32,8 @@
 #'   setting is read and used by
 #' @param clean a character vector of files and directories to be cleaned by the
 #'   `bookdown::clean_book()` function.
+#' @param ... additional named R objects, such as characters or lists, to
+#'   transform into YAML
 #'
 #' @return
 #' @export
@@ -66,7 +68,8 @@ yml_bookdown_opts <- function(
   rmd_files = yml_blank(),
   rmd_subdir = yml_blank(),
   output_dir = yml_blank(),
-  clean = yml_blank()
+  clean = yml_blank(),
+  ...
 ) {
   bookdown_opts <- list(
     book_filename = book_filename,
@@ -78,7 +81,8 @@ yml_bookdown_opts <- function(
     rmd_files = rmd_files,
     rmd_subdir = rmd_subdir,
     output_dir = output_dir,
-    clean = clean
+    clean = clean,
+    ...
   ) %>%
     purrr::discard(is_yml_blank)
 
@@ -125,6 +129,8 @@ yml_bookdown_site <- function(.yml) {
 #' @param sharing_instapaper Include Instapaper share link?
 #' @param sharing_vk Include VK share link?
 #' @param sharing_all Include all share links?
+#' @param ... additional named R objects, such as characters or lists, to
+#'   transform into YAML
 #'
 #' @return
 #' @export
@@ -149,7 +155,8 @@ gitbook_config <- function(
   sharing_weibo = yml_blank(),
   sharing_instapaper = yml_blank(),
   sharing_vk = yml_blank(),
-  sharing_all = yml_blank()
+  sharing_all = yml_blank(),
+  ...
 ) {
   list(
     toc = list(
@@ -180,7 +187,8 @@ gitbook_config <- function(
       vk = sharing_vk,
       all = sharing_all
     ) %>%
-      purrr::discard(is_yml_blank)
+      purrr::discard(is_yml_blank),
+    ...
   ) %>%
     purrr::discard(is_yml_blank) %>%
     purrr::discard(purrr::is_empty)
