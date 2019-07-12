@@ -1,33 +1,46 @@
-#' Title
+#' Set YAML related to rticles output formats
 #'
-#' * ?rticles::acm_article
-#' * need to indicate which options belong to which functions
+#' The rticles package include numerous output formats specific to academic
+#' journals. All of these can take YAML similar to `pdf_document()`.
+#' Additionally, two templates include custom YAML, `rticles::sage_article()`
+#' and `rticles::sim_article()`. See the help pages for these functions for more
+#' details and the sources of the LaTeX templates used for each.
 #'
-#' @param title
-#' @param runninghead
-#' @param author
-#' @param authormark
-#' @param address
-#' @param corrauth
-#' @param corres
-#' @param email
-#' @param abstract
-#' @param received
-#' @param revised
-#' @param accepted
-#' @param keywords
-#' @param bibliography
-#' @param longtable
-#' @param classoption
-#' @param header_includes
-#' @param include_after
-#' @param ... additional named R objects, such as characters or lists, to
-#'   transform into YAML
+#' @template describe_yml_param
+#' @param title Title of the manuscript
+#' @param runninghead short author list for header (sage_article)
+#' @param author list of authors, containing `name` and `num` (sage_article,
+#'   sim_article)
+#' @param authormark short author list for header (sim_article)
+#' @param address list containing `num` and `org` for defining author
+#'   affiliations (sage_article, sim_article)
+#' @param corrauth corresponding author `name` and `address` (sage_article)
+#' @param corres author and address for correspondence (sim_article)
+#' @param email correspondence email (sage_article)
+#' @param abstract abstract, limited to 200 words (sage_article), 250 words
+#'   (sim_article)
+#' @param received,revised,accepted dates of submission, revision, and
+#'   acceptance of the manuscript (sim_article)
+#' @param keywords keywords for the article (sage_article), up to 6 keywords
+#'   (sim_article)
+#' @param bibliography BibTeX .bib file name  (sage_article, sim_article)
+#' @param longtable set to `TRUE` to include the longtable package, used by
+#'   default from pandoc to convert markdown to LaTeX code  (sim_article)
+#' @param classoption `classoption` options of the `sagej` class (sage_article)
+#' @param header_includes custom additions to the header, before the
+#'   `\\begin\{document\}` statement (sage_article, sim_article)
+#' @param include_after for including additional LaTeX code before the
+#'   `\\end\{document\}` statement (sage_article, sim_article)
+#' @template describe_dots_param
 #'
-#' @return
+#' @template describe_yml_output
 #' @export
 #'
 #' @examples
+#'
+#' yml() %>%
+#'   yml_rticles_opts(received = "09-12-2014")
+#'
 yml_rticles_opts <- function(
   .yml,
   title = yml_blank(),

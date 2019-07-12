@@ -1,9 +1,19 @@
-#' Title
+#' Top-level YAML options for blogdown
 #'
-#'  * https://bookdown.org/yihui/blogdown/content.html#yaml-metadata
-#'  * https://gohugo.io/content-management/front-matter/
+#' YAML in blogdown comes from a variety of sources. Technically, the
+#' congifugration file for your blog can be in YAML, but this is not very
+#' common; most use `config.toml`, based on TOML (see the [blogdown
+#' book](https://bookdown.org/yihui/blogdown/configuration.html) for more). Most
+#' YAML will be for your posts (which the [blogdown
+#' book](https://bookdown.org/yihui/blogdown/content.html#yaml-metadata) also
+#' describes). Common R Markdown fields can be used, but there are two other
+#' main sources for YAML fields: Hugo itself and the theme you are using. Hugo
+#' has numerous top-level YAML to control the output (see the [Hugo
+#' documentation](https://gohugo.io/content-management/front-matter/)), and your
+#' theme may add many more or none. `yml_blogdown_opts()` supports Hugo YAML. To
+#' use YAML specific to your theme, see [blogdown_template()]
 #'
-#' @param .yml
+#' @template describe_yml_param
 #' @param draft You can mark a document as a draft by setting `TRUE`. Draft
 #'   posts will not be rendered if the site is built via
 #'   `blogdown::build_site()` or `blogdown::hugo_build()`, but will be rendered
@@ -30,7 +40,6 @@
 #'   --buildExpired flag is passed to the hugo command.
 #' @param headless if true, sets a leaf bundle to be
 #'   [headless](https://gohugo.io/content-management/page-bundles/#headless-bundle).
-#'
 #' @param images an array of paths to images related to the page
 #' @param keywords the meta keywords for the content.
 #' @param layout the layout Hugo should select from the lookup order when
@@ -56,13 +65,18 @@
 #'   assumptions about the path of the content file. It also ignores any
 #'   language prefixes of the multilingual feature.
 #' @param videos an array of paths to videos related to the page
-#' @param ... additional named R objects, such as characters or lists, to
-#'   transform into YAML
+#' @template describe_dots_param
 #'
-#' @return
+#' @template describe_yml_output
 #' @export
 #'
 #' @examples
+#'
+#' yml() %>%
+#'   yml_blogdown_opts(
+#'     draft = TRUE,
+#'     slug = "blog-post"
+#'   )
 yml_blogdown_opts <- function(
   .yml,
   draft = yml_blank(),
@@ -125,14 +139,21 @@ yml_blogdown_opts <- function(
 
 #' Create YAML based on blogdown theme archetypes
 #'
-#' @param type
-#' @param path
-#' @param theme
+#' `blogdown_template()` creates YAML based on your blogdown theme archetypes.
+#' blogdown is based on Hugo, which supports many custom themes. Each theme uses
+#' YAML in a different way. However, many come with archetypes that define the
+#' YAML or TOML. To find out which types your theme has, use
+#' `blogdown_archetypes()` to see what's available. Use `blogdown_template()` to
+#' specify the archetype and it will conver the template to YAML that you can
+#' use in your post.
 #'
-#' @return
+#' @param type an archetype
+#' @param path a path that contains your blogdown site
+#' @param theme the theme to check for archetypes. By default,
+#'   `blogdown_template()` will attempt to read your theme from `config.toml`.
+#'
+#' @template describe_yml_output
 #' @export
-#'
-#' @examples
 blogdown_template <- function(type, path = ".", theme = NULL) {
   on.exit(unlink(tempdir(), recursive = TRUE, force = TRUE))
 

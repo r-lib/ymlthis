@@ -2,6 +2,7 @@
 % Please edit documentation in R/yml_bookdown.R
 \name{yml_bookdown_opts}
 \alias{yml_bookdown_opts}
+\alias{yml_bookdown_site}
 \title{Top-level YAML options for bookdown}
 \usage{
 yml_bookdown_opts(.yml, book_filename = yml_blank(),
@@ -10,7 +11,9 @@ yml_bookdown_opts(.yml, book_filename = yml_blank(),
   after_chapter_script = yml_blank(), edit = yml_blank(),
   history = yml_blank(), rmd_files = yml_blank(),
   rmd_subdir = yml_blank(), output_dir = yml_blank(),
-  clean = yml_blank())
+  clean = yml_blank(), ...)
+
+yml_bookdown_site(.yml)
 }
 \arguments{
 \item{book_filename}{a character vector, the filename of the main Rmd file,
@@ -52,11 +55,21 @@ setting is read and used by}
 
 \item{clean}{a character vector of files and directories to be cleaned by the
 \code{bookdown::clean_book()} function.}
+
+\item{...}{additional named R objects, such as characters or lists, to
+transform into YAML}
+}
+\value{
+a \code{yml} object
 }
 \description{
-\itemize{
-\item mention \code{use_bookdown_yml()} and \code{use_output_yml()} re = https =//bookdown.org/yihui/rmarkdown/bookdown-project.html
-}
+bookdown uses YAML in three main places, as described in the \href{https://bookdown.org/yihui/rmarkdown/bookdown-project.html}{bookdown book}:
+\code{index.Rmd}, \code{_output.yml}, and \code{_bookdown.yml}. \code{index.Rmd} can take most
+YAML. \code{_output.yml} is intended for output-related YAML, such as that
+produced by \code{yml() \%>\% yml_output(bookdown::pdf_book())}. \code{_bookdown.yml} is
+intended for configuring the build of the book. Pass the results of the
+\code{yml_*()} functions to \code{use_rmarkdown(path = "index.Rmd")}
+\code{use_bookdown_yml()}, \code{use_output_yml()} to write them to these files.
 }
 \examples{
 
@@ -77,4 +90,48 @@ yml(author = FALSE, date = FALSE) \%>\%
       latex = c("abstract.Rmd", "intro.Rmd")
     )
  )
+
+ x <- yml(author = FALSE, date = FALSE) \%>\%
+  yml_title("A Minimal Book Example") \%>\%
+  yml_date(yml_code(Sys.Date())) \%>\%
+  yml_author("Yihui Xie") \%>\%
+  yml_bookdown_site() \%>\%
+  yml_latex_opts(
+    documentclass = "book",
+    bibliography = c("book.bib", "packages.bib"),
+    biblio_style = "apalike"
+  ) \%>\%
+  yml_citations(
+    link_citations = TRUE
+  ) \%>\%
+  yml_description("This is a minimal example of using
+  the bookdown package to write a book.")
+
+x
+
+# alternatively use `use_rmarkdown()` to write to file
+# use_rmarkdown(x, "index.Rmd")
+
+output_yml <- yml(author = FALSE, date = FALSE) \%>\%
+  yml_output(
+    bookdown::gitbook(
+      lib_dir = "assets",
+      split_by = "section",
+      config = gitbook_config(toolbar_position = "static")
+    ),
+    bookdown::pdf_book(keep_tex = TRUE),
+    bookdown::html_book(css = "toc.css")
+  )
+
+output_yml
+
+# alternatively use `use_output_yml()` to write to `_output.yml`
+# use_output_yml(output_yml)
+
 }
+\seealso{
+\code{\link[=use_bookdown_yml]{use_bookdown_yml()}} \code{\link[=use_output_yml]{use_output_yml()}}
+
+Other bookdown: \code{\link{gitbook_config}}
+}
+\concept{bookdown}

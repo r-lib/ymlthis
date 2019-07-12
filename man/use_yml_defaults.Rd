@@ -13,9 +13,6 @@ get_yml_defaults()
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
 a \code{yml_*()} function}
 }
-\value{
-a \code{yml} object
-}
 \description{
 \code{use_yml_defaults()} takes a \code{yml} object and places code on the clipboard
 that will save the resulting YAML as the default for \code{yml()}. The code that
@@ -28,9 +25,16 @@ to return the saved YAML.
 \code{\link[=yml]{yml()}} \code{\link[=get_yml_defaults]{get_yml_defaults()}}
 
 Other yml: \code{\link{bib2yml}},
-  \code{\link{use_yml_file}}, \code{\link{yml_author}},
-  \code{\link{yml_citations}},
+  \code{\link{draw_yml_tree}}, \code{\link{use_yml_file}},
+  \code{\link{yml_author}},
+  \code{\link{yml_blogdown_opts}},
+  \code{\link{yml_citations}}, \code{\link{yml_clean}},
   \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
-  \code{\link{yml_reference}}
+  \code{\link{yml_pagedown_opts}},
+  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
+  \code{\link{yml_reference}}, \code{\link{yml_replace}},
+  \code{\link{yml_rticles_opts}},
+  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
+  \code{\link{yml_vignette}}
 }
 \concept{yml}

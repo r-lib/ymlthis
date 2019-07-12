@@ -2,16 +2,138 @@
 % Please edit documentation in R/yml_pkgdown.R
 \name{yml_pkgdown}
 \alias{yml_pkgdown}
-\title{Title}
+\alias{yml_pkgdown_reference}
+\alias{pkgdown_ref}
+\alias{yml_pkgdown_news}
+\alias{yml_pkgdown_articles}
+\alias{pkgdown_article}
+\alias{yml_pkgdown_figures}
+\alias{yml_pkgdown_docsearch}
+\title{Set YAML for pkgdown options}
 \usage{
 yml_pkgdown(.yml, as_is = yml_blank(), extension = yml_blank())
+
+yml_pkgdown_reference(.yml, ...)
+
+pkgdown_ref(title = yml_blank(), desc = yml_blank(),
+  contents = yml_blank(), exclude = yml_blank(), ...)
+
+yml_pkgdown_news(.yml, one_page = yml_blank())
+
+yml_pkgdown_articles(.yml, ...)
+
+pkgdown_article(title = yml_blank(), desc = yml_blank(),
+  contents = yml_blank(), exclude = yml_blank(), ...)
+
+yml_pkgdown_figures(.yml, dev = yml_blank(), dpi = yml_blank(),
+  dev.args = yml_blank(), fig.ext = yml_blank(),
+  fig.width = yml_blank(), fig.height = yml_blank(),
+  fig.retina = yml_blank(), fig.asp = yml_blank(), ...)
+
+yml_pkgdown_docsearch(.yml, api_key = yml_blank(),
+  index_name = yml_blank(), url = yml_blank())
 }
 \arguments{
-\item{extension}{}
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+a \code{yml_*()} function}
+
+\item{as_is}{Logical. Use the output_format and options that you have
+specified.}
+
+\item{extension}{Specify the output extension, e.g. "pdf"}
+
+\item{...}{additional named R objects, such as characters or lists, to
+transform into YAML}
+
+\item{title}{The title of the article or reference}
+
+\item{desc}{A description of the article or reference}
+
+\item{contents}{The contents, which can also be dplyr-style tidy selectors
+(e.g "contains('index')").}
+
+\item{exclude}{What to exclude of captured by \code{contents}}
+
+\item{one_page}{Logical. Create one page per release for NEWS.md?}
+
+\item{dev}{The graphics device (default: "grDevices::png")}
+
+\item{dpi}{The DPI (default: 96)}
+
+\item{dev.args}{A vector of arguments to pass to \code{dev}}
+
+\item{fig.ext}{The figure extension (default: "png")}
+
+\item{fig.width}{The figure width (default: 7.2916667)}
+
+\item{fig.height}{The figure height (default: \code{NULL})}
+
+\item{fig.retina}{The figure retina value (default: 2)}
+
+\item{fig.asp}{The aspect ratio (default: 1.618)}
+
+\item{api_key}{The API key provided by docusearch (see the \href{https://pkgdown.r-lib.org/articles/pkgdown.html}{pkgdown vignette})}
+
+\item{index_name}{The index name provided by docusearch (see the \href{https://pkgdown.r-lib.org/articles/pkgdown.html}{pkgdown vignette})}
+
+\item{url}{the URL specifying the location of your documentation}
+}
+\value{
+a \code{yml} object
 }
 \description{
-\itemize{
-\item https://pkgdown.r-lib.org/articles/pkgdown.html
-\item ?pkgdown::build_articles()
+These functions set YAML for various pkgdown options to be used in
+\code{_pkgdown.yml}. The options are described in greater depth in the \href{https://pkgdown.r-lib.org/articles/pkgdown.html}{pkgdown vignette} and in the help
+pages for \code{pkgdown::build_articles()} and \code{pkgdown::build_reference()}.
+Essentially, they control the build of vignettes and function references.
+pkgdown also uses the same approach to navbars as R Markdown.
+\code{\link[=yml_navbar]{yml_navbar()}} and friends will help you write the YAML for that. A useful
+approach to writing pkgdown YAML might be to use \code{pkgdown_template()} to
+build a template based on your package directory, modify with these functions
+or \code{\link[=yml_replace]{yml_replace()}} and \code{\link[=yml_discard]{yml_discard()}}, then pass the results to
+\code{\link[=use_pkgdown_yml]{use_pkgdown_yml()}} to write to \code{_pkgdown.yml}
 }
+\examples{
+
+yml(author = FALSE, date = FALSE) \%>\%
+  yml_pkgdown(
+    as_is = TRUE,
+    extension = "pdf"
+  ) \%>\%
+  yml_pkgdown_reference(
+    pkgdown_ref(
+      title = "pkgdown functions",
+      contents = "contains('function_name')"
+    )
+  ) \%>\%
+  yml_pkgdown_articles(
+    pkgdown_article(
+      title = "Introduction to the package"
+    )
+  )
+
 }
+\seealso{
+\code{\link[=use_pkgdown_yml]{use_pkgdown_yml()}} \code{\link[=yml_navbar]{yml_navbar()}}
+
+Other yml: \code{\link{bib2yml}},
+  \code{\link{draw_yml_tree}},
+  \code{\link{use_yml_defaults}},
+  \code{\link{use_yml_file}}, \code{\link{yml_author}},
+  \code{\link{yml_blogdown_opts}},
+  \code{\link{yml_citations}}, \code{\link{yml_clean}},
+  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
+  \code{\link{yml_pagedown_opts}},
+  \code{\link{yml_params}}, \code{\link{yml_reference}},
+  \code{\link{yml_replace}},
+  \code{\link{yml_rticles_opts}},
+  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
+  \code{\link{yml_vignette}}
+
+Other pkgdown: \code{\link{pkgdown_template}}
+
+Other websites: \code{\link{yml_site_opts}}
+}
+\concept{pkgdown}
+\concept{websites}
+\concept{yml}

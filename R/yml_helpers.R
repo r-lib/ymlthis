@@ -2,13 +2,21 @@
 #'
 #' ymlthis treats `NULL`, `NA`, and other common argument defaults as literal
 #' (e.g. author = NULL will produce "author: null"). `yml_blank()` is a helper
-#' function to indicate that the field should not be included.
+#' function to indicate that the field should not be included. `yml_blank()` is
+#' primarily used as a default argument in arguments that should not be included
+#' by default.
 #'
 #' @param x a field from a `yml` object
 #' @return a `yml_blank` object
 #' @export
 #'
 #' @examples
+#'
+#' yml() %>%
+#'   yml_replace(author = yml_blank()) %>%
+#'   yml_discard(~is_yml_blank(.x))
+#'
+#'
 #' @rdname yml_blank
 #' @seealso [yml_discard()], [yml_replace()]
 yml_blank <- function() {

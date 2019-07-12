@@ -12,7 +12,8 @@
 #' @param citation_abbreviations Path to a CSL abbreviations JSON file. See the
 #'   [pandoc-citeproc
 #'   documentation](http://manpages.ubuntu.com/manpages/xenial/man1/pandoc-citeproc.1.html).
-#'
+#' @param link_citations Logical. Add citations hyperlinks to the corresponding
+#'   bibliography entries?
 #' @param natbib Use natbib for citations in LaTeX output. This option is not
 #'   for use with the pandoc-citeproc filter or with PDF output. It is intended
 #'   for use in producing a LaTeX file that can be processed with bibtex.
@@ -21,7 +22,7 @@
 #'   intended for use in producing a LaTeX file that can be processed with
 #'   bibtex or biber.
 #'
-#' @return a `yml` object
+#' @template describe_yml_output
 #' @export
 #'
 #' @examples
@@ -35,6 +36,7 @@ yml_citations <- function(
   bibliography = yml_blank(),
   csl = yml_blank(),
   citation_abbreviations = yml_blank(),
+  link_citations = yml_blank(),
   natbib = yml_blank(),
   biblatex = yml_blank()
 ) {
@@ -42,6 +44,7 @@ yml_citations <- function(
     bibliography = bibliography,
     csl = csl,
     "citation-abbreviations" = citation_abbreviations,
+    "link-citations" = link_citations,
     natbib = natbib,
     biblatex = biblatex
   )
@@ -71,7 +74,7 @@ yml_citations <- function(
 #' @param ... Fields relevant to the citation (e.g. bibtex fields)
 #' @param .bibentry an object created by `bibentry()` or `citation()`
 #'
-#' @return a `yml` object
+#' @template describe_yml_output
 #' @export
 #'
 #' @examples
@@ -179,7 +182,7 @@ as_bibentry <- function(x) {
   if (is.null(x$key)) {
     pkg_attr <- attr(x, "package")
     pkg_name <- ifelse(!is.null(pkg_attr), pkg_attr, "pkg")
-    x$key <- glue::glue("{tolower(x$author$family[1])}-{pkg_name}-{x$year}")
+    x$key <- glue::glue("R-{pkg_name}")
   }
 
   x
@@ -187,15 +190,15 @@ as_bibentry <- function(x) {
 
 #' Convert bib files to YAML
 #'
-#' `bib2yml()` converts a .bib file to YAML. It also accepts an option `yml`
-#' object to prepend to the the YAML from the .bib file. If you want to cite
-#' several R packages, se [knitr::write_bib()] to write a bibliography file and
-#' convert it with `[bib2yml()]`.
+#' `bib2yml()` uses pandoc to convert a .bib file to YAML. It also accepts an
+#' option `yml` object to prepend to the the YAML from the .bib file. If you
+#' want to cite several R packages, se [knitr::write_bib()] to write a
+#' bibliography file and convert it with `[bib2yml()]`.
 #'
 #' @template describe_yml_param
 #' @param path a path to the .bib file
 #'
-#' @return a `yml` object
+#' @template describe_yml_output
 #' @export
 #'
 #' @family citations

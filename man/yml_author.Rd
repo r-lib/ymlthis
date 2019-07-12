@@ -46,8 +46,8 @@ a \code{yml_*()} function}
 e.g. if \code{name} has length of two, \code{affiliation} must as well; use \code{NA} for
 authors that don't have an affiliation to include.}
 
-\item{...}{any number of named R objects, most commonly a list or character
-vector}
+\item{...}{additional named R objects, such as characters or lists, to
+transform into YAML}
 
 \item{date}{The date; by default this is "\code{r format(Sys.Date())}", which
 will populate the date automatically.}
@@ -92,8 +92,6 @@ tag.}
 }
 \value{
 a \code{yml} object
-
-a \code{yml} object
 }
 \description{
 These functions add top-level YAML fields related to R Markdown documents.
@@ -101,7 +99,10 @@ Each takes a \code{yml} object and adds fields related to the function, as well 
 checking for duplicate fields and (where possible) checking for valid
 entries. \code{yml_toplevel()} is a catch-all function that will take any named R
 object and put in the top level of the YAML; it checks for duplicate fields
-but is unable to validate the input beyond that it is valid YAML.
+but is unable to validate the input beyond that it is valid YAML. Some
+templates allow for additional variations of the YAML here. For instance,
+distill adds \code{url} and \code{affiliation_url} to the \code{author} field. Many
+\code{yml_*()} functions also contain \code{...} which allow for these unique fields.
 }
 \examples{
 yml(author = FALSE, date = FALSE) \%>\%
@@ -119,9 +120,17 @@ yml(author = FALSE, date = FALSE) \%>\%
 }
 \seealso{
 Other yml: \code{\link{bib2yml}},
+  \code{\link{draw_yml_tree}},
   \code{\link{use_yml_defaults}},
-  \code{\link{use_yml_file}}, \code{\link{yml_citations}},
+  \code{\link{use_yml_file}},
+  \code{\link{yml_blogdown_opts}},
+  \code{\link{yml_citations}}, \code{\link{yml_clean}},
   \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
-  \code{\link{yml_reference}}
+  \code{\link{yml_pagedown_opts}},
+  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
+  \code{\link{yml_reference}}, \code{\link{yml_replace}},
+  \code{\link{yml_rticles_opts}},
+  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
+  \code{\link{yml_vignette}}
 }
 \concept{yml}

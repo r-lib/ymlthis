@@ -4,6 +4,7 @@
 \alias{use_yml_file}
 \alias{use_output_yml}
 \alias{use_site_yml}
+\alias{use_navbar_yml}
 \alias{use_pkgdown_yml}
 \alias{use_bookdown_yml}
 \title{Write YAML to file}
@@ -13,6 +14,8 @@ use_yml_file(.yml = NULL, path)
 use_output_yml(.yml = NULL, path = ".")
 
 use_site_yml(.yml = NULL, path = ".")
+
+use_navbar_yml(.yml = NULL, path = ".")
 
 use_pkgdown_yml(.yml = NULL, path = ".")
 
@@ -24,9 +27,6 @@ a \code{yml_*()} function}
 
 \item{path}{a file path to write the file to}
 }
-\value{
-a \code{yml} object
-}
 \description{
 Write \code{yml} objects to a file. \code{use_yml_file()} writes to any given file
 name. \code{use_output_yml()} creates file \code{_output.yml}, which can be used by
@@ -35,8 +35,9 @@ multiple R Markdown documents. All documents located in the same directory as
 headers will override those specified in \code{_output.yml}. \code{use_site_yml}
 creates \code{_site.yml} for use with R Markdown websites and third-party tools
 like the distill package (see \href{https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#}{the R Markdown book for more}.
-\code{use_pkgdown_yml()} and \code{use_bookdown_yml()} write YAML files specific to
-those packages; see the
+\code{use_navbar_yml} is a special type of site YAML that only specifies the
+navbar in \code{_navbar.yml} \code{use_pkgdown_yml()} and \code{use_bookdown_yml()} write
+YAML files specific to those packages; see the
 \href{https://pkgdown.r-lib.org/articles/pkgdown.html}{pkgdown} and
 \href{https://bookdown.org/yihui/bookdown/configuration.html}{blogdown}
 documentation for more.
@@ -47,9 +48,16 @@ yml_pkgdown_docsearch yml_pkgdown_figures yml_pkgdown_news
 yml_pkgdown_reference
 
 Other yml: \code{\link{bib2yml}},
+  \code{\link{draw_yml_tree}},
   \code{\link{use_yml_defaults}}, \code{\link{yml_author}},
-  \code{\link{yml_citations}},
+  \code{\link{yml_blogdown_opts}},
+  \code{\link{yml_citations}}, \code{\link{yml_clean}},
   \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
-  \code{\link{yml_reference}}
+  \code{\link{yml_pagedown_opts}},
+  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
+  \code{\link{yml_reference}}, \code{\link{yml_replace}},
+  \code{\link{yml_rticles_opts}},
+  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
+  \code{\link{yml_vignette}}
 }
 \concept{yml}

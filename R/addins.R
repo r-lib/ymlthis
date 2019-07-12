@@ -1,11 +1,3 @@
-#' Title
-#'
-#' @param .yml
-#'
-#' @return
-#' @export
-#'
-#' @examples
 insert_yml <- function(.yml) {
   .yml %>%
     capture_yml() %>%

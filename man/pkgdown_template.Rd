@@ -2,13 +2,35 @@
 % Please edit documentation in R/yml_pkgdown.R
 \name{pkgdown_template}
 \alias{pkgdown_template}
-\title{Title}
+\title{Generate a full YAML template for your pkgdown site}
 \usage{
 pkgdown_template(path = ".")
 }
 \arguments{
-\item{path}{}
+\item{path}{The path to your package directory}
+}
+\value{
+a \code{yml} object
 }
 \description{
-Title
+pkgdown includes three helpful \code{pkgdown::template_*()} functions to generate
+the navbar, reference, and article YAML for the \code{_pkgdown.yml} file.
+\code{pkgdown_template()} is a wrapper function that runs all three, combines
+them, and converts them to a \code{yml} object. You may also pass
+\code{pkgdown::template_*()} functions to \code{as_yml()} to convert the individual
+sections. \code{pkgdown_template()} is particularly useful with
+\code{use_pkgdown_yml()} to write directly to the \code{_pkgdown.yml} file.
 }
+\examples{
+\dontrun{
+pkgdown_template() \%>\%
+  use_pkgdown_yml()
+}
+
+}
+\seealso{
+\code{\link[=use_pkgdown_yml]{use_pkgdown_yml()}}
+
+Other pkgdown: \code{\link{yml_pkgdown}}
+}
+\concept{pkgdown}

@@ -10,8 +10,55 @@ yml_replace(.yml, ...)
 yml_discard(.yml, .rid)
 }
 \arguments{
-\item{...}{}
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+a \code{yml_*()} function}
+
+\item{...}{additional named R objects, such as characters or lists, to
+transform into YAML}
+
+\item{.rid}{a character vector of fields to remove or a purrr-style lambda
+with a predicate (~ predicate) where fields that are \code{TRUE} will be
+discarded}
+}
+\value{
+a \code{yml} object
 }
 \description{
-Replace or discard top-level YAML fields
+\code{yml_replace()} replaces a named field with another value. As opposed to
+duplicating top-level fields with other functions, explicitly replacing them
+with \code{yml_replace()} will not raise a warning. \code{yml_discard()} removes values
+given either a character vector of names or a purrr-style lambda with a
+predicate (~ predicate); see the examples.
 }
+\examples{
+
+yml() \%>\%
+  yml_clean(TRUE) \%>\%
+  yml_replace(clean = FALSE) \%>\%
+  yml_discard("author")
+
+yml() \%>\%
+  yml_output(
+    pdf_document(),
+    html_document()
+  )\%>\%
+  yml_discard(~ length(.x) > 1)
+
+
+}
+\seealso{
+Other yml: \code{\link{bib2yml}},
+  \code{\link{draw_yml_tree}},
+  \code{\link{use_yml_defaults}},
+  \code{\link{use_yml_file}}, \code{\link{yml_author}},
+  \code{\link{yml_blogdown_opts}},
+  \code{\link{yml_citations}}, \code{\link{yml_clean}},
+  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
+  \code{\link{yml_pagedown_opts}},
+  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
+  \code{\link{yml_reference}},
+  \code{\link{yml_rticles_opts}},
+  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
+  \code{\link{yml_vignette}}
+}
+\concept{yml}

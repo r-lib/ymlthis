@@ -63,7 +63,7 @@
 #' @param bibliography bibliography to use for resolving references
 #' @param natbiboptions list of options for natbib
 #'
-#' @return a `yml` object
+#' @template describe_yml_output
 #' @export
 #'
 #' @examples

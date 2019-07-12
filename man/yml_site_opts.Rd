@@ -2,17 +2,107 @@
 % Please edit documentation in R/yml_rmarkdown.R
 \name{yml_site_opts}
 \alias{yml_site_opts}
-\title{Title}
+\alias{yml_navbar}
+\alias{navbar_page}
+\alias{navbar_separator}
+\title{Add site options for _site.yml and navbars for R Markdown websites}
 \usage{
 yml_site_opts(.yml, name = yml_blank(), favicon = yml_blank(),
   output_dir = yml_blank(), include = yml_blank(),
-  exclude = yml_blank(), new_session = yml_blank())
+  exclude = yml_blank(), new_session = yml_blank(), ...)
+
+yml_navbar(.yml, title = yml_blank(), type = yml_blank(),
+  left = yml_blank(), right = yml_blank(), ...)
+
+navbar_page(text = yml_blank(), href = yml_blank(),
+  icon = yml_blank(), menu = yml_blank(), ...)
+
+navbar_separator()
 }
 \arguments{
-\item{new_session}{}
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+a \code{yml_*()} function}
+
+\item{name}{The name of the website}
+
+\item{favicon}{Path to a file to use as the favicon}
+
+\item{output_dir}{directory to copy site content into ("_site" is the default
+if none is specified)}
+
+\item{include, exclude}{Files to include or exclude from the copied into
+\code{output_dir}. You can use \code{*} to indicate a wildcard selection, e.g.
+"*.csv".}
+
+\item{new_session}{Logical. Should each website file to be rendered in a new
+R session?}
+
+\item{...}{additional named R objects, such as characters or lists, to
+transform into YAML}
+
+\item{title}{The title of the website}
+
+\item{type}{The color scheme for the navigation bar: either "default" or "inverse".}
+
+\item{left, right}{the side of the navbar a \code{navbar_page()} should go (see example)}
+}
+\value{
+a \code{yml} object
 }
 \description{
-\itemize{
-\item https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#site_navigation
+R Markdown has a simple website builder baked in (see the R \href{https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#site_navigation}{Markdown book}
+for a detailed description). An R Markdown website must have at least have an
+index.Rmd file and a _site.yml file (which can be empty). YAML included in
+_site.yml will apply to all R Markdown files related to the website, so
+setting the output format here will apply across the website. R Markdown
+websites also support navbars, which you can specify with YAML (see
+\code{\link[=yml_navbar]{yml_navbar()}}, as well as ?rmarkdown::render_site and
+?rmarkdown::html_document). Pass \code{navbar_page()} to the \code{left} or \code{right} field to set up page tabs and use \code{navbar_separator()} to include a separators. In addition to writing YAML with \code{yml_*()}
+functions, \code{use_site_yml()} will take the resulting \code{yml} object and write it
+to a \code{_site.yml} file for you.
 }
+\examples{
+yml(author = FALSE, date = FALSE) \%>\%
+  yml_site_opts(
+    name = "my-website",
+    output_dir =  "_site",
+    include = "demo.R",
+    exclude = c("docs.txt", "*.csv")
+  ) \%>\%
+  yml_navbar(
+    title = "My Website",
+    left = list(
+      navbar_page("Home", href = "index.html"),
+      navbar_page(navbar_separator(), href = "about.html")
+    )
+  ) \%>\%
+  yml_output(html_document(toc = TRUE, highlight = "textmate"))
+
+# optionally pass to `use_site_yml()` to write this YAML to `_site.yml`
+
 }
+\seealso{
+\code{\link[=use_site_yml]{use_site_yml()}} \code{\link[=use_navbar_yml]{use_navbar_yml()}}
+
+Other yml: \code{\link{bib2yml}},
+  \code{\link{draw_yml_tree}},
+  \code{\link{use_yml_defaults}},
+  \code{\link{use_yml_file}}, \code{\link{yml_author}},
+  \code{\link{yml_blogdown_opts}},
+  \code{\link{yml_citations}}, \code{\link{yml_clean}},
+  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
+  \code{\link{yml_pagedown_opts}},
+  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
+  \code{\link{yml_reference}}, \code{\link{yml_replace}},
+  \code{\link{yml_rticles_opts}},
+  \code{\link{yml_runtime}}, \code{\link{yml_vignette}}
+
+Other R Markdown: \code{\link{yml_clean}},
+  \code{\link{yml_params}}, \code{\link{yml_runtime}},
+  \code{\link{yml_vignette}}
+
+Other websites: \code{\link{yml_pkgdown}}
+}
+\concept{R Markdown}
+\concept{websites}
+\concept{yml}

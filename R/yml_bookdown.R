@@ -1,6 +1,13 @@
 #' Top-level YAML options for bookdown
 #'
-#' * mention `use_bookdown_yml()` and `use_output_yml()` re = https =//bookdown.org/yihui/rmarkdown/bookdown-project.html
+#' bookdown uses YAML in three main places, as described in the [bookdown
+#' book](https://bookdown.org/yihui/rmarkdown/bookdown-project.html):
+#' `index.Rmd`, `_output.yml`, and `_bookdown.yml`. `index.Rmd` can take most
+#' YAML. `_output.yml` is intended for output-related YAML, such as that
+#' produced by `yml() %>% yml_output(bookdown::pdf_book())`. `_bookdown.yml` is
+#' intended for configuring the build of the book. Pass the results of the
+#' `yml_*()` functions to `use_rmarkdown(path = "index.Rmd")`
+#' `use_bookdown_yml()`, `use_output_yml()` to write them to these files.
 #'
 #' @param book_filename a character vector, the filename of the main Rmd file,
 #'   i.e., the Rmd file that is merged from all chapters. By default, it is
@@ -32,10 +39,9 @@
 #'   setting is read and used by
 #' @param clean a character vector of files and directories to be cleaned by the
 #'   `bookdown::clean_book()` function.
-#' @param ... additional named R objects, such as characters or lists, to
-#'   transform into YAML
+#' @template describe_dots_param
 #'
-#' @return
+#' @template describe_yml_output
 #' @export
 #'
 #' @examples
@@ -57,6 +63,46 @@
 #'       latex = c("abstract.Rmd", "intro.Rmd")
 #'     )
 #'  )
+#'
+#'  x <- yml(author = FALSE, date = FALSE) %>%
+#'   yml_title("A Minimal Book Example") %>%
+#'   yml_date(yml_code(Sys.Date())) %>%
+#'   yml_author("Yihui Xie") %>%
+#'   yml_bookdown_site() %>%
+#'   yml_latex_opts(
+#'     documentclass = "book",
+#'     bibliography = c("book.bib", "packages.bib"),
+#'     biblio_style = "apalike"
+#'   ) %>%
+#'   yml_citations(
+#'     link_citations = TRUE
+#'   ) %>%
+#'   yml_description("This is a minimal example of using
+#'   the bookdown package to write a book.")
+#'
+#' x
+#'
+#' # alternatively use `use_rmarkdown()` to write to file
+#' # use_rmarkdown(x, "index.Rmd")
+#'
+#' output_yml <- yml(author = FALSE, date = FALSE) %>%
+#'   yml_output(
+#'     bookdown::gitbook(
+#'       lib_dir = "assets",
+#'       split_by = "section",
+#'       config = gitbook_config(toolbar_position = "static")
+#'     ),
+#'     bookdown::pdf_book(keep_tex = TRUE),
+#'     bookdown::html_book(css = "toc.css")
+#'   )
+#'
+#' output_yml
+#'
+#' # alternatively use `use_output_yml()` to write to `_output.yml`
+#' # use_output_yml(output_yml)
+#'
+#' @family bookdown
+#' @seealso [`use_bookdown_yml()`] [`use_output_yml()`]
 yml_bookdown_opts <- function(
   .yml,
   book_filename = yml_blank(),
@@ -92,14 +138,9 @@ yml_bookdown_opts <- function(
   .yml
 }
 
-#' Title
-#'
-#' @param .yml
-#'
-#' @return
+
 #' @export
-#'
-#' @examples
+#' @rdname yml_bookdown_opts
 yml_bookdown_site <- function(.yml) {
   warn_if_duplicate_fields(.yml, list(site = ""))
   .yml$site <- "bookdown::bookdown_site"
@@ -107,16 +148,31 @@ yml_bookdown_site <- function(.yml) {
 }
 
 
-#' Title
+#' Configure `bookdown::gitbook()` output
 #'
-#' * defaults and descriptions are available at https://bookdown.org/yihui/bookdown/html.html
+#' `gitbook_config()` is a helper function to specify the `config` argument in
+#' `bookdown::gitbook()`, as described in the [bookdown
+#' book](https://bookdown.org/yihui/bookdown/html.html).
 #'
-#' @param toc_collapse Collapse some items initially when a page is loaded via the collapse option. Its possible values are subsection (the default), section, none (or null)
-#' @param toc_scroll_highlight enable highlighting of TOC items as you scroll the book body (by default this feature is enabled)
-#' @param toc_before,toc_after add more items before and after the TOC using the HTML tag <li>. These items will be separated from the TOC using a horizontal divider
-#' @param toolbar_position The toolbar option has a sub-option position, which can take values fixed or static. The default is that the toolbar will be fixed at the top of the page, so even if you scroll down the page, the toolbar is still visible there.
+#' @param toc_collapse Collapse some items initially when a page is loaded via
+#'   the collapse option. Its possible values are subsection (the default),
+#'   section, none (or null)
+#' @param toc_scroll_highlight enable highlighting of TOC items as you scroll
+#'   the book body (by default this feature is enabled)
+#' @param toc_before,toc_after add more items before and after the TOC using the
+#'   HTML tag <li>. These items will be separated from the TOC using a
+#'   horizontal divider
+#' @param toolbar_position The toolbar option has a sub-option position, which
+#'   can take values fixed or static. The default is that the toolbar will be
+#'   fixed at the top of the page, so even if you scroll down the page, the
+#'   toolbar is still visible there.
 #' @param edit If not empty, an edit button will be added to the toolbar.
-#' @param download This option takes either a character vector, or a list of character vectors with the length of each vector being 2. When it is a character vector, it should be either a vector of filenames, or filename extensions, e.g., both of the following settings are okay. When you only provide the filename extensions, the filename is derived from the book filename of the configuration file _bookdown.yml
+#' @param download This option takes either a character vector, or a list of
+#'   character vectors with the length of each vector being 2. When it is a
+#'   character vector, it should be either a vector of filenames, or filename
+#'   extensions, e.g., both of the following settings are okay. When you only
+#'   provide the filename extensions, the filename is derived from the book
+#'   filename of the configuration file _bookdown.yml
 #' @param search Include a search bar?
 #' @param fontsettings_theme "White" (the default), "Sepia", or "Night".
 #' @param fontsettings_family The font family. "sans" (the default) or "serif".
@@ -129,13 +185,12 @@ yml_bookdown_site <- function(.yml) {
 #' @param sharing_instapaper Include Instapaper share link?
 #' @param sharing_vk Include VK share link?
 #' @param sharing_all Include all share links?
-#' @param ... additional named R objects, such as characters or lists, to
-#'   transform into YAML
+#' @template describe_dots_param
 #'
-#' @return
+#' @return a list to use in the `config` argument of bookdown::gitbook()
 #' @export
 #'
-#' @examples
+#' @family bookdown
 gitbook_config <- function(
   toc_collapse = yml_blank(),
   toc_scroll_highlight = yml_blank(),

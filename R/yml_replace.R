@@ -1,14 +1,37 @@
 #' Replace or discard top-level YAML fields
 #'
-#' @param .yml
-#' @param ...
+#' `yml_replace()` replaces a named field with another value. As opposed to
+#' duplicating top-level fields with other functions, explicitly replacing them
+#' with `yml_replace()` will not raise a warning. `yml_discard()` removes values
+#' given either a character vector of names or a purrr-style lambda with a
+#' predicate (~ predicate); see the examples.
 #'
-#' @return
+#' @template describe_yml_param
+#' @param .rid a character vector of fields to remove or a purrr-style lambda
+#'   with a predicate (~ predicate) where fields that are `TRUE` will be
+#'   discarded
+#' @template describe_dots_param
+#'
+#' @template describe_yml_output
 #' @export
 #'
 #' @examples
+#'
+#' yml() %>%
+#'   yml_clean(TRUE) %>%
+#'   yml_replace(clean = FALSE) %>%
+#'   yml_discard("author")
+#'
+#' yml() %>%
+#'   yml_output(
+#'     pdf_document(),
+#'     html_document()
+#'   )%>%
+#'   yml_discard(~ length(.x) > 1)
+#'
+#'
 yml_replace <- function(.yml, ...) {
-  new <- c(...)
+  new <- list(...)
   .yml[names(new)] <- new
 
   .yml

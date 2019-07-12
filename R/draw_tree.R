@@ -1,13 +1,26 @@
 #' Draw an tree of YAML hierarchy
 #'
-#' @param .yml
-#' @param indent
+#' `draw_yml_tree()` draws an ASCII tree of the hierarchy of a given `yml`
+#' object to the console.
 #'
-#' @return
+#' @template describe_yml_param
+#' @param indent a character vector used to indent the tree
+#'
+#' @return invisibly, `.yml`
 #' @export
 #'
 #' @examples
-draw_yml_tree <- function(.yml, indent = "") {
+#' # draw the most recently used `yml`
+#' draw_yml_tree()
+#'
+#' yml() %>%
+#'   yml_output(
+#'     pdf_document(keep_tex = TRUE),
+#'     html_document()
+#'   ) %>%
+#'     draw_yml_tree()
+#'
+draw_yml_tree <- function(.yml = last_yml(), indent = "") {
   nested <- purrr::map_lgl(.yml, is.list)
   for (i in seq_along(.yml)) {
     if (i == length(.yml)) {

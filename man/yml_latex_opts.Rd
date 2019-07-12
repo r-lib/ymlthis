@@ -117,8 +117,6 @@ dvipsnames, svgnames, and x11names lists}
 }
 \value{
 a \code{yml} object
-
-a \code{yml} object
 }
 \description{
 \code{yml_latex_opts()} sets top-level YAML fields for LaTeX options used by
@@ -138,9 +136,17 @@ yml() \%>\%
 }
 \seealso{
 Other yml: \code{\link{bib2yml}},
+  \code{\link{draw_yml_tree}},
   \code{\link{use_yml_defaults}},
   \code{\link{use_yml_file}}, \code{\link{yml_author}},
-  \code{\link{yml_citations}}, \code{\link{yml_output}},
-  \code{\link{yml_reference}}
+  \code{\link{yml_blogdown_opts}},
+  \code{\link{yml_citations}}, \code{\link{yml_clean}},
+  \code{\link{yml_output}},
+  \code{\link{yml_pagedown_opts}},
+  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
+  \code{\link{yml_reference}}, \code{\link{yml_replace}},
+  \code{\link{yml_rticles_opts}},
+  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
+  \code{\link{yml_vignette}}
 }
 \concept{yml}

@@ -2,7 +2,7 @@
 % Please edit documentation in R/yml_bookdown.R
 \name{gitbook_config}
 \alias{gitbook_config}
-\title{Title}
+\title{Configure \code{bookdown::gitbook()} output}
 \usage{
 gitbook_config(toc_collapse = yml_blank(),
   toc_scroll_highlight = yml_blank(), toc_before = yml_blank(),
@@ -13,20 +13,33 @@ gitbook_config(toc_collapse = yml_blank(),
   sharing_twitter = yml_blank(), sharing_google = yml_blank(),
   sharing_linkedin = yml_blank(), sharing_weibo = yml_blank(),
   sharing_instapaper = yml_blank(), sharing_vk = yml_blank(),
-  sharing_all = yml_blank())
+  sharing_all = yml_blank(), ...)
 }
 \arguments{
-\item{toc_collapse}{Collapse some items initially when a page is loaded via the collapse option. Its possible values are subsection (the default), section, none (or null)}
+\item{toc_collapse}{Collapse some items initially when a page is loaded via
+the collapse option. Its possible values are subsection (the default),
+section, none (or null)}
 
-\item{toc_scroll_highlight}{enable highlighting of TOC items as you scroll the book body (by default this feature is enabled)}
+\item{toc_scroll_highlight}{enable highlighting of TOC items as you scroll
+the book body (by default this feature is enabled)}
 
-\item{toc_before, toc_after}{add more items before and after the TOC using the HTML tag <li>. These items will be separated from the TOC using a horizontal divider}
+\item{toc_before, toc_after}{add more items before and after the TOC using the
+HTML tag <li>. These items will be separated from the TOC using a
+horizontal divider}
 
-\item{toolbar_position}{The toolbar option has a sub-option position, which can take values fixed or static. The default is that the toolbar will be fixed at the top of the page, so even if you scroll down the page, the toolbar is still visible there.}
+\item{toolbar_position}{The toolbar option has a sub-option position, which
+can take values fixed or static. The default is that the toolbar will be
+fixed at the top of the page, so even if you scroll down the page, the
+toolbar is still visible there.}
 
 \item{edit}{If not empty, an edit button will be added to the toolbar.}
 
-\item{download}{This option takes either a character vector, or a list of character vectors with the length of each vector being 2. When it is a character vector, it should be either a vector of filenames, or filename extensions, e.g., both of the following settings are okay. When you only provide the filename extensions, the filename is derived from the book filename of the configuration file _bookdown.yml}
+\item{download}{This option takes either a character vector, or a list of
+character vectors with the length of each vector being 2. When it is a
+character vector, it should be either a vector of filenames, or filename
+extensions, e.g., both of the following settings are okay. When you only
+provide the filename extensions, the filename is derived from the book
+filename of the configuration file _bookdown.yml}
 
 \item{search}{Include a search bar?}
 
@@ -51,9 +64,18 @@ gitbook_config(toc_collapse = yml_blank(),
 \item{sharing_vk}{Include VK share link?}
 
 \item{sharing_all}{Include all share links?}
+
+\item{...}{additional named R objects, such as characters or lists, to
+transform into YAML}
+}
+\value{
+a list to use in the \code{config} argument of bookdown::gitbook()
 }
 \description{
-\itemize{
-\item defaults and descriptions are available at https://bookdown.org/yihui/bookdown/html.html
+\code{gitbook_config()} is a helper function to specify the \code{config} argument in
+\code{bookdown::gitbook()}, as described in the \href{https://bookdown.org/yihui/bookdown/html.html}{bookdown book}.
 }
+\seealso{
+Other bookdown: \code{\link{yml_bookdown_opts}}
 }
+\concept{bookdown}

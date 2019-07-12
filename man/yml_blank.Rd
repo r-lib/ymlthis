@@ -18,7 +18,17 @@ a \code{yml_blank} object
 \description{
 ymlthis treats \code{NULL}, \code{NA}, and other common argument defaults as literal
 (e.g. author = NULL will produce "author: null"). \code{yml_blank()} is a helper
-function to indicate that the field should not be included.
+function to indicate that the field should not be included. \code{yml_blank()} is
+primarily used as a default argument in arguments that should not be included
+by default.
+}
+\examples{
+
+yml() \%>\%
+  yml_replace(author = yml_blank()) \%>\%
+  yml_discard(~is_yml_blank(.x))
+
+
 }
 \seealso{
 \code{\link[=yml_discard]{yml_discard()}}, \code{\link[=yml_replace]{yml_replace()}}

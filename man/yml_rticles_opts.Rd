@@ -2,7 +2,7 @@
 % Please edit documentation in R/yml_rticles.R
 \name{yml_rticles_opts}
 \alias{yml_rticles_opts}
-\title{Title}
+\title{Set YAML related to rticles output formats}
 \usage{
 yml_rticles_opts(.yml, title = yml_blank(), runninghead = yml_blank(),
   author = yml_blank(), authormark = yml_blank(),
@@ -12,14 +12,83 @@ yml_rticles_opts(.yml, title = yml_blank(), runninghead = yml_blank(),
   accepted = yml_blank(), keywords = yml_blank(),
   bibliography = yml_blank(), longtable = yml_blank(),
   classoption = yml_blank(), header_includes = yml_blank(),
-  include_after = yml_blank())
+  include_after = yml_blank(), ...)
 }
 \arguments{
-\item{include_after}{}
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+a \code{yml_*()} function}
+
+\item{title}{Title of the manuscript}
+
+\item{runninghead}{short author list for header (sage_article)}
+
+\item{author}{list of authors, containing \code{name} and \code{num} (sage_article,
+sim_article)}
+
+\item{authormark}{short author list for header (sim_article)}
+
+\item{address}{list containing \code{num} and \code{org} for defining author
+affiliations (sage_article, sim_article)}
+
+\item{corrauth}{corresponding author \code{name} and \code{address} (sage_article)}
+
+\item{corres}{author and address for correspondence (sim_article)}
+
+\item{email}{correspondence email (sage_article)}
+
+\item{abstract}{abstract, limited to 200 words (sage_article), 250 words
+(sim_article)}
+
+\item{received, revised, accepted}{dates of submission, revision, and
+acceptance of the manuscript (sim_article)}
+
+\item{keywords}{keywords for the article (sage_article), up to 6 keywords
+(sim_article)}
+
+\item{bibliography}{BibTeX .bib file name  (sage_article, sim_article)}
+
+\item{longtable}{set to \code{TRUE} to include the longtable package, used by
+default from pandoc to convert markdown to LaTeX code  (sim_article)}
+
+\item{classoption}{\code{classoption} options of the \code{sagej} class (sage_article)}
+
+\item{header_includes}{custom additions to the header, before the
+\code{\\begin\{document\}} statement (sage_article, sim_article)}
+
+\item{include_after}{for including additional LaTeX code before the
+\code{\\end\{document\}} statement (sage_article, sim_article)}
+
+\item{...}{additional named R objects, such as characters or lists, to
+transform into YAML}
+}
+\value{
+a \code{yml} object
 }
 \description{
-\itemize{
-\item ?rticles::acm_article
-\item need to indicate which options belong to which functions
+The rticles package include numerous output formats specific to academic
+journals. All of these can take YAML similar to \code{pdf_document()}.
+Additionally, two templates include custom YAML, \code{rticles::sage_article()}
+and \code{rticles::sim_article()}. See the help pages for these functions for more
+details and the sources of the LaTeX templates used for each.
 }
+\examples{
+
+yml() \%>\%
+  yml_rticles_opts(received = "09-12-2014")
+
 }
+\seealso{
+Other yml: \code{\link{bib2yml}},
+  \code{\link{draw_yml_tree}},
+  \code{\link{use_yml_defaults}},
+  \code{\link{use_yml_file}}, \code{\link{yml_author}},
+  \code{\link{yml_blogdown_opts}},
+  \code{\link{yml_citations}}, \code{\link{yml_clean}},
+  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
+  \code{\link{yml_pagedown_opts}},
+  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
+  \code{\link{yml_reference}}, \code{\link{yml_replace}},
+  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
+  \code{\link{yml_vignette}}
+}
+\concept{yml}

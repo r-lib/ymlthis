@@ -3,12 +3,36 @@
 \name{pandoc_template_types}
 \alias{pandoc_template_types}
 \alias{pandoc_highlight_styles}
-\title{Title}
+\alias{use_pandoc_template}
+\alias{use_pandoc_highlight_style}
+\title{Use pandoc templates and custom highlight themes}
 \usage{
 pandoc_template_types()
 
 pandoc_highlight_styles()
+
+use_pandoc_template(type, path, source = c("rmarkdown", "pandoc"))
+
+use_pandoc_highlight_style(theme, path)
+}
+\arguments{
+\item{type}{The template type}
+
+\item{path}{The path to write the file to}
+
+\item{source}{The template source (pandoc or R Markdown)}
+
+\item{theme}{The name of the theme}
+}
+\value{
+a character vector
 }
 \description{
-Title
+Pandoc has several built in templates and code highlighting themes that can
+be customized and included in the \code{template} and \code{highlight-style} fields,
+respectively. \code{pandoc_template_types()} and \code{pandoc_highlight_styles()}
+return the available templates and styles in padoc. \code{use_pandoc_template()}
+creates a new file based on a template from pandoc or R Markdown and
+\code{use_pandoc_highlight_style()} creates a new highlight theme file based on an
+existing pandoc theme.
 }

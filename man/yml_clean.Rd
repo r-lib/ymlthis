@@ -2,13 +2,51 @@
 % Please edit documentation in R/yml_rmarkdown.R
 \name{yml_clean}
 \alias{yml_clean}
-\title{Title}
+\title{Remove intermediate rendering files}
 \usage{
 yml_clean(.yml, clean)
 }
 \arguments{
-\item{clean}{}
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+a \code{yml_*()} function}
+
+\item{clean}{Logical. Remove intermediate files that are created while making
+the R Markdown document?}
+}
+\value{
+a \code{yml} object
 }
 \description{
-Title
+R Markdown may create many documents while rendering the final product, for
+instance by using knitr to turn the R Markdown file to a Markdown file and
+then using Pandoc to convert to the final output. The \code{clean} field tells R
+Markdown whether or not to remove these files.
 }
+\examples{
+
+yml() \%>\%
+  # keep intermediate files
+  yml_clean(FALSE)
+
+}
+\seealso{
+Other yml: \code{\link{bib2yml}},
+  \code{\link{draw_yml_tree}},
+  \code{\link{use_yml_defaults}},
+  \code{\link{use_yml_file}}, \code{\link{yml_author}},
+  \code{\link{yml_blogdown_opts}},
+  \code{\link{yml_citations}},
+  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
+  \code{\link{yml_pagedown_opts}},
+  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
+  \code{\link{yml_reference}}, \code{\link{yml_replace}},
+  \code{\link{yml_rticles_opts}},
+  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
+  \code{\link{yml_vignette}}
+
+Other R Markdown: \code{\link{yml_params}},
+  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
+  \code{\link{yml_vignette}}
+}
+\concept{R Markdown}
+\concept{yml}

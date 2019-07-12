@@ -6,9 +6,6 @@
 \usage{
 last_yml()
 }
-\value{
-a \code{yml} object
-}
 \description{
 ymlthis stores the most recently printed \code{yml} object; you can use
 \code{last_yml()} to retrieve it to modify, pass to \code{use_*()} functions, and so

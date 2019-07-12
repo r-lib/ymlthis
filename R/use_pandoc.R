@@ -1,9 +1,20 @@
-#' Title
+#' Use pandoc templates and custom highlight themes
 #'
-#' @return
+#' Pandoc has several built in templates and code highlighting themes that can
+#' be customized and included in the `template` and `highlight-style` fields,
+#' respectively. `pandoc_template_types()` and `pandoc_highlight_styles()`
+#' return the available templates and styles in padoc. `use_pandoc_template()`
+#' creates a new file based on a template from pandoc or R Markdown and
+#' `use_pandoc_highlight_style()` creates a new highlight theme file based on an
+#' existing pandoc theme.
+#'
+#' @param theme The name of the theme
+#' @param type The template type
+#' @param source The template source (pandoc or R Markdown)
+#' @param path The path to write the file to
+#'
+#' @return a character vector
 #' @export
-#'
-#' @examples
 pandoc_template_types <- function() {
   c(
     "asciidoc",
@@ -54,15 +65,9 @@ pandoc_highlight_styles <- function() {
   system("pandoc --list-highlight-styles", intern = TRUE)
 }
 
-#' Title
-#'
-#' @param type
-#' @param path
-#'
-#' @return
+
 #' @export
-#'
-#' @examples
+#' @rdname pandoc_template_types
 use_pandoc_template <- function(type, path, source = c("rmarkdown", "pandoc")) {
   source <- match.arg(source)
 
@@ -86,6 +91,7 @@ use_pandoc_template <- function(type, path, source = c("rmarkdown", "pandoc")) {
   usethis::write_over(path, x)
 }
 
+
 read_file <- function(...) {
   readLines(
     system.file(
@@ -97,21 +103,15 @@ read_file <- function(...) {
   )
 }
 
-#' Title
-#'
-#' @param theme
-#' @param path
-#'
-#' @return
+
 #' @export
-#'
-#' @examples
+#' @rdname pandoc_template_types
 use_pandoc_highlight_style <- function(theme, path) {
   if (!grepl("//.theme$", path)) {
     stop("`path` must end in `.theme`", call. = FALSE)
   }
 
-  x <- glue::glue("pandoc --print-highlight-style {theme}") %>%
+  x <- glue::glue("pandoc --print-highlight-style={theme}") %>%
     system(intern = TRUE)
 
   usethis::write_over(path, x)

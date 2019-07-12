@@ -5,7 +5,10 @@
 #' checking for duplicate fields and (where possible) checking for valid
 #' entries. `yml_toplevel()` is a catch-all function that will take any named R
 #' object and put in the top level of the YAML; it checks for duplicate fields
-#' but is unable to validate the input beyond that it is valid YAML.
+#' but is unable to validate the input beyond that it is valid YAML. Some
+#' templates allow for additional variations of the YAML here. For instance,
+#' distill adds `url` and `affiliation_url` to the `author` field. Many
+#' `yml_*()` functions also contain `...` which allow for these unique fields.
 #'
 #' @template describe_yml_param
 #' @param name A character vector, name of the author(s)
@@ -44,10 +47,9 @@
 #'   "en-US". The [Language subtag lookup
 #'   tool](https://r12a.github.io/app-subtags/) can help find the appropriate
 #'   tag.
-#' @param ... any number of named R objects, most commonly a list or character
-#'   vector
+#' @template describe_dots_param
 #'
-#' @return a `yml` object
+#' @template describe_yml_output
 #' @export
 #'
 #' @examples

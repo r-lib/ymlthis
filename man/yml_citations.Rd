@@ -5,8 +5,8 @@
 \title{Set citation-related YAML options}
 \usage{
 yml_citations(.yml, bibliography = yml_blank(), csl = yml_blank(),
-  citation_abbreviations = yml_blank(), natbib = yml_blank(),
-  biblatex = yml_blank())
+  citation_abbreviations = yml_blank(), link_citations = yml_blank(),
+  natbib = yml_blank(), biblatex = yml_blank())
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
@@ -21,6 +21,9 @@ files of dozens of journals.}
 \item{citation_abbreviations}{Path to a CSL abbreviations JSON file. See the
 \href{http://manpages.ubuntu.com/manpages/xenial/man1/pandoc-citeproc.1.html}{pandoc-citeproc documentation}.}
 
+\item{link_citations}{Logical. Add citations hyperlinks to the corresponding
+bibliography entries?}
+
 \item{natbib}{Use natbib for citations in LaTeX output. This option is not
 for use with the pandoc-citeproc filter or with PDF output. It is intended
 for use in producing a LaTeX file that can be processed with bibtex.}
@@ -31,8 +34,6 @@ intended for use in producing a LaTeX file that can be processed with
 bibtex or biber.}
 }
 \value{
-a \code{yml} object
-
 a \code{yml} object
 }
 \description{
@@ -47,10 +48,17 @@ yml() \%>\%
 }
 \seealso{
 Other yml: \code{\link{bib2yml}},
+  \code{\link{draw_yml_tree}},
   \code{\link{use_yml_defaults}},
   \code{\link{use_yml_file}}, \code{\link{yml_author}},
+  \code{\link{yml_blogdown_opts}}, \code{\link{yml_clean}},
   \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
-  \code{\link{yml_reference}}
+  \code{\link{yml_pagedown_opts}},
+  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
+  \code{\link{yml_reference}}, \code{\link{yml_replace}},
+  \code{\link{yml_rticles_opts}},
+  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
+  \code{\link{yml_vignette}}
 
 Other citations: \code{\link{bib2yml}},
   \code{\link{yml_reference}}

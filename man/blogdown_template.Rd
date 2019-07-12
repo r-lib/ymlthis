@@ -10,8 +10,22 @@ blogdown_template(type, path = ".", theme = NULL)
 blogdown_archetypes(path = ".", theme = NULL)
 }
 \arguments{
-\item{theme}{}
+\item{type}{an archetype}
+
+\item{path}{a path that contains your blogdown site}
+
+\item{theme}{the theme to check for archetypes. By default,
+\code{blogdown_template()} will attempt to read your theme from \code{config.toml}.}
+}
+\value{
+a \code{yml} object
 }
 \description{
-Create YAML based on blogdown theme archetypes
+\code{blogdown_template()} creates YAML based on your blogdown theme archetypes.
+blogdown is based on Hugo, which supports many custom themes. Each theme uses
+YAML in a different way. However, many come with archetypes that define the
+YAML or TOML. To find out which types your theme has, use
+\code{blogdown_archetypes()} to see what's available. Use \code{blogdown_template()} to
+specify the archetype and it will conver the template to YAML that you can
+use in your post.
 }

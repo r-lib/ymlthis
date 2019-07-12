@@ -2,14 +2,55 @@
 % Please edit documentation in R/yml_rmarkdown.R
 \name{yml_vignette}
 \alias{yml_vignette}
-\title{Title}
+\title{Set up a package vignette}
 \usage{
 yml_vignette(.yml, title, engine = "knitr::rmarkdown",
   encoding = "UTF-8")
 }
 \arguments{
-\item{encoding}{}
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+a \code{yml_*()} function}
+
+\item{title}{The title of the vignette}
+
+\item{engine}{The rendering engine for the vignette ("knitr::rmarkdown" by
+default)}
+
+\item{encoding}{The character encoding for the document ("UTF-8" by default).}
+}
+\value{
+a \code{yml} object
 }
 \description{
-Title
+To use an R Markdown file as a vignette, you need to specify an output format
+appropriate for inclusion in a package (for example, the lightweight
+\code{html_vignette()}) and to specify the \code{vignette} field, which specifies the
+title, engine, and encoding type of the vignette.
 }
+\examples{
+
+yml() \%>\%
+  yml_output(html_vignette()) \%>\%
+  yml_vignette("An introduction to R Markdown")
+
+}
+\seealso{
+Other yml: \code{\link{bib2yml}},
+  \code{\link{draw_yml_tree}},
+  \code{\link{use_yml_defaults}},
+  \code{\link{use_yml_file}}, \code{\link{yml_author}},
+  \code{\link{yml_blogdown_opts}},
+  \code{\link{yml_citations}}, \code{\link{yml_clean}},
+  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
+  \code{\link{yml_pagedown_opts}},
+  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
+  \code{\link{yml_reference}}, \code{\link{yml_replace}},
+  \code{\link{yml_rticles_opts}},
+  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}}
+
+Other R Markdown: \code{\link{yml_clean}},
+  \code{\link{yml_params}}, \code{\link{yml_runtime}},
+  \code{\link{yml_site_opts}}
+}
+\concept{R Markdown}
+\concept{yml}

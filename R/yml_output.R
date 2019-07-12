@@ -14,7 +14,7 @@
 #'   `rmarkdown_output_format`, such as the `*_document()` functions in
 #'   rmarkdown.
 #'
-#' @return a `yml` object
+#' @template describe_yml_output
 #' @export
 #'
 #' @examples

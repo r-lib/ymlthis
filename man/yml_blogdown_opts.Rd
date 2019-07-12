@@ -2,7 +2,7 @@
 % Please edit documentation in R/yml_blogdown.R
 \name{yml_blogdown_opts}
 \alias{yml_blogdown_opts}
-\title{Title}
+\title{Top-level YAML options for blogdown}
 \usage{
 yml_blogdown_opts(.yml, draft = yml_blank(), publishdate = yml_blank(),
   weight = yml_blank(), slug = yml_blank(), aliases = yml_blank(),
@@ -12,9 +12,12 @@ yml_blogdown_opts(.yml, draft = yml_blank(), publishdate = yml_blank(),
   lastmod = yml_blank(), link_title = yml_blank(),
   resources = yml_blank(), series = yml_blank(),
   summary = yml_blank(), title = yml_blank(), type = yml_blank(),
-  url = yml_blank(), videos = yml_blank())
+  url = yml_blank(), videos = yml_blank(), ...)
 }
 \arguments{
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+a \code{yml_*()} function}
+
 \item{draft}{You can mark a document as a draft by setting \code{TRUE}. Draft
 posts will not be rendered if the site is built via
 \code{blogdown::build_site()} or \code{blogdown::hugo_build()}, but will be rendered
@@ -82,10 +85,44 @@ assumptions about the path of the content file. It also ignores any
 language prefixes of the multilingual feature.}
 
 \item{videos}{an array of paths to videos related to the page}
+
+\item{...}{additional named R objects, such as characters or lists, to
+transform into YAML}
+}
+\value{
+a \code{yml} object
 }
 \description{
-\itemize{
-\item https://bookdown.org/yihui/blogdown/content.html#yaml-metadata
-\item https://gohugo.io/content-management/front-matter/
+YAML in blogdown comes from a variety of sources. Technically, the
+congifugration file for your blog can be in YAML, but this is not very
+common; most use \code{config.toml}, based on TOML (see the \href{https://bookdown.org/yihui/blogdown/configuration.html}{blogdown book} for more). Most
+YAML will be for your posts (which the \href{https://bookdown.org/yihui/blogdown/content.html#yaml-metadata}{blogdown book} also
+describes). Common R Markdown fields can be used, but there are two other
+main sources for YAML fields: Hugo itself and the theme you are using. Hugo
+has numerous top-level YAML to control the output (see the \href{https://gohugo.io/content-management/front-matter/}{Hugo documentation}), and your
+theme may add many more or none. \code{yml_blogdown_opts()} supports Hugo YAML. To
+use YAML specific to your theme, see \code{\link[=blogdown_template]{blogdown_template()}}
 }
+\examples{
+
+yml() \%>\%
+  yml_blogdown_opts(
+    draft = TRUE,
+    slug = "blog-post"
+  )
 }
+\seealso{
+Other yml: \code{\link{bib2yml}},
+  \code{\link{draw_yml_tree}},
+  \code{\link{use_yml_defaults}},
+  \code{\link{use_yml_file}}, \code{\link{yml_author}},
+  \code{\link{yml_citations}}, \code{\link{yml_clean}},
+  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
+  \code{\link{yml_pagedown_opts}},
+  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
+  \code{\link{yml_reference}}, \code{\link{yml_replace}},
+  \code{\link{yml_rticles_opts}},
+  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
+  \code{\link{yml_vignette}}
+}
+\concept{yml}

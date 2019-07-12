@@ -4,11 +4,45 @@
 \alias{draw_yml_tree}
 \title{Draw an tree of YAML hierarchy}
 \usage{
-draw_yml_tree(.yml, indent = "")
+draw_yml_tree(.yml = last_yml(), indent = "")
 }
 \arguments{
-\item{indent}{}
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+a \code{yml_*()} function}
+
+\item{indent}{a character vector used to indent the tree}
+}
+\value{
+invisibly, \code{.yml}
 }
 \description{
-Draw an tree of YAML hierarchy
+\code{draw_yml_tree()} draws an ASCII tree of the hierarchy of a given \code{yml}
+object to the console.
 }
+\examples{
+# draw the most recently used `yml`
+draw_yml_tree()
+
+yml() \%>\%
+  yml_output(
+    pdf_document(keep_tex = TRUE),
+    html_document()
+  ) \%>\%
+    draw_yml_tree()
+
+}
+\seealso{
+Other yml: \code{\link{bib2yml}},
+  \code{\link{use_yml_defaults}},
+  \code{\link{use_yml_file}}, \code{\link{yml_author}},
+  \code{\link{yml_blogdown_opts}},
+  \code{\link{yml_citations}}, \code{\link{yml_clean}},
+  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
+  \code{\link{yml_pagedown_opts}},
+  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
+  \code{\link{yml_reference}}, \code{\link{yml_replace}},
+  \code{\link{yml_rticles_opts}},
+  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
+  \code{\link{yml_vignette}}
+}
+\concept{yml}

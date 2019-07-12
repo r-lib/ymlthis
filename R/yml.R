@@ -26,7 +26,7 @@
 #' @param yml_handlers a `list` containing functions to handle YAML printing.
 #'   See details.
 #'
-#' @return a `yml` object
+#' @template describe_yml_output
 #' @export
 #'
 #' @examples
@@ -88,7 +88,7 @@ yml <- function(.yml = NULL, get_yml = TRUE, author = TRUE, date = TRUE, yml_han
 #' @param x An object, either a character vector of length 1 or list, to convert
 #'   to `yml`.
 #'
-#' @return a `yml` object
+#' @template describe_yml_output
 #' @export
 #'
 #' @examples
@@ -125,6 +125,12 @@ as_yml.list <- function(x) {
 #' @export
 as_yml.character <- function(x) {
   .yml <- yaml::yaml.load(x)
+  as_yml(.yml)
+}
+
+#' @export
+as_yml.print_yaml <- function(x) {
+  .yml <- unclass(x)
   as_yml(.yml)
 }
 
@@ -199,7 +205,6 @@ is_yml <- function(x) inherits(x, "yml")
 #' `last_yml()` to retrieve it to modify, pass to `use_*()` functions, and so
 #' on.
 #'
-#' @return a `yml` object
 #' @export
 #'
 #' @examples

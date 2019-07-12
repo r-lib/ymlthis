@@ -2,6 +2,5 @@
 #'   a `yml_*()` function
 #'
 #' @family yml
-#' @return a `yml` object
 #'
 #' @md
