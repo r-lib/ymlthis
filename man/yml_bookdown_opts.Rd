@@ -16,6 +16,9 @@ yml_bookdown_opts(.yml, book_filename = yml_blank(),
 yml_bookdown_site(.yml)
 }
 \arguments{
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+a \code{yml_*()} function}
+
 \item{book_filename}{a character vector, the filename of the main Rmd file,
 i.e., the Rmd file that is merged from all chapters. By default, it is
 named "_main.Rmd".}
@@ -132,6 +135,22 @@ output_yml
 \seealso{
 \code{\link[=use_bookdown_yml]{use_bookdown_yml()}} \code{\link[=use_output_yml]{use_output_yml()}}
 
+Other yml: \code{\link{bib2yml}},
+  \code{\link{draw_yml_tree}},
+  \code{\link{use_yml_defaults}},
+  \code{\link{use_yml_file}}, \code{\link{use_yml}},
+  \code{\link{yml_author}},
+  \code{\link{yml_blogdown_opts}},
+  \code{\link{yml_citations}}, \code{\link{yml_clean}},
+  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
+  \code{\link{yml_pagedown_opts}},
+  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
+  \code{\link{yml_reference}}, \code{\link{yml_replace}},
+  \code{\link{yml_rticles_opts}},
+  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
+  \code{\link{yml_vignette}}
+
 Other bookdown: \code{\link{gitbook_config}}
 }
 \concept{bookdown}
+\concept{yml}

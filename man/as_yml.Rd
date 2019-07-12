@@ -20,7 +20,7 @@ ymlthis functions.
 }
 \examples{
 
-x <- as_yml("---
+x <- as_yml("
   author: Hadley Wickham
   date: '2014-09-12'
   title: Tidy Data
@@ -28,8 +28,7 @@ x <- as_yml("---
   - data cleaning
   - data tidying
   - relational databases
-  - R
-  ---")
+  - R")
 
   x
 

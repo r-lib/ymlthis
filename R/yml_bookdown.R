@@ -9,6 +9,7 @@
 #' `yml_*()` functions to `use_rmarkdown(path = "index.Rmd")`
 #' `use_bookdown_yml()`, `use_output_yml()` to write them to these files.
 #'
+#' @template describe_yml_param
 #' @param book_filename a character vector, the filename of the main Rmd file,
 #'   i.e., the Rmd file that is merged from all chapters. By default, it is
 #'   named "_main.Rmd".

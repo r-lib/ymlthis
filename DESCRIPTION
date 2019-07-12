@@ -21,7 +21,11 @@ Imports:
     magrittr,
     stringr,
     withr,
-    rstudioapi
+    rstudioapi,
+    yaml,
+    crayon,
+    readr,
+    whoami
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
 Suggests: 
@@ -30,7 +34,8 @@ Suggests:
     knitr,
     rmarkdown,
     pkgdown,
-    spelling
+    spelling,
+    bookdown
 VignetteBuilder: knitr
 URL: https://github.com/rstudio-education/ymlthis
 BugReports: https://github.com/rstudio-education/ymlthis/issues

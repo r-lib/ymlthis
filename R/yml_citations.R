@@ -160,6 +160,7 @@ yml_reference <- function(.yml, ..., .bibentry = NULL) {
 }
 
 #' @export
+#' @param id a character vector to use as the reference ID
 #' @rdname yml_reference
 reference <- function(id = NULL, ...) {
   stop_if_not_type(id, "character")
@@ -171,7 +172,7 @@ reference <- function(id = NULL, ...) {
 
 bibentry2yml <- function(.bibentry) {
   on.exit(unlink(tempdir()))
-  .bibtex <- capture.output(print(.bibentry, style = "Bibtex"))
+  .bibtex <- utils::capture.output(print(.bibentry, style = "Bibtex"))
   writeLines(.bibtex, file.path(tempdir(), "bibtex.bib"))
 
   bib2yml(path = file.path(tempdir(), "bibtex.bib"))

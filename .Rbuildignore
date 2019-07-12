@@ -3,3 +3,6 @@
 ^LICENSE\.md$
 ^README\.Rmd$
 man-roxygen
+_pkgdown.yml
+_travis.yml
+.travis.yml

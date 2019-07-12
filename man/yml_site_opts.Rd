@@ -45,6 +45,14 @@ transform into YAML}
 \item{type}{The color scheme for the navigation bar: either "default" or "inverse".}
 
 \item{left, right}{the side of the navbar a \code{navbar_page()} should go (see example)}
+
+\item{text}{The link text}
+
+\item{href}{The link URL}
+
+\item{icon}{An icon to include}
+
+\item{menu}{drop-down menus specified by including another \code{navbar_page()}}
 }
 \value{
 a \code{yml} object
@@ -87,8 +95,10 @@ yml(author = FALSE, date = FALSE) \%>\%
 Other yml: \code{\link{bib2yml}},
   \code{\link{draw_yml_tree}},
   \code{\link{use_yml_defaults}},
-  \code{\link{use_yml_file}}, \code{\link{yml_author}},
+  \code{\link{use_yml_file}}, \code{\link{use_yml}},
+  \code{\link{yml_author}},
   \code{\link{yml_blogdown_opts}},
+  \code{\link{yml_bookdown_opts}},
   \code{\link{yml_citations}}, \code{\link{yml_clean}},
   \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
   \code{\link{yml_pagedown_opts}},

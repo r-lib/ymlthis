@@ -18,7 +18,7 @@ a \code{yml_*()} function}
 that will save the resulting YAML as the default for \code{yml()}. The code that
 is placed on the clipboard is raw YAML passed to \code{ymlthis.default_yml} via
 \code{options()}. Saving this code to your \code{.Rprofile} (see
-\code{\link[usethis:edit_rprofile]{usethis::edit_rprofile()}})) will allow \code{\link[=yml]{yml()}} or \code{\link[=get_yml_defaults]{get_yml_defaults()}}
+\code{\link[usethis:edit_r_profile]{usethis::edit_r_profile()}})) will allow \code{\link[=yml]{yml()}} or \code{\link[=get_yml_defaults]{get_yml_defaults()}}
 to return the saved YAML.
 }
 \seealso{
@@ -26,8 +26,9 @@ to return the saved YAML.
 
 Other yml: \code{\link{bib2yml}},
   \code{\link{draw_yml_tree}}, \code{\link{use_yml_file}},
-  \code{\link{yml_author}},
+  \code{\link{use_yml}}, \code{\link{yml_author}},
   \code{\link{yml_blogdown_opts}},
+  \code{\link{yml_bookdown_opts}},
   \code{\link{yml_citations}}, \code{\link{yml_clean}},
   \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
   \code{\link{yml_pagedown_opts}},

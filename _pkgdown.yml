@@ -1,0 +1,83 @@
+reference:
+- title: All functions
+  desc: null
+  contents:
+  - '`as_yml`'
+  - '`draw_yml_tree`'
+  - '`get_yml_defaults`'
+  - '`gitbook_config`'
+  - '`hello`'
+  - '`includes2`'
+  - '`is_yml`'
+  - '`last_yml`'
+  - '`pkgdown_template`'
+  - '`shiny_checkbox`'
+  - '`shiny_date`'
+  - '`shiny_file`'
+  - '`shiny_numeric`'
+  - '`shiny_params`'
+  - '`shiny_password`'
+  - '`shiny_radio`'
+  - '`shiny_select`'
+  - '`shiny_slider`'
+  - '`shiny_text`'
+  - '`use_yml_file`'
+  - '`use_yml`'
+  - '`use_yml_defaults`'
+  - '`yml`'
+  - '`yml_author`'
+  - '`yml_blank`'
+  - '`yml_blogdown_opts`'
+  - '`yml_bookdown_opts`'
+  - '`yml_citations`'
+  - '`yml_clean`'
+  - '`yml_date`'
+  - '`yml_description`'
+  - '`yml_keywords`'
+  - '`yml_latex_opts`'
+  - '`yml_navbar`'
+  - '`yml_output`'
+  - '`yml_params`'
+  - '`yml_pkgdown`'
+  - '`yml_pkgdown_articles`'
+  - '`yml_pkgdown_docsearch`'
+  - '`yml_pkgdown_figures`'
+  - '`yml_pkgdown_news`'
+  - '`yml_pkgdown_reference`'
+  - '`yml_reference`'
+  - '`yml_rticles_opts`'
+  - '`yml_runtime`'
+  - '`yml_site_opts`'
+  - '`yml_subject`'
+  - '`yml_title`'
+  - '`yml_abstract`'
+  - '`yml_toplevel`'
+  - '`yml_verbatim`'
+  - '`yml_vignette`'
+articles:
+- title: All vignettes
+  desc: null
+  contents: '`introduction-to-ymlthis`'
+navbar:
+  structure:
+    left:
+    - home
+    - intro
+    - reference
+    - articles
+    - tutorials
+    - news
+    right: github
+  components:
+    home:
+      icon: fa-home fa-lg
+      href: index.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    articles:
+      text: Articles
+      menu:
+      - text: introduction-to-ymlthis
+        href: articles/introduction-to-ymlthis.html
+

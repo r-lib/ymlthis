@@ -10,13 +10,12 @@ use_yml(.yml = last_yml())
 use_rmarkdown(.yml = last_yml(), path, template = NULL)
 }
 \arguments{
-\item{.yml}{A \code{yml} object, the most recently printed by default.}
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+a \code{yml_*()} function}
 
 \item{path}{A file path to write R Markdown file to}
 
 \item{template}{An existing R Markdown file to read YAML from}
-
-\item{.yml}{}
 }
 \value{
 \code{use_yml()} invisibly returns the input \code{yml} object
@@ -30,3 +29,20 @@ the \code{yml} object and writes it to a new R Markdown file. You may also suppl
 YAML header; the YAML header from the template is then combined with \code{.yml},
 if it's supplied, and written to a new file.
 }
+\seealso{
+Other yml: \code{\link{bib2yml}},
+  \code{\link{draw_yml_tree}},
+  \code{\link{use_yml_defaults}},
+  \code{\link{use_yml_file}}, \code{\link{yml_author}},
+  \code{\link{yml_blogdown_opts}},
+  \code{\link{yml_bookdown_opts}},
+  \code{\link{yml_citations}}, \code{\link{yml_clean}},
+  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
+  \code{\link{yml_pagedown_opts}},
+  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
+  \code{\link{yml_reference}}, \code{\link{yml_replace}},
+  \code{\link{yml_rticles_opts}},
+  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
+  \code{\link{yml_vignette}}
+}
+\concept{yml}

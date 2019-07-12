@@ -34,8 +34,10 @@ yml() \%>\%
 \seealso{
 Other yml: \code{\link{bib2yml}},
   \code{\link{use_yml_defaults}},
-  \code{\link{use_yml_file}}, \code{\link{yml_author}},
+  \code{\link{use_yml_file}}, \code{\link{use_yml}},
+  \code{\link{yml_author}},
   \code{\link{yml_blogdown_opts}},
+  \code{\link{yml_bookdown_opts}},
   \code{\link{yml_citations}}, \code{\link{yml_clean}},
   \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
   \code{\link{yml_pagedown_opts}},

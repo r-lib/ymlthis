@@ -14,7 +14,7 @@
 #' `.yml` accepts a character vector of YAML, such as "author: Hadley Wickham",
 #' an object returned by ymlthis functions that start with `yml_*()`, or a
 #' `list` object (e.g. `list(author = "Hadley Wickham", date = "07/04/2019")`).
-#' `.yml` objects are processed with [`as_yaml()`], a wrapper around
+#' `.yml` objects are processed with [`as_yml()`], a wrapper around
 #' [`yaml::yaml.load()`]. See that function for more details.
 #'
 #' @param .yml a character vector, `yml` object, or YAML-like list. See details.
@@ -47,7 +47,7 @@
 #'     c("Yihui Xie", "Hadley Wickham"),
 #'     affiliation = rep("RStudio", 2)
 #'   ) %>%
-#'   yml_date("07/04/2019")) %>%
+#'   yml_date("07/04/2019") %>%
 #'   yml_output(
 #'     pdf_document(
 #'     keep_tex = TRUE,
@@ -93,7 +93,7 @@ yml <- function(.yml = NULL, get_yml = TRUE, author = TRUE, date = TRUE, yml_han
 #'
 #' @examples
 #'
-#' x <- as_yml("---
+#' x <- as_yml("
 #'   author: Hadley Wickham
 #'   date: '2014-09-12'
 #'   title: Tidy Data
@@ -101,8 +101,7 @@ yml <- function(.yml = NULL, get_yml = TRUE, author = TRUE, date = TRUE, yml_han
 #'   - data cleaning
 #'   - data tidying
 #'   - relational databases
-#'   - R
-#'   ---")
+#'   - R")
 #'
 #'   x
 #'

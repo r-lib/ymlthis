@@ -195,6 +195,11 @@ yml_navbar <- function(.yml, title = yml_blank(), type = yml_blank(),
   .yml
 }
 
+#' @param text The link text
+#' @param href The link URL
+#' @param icon An icon to include
+#' @param menu drop-down menus specified by including another `navbar_page()`
+#'
 #' @export
 #' @rdname yml_site_opts
 navbar_page <- function(text = yml_blank(), href = yml_blank(), icon = yml_blank(), menu = yml_blank(), ...) {

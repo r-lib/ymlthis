@@ -38,7 +38,7 @@ the input fields are valid for the setting they are used in.
 \code{.yml} accepts a character vector of YAML, such as "author: Hadley Wickham",
 an object returned by ymlthis functions that start with \code{yml_*()}, or a
 \code{list} object (e.g. \code{list(author = "Hadley Wickham", date = "07/04/2019")}).
-\code{.yml} objects are processed with \code{\link[=as_yaml]{as_yaml()}}, a wrapper around
+\code{.yml} objects are processed with \code{\link[=as_yml]{as_yml()}}, a wrapper around
 \code{\link[yaml:yaml.load]{yaml::yaml.load()}}. See that function for more details.
 }
 \examples{
@@ -59,7 +59,7 @@ yml() \%>\%
     c("Yihui Xie", "Hadley Wickham"),
     affiliation = rep("RStudio", 2)
   ) \%>\%
-  yml_date("07/04/2019")) \%>\%
+  yml_date("07/04/2019") \%>\%
   yml_output(
     pdf_document(
     keep_tex = TRUE,

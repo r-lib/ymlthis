@@ -53,6 +53,8 @@ a \code{yml_*()} function}
 \item{...}{additional named R objects, such as characters or lists, to
 transform into YAML}
 
+\item{.shiny}{a Shiny function call to captureand convert to YAML}
+
 \item{label}{Display label for the control, or \code{NULL} for no label.}
 
 \item{value}{Initial value (\code{TRUE} or \code{FALSE}).}
@@ -215,8 +217,10 @@ yml() \%>\%
 Other yml: \code{\link{bib2yml}},
   \code{\link{draw_yml_tree}},
   \code{\link{use_yml_defaults}},
-  \code{\link{use_yml_file}}, \code{\link{yml_author}},
+  \code{\link{use_yml_file}}, \code{\link{use_yml}},
+  \code{\link{yml_author}},
   \code{\link{yml_blogdown_opts}},
+  \code{\link{yml_bookdown_opts}},
   \code{\link{yml_citations}}, \code{\link{yml_clean}},
   \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
   \code{\link{yml_pagedown_opts}},

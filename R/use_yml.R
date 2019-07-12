@@ -8,7 +8,7 @@
 #' YAML header; the YAML header from the template is then combined with `.yml`,
 #' if it's supplied, and written to a new file.
 #'
-#' @param .yml A `yml` object, the most recently printed by default.
+#' @template describe_yml_param
 #' @param path A file path to write R Markdown file to
 #' @param template An existing R Markdown file to read YAML from
 #'
@@ -18,8 +18,7 @@ use_yml <- function(.yml = last_yml()) {
   return_yml_code(.yml)
 }
 
-#' @param .yml
-#'
+
 #' @rdname use_yml
 #' @export
 use_rmarkdown <- function(.yml = last_yml(), path, template = NULL) {
@@ -169,7 +168,7 @@ write_yml_file <- function(.yml, path) {
 #' that will save the resulting YAML as the default for `yml()`. The code that
 #' is placed on the clipboard is raw YAML passed to `ymlthis.default_yml` via
 #' `options()`. Saving this code to your `.Rprofile` (see
-#' [`usethis::edit_rprofile()`])) will allow [`yml()`] or [`get_yml_defaults()`]
+#' [`usethis::edit_r_profile()`])) will allow [`yml()`] or [`get_yml_defaults()`]
 #' to return the saved YAML.
 #'
 #' @template describe_yml_param
