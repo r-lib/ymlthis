@@ -19,7 +19,7 @@
 #'   will populate the date automatically.
 #' @param format When the default `date` is used, the format passed to
 #'   `[format.Date()]`.
-#' @param title A character vector, tThe title of the document
+#' @param title A character vector, the title of the document
 #' @param subtitle A character vector, the subtitle of the document. Not all R
 #'   Markdown formats use subtitles, so it may depend on what you use in the
 #'   output field (see [yml_output()]). It is available in `pdf_document()`,

@@ -53,7 +53,7 @@ a \code{yml_*()} function}
 \item{...}{additional named R objects, such as characters or lists, to
 transform into YAML}
 
-\item{.shiny}{a Shiny function call to captureand convert to YAML}
+\item{.shiny}{a Shiny function call to capture and convert to YAML}
 
 \item{label}{Display label for the control, or \code{NULL} for no label.}
 

@@ -13,7 +13,7 @@
 #' starting with `shiny_*()`, e.g. `shiny_checkbox()`
 #'
 #' @template describe_yml_param
-#' @param .shiny a Shiny function call to captureand convert to YAML
+#' @param .shiny a Shiny function call to capture and convert to YAML
 #' @template describe_dots_param
 #' @template describe_yml_output
 #' @export

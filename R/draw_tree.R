@@ -119,6 +119,6 @@ print_vector_leaves <- function(x, indent) {
   }
 }
 
-pipe <- function() "│"
-tab <- function() "├── "
-end_tab <- function() "└── "
+pipe <- function() box_chars("v")
+tab <- function() paste0(box_chars("j"), box_chars("h"), box_chars("h"), " ")
+end_tab <- function() paste0(box_chars("l"), box_chars("h"), box_chars("h"), " ")

@@ -40,3 +40,42 @@ prepend_namespace <- function(function_namespace, function_name) {
 }
 
 `%nin%` <- Negate("%in%")
+
+# These are derived from https://github.com/r-lib/cli/blob/e9acc82b0d20fa5c64dd529400b622c0338374ed/R/tree.R#L111
+box_chars <- function(.subset = NULL) {
+  if (is_utf8_output()) {
+    x <- list(
+      "h" = "\u2500",                   # horizontal
+      "v" = "\u2502",                   # vertical
+      "l" = "\u2514",
+      "j" = "\u251C"
+    )
+  } else {
+    x <- list(
+      "h" = "-",                        # horizontal
+      "v" = "|",                        # vertical
+      "l" = "\\",
+      "j" = "+"
+    )
+  }
+
+  if (!is.null(.subset)) {
+    return(x[[.subset]])
+  }
+
+  x
+}
+
+is_latex_output <- function() {
+  if (!("knitr" %in% loadedNamespaces())) return(FALSE)
+  get("is_latex_output", asNamespace("knitr"))()
+}
+
+is_utf8_output <- function() {
+  opt <- getOption("cli.unicode", NULL)
+  if (!is.null(opt)) {
+    isTRUE(opt)
+  } else {
+    l10n_info()$`UTF-8` && !is_latex_output()
+  }
+}

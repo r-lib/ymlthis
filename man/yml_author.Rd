@@ -55,7 +55,7 @@ will populate the date automatically.}
 \item{format}{When the default \code{date} is used, the format passed to
 \code{[format.Date()]}.}
 
-\item{title}{A character vector, tThe title of the document}
+\item{title}{A character vector, the title of the document}
 
 \item{subtitle}{A character vector, the subtitle of the document. Not all R
 Markdown formats use subtitles, so it may depend on what you use in the
