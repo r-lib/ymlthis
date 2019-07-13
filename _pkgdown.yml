@@ -1,59 +1,60 @@
 reference:
-- title: All functions
+- title: Basic YAML
+  desc: null
+  contents:
+  - '`includes2`'
+  - '`yml`'
+  - '`yml_author`'
+  - '`yml_clean`'
+  - '`yml_latex_opts`'
+  - '`yml_output`'
+  - '`yml_runtime`'
+- title: Parameterized R Markdown Reports
+  desc: null
+  contents:
+  - '`yml_params`'
+- title: Websites
+  desc: null
+  contents:
+  - '`yml_site_opts`'
+  - '`yml_vignette`'
+- title: References and Citations
+  desc: null
+  contents:
+  - '`bib2yml`'
+  - '`yml_citations`'
+  - '`yml_reference`'
+- title: Working with YAML
   desc: null
   contents:
   - '`as_yml`'
   - '`draw_yml_tree`'
-  - '`get_yml_defaults`'
-  - '`gitbook_config`'
-  - '`hello`'
-  - '`includes2`'
   - '`is_yml`'
   - '`last_yml`'
-  - '`pkgdown_template`'
-  - '`shiny_checkbox`'
-  - '`shiny_date`'
-  - '`shiny_file`'
-  - '`shiny_numeric`'
-  - '`shiny_params`'
-  - '`shiny_password`'
-  - '`shiny_radio`'
-  - '`shiny_select`'
-  - '`shiny_slider`'
-  - '`shiny_text`'
+  - '`yml_blank`'
+  - '`yml_code`'
+  - '`yml_replace`'
+  - '`yml_verbatim`'
+- title: Writing to YAML and R Markdown files
+  desc: null
+  contents:
+  - '`pandoc_template_types`'
   - '`use_yml_file`'
   - '`use_yml`'
   - '`use_yml_defaults`'
-  - '`yml`'
-  - '`yml_author`'
-  - '`yml_blank`'
+- title: Other R Markdown Packages
+  desc: null
+  contents:
+  - '`blogdown_template`'
+  - '`gitbook_config`'
+  - '`pagedown_buisinesscard_template`'
+  - '`pkgdown_template`'
   - '`yml_blogdown_opts`'
   - '`yml_bookdown_opts`'
-  - '`yml_citations`'
-  - '`yml_clean`'
-  - '`yml_date`'
-  - '`yml_description`'
-  - '`yml_keywords`'
-  - '`yml_latex_opts`'
-  - '`yml_navbar`'
-  - '`yml_output`'
-  - '`yml_params`'
+  - '`yml_distill_opts`'
+  - '`yml_pagedown_opts`'
   - '`yml_pkgdown`'
-  - '`yml_pkgdown_articles`'
-  - '`yml_pkgdown_docsearch`'
-  - '`yml_pkgdown_figures`'
-  - '`yml_pkgdown_news`'
-  - '`yml_pkgdown_reference`'
-  - '`yml_reference`'
   - '`yml_rticles_opts`'
-  - '`yml_runtime`'
-  - '`yml_site_opts`'
-  - '`yml_subject`'
-  - '`yml_title`'
-  - '`yml_abstract`'
-  - '`yml_toplevel`'
-  - '`yml_verbatim`'
-  - '`yml_vignette`'
 articles:
 - title: All vignettes
   desc: null
@@ -80,4 +81,7 @@ navbar:
       menu:
       - text: introduction-to-ymlthis
         href: articles/introduction-to-ymlthis.html
+    github:
+      icon: fa-github fa-lg
+      href: https://github.com/rstudio-education/ymlthis
 
