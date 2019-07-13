@@ -21,6 +21,9 @@
 #'     draw_yml_tree()
 #'
 draw_yml_tree <- function(.yml = last_yml(), indent = "") {
+  any_vectors <- any(purrr::map_lgl(.yml, is_long_vector))
+  if (any_vectors) print_vector_leaves(.yml, indent)
+
   nested <- purrr::map_lgl(.yml, is.list)
   for (i in seq_along(.yml)) {
     if (i == length(.yml)) {
@@ -74,10 +77,9 @@ draw_yml_tree <- function(.yml = last_yml(), indent = "") {
         }
 
         if (is_long_vector(.yml[[i]])) {
-          marker <- ifelse(i != length(.yml), pipe(), "")
-          print_vector_leaves(.yml[i], paste0(indent, marker, "   "))
-          next
+          return(invisible(.yml))
         }
+
         leaf <- color_yml(.yml[i])
         leaf_indent <- paste0(indent, tab())
         cat(paste0(leaf_indent, leaf))
