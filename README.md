@@ -5,10 +5,16 @@
 
 <!-- badges: start -->
 
-[![Codecov test
-coverage](https://codecov.io/gh/malcolmbarrett/ymlthis/branch/master/graph/badge.svg)](https://codecov.io/gh/malcolmbarrett/ymlthis?branch=master)
+[![Build
+Status](https://travis-ci.org/malcolmbarrett/ymlthis.svg?branch=master)](https://travis-ci.org/malcolmbarrett/ymlthis)
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/malcolmbarrett/ymlthis?branch=master&svg=true)](https://ci.appveyor.com/project/malcolmbarrett/ymlthis)
+[![Codecov test
+coverage](https://codecov.io/gh/malcolmbarrett/ymlthis/branch/master/graph/badge.svg)](https://codecov.io/gh/malcolmbarrett/ymlthis?branch=master)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/ymlthis)](https://cran.r-project.org/package=ymlthis)
 <!-- badges: end -->
 
 ymlthis makes it easy to write YAML front matter for R Markdown and
@@ -56,12 +62,8 @@ yml() %>%
 #> author:
 #> - name: Yihui Xie
 #>   affiliation: RStudio
-#>   '': Yihui Xie
-#>   '': RStudio
 #> - name: Hadley Wickham
 #>   affiliation: RStudio
-#>   '': Hadley Wickham
-#>   '': RStudio
 #> date: '2019-07-13'
 #> output:
 #>   pdf_document:
