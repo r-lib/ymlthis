@@ -116,6 +116,11 @@ print_vector_leaves <- function(x, indent) {
       marker <- ifelse(i != length(x), pipe(), " ")
       print_vector_leaves(x[[i]], paste0(indent, marker, "   "))
     }
+
+    if (is.list(x[[i]])) {
+      marker <- ifelse(i != length(x), pipe(), " ")
+      draw_yml_tree(x[[i]], paste0(indent, marker, "   "))
+    }
   }
 }
 
