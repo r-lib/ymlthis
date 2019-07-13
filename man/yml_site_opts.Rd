@@ -100,6 +100,7 @@ Other yml: \code{\link{bib2yml}},
   \code{\link{yml_blogdown_opts}},
   \code{\link{yml_bookdown_opts}},
   \code{\link{yml_citations}}, \code{\link{yml_clean}},
+  \code{\link{yml_distill_opts}},
   \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
   \code{\link{yml_pagedown_opts}},
   \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
@@ -111,7 +112,8 @@ Other R Markdown: \code{\link{yml_clean}},
   \code{\link{yml_params}}, \code{\link{yml_runtime}},
   \code{\link{yml_vignette}}
 
-Other websites: \code{\link{yml_pkgdown}}
+Other websites: \code{\link{yml_distill_opts}},
+  \code{\link{yml_pkgdown}}
 }
 \concept{R Markdown}
 \concept{websites}

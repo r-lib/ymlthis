@@ -59,8 +59,8 @@ transform into YAML}
 
 \item{value}{Initial value (\code{TRUE} or \code{FALSE}).}
 
-\item{width}{The width of the input, e.g. \code{'400px'}, or \code{'100\%'};
-see \code{\link{validateCssUnit}}.}
+\item{width}{The width of the input, e.g. '400px', or '100%'; see
+\code{\link[shiny:validateCssUnit]{shiny::validateCssUnit()}}}
 
 \item{min}{Minimum allowed value}
 
@@ -82,8 +82,8 @@ the nearest step.}
 according to some simple heuristics.}
 
 \item{animate}{\code{TRUE} to show simple animation controls with default
-settings; \code{FALSE} not to; or a custom settings list, such as those
-created using \code{\link{animationOptions}}.}
+settings; \code{FALSE} not to; or a custom settings list, such as those created
+using \code{\link[shiny:animationOptions]{shiny::animationOptions()}}}
 
 \item{sep}{Separator between thousands places in numbers.}
 
@@ -222,6 +222,7 @@ Other yml: \code{\link{bib2yml}},
   \code{\link{yml_blogdown_opts}},
   \code{\link{yml_bookdown_opts}},
   \code{\link{yml_citations}}, \code{\link{yml_clean}},
+  \code{\link{yml_distill_opts}},
   \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
   \code{\link{yml_pagedown_opts}},
   \code{\link{yml_pkgdown}}, \code{\link{yml_reference}},

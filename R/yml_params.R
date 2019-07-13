@@ -14,6 +14,8 @@
 #'
 #' @template describe_yml_param
 #' @param .shiny a Shiny function call to capture and convert to YAML
+#' @param width	The width of the input, e.g. '400px', or '100%'; see
+#'   [shiny::validateCssUnit()]
 #' @template describe_dots_param
 #' @template describe_yml_output
 #' @export
@@ -191,6 +193,9 @@ shiny_numeric <- function(label, value, min = NA, max = NA, step = NA,  width = 
 }
 
 #' @inheritParams shiny::sliderInput
+#' @param animate `TRUE` to show simple animation controls with default
+#'   settings; `FALSE` not to; or a custom settings list, such as those created
+#'   using [shiny::animationOptions()]
 #' @export
 #' @rdname yml_params
 shiny_slider <- function(label, min, max, value, step = NULL,
