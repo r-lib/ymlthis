@@ -5,6 +5,10 @@
 
 <!-- badges: start -->
 
+[![Codecov test
+coverage](https://codecov.io/gh/malcolmbarrett/ymlthis/branch/master/graph/badge.svg)](https://codecov.io/gh/malcolmbarrett/ymlthis?branch=master)
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/malcolmbarrett/ymlthis?branch=master&svg=true)](https://ci.appveyor.com/project/malcolmbarrett/ymlthis)
 <!-- badges: end -->
 
 ymlthis makes it easy to write YAML front matter for R Markdown and

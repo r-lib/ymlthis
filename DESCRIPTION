@@ -35,7 +35,8 @@ Suggests:
     rmarkdown,
     pkgdown,
     spelling,
-    bookdown
+    bookdown,
+    covr
 VignetteBuilder: knitr
 URL: https://github.com/rstudio-education/ymlthis
 BugReports: https://github.com/rstudio-education/ymlthis/issues
