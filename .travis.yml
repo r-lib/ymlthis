@@ -28,6 +28,7 @@ jobs:
     if: branch IN (master)
     r_binary_packages:
     - pkgdown
+    - lubridate
     - devtools
     script:
     - Rscript -e "devtools::install()"
