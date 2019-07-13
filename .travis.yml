@@ -22,26 +22,26 @@ jobs:
     r_binary_packages: covr
     script: Rscript -e "covr::codecov()"
 
-  - stage: deploy
-    name: pkgdown
-    r: release
-    if: branch IN (master)
-    r_binary_packages:
-    - pkgdown
-    - lubridate
-    - devtools
-    script:
-    - Rscript -e "devtools::install()"
-    - Rscript -e "pkgdown::build_site()"
-    - Rscript -e "remove.packages(devtools::as.package('.')$package)"
-    deploy:
-      provider: pages
-      script: Rscript -e 'devtools::install()'
-      local-dir: docs
-      skip-cleanup: true
-      keep-history: false
-      on:
-        all_branches: true
-      github-token:
-        secure: "I5t4f+wlDS1Ssd7BFPsQDRRyx938581dqFjSbpfc1AMgoCGjvJjP7SqWhTLzY1l6i5KR3QSoHlxMe9/SJBVuf0sAWAZ0GvsCZjGnkqcjiTP6wWBbqy2hwU8WJiax6hyVwhHatX0bdN2j5y3G/m1/E+5XU8L/ANhxGpCc1ynGq7JIRgzYRCPDh6MfIrhpQXnHsIWjeAV13XQHofoANwkp+2nyGt76wicf0SD4CcQlH1Y2i8k45gcL4WP1V1ug0DEPhtNL/Uuq2HJKcRPGGCE++zTdU/Fn8eQp2oYBavTxql228MPRYrQKUdAxvvdmPONppRIpk+LsAiA6On8mYa38kGB8IbXmIJ24VJD2K3DUqKqs11OV36+vPVP9jiupxTG6U0Muev2LCfUPpITu5m2MLL8PCq/sac5titnfpotODUeWy6cgPDCOl8bDzNZb5Ozc5dpFfFolr4giVPTv5gnNvSdRnmglYWe6jIeU7Yf6TH0YaX/Ygq2rOvOOYbqIho/AXEMdfvv111pe+J9WRsHg9bbLCLDnXeYDFKhaaU8bTYpyKtzaIL/827TyNmiULwvLYLMwbQ1jScXoNPLU+RluBowcQvFhvmF5l/Y293ytb0VWypACuEsH7SVKXc9j8FKYKb1cL1E8h9ERb9W0qiX34toQPOY4jNOABG9HMql9jG4="
+#  - stage: deploy
+#    name: pkgdown
+#    r: release
+#    if: branch IN (master)
+#    r_binary_packages:
+#    - pkgdown
+#    - lubridate
+#    - devtools
+#    script:
+#    - Rscript -e "devtools::install()"
+#    - Rscript -e "pkgdown::build_site()"
+#    - Rscript -e "remove.packages(devtools::as.package('.')$package)"
+#    deploy:
+#      provider: pages
+#      script: Rscript -e 'devtools::install()'
+#      local-dir: docs
+#      skip-cleanup: true
+#      keep-history: false
+#      on:
+#        all_branches: true
+#      github-token:
+#        secure: "I5t4f+wlDS1Ssd7BFPsQDRRyx938581dqFjSbpfc1AMgoCGjvJjP7SqWhTLzY1l6i5KR3QSoHlxMe9/SJBVuf0sAWAZ0GvsCZjGnkqcjiTP6wWBbqy2hwU8WJiax6hyVwhHatX0bdN2j5y3G/m1/E+5XU8L/ANhxGpCc1ynGq7JIRgzYRCPDh6MfIrhpQXnHsIWjeAV13XQHofoANwkp+2nyGt76wicf0SD4CcQlH1Y2i8k45gcL4WP1V1ug0DEPhtNL/Uuq2HJKcRPGGCE++zTdU/Fn8eQp2oYBavTxql228MPRYrQKUdAxvvdmPONppRIpk+LsAiA6On8mYa38kGB8IbXmIJ24VJD2K3DUqKqs11OV36+vPVP9jiupxTG6U0Muev2LCfUPpITu5m2MLL8PCq/sac5titnfpotODUeWy6cgPDCOl8bDzNZb5Ozc5dpFfFolr4giVPTv5gnNvSdRnmglYWe6jIeU7Yf6TH0YaX/Ygq2rOvOOYbqIho/AXEMdfvv111pe+J9WRsHg9bbLCLDnXeYDFKhaaU8bTYpyKtzaIL/827TyNmiULwvLYLMwbQ1jScXoNPLU+RluBowcQvFhvmF5l/Y293ytb0VWypACuEsH7SVKXc9j8FKYKb1cL1E8h9ERb9W0qiX34toQPOY4jNOABG9HMql9jG4="
 
