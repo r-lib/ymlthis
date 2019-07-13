@@ -62,6 +62,8 @@ yml_output <- function(.yml, ...) {
 }
 
 eval_with_rmarkdown <- function(x, check_type = TRUE) {
+  msg <- "rmarkdown must be installed to use outputs"
+  if (!requireNamespace("rmarkdown", quietly = TRUE)) stop(msg, call. = FALSE)
   x <- withr::with_namespace(
     "rmarkdown",
     rlang::eval_tidy(x)
