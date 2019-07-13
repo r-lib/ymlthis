@@ -15,7 +15,8 @@ a \code{yml_*()} function}
 
 \item{...}{Fields relevant to the citation (e.g. bibtex fields)}
 
-\item{.bibentry}{an object created by \code{bibentry()} or \code{citation()}}
+\item{.bibentry}{an object created by \code{bibentry()} or \code{citation()}. Note that
+this requires pandoc-citeproc to be installed.}
 
 \item{id}{a character vector to use as the reference ID}
 }
@@ -30,8 +31,8 @@ in the \code{bibliography} field (see \code{\link[=yml_citations]{yml_citations(
 few references, however, it might be useful to make the references
 self-contained in the YAML. \code{yml_reference()} can also transform \code{bibentry}
 and \code{citation} objects to YAML. See \code{\link[=bibentry]{bibentry()}} and \code{\link[=citation]{citation()}}. To cite
-several R packages and convert the references to YAML, it may be better to
-use \code{\link[knitr:write_bib]{knitr::write_bib()}} to write a bibliography file and convert it with
+several R packages and convert the references to YAML, it may be better to use
+\code{\link[knitr:write_bib]{knitr::write_bib()}} to write a bibliography file and convert it with
 \code{[bib2yml()]}.
 }
 \examples{
@@ -90,13 +91,14 @@ bref <- c(
      key = "boot-book"
    )
 )
-
+\dontrun{
+# requires pandoc-citeproc to be installed
 yml() \%>\%
   yml_reference(.bibentry = bref)
 
 yml() \%>\%
   yml_reference(.bibentry = citation("purrr"))
-
+}
 }
 \seealso{
 Other yml: \code{\link{bib2yml}},
