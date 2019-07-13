@@ -52,12 +52,16 @@ yml() %>%
 #> author:
 #> - name: Yihui Xie
 #>   affiliation: RStudio
+#>   '': Yihui Xie
+#>   '': RStudio
 #> - name: Hadley Wickham
 #>   affiliation: RStudio
-#> date: '2019-06-10'
+#>   '': Hadley Wickham
+#>   '': RStudio
+#> date: '2019-07-13'
 #> output:
 #>   pdf_document:
-#>     keep_tex: yes
+#>     keep_tex: true
 #>     includes:
 #>       after_body: footer.tex
 #>   bookdown::html_document2: default
