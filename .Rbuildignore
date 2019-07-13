@@ -6,3 +6,5 @@ man-roxygen
 _pkgdown.yml
 _travis.yml
 .travis.yml
+^codecov\.yml$
+^appveyor\.yml$

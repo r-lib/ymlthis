@@ -78,7 +78,8 @@ yml_author <- function(.yml, name = NULL, affiliation = NULL, ...) {
     #  use unnamed inner list to create `-` group:
     #  - author
     #    affiliation
-    .yml$author <- purrr::map2(name, affiliation, ~author_list(.x, .y, ...))
+    arg_list <- list(name = name, affiliation = affiliation, ...)
+    .yml$author <- purrr::pmap(arg_list, author_list)
     return(.yml)
   }
 
@@ -89,8 +90,8 @@ yml_author <- function(.yml, name = NULL, affiliation = NULL, ...) {
   .yml
 }
 
-author_list <- function(.x, .y, ...) {
-  list(name = .x, affiliation = .y, ...) %>%
+author_list <- function(name, affiliation, ...) {
+  list(name = name, affiliation = affiliation, ...) %>%
     purrr::discard(~is.na(.x))
 }
 

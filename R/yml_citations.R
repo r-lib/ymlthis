@@ -57,25 +57,26 @@ yml_citations <- function(
   .yml
 }
 
-#' Write references as YAML fields
+#'Write references as YAML fields
 #'
-#' `yml_reference()` creates YAML fields for references to be used in citation.
-#' `reference()` is a simple function to add references. The easiest way to add
-#' references to a R Markdown file is to use a bibliography file, such as .bib,
-#' in the `bibliography` field (see [yml_citations()]). For documents with very
-#' few references, however, it might be useful to make the references
-#' self-contained in the YAML. `yml_reference()` can also transform `bibentry`
-#' and `citation` objects to YAML. See [bibentry()] and [citation()]. To cite
-#' several R packages and convert the references to YAML, it may be better to
-#' use [knitr::write_bib()] to write a bibliography file and convert it with
-#' `[bib2yml()]`.
+#'`yml_reference()` creates YAML fields for references to be used in citation.
+#'`reference()` is a simple function to add references. The easiest way to add
+#'references to a R Markdown file is to use a bibliography file, such as .bib,
+#'in the `bibliography` field (see [yml_citations()]). For documents with very
+#'few references, however, it might be useful to make the references
+#'self-contained in the YAML. `yml_reference()` can also transform `bibentry`
+#'and `citation` objects to YAML. See [bibentry()] and [citation()]. To cite
+#'several R packages and convert the references to YAML, it may be better to use
+#'[knitr::write_bib()] to write a bibliography file and convert it with
+#'`[bib2yml()]`.
 #'
-#' @template describe_yml_param
-#' @param ... Fields relevant to the citation (e.g. bibtex fields)
-#' @param .bibentry an object created by `bibentry()` or `citation()`
+#'@template describe_yml_param
+#'@param ... Fields relevant to the citation (e.g. bibtex fields)
+#'@param .bibentry an object created by `bibentry()` or `citation()`. Note that
+#'  this requires pandoc-citeproc to be installed.
 #'
-#' @template describe_yml_output
-#' @export
+#'@template describe_yml_output
+#'@export
 #'
 #' @examples
 #'
@@ -133,14 +134,15 @@ yml_citations <- function(
 #'      key = "boot-book"
 #'    )
 #' )
-#'
+#' \dontrun{
+#' # requires pandoc-citeproc to be installed
 #' yml() %>%
 #'   yml_reference(.bibentry = bref)
 #'
 #' yml() %>%
 #'   yml_reference(.bibentry = citation("purrr"))
-#'
-#' @family citations
+#'}
+#'@family citations
 yml_reference <- function(.yml, ..., .bibentry = NULL) {
   warn_if_duplicate_fields(.yml, list(reference = ""))
 
