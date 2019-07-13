@@ -3,11 +3,17 @@
 \name{yml_replace}
 \alias{yml_replace}
 \alias{yml_discard}
+\alias{yml_pluck}
+\alias{yml_chuck}
 \title{Replace or discard top-level YAML fields}
 \usage{
 yml_replace(.yml, ...)
 
 yml_discard(.yml, .rid)
+
+yml_pluck(.yml, ...)
+
+yml_chuck(.yml, ...)
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
@@ -28,7 +34,9 @@ a \code{yml} object
 duplicating top-level fields with other functions, explicitly replacing them
 with \code{yml_replace()} will not raise a warning. \code{yml_discard()} removes values
 given either a character vector of names or a purrr-style lambda with a
-predicate (~ predicate); see the examples.
+predicate (~ predicate); see the examples. \code{yml_pluck()} and \code{yml_chuck()}
+are wrappers around \code{\link[purrr:pluck]{purrr::pluck()}} and \code{\link[purrr:chuck]{purrr::chuck()}} that return \code{yml}
+objects.
 }
 \examples{
 

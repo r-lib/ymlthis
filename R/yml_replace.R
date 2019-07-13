@@ -4,7 +4,9 @@
 #' duplicating top-level fields with other functions, explicitly replacing them
 #' with `yml_replace()` will not raise a warning. `yml_discard()` removes values
 #' given either a character vector of names or a purrr-style lambda with a
-#' predicate (~ predicate); see the examples.
+#' predicate (~ predicate); see the examples. `yml_pluck()` and `yml_chuck()`
+#' are wrappers around [purrr::pluck()] and [purrr::chuck()] that return `yml`
+#' objects.
 #'
 #' @template describe_yml_param
 #' @param .rid a character vector of fields to remove or a purrr-style lambda
@@ -66,6 +68,20 @@ yml_discard <- function(.yml, .rid) {
    or a formula specifying a predicate"
   )
   stop(msg, call. = FALSE)
+}
+
+#' @export
+#' @rdname yml_replace
+yml_pluck <- function(.yml, ...) {
+  purrr::pluck(.yml, ..., .default = list()) %>%
+    as_yml()
+}
+
+#' @export
+#' @rdname yml_replace
+yml_chuck <- function(.yml, ...) {
+  purrr::chuck(.yml, ...) %>%
+    as_yml()
 }
 
 warn_if_duplicate_fields <- function(yml_object, new_fields) {

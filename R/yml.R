@@ -112,6 +112,11 @@ as_yml <- function(x) {
   UseMethod("as_yml")
 }
 
+#' @export
+as_yml.default <- function(x) {
+  yaml::as.yaml(x) %>%
+    as_yml()
+}
 
 #' @export
 as_yml.list <- function(x) {
@@ -123,8 +128,15 @@ as_yml.list <- function(x) {
 
 #' @export
 as_yml.character <- function(x) {
-  .yml <- yaml::yaml.load(x)
-  as_yml(.yml)
+  if (length(x) == 1) {
+    .yml <- yaml::yaml.load(x)
+    return(as_yml(.yml))
+  }
+
+  structure(
+    x,
+    class = "yml"
+  )
 }
 
 #' @export
