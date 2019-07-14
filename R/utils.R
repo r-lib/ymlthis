@@ -22,6 +22,23 @@ stop_must_be_type <- function(x, type) {
   )
 }
 
+warn_if_duplicate_fields <- function(yml_object, new_fields) {
+  fields <- names(new_fields)
+  duplicate_fields <- any(names(yml_object) %in% fields)
+
+  if (duplicate_fields) {
+    fields <- glue::glue("`{fields}`") %>%
+      glue::glue_collapse(sep = ", ", last = " and ")
+    msg <- glue::glue(
+      "Top-level fields {fields} already present. \\
+      Replacing the existing fields."
+    )
+    warning(msg, call. = FALSE)
+  }
+
+  invisible(yml_object)
+}
+
 capture_yml <- function(.yml) {
   utils::capture.output(print(.yml))
 }

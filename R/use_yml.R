@@ -25,6 +25,7 @@ use_rmarkdown <- function(.yml = last_yml(), path, template = NULL) {
   if (!is.null(template)) {
     existing_header <- read_yaml(template)
     printed_yaml <- existing_header %>%
+      yaml::yaml.load() %>%
       as_yml() %>%
       combine_yml(.yml) %>%
       capture_yml()

@@ -84,18 +84,4 @@ yml_chuck <- function(.yml, ...) {
     as_yml()
 }
 
-warn_if_duplicate_fields <- function(yml_object, new_fields) {
-  fields <- names(new_fields)
-  duplicate_fields <- any(names(yml_object) %in% fields)
 
-  if (duplicate_fields) {
-    fields <- glue::glue_collapse(fields, sep = ", ", last = " and ")
-    msg <- glue::glue(
-      "Top-level fields {fields} already present. \\
-      Replacing the existing fields."
-    )
-    warning(msg, call. = FALSE)
-  }
-
-  invisible(yml_object)
-}
