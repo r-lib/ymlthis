@@ -7,7 +7,8 @@
 #' YAML header or programatically using `rmarkdown::output_metadata()`. See the
 #' [RStudio Connect
 #' documentation](https://docs.rstudio.com/connect/1.7.2/user/r-markdown.html)
-#' for more.
+#' for more. `yml_output_metadata()` allows you to add any type of content to
+#' the `rmd_output_metadata` field.
 #'
 #' @template describe_yml_param
 #' @param rsc_email_subject The subject of the email. A report without an
@@ -76,6 +77,24 @@ yml_rsconnect_email <- function(
 
   warn_if_duplicate_fields(.yml, rsconnect_email_opts)
   .yml[names(rsconnect_email_opts)] <- rsconnect_email_opts
+
+  .yml
+}
+
+#' @export
+#' @rdname
+yml_output_metadata <- function(
+  .yml,
+  ...
+) {
+  rmd_output_metadata_list <- list(
+    rmd_output_metadata = list(
+      ...
+    ) %>% purrr::discard(is_yml_blank)
+  )
+
+  warn_if_duplicate_fields(.yml, rmd_output_metadata_list)
+  .yml[names(rmd_output_metadata_list)] <- rmd_output_metadata_list
 
   .yml
 }
