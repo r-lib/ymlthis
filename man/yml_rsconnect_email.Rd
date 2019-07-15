@@ -2,6 +2,7 @@
 % Please edit documentation in R/yml_rsconnect.R
 \name{yml_rsconnect_email}
 \alias{yml_rsconnect_email}
+\alias{yml_output_metadata}
 \title{Set YAML for Scheduled Emails in RStudio Connect}
 \usage{
 yml_rsconnect_email(.yml, rsc_email_subject = yml_blank(),
@@ -11,6 +12,8 @@ yml_rsconnect_email(.yml, rsc_email_subject = yml_blank(),
   rsc_email_suppress_scheduled = yml_blank(),
   rsc_email_suppress_report_attachment = yml_blank(),
   resource_files = yml_blank(), ...)
+
+yml_output_metadata(.yml, ...)
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
@@ -60,7 +63,8 @@ that tells RStudio Connect about the email output. Several \code{rsc_*} fields
 exist to specify different components of the email, which can be set in the
 YAML header or programatically using \code{rmarkdown::output_metadata()}. See the
 \href{https://docs.rstudio.com/connect/1.7.2/user/r-markdown.html}{RStudio Connect documentation}
-for more.
+for more. \code{yml_output_metadata()} allows you to add any type of content to
+the \code{rmd_output_metadata} field.
 }
 \examples{
 

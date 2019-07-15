@@ -82,7 +82,7 @@ yml_rsconnect_email <- function(
 }
 
 #' @export
-#' @rdname
+#' @rdname yml_rsconnect_email
 yml_output_metadata <- function(
   .yml,
   ...
