@@ -129,6 +129,7 @@ Other yml: \code{\link{bib2yml}},
   \code{\link{yml_pagedown_opts}},
   \code{\link{yml_params}}, \code{\link{yml_reference}},
   \code{\link{yml_replace}},
+  \code{\link{yml_rsconnect_email}},
   \code{\link{yml_rticles_opts}},
   \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
   \code{\link{yml_vignette}}
