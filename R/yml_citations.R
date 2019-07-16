@@ -195,7 +195,7 @@ as_bibentry <- function(x) {
 #'
 #' `bib2yml()` uses pandoc to convert a .bib file to YAML. It also accepts an
 #' option `yml` object to prepend to the the YAML from the .bib file. If you
-#' want to cite several R packages, se [knitr::write_bib()] to write a
+#' want to cite several R packages, see [knitr::write_bib()] to write a
 #' bibliography file and convert it with `[bib2yml()]`.
 #'
 #' @template describe_yml_param
@@ -206,8 +206,9 @@ as_bibentry <- function(x) {
 #'
 #' @family citations
 bib2yml <- function(.yml = NULL, path) {
-  bib_yml <- glue::glue("pandoc-citeproc {path} --bib2yaml") %>%
-    system(intern = TRUE) %>%
+  args <- c(path, "--bib2yaml")
+
+  bib_yml <- system2("pandoc-citeproc", args = args, stdout = TRUE) %>%
     paste(collapse = "\n") %>%
     as_yml()
 

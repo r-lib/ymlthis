@@ -44,7 +44,8 @@ Suggests:
     pkgdown,
     spelling,
     bookdown,
-    covr
+    covr,
+    blogdown
 VignetteBuilder: knitr
 URL: https://github.com/rstudio-education/ymlthis
 BugReports: https://github.com/rstudio-education/ymlthis/issues

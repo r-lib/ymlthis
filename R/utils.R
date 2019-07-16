@@ -1,3 +1,29 @@
+stop_if_not_installed <- function(pkg) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+    stop(
+      pkg,
+      " must be installed to use this function.\n",
+      "install.packages('",
+      pkg,
+      "')"
+    )
+  }
+
+  invisible()
+}
+
+stop_if_shiny_not_installed <- function() {
+  stop_if_not_installed("shiny")
+}
+
+stop_if_rmarkdown_not_installed <- function() {
+  stop_if_not_installed("rmarkdown")
+}
+
+stop_if_blogdown_not_installed <- function() {
+  stop_if_not_installed("blogdown")
+}
+
 stop_if_not_type <- function(x, type) {
   if (!inherits(x, type)) {
     x_text <- rlang::quo_text(rlang::quo(x))

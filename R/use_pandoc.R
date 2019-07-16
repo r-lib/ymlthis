@@ -62,13 +62,15 @@ pandoc_template_types <- function() {
 #' @export
 #' @rdname pandoc_template_types
 pandoc_highlight_styles <- function() {
-  system("pandoc --list-highlight-styles", intern = TRUE)
+  stop_if_pandoc_not_installed()
+  system2("pandoc", "--list-highlight-styles", stdout = TRUE)
 }
 
 
 #' @export
 #' @rdname pandoc_template_types
 use_pandoc_template <- function(type, path, source = c("rmarkdown", "pandoc")) {
+  stop_if_pandoc_not_installed()
   source <- match.arg(source)
 
   if (source == "rmarkdown") {
@@ -84,8 +86,8 @@ use_pandoc_template <- function(type, path, source = c("rmarkdown", "pandoc")) {
   }
 
   if (source == "pandoc") {
-    x <- glue::glue("pandoc --print-default-template={type}") %>%
-    system(intern = TRUE)
+    args <- glue::glue("--print-default-template={type}")
+    x <- system2("pandoc", args = args, stdout = TRUE)
   }
 
   usethis::write_over(path, x)
@@ -107,12 +109,20 @@ read_file <- function(...) {
 #' @export
 #' @rdname pandoc_template_types
 use_pandoc_highlight_style <- function(theme, path) {
-  if (!grepl("//.theme$", path)) {
+  stop_if_pandoc_not_installed()
+  if (!grepl("\\.theme$", path)) {
     stop("`path` must end in `.theme`", call. = FALSE)
   }
 
-  x <- glue::glue("pandoc --print-highlight-style={theme}") %>%
-    system(intern = TRUE)
+  args <- glue::glue("--print-highlight-style={theme}")
+  x <- system2("pandoc", args = args, stdout = TRUE)
 
   usethis::write_over(path, x)
+}
+
+stop_if_pandoc_not_installed <- function() {
+  stop_if_rmarkdown_not_installed()
+  if (!rmarkdown::pandoc_available()) {
+    stop("pandoc must be installed to use this function")
+  }
 }

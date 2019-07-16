@@ -155,6 +155,7 @@ yml_blogdown_opts <- function(
 #' @template describe_yml_output
 #' @export
 blogdown_template <- function(type, path = ".", theme = NULL) {
+  stop_if_blogdown_not_installed()
   on.exit(unlink(tempdir(), recursive = TRUE, force = TRUE))
 
   if (is.null(theme)) theme <- get_theme(path)
@@ -185,7 +186,10 @@ blogdown_template <- function(type, path = ".", theme = NULL) {
 
   withr::with_dir(
     tempdir(),
-    system("hugo convert toYAML --unsafe", intern = TRUE)
+    blogdown::hugo_cmd(
+      args = c("convert", "toYAML", "--unsafe"),
+      stdout = TRUE
+    )
   )
 
   readLines(file.path(tempdir(), "content"))

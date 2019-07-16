@@ -376,11 +376,3 @@ remove_default_values <- function(args, .f, drop = NULL) {
 
   args[!same]
 }
-
-stop_if_shiny_not_installed <- function() {
-  if (!requireNamespace("shiny", quietly = TRUE)) {
-    stop("shiny must be installed to use shiny components in parameterized reports")
-  }
-
-  invisible()
-}
