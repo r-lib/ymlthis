@@ -7,7 +7,7 @@
 #' function that will take any named R object and put in the top level of the
 #' YAML; it checks for duplicate fields but is unable to validate the input
 #' beyond that it is valid YAML syntax. Some R Markdown templates allow for
-#' additional variations of the YAML here. For instance, the distill pacakge
+#' additional variations of the YAML here. For instance, the distill package
 #' adds `url` and `affiliation_url` to the `author` field (see
 #' [yml_distill_author], which wraps [yml_author]). Several `yml_*()` functions
 #' also contain `...` which allow for these unique fields.

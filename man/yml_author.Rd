@@ -101,7 +101,7 @@ fields related to the function, as well as checking for duplicate fields and
 function that will take any named R object and put in the top level of the
 YAML; it checks for duplicate fields but is unable to validate the input
 beyond that it is valid YAML syntax. Some R Markdown templates allow for
-additional variations of the YAML here. For instance, the distill pacakge
+additional variations of the YAML here. For instance, the distill package
 adds \code{url} and \code{affiliation_url} to the \code{author} field (see
 \link{yml_distill_author}, which wraps \link{yml_author}). Several \code{yml_*()} functions
 also contain \code{...} which allow for these unique fields.
