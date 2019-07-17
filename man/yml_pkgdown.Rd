@@ -9,7 +9,7 @@
 \alias{pkgdown_article}
 \alias{yml_pkgdown_figures}
 \alias{yml_pkgdown_docsearch}
-\title{Set YAML for pkgdown options}
+\title{Set Top-level YAML options for pkgdown}
 \usage{
 yml_pkgdown(.yml, as_is = yml_blank(), extension = yml_blank())
 
@@ -34,7 +34,7 @@ yml_pkgdown_docsearch(.yml, api_key = yml_blank(),
   index_name = yml_blank(), url = yml_blank())
 }
 \arguments{
-\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
 \item{as_is}{Logical. Use the output_format and options that you have
@@ -72,9 +72,9 @@ transform into YAML}
 
 \item{fig.asp}{The aspect ratio (default: 1.618)}
 
-\item{api_key}{The API key provided by docusearch (see the \href{https://pkgdown.r-lib.org/articles/pkgdown.html}{pkgdown vignette})}
+\item{api_key}{The API key provided by docsearch (see the \href{https://pkgdown.r-lib.org/articles/pkgdown.html}{pkgdown vignette})}
 
-\item{index_name}{The index name provided by docusearch (see the \href{https://pkgdown.r-lib.org/articles/pkgdown.html}{pkgdown vignette})}
+\item{index_name}{The index name provided by docsearch (see the \href{https://pkgdown.r-lib.org/articles/pkgdown.html}{pkgdown vignette})}
 
 \item{url}{the URL specifying the location of your documentation}
 }

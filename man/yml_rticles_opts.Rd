@@ -15,7 +15,7 @@ yml_rticles_opts(.yml, title = yml_blank(), runninghead = yml_blank(),
   include_after = yml_blank(), ...)
 }
 \arguments{
-\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
 \item{title}{Title of the manuscript}

@@ -2,13 +2,13 @@ reference:
 - title: Basic YAML
   desc: null
   contents:
-  - '`includes2`'
   - '`yml`'
   - '`yml_author`'
-  - '`yml_clean`'
-  - '`yml_latex_opts`'
   - '`yml_output`'
+  - '`yml_latex_opts`'
   - '`yml_runtime`'
+  - '`yml_clean`'
+  - '`includes2`'
 - title: Parameterized R Markdown Reports
   desc: null
   contents:
@@ -33,6 +33,7 @@ reference:
   - '`last_yml`'
   - '`yml_blank`'
   - '`yml_code`'
+  - '`yml_handlers`'
   - '`yml_replace`'
   - '`yml_verbatim`'
 - title: Writing to YAML and R Markdown files
@@ -42,7 +43,7 @@ reference:
   - '`use_yml_file`'
   - '`use_yml`'
   - '`use_yml_defaults`'
-- title: Other R Markdown Packages
+- title: R Markdown Extensions
   desc: null
   contents:
   - '`blogdown_template`'

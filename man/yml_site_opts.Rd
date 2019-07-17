@@ -5,7 +5,7 @@
 \alias{yml_navbar}
 \alias{navbar_page}
 \alias{navbar_separator}
-\title{Add site options for _site.yml and navbars for R Markdown websites}
+\title{Add site options for \code{_site.yml} and navbars for R Markdown websites}
 \usage{
 yml_site_opts(.yml, name = yml_blank(), favicon = yml_blank(),
   output_dir = yml_blank(), include = yml_blank(),
@@ -20,7 +20,7 @@ navbar_page(text = yml_blank(), href = yml_blank(),
 navbar_separator()
 }
 \arguments{
-\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
 \item{name}{The name of the website}

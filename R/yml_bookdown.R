@@ -1,4 +1,4 @@
-#' Top-level YAML options for bookdown
+#' Set Top-level YAML options for bookdown
 #'
 #' bookdown uses YAML in three main places, as described in the [bookdown
 #' book](https://bookdown.org/yihui/rmarkdown/bookdown-project.html):

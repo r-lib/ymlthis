@@ -47,7 +47,7 @@ shiny_select(label, choices, selected = NULL, multiple = FALSE,
 shiny_password(label, value = "", width = NULL, placeholder = NULL)
 }
 \arguments{
-\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
 \item{...}{additional named R objects, such as characters or lists, to

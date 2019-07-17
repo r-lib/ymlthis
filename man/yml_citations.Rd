@@ -9,7 +9,7 @@ yml_citations(.yml, bibliography = yml_blank(), csl = yml_blank(),
   natbib = yml_blank(), biblatex = yml_blank())
 }
 \arguments{
-\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
 \item{bibliography}{a path to a bibliography file, such as a .bib file}
@@ -38,7 +38,7 @@ a \code{yml} object
 }
 \description{
 \code{yml_citations()} sets citation-related YAML fields, such as specifying a
-bibligraphy file or style.
+bibliography file or style.
 }
 \examples{
 

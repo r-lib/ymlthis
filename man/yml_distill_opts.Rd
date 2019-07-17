@@ -6,7 +6,7 @@
 \alias{distill_listing}
 \alias{distill_collection}
 \alias{distill_resources}
-\title{Top-level YAML options for distill}
+\title{Set Top-level YAML options for distill}
 \usage{
 yml_distill_opts(.yml, draft = yml_blank(), slug = yml_blank(),
   categories = yml_blank(), listing = yml_blank(),
@@ -32,7 +32,7 @@ distill_collection(collection_name = "post",
 distill_resources(include = yml_blank(), exclude = yml_blank())
 }
 \arguments{
-\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
 \item{draft}{the abbreviated version of the citation included in the BibTeX
@@ -62,7 +62,7 @@ your document.}
 found}
 
 \item{base_url}{Base (root) URL for the location where the website will be
-deployed (used for providing preview imaages for Open Graph and Twitter
+deployed (used for providing preview images for Open Graph and Twitter
 Card)}
 
 \item{compare_updates_url}{a URL that will show the differences between the
@@ -101,8 +101,8 @@ transform into YAML}
 \item{url}{the author URL}
 
 \item{affiliation}{The author's affiliation; must match length of \code{name},
-e.g. if \code{name} has length of two, \code{affiliation} must as well; use \code{NA} for
-authors that don't have an affiliation to include.}
+e.g. if \code{name} has length of two, \code{affiliation} must as well; use \code{NA} if
+you don't want to include an affiliation for a given author.}
 
 \item{affiliation_url}{the affiliation URL}
 

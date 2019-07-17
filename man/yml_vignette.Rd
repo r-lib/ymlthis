@@ -8,7 +8,7 @@ yml_vignette(.yml, title, engine = "knitr::rmarkdown",
   encoding = "UTF-8")
 }
 \arguments{
-\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
 \item{title}{The title of the vignette}

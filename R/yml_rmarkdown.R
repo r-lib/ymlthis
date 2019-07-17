@@ -1,4 +1,4 @@
-#' Set R Markdown to use Shiny
+#' Activate Shiny in R Markdown
 #'
 #' The `runtime` field lets you use Shiny in your R Markdown document, making it
 #' interactive. See the [R Markdown
@@ -95,7 +95,7 @@ yml_vignette <- function(.yml, title, engine = "knitr::rmarkdown", encoding = "U
   .yml
 }
 
-#' Add site options for _site.yml and navbars for R Markdown websites
+#' Add site options for `_site.yml` and navbars for R Markdown websites
 #'
 #' R Markdown has a simple website builder baked in (see the R [Markdown
 #' book](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#site_navigation)

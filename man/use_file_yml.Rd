@@ -22,7 +22,7 @@ use_pkgdown_yml(.yml = NULL, path = ".")
 use_bookdown_yml(.yml = NULL, path = ".")
 }
 \arguments{
-\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
 \item{path}{a file path to write the file to}

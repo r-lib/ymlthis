@@ -1,10 +1,10 @@
-#' Caputure, validate, and write output YAML
+#' Capture, validate, and write output YAML
 #'
 #' `yml_output()` writes valid YAML for the `output` field of R Markdown YAML.
 #' `yml_output()` captures the actual output functions, such as
 #' `pdf_document()`, and translates them to YAML. This function accepts multiple
 #' output formats (separated by commas) and validates each by evaluating the
-#' function internally. The fields in output-related YAML come from arguments in
+#' function internally. The YAML fields in under `output` come from arguments in
 #' their respective R functions. If you wanted to see the available fields in
 #' `pdf_document()`, for instance, you would read the documentation for that
 #' function using `?pdf_document`.

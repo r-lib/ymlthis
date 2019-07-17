@@ -7,7 +7,7 @@
 yml_clean(.yml, clean)
 }
 \arguments{
-\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
 \item{clean}{Logical. Remove intermediate files that are created while making

@@ -16,7 +16,7 @@ yml_rsconnect_email(.yml, rsc_email_subject = yml_blank(),
 yml_output_metadata(.yml, ...)
 }
 \arguments{
-\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
 \item{rsc_email_subject}{The subject of the email. A report without an
@@ -61,7 +61,7 @@ RStudio Connect allows you to schedule emails to send using R Markdown. It
 uses a special type of YAML using the top-level field \code{rmd_output_metadata}
 that tells RStudio Connect about the email output. Several \code{rsc_*} fields
 exist to specify different components of the email, which can be set in the
-YAML header or programatically using \code{rmarkdown::output_metadata()}. See the
+YAML header or programmatically using \code{rmarkdown::output_metadata()}. See the
 \href{https://docs.rstudio.com/connect/1.7.2/user/r-markdown.html}{RStudio Connect documentation}
 for more. \code{yml_output_metadata()} allows you to add any type of content to
 the \code{rmd_output_metadata} field.

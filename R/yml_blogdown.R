@@ -1,7 +1,7 @@
-#' Top-level YAML options for blogdown
+#' Set Top-level YAML options for blogdown
 #'
 #' YAML in blogdown comes from a variety of sources. Technically, the
-#' congifugration file for your blog can be in YAML, but this is not very
+#' configuration file for your blog can be in YAML, but this is not very
 #' common; most use `config.toml`, based on TOML (see the [blogdown
 #' book](https://bookdown.org/yihui/blogdown/configuration.html) for more). Most
 #' YAML will be for your posts (which the [blogdown

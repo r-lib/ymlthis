@@ -3,7 +3,7 @@
 \name{yml_bookdown_opts}
 \alias{yml_bookdown_opts}
 \alias{yml_bookdown_site}
-\title{Top-level YAML options for bookdown}
+\title{Set Top-level YAML options for bookdown}
 \usage{
 yml_bookdown_opts(.yml, book_filename = yml_blank(),
   delete_merged_file = yml_blank(),
@@ -16,7 +16,7 @@ yml_bookdown_opts(.yml, book_filename = yml_blank(),
 yml_bookdown_site(.yml)
 }
 \arguments{
-\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
 \item{book_filename}{a character vector, the filename of the main Rmd file,

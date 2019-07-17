@@ -1,30 +1,32 @@
-#' Top-level R Markdown YAML Fields
+#' Set Top-level R Markdown YAML Fields
 #'
-#' These functions add top-level YAML fields related to R Markdown documents.
-#' Each takes a `yml` object and adds fields related to the function, as well as
-#' checking for duplicate fields and (where possible) checking for valid
-#' entries. `yml_toplevel()` is a catch-all function that will take any named R
-#' object and put in the top level of the YAML; it checks for duplicate fields
-#' but is unable to validate the input beyond that it is valid YAML. Some
-#' templates allow for additional variations of the YAML here. For instance,
-#' distill adds `url` and `affiliation_url` to the `author` field. Many
-#' `yml_*()` functions also contain `...` which allow for these unique fields.
+#' These functions add common top-level YAML fields for R Markdown documents,
+#' such as  `author`, `date`, and `title`. Each takes a `yml` object and adds
+#' fields related to the function, as well as checking for duplicate fields and
+#' (where possible) checking for valid entries. `yml_toplevel()` is a catch-all
+#' function that will take any named R object and put in the top level of the
+#' YAML; it checks for duplicate fields but is unable to validate the input
+#' beyond that it is valid YAML syntax. Some R Markdown templates allow for
+#' additional variations of the YAML here. For instance, the distill pacakge
+#' adds `url` and `affiliation_url` to the `author` field (see
+#' [yml_distill_author], which wraps [yml_author]). Several `yml_*()` functions
+#' also contain `...` which allow for these unique fields.
 #'
 #' @template describe_yml_param
 #' @param name A character vector, name of the author(s)
 #' @param affiliation The author's affiliation; must match length of `name`,
-#'   e.g. if `name` has length of two, `affiliation` must as well; use `NA` for
-#'   authors that don't have an affiliation to include.
-#' @param date The date; by default this is "``r format(Sys.Date())``", which
+#'   e.g. if `name` has length of two, `affiliation` must as well; use `NA` if
+#'   you don't want to include an affiliation for a given author.
+#' @param date The date; by default this is "`` `r format(Sys.Date())` ``", which
 #'   will populate the date automatically.
 #' @param format When the default `date` is used, the format passed to
-#'   `[format.Date()]`.
+#'   [`format.Date()`].
 #' @param title A character vector, the title of the document
 #' @param subtitle A character vector, the subtitle of the document. Not all R
 #'   Markdown formats use subtitles, so it may depend on what you use in the
 #'   output field (see [yml_output()]). It is available in `pdf_document()`,
 #'   `html_document()`, and `word_document()` by default.
-#' @param abstract A character vector, the abstract. Long characters are
+#' @param abstract A character vector, the abstract. Long character vectors are
 #'   automatically wrapped using valid YAML syntax. This field is not available
 #'   in all output formats; it is available in `pdf_document()` and
 #'   `html_document()` by default.

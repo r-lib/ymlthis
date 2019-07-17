@@ -10,7 +10,7 @@ use_yml_defaults(.yml)
 get_yml_defaults()
 }
 \arguments{
-\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 }
 \description{

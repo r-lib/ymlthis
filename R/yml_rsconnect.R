@@ -4,7 +4,7 @@
 #' uses a special type of YAML using the top-level field `rmd_output_metadata`
 #' that tells RStudio Connect about the email output. Several `rsc_*` fields
 #' exist to specify different components of the email, which can be set in the
-#' YAML header or programatically using `rmarkdown::output_metadata()`. See the
+#' YAML header or programmatically using `rmarkdown::output_metadata()`. See the
 #' [RStudio Connect
 #' documentation](https://docs.rstudio.com/connect/1.7.2/user/r-markdown.html)
 #' for more. `yml_output_metadata()` allows you to add any type of content to

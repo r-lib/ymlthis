@@ -7,7 +7,7 @@
 draw_yml_tree(.yml = last_yml(), indent = "")
 }
 \arguments{
-\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
 \item{indent}{a character vector used to indent the tree}

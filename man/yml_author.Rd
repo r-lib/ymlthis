@@ -12,7 +12,7 @@
 \alias{yml_category}
 \alias{yml_lang}
 \alias{yml_toplevel}
-\title{Top-level R Markdown YAML Fields}
+\title{Set Top-level R Markdown YAML Fields}
 \usage{
 yml_author(.yml, name = NULL, affiliation = NULL, ...)
 
@@ -37,23 +37,23 @@ yml_lang(.yml, lang)
 yml_toplevel(.yml, ...)
 }
 \arguments{
-\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
 \item{name}{A character vector, name of the author(s)}
 
 \item{affiliation}{The author's affiliation; must match length of \code{name},
-e.g. if \code{name} has length of two, \code{affiliation} must as well; use \code{NA} for
-authors that don't have an affiliation to include.}
+e.g. if \code{name} has length of two, \code{affiliation} must as well; use \code{NA} if
+you don't want to include an affiliation for a given author.}
 
 \item{...}{additional named R objects, such as characters or lists, to
 transform into YAML}
 
-\item{date}{The date; by default this is "\code{r format(Sys.Date())}", which
+\item{date}{The date; by default this is "\code{`r format(Sys.Date())`}", which
 will populate the date automatically.}
 
 \item{format}{When the default \code{date} is used, the format passed to
-\code{[format.Date()]}.}
+\code{\link[=format.Date]{format.Date()}}.}
 
 \item{title}{A character vector, the title of the document}
 
@@ -62,7 +62,7 @@ Markdown formats use subtitles, so it may depend on what you use in the
 output field (see \code{\link[=yml_output]{yml_output()}}). It is available in \code{pdf_document()},
 \code{html_document()}, and \code{word_document()} by default.}
 
-\item{abstract}{A character vector, the abstract. Long characters are
+\item{abstract}{A character vector, the abstract. Long character vectors are
 automatically wrapped using valid YAML syntax. This field is not available
 in all output formats; it is available in \code{pdf_document()} and
 \code{html_document()} by default.}
@@ -94,15 +94,17 @@ tag.}
 a \code{yml} object
 }
 \description{
-These functions add top-level YAML fields related to R Markdown documents.
-Each takes a \code{yml} object and adds fields related to the function, as well as
-checking for duplicate fields and (where possible) checking for valid
-entries. \code{yml_toplevel()} is a catch-all function that will take any named R
-object and put in the top level of the YAML; it checks for duplicate fields
-but is unable to validate the input beyond that it is valid YAML. Some
-templates allow for additional variations of the YAML here. For instance,
-distill adds \code{url} and \code{affiliation_url} to the \code{author} field. Many
-\code{yml_*()} functions also contain \code{...} which allow for these unique fields.
+These functions add common top-level YAML fields for R Markdown documents,
+such as  \code{author}, \code{date}, and \code{title}. Each takes a \code{yml} object and adds
+fields related to the function, as well as checking for duplicate fields and
+(where possible) checking for valid entries. \code{yml_toplevel()} is a catch-all
+function that will take any named R object and put in the top level of the
+YAML; it checks for duplicate fields but is unable to validate the input
+beyond that it is valid YAML syntax. Some R Markdown templates allow for
+additional variations of the YAML here. For instance, the distill pacakge
+adds \code{url} and \code{affiliation_url} to the \code{author} field (see
+\link{yml_distill_author}, which wraps \link{yml_author}). Several \code{yml_*()} functions
+also contain \code{...} which allow for these unique fields.
 }
 \examples{
 yml(author = FALSE, date = FALSE) \%>\%

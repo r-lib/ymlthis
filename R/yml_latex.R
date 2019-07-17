@@ -1,67 +1,78 @@
 #' Set LaTeX YAML options for PDF output
 #'
 #' `yml_latex_opts()` sets top-level YAML fields for LaTeX options used by
-#' pandoc ([see the documentation](https://pandoc.org/MANUAL.html)), as when
-#' making a PDF document with `pdf_document()`.
+#' pandoc ([see the documentation](https://pandoc.org/MANUAL.html), from which
+#' these descriptions were derived), as when making a PDF document with
+#' `pdf_document()`.
 #'
 #' @template describe_yml_param
 #' @param block_headings make paragraph and subparagraph (fourth- and
 #'   fifth-level headings, or fifth- and sixth-level with book classes)
-#'   free-standing rather than run-in; requires further formatting to distinguish
-#'   from subsubsection (third- or fourth-level headings)
-#' @param classoption option for document class, e.g. oneside; repeat for
-#'   multiple options.
-#' @param documentclass document class: usually one of the standard classes,
-#'   article, book, and report
-#' @param geometry option for geometry package, e.g. margin=1in; repeat for
-#'   multiple options:
-#' @param indent uses document class settings for indentation (the default LaTeX
-#'   template otherwise removes indentation and adds space between paragraphs)
-#' @param linestretch adjusts line spacing using the setspace package, e.g. 1.25,
-#'   1.5
+#'   free-standing rather than run-in; requires further formatting to
+#'   distinguish from subsubsection (third- or fourth-level headings)
+#' @param classoption a character vector of options for document class, e.g.
+#'   "oneside"
+#' @param documentclass the document class usually "article", "book", or
+#'   "report"
+#' @param geometry a character vector of options for the [geometry LaTeX
+#'   package](https://ctan.org/pkg/geometry?lang=en), e.g. "margin=1in"
+#' @param indent Logical. Use document class settings for indentation? The
+#'   default LaTeX template otherwise removes indentation and adds space between
+#'   paragraphs.
+#' @param linestretch adjusts line spacing using the [setspace LaTeX
+#'   package](https://ctan.org/pkg/setspace?lang=en), e.g. 1.25, 1.5
 #' @param margin_left,margin_right,margin_top,margin_bottom sets margins if
-#'   geometry is not used (otherwise geometry overrides these)
-#' @param pagestyle control pagestyle{}: the default article class supports
-#'   plain (default), empty (no running heads or page numbers), and headings
-#'   (section titles in running heads)
+#'   `geometry` is not used, otherwise `geometry` overrides these.
+#' @param pagestyle control the `pagestyle` LaTeX command: the default article
+#'   class supports "plain" (default), "empty" (no running heads or page
+#'   numbers), and "headings" (section titles in running heads)
 #' @param papersize paper size, e.g. letter, a4
-#' @param secnumdepth numbering depth for sections (with --number-sections option
-#'   or numbersections variable)
-#' @param fontenc allows font encoding to be specified through fontenc package
-#'   (with pdflatex); default is T1 (see [LaTeX font encodings
-#'   guide](https://ctan.org/pkg/encguide))
+#' @param secnumdepth numbering depth for sections (with `--number-sections`
+#'   pandoc)
+#' @param fontenc allows font encoding to be specified through [fontenc LaTeX
+#'   package](https://www.ctan.org/pkg/fontenc) (with pdflatex); default is "T1"
+#'   (see [LaTeX font encodings guide](https://ctan.org/pkg/encguide))
 #' @param fontfamily font package for use with pdflatex: TeX Live includes many
-#'   options, documented in the LaTeX Font Catalogue. The default is Latin
-#'   Modern.
-#' @param fontfamilyoptions options for package used as fontfamily; repeat for
-#'   multiple options.
-#' @param fontsize font size for body text. The standard classes allow 10pt,
-#'   11pt, and 12pt.
+#'   options, documented in the [LaTeX Font
+#'   Catalogue](https://tug.dk/FontCatalogue/). The default is "Latin Modern".
+#' @param fontfamilyoptions a character vector of options for `fontfamily`.
+#' @param fontsize font size for body text. The standard classes allow "10pt",
+#'   "11pt", and "12pt".
 #' @param mainfont,sansfont,monofont,mathfont,CJKmainfont font families for use
 #'   with xelatex or lualatex: take the name of any system font, using the
-#'   fontspec package. CJKmainfont uses the xecjk package.
+#'   [fontspec LaTeX package](https://www.ctan.org/pkg/fontspec). CJKmainfont
+#'   uses the [xecjk LaTeX package.](https://www.ctan.org/pkg/xecjk).
 #' @param
-#' mainfontoptions,sansfontoptions,monofontoptions,mathfontoptions,CJKoptions
-#' options to use with mainfont, sansfont, monofont, mathfont, CJKmainfont in
-#' xelatex and lualatex. Allow for any choices available through fontspec; repeat
-#' for multiple options.
-#' @param microtypeoptions options to pass to the microtype LaTeX package
-#' @param colorlinks add color to link text; automatically enabled if any of
-#'   linkcolor, filecolor, citecolor, urlcolor, or toccolor are set
+#' mainfontoptions,sansfontoptions,monofontoptions,mathfontoptions,CJKoptions a
+#' character vector of options to use with mainfont, sansfont, monofont,
+#' mathfont, CJKmainfont in xelatex and lualatex. Allow for any choices
+#' available through fontspec.
+#' @param microtypeoptions a character vector of options to pass to the
+#'   [microtype LaTeX package](https://www.ctan.org/pkg/microtype).
+#' @param colorlinks Logical. Add color to link text? Automatically enabled if
+#'   any of `linkcolor`, `filecolor`, `citecolor`, `urlcolor`, or `toccolor` are
+#'   set.
 #' @param linkcolor,filecolor,citecolor,urlcolor,toccolor color for internal
 #'   links, external links, citation links, linked URLs, and links in table of
-#'   contents, respectively: uses options allowed by xcolor, including the
-#'   dvipsnames, svgnames, and x11names lists
-#' @param links_as_notes causes links to be printed as footnotes
-#' @param lof,lot include list of figures, list of tables
+#'   contents, respectively: uses options allowed by
+#'   [xcolor](https://ctan.org/pkg/xcolor?lang=en), including the dvipsnames,
+#'   svgnames, and x11names lists
+#' @param links_as_notes Logical. Print links as footnotes?
+#' @param lof,lot Logical. Include list of figures or list of tables?
 #' @param thanks contents of acknowledgments footnote after document title
 #' @param toc include table of contents
 #' @param toc_depth level of section to include in table of contents
-#' @param biblatexoptions list of options for biblatex
-#' @param biblio_style bibliography style, when used with natbib and biblatex.
-#' @param biblio_title bibliography title, when used with natbib and biblatex.
-#' @param bibliography bibliography to use for resolving references
-#' @param natbiboptions list of options for natbib
+#' @param biblatexoptions list of options for
+#'   [biblatex](https://ctan.org/pkg/biblatex).
+#' @param biblio_style bibliography style, when used with
+#'   [natbib](https://ctan.org/pkg/natbib) and
+#'   [biblatex](https://ctan.org/pkg/biblatex).
+#' @param biblio_title bibliography title, when used with
+#'   [natbib](https://ctan.org/pkg/natbib) and
+#'   [biblatex](https://ctan.org/pkg/biblatex).
+#' @param bibliography a path to the bibliography file to use for references
+#' @param natbiboptions a character vector of options for
+#'   [natbib](https://ctan.org/pkg/natbib)
 #'
 #' @template describe_yml_output
 #' @export

@@ -2,7 +2,7 @@
 % Please edit documentation in R/yml_blogdown.R
 \name{yml_blogdown_opts}
 \alias{yml_blogdown_opts}
-\title{Top-level YAML options for blogdown}
+\title{Set Top-level YAML options for blogdown}
 \usage{
 yml_blogdown_opts(.yml, draft = yml_blank(), publishdate = yml_blank(),
   weight = yml_blank(), slug = yml_blank(), aliases = yml_blank(),
@@ -15,7 +15,7 @@ yml_blogdown_opts(.yml, draft = yml_blank(), publishdate = yml_blank(),
   url = yml_blank(), videos = yml_blank(), ...)
 }
 \arguments{
-\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
 \item{draft}{You can mark a document as a draft by setting \code{TRUE}. Draft
@@ -94,7 +94,7 @@ a \code{yml} object
 }
 \description{
 YAML in blogdown comes from a variety of sources. Technically, the
-congifugration file for your blog can be in YAML, but this is not very
+configuration file for your blog can be in YAML, but this is not very
 common; most use \code{config.toml}, based on TOML (see the \href{https://bookdown.org/yihui/blogdown/configuration.html}{blogdown book} for more). Most
 YAML will be for your posts (which the \href{https://bookdown.org/yihui/blogdown/content.html#yaml-metadata}{blogdown book} also
 describes). Common R Markdown fields can be used, but there are two other

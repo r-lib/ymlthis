@@ -2,12 +2,12 @@
 % Please edit documentation in R/yml_output.R
 \name{yml_output}
 \alias{yml_output}
-\title{Caputure, validate, and write output YAML}
+\title{Capture, validate, and write output YAML}
 \usage{
 yml_output(.yml, ...)
 }
 \arguments{
-\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
 \item{...}{valid R code calling functions that return objects of class
@@ -22,7 +22,7 @@ a \code{yml} object
 \code{yml_output()} captures the actual output functions, such as
 \code{pdf_document()}, and translates them to YAML. This function accepts multiple
 output formats (separated by commas) and validates each by evaluating the
-function internally. The fields in output-related YAML come from arguments in
+function internally. The YAML fields in under \code{output} come from arguments in
 their respective R functions. If you wanted to see the available fields in
 \code{pdf_document()}, for instance, you would read the documentation for that
 function using \code{?pdf_document}.

@@ -31,7 +31,7 @@ a character vector
 Pandoc has several built in templates and code highlighting themes that can
 be customized and included in the \code{template} and \code{highlight-style} fields,
 respectively. \code{pandoc_template_types()} and \code{pandoc_highlight_styles()}
-return the available templates and styles in padoc. \code{use_pandoc_template()}
+return the available templates and styles in pandoc. \code{use_pandoc_template()}
 creates a new file based on a template from pandoc or R Markdown and
 \code{use_pandoc_highlight_style()} creates a new highlight theme file based on an
 existing pandoc theme.

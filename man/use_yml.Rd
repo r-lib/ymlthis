@@ -10,7 +10,7 @@ use_yml(.yml = last_yml())
 use_rmarkdown(.yml = last_yml(), path, template = NULL)
 }
 \arguments{
-\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
 \item{path}{A file path to write R Markdown file to}

@@ -10,7 +10,7 @@ yml_pagedown_opts(.yml, toc = yml_blank(), toc_title = yml_blank(),
   paged_footnotes = yml_blank())
 }
 \arguments{
-\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
 \item{toc}{Logical. Use a table of contents?}

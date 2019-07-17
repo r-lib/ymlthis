@@ -1,4 +1,4 @@
-#' Top-level YAML options for distill
+#' Set Top-level YAML options for distill
 #'
 #' distill uses many custom YAML fields to create some of its unique features.
 #' These include article and website metadata, citations, .  distill also has a
@@ -37,7 +37,7 @@
 #' @param compare_updates_url a URL that will show the differences between the
 #'   article’s current version and the version that was initially published
 #' @param base_url Base (root) URL for the location where the website will be
-#'   deployed (used for providing preview imaages for Open Graph and Twitter
+#'   deployed (used for providing preview images for Open Graph and Twitter
 #'   Card)
 #' @param creative_commons designate articles that you create as Creative
 #'   Commons licensed by specifying one of the standard Creative Commons

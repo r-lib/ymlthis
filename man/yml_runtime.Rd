@@ -2,12 +2,12 @@
 % Please edit documentation in R/yml_rmarkdown.R
 \name{yml_runtime}
 \alias{yml_runtime}
-\title{Set R Markdown to use Shiny}
+\title{Activate Shiny in R Markdown}
 \usage{
 yml_runtime(.yml, runtime = c("static", "shiny", "shiny_prerendered"))
 }
 \arguments{
-\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
 \item{runtime}{The runtime target for rendering. \code{static}, the default,

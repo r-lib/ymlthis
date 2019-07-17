@@ -1,19 +1,21 @@
 #' Create a new yml object
 #'
-#' `yml()` creates a `yml` object used to create YAML. `yml` objects print valid
-#' YAML cleanly to the console. By default, `yml()` looks for your name and uses
-#' today's date to use in the `author` and `date` fields, respectively. If
-#' you've set default YAML in `getOption("ymlthis.default_option")` (see
-#' [use_yml_defaults()]), `yml()` will also use include those fields by default.
-#' `yml()` and all related`yml_*()` functions validate that the results are
-#' indeed valid YAML syntax, although not every function is able to check that
-#' the input fields are valid for the setting they are used in.
+#' `yml()` initializes a `yml` object. `yml` objects create valid YAML and print
+#' it cleanly to the console. By default, `yml()` looks for your name (using `
+#' getOption("usethis.full_name")`, `getOption("devtools.name")`, and
+#' `whoami::fullname()`) and uses today's date to use in the `author` and `date`
+#' fields, respectively. If you've set default YAML in
+#' `getOption("ymlthis.default_option")` (see [use_yml_defaults()]), `yml()`
+#' will also use include those fields by default. `yml()` and all
+#' related`yml_*()` functions validate that the results are indeed valid YAML
+#' syntax, although not every function is able to check that the input fields
+#' are valid for the setting they are used in.
 #'
 #' @details
 #'
 #' `.yml` accepts a character vector of YAML, such as "author: Hadley Wickham",
 #' an object returned by ymlthis functions that start with `yml_*()`, or a
-#' `list` object (e.g. `list(author = "Hadley Wickham", date = "07/04/2019")`).
+#' `list` object (e.g. `list(author = "Hadley Wickham")`).
 #' `.yml` objects are processed with [`as_yml()`], a wrapper around
 #' [`yaml::yaml.load()`]. See that function for more details.
 #'
@@ -23,8 +25,6 @@
 #'   exists.
 #' @param author logical. Get default author name?
 #' @param date logical. Get default date?
-#' @param yml_handlers a `list` containing functions to handle YAML printing.
-#'   See details.
 #'
 #' @template describe_yml_output
 #' @export
@@ -56,7 +56,7 @@
 #'   ) %>%
 #'   yml_latex_opts(biblio_style = "apalike")
 #'
-yml <- function(.yml = NULL, get_yml = TRUE, author = TRUE, date = TRUE, yml_handlers = NULL) {
+yml <- function(.yml = NULL, get_yml = TRUE, author = TRUE, date = TRUE) {
   if (is.null(.yml)) .yml <- list()
   .yml <- as_yml(.yml)
   if (!is.null(.yml$author)) author <- FALSE
@@ -145,6 +145,14 @@ as_yml.print_yaml <- function(x) {
   as_yml(.yml)
 }
 
+#' Set handlers to process the way YAML is printed
+#'
+#' ymlthis uses the yaml package to process and validate YAML; this package also
+#' lets you specify how fields and values are printed using a list of handler
+#' functions. `yml_handlers()` specifies defaults for the package used in the
+#' print statement. See [yaml::yaml.load()] for more on specifying handlers.
+#'
+#' @export
 yml_handlers <- function() {
   list(
     NULL = function(x) yml_verbatim("null"),
@@ -155,10 +163,10 @@ yml_handlers <- function() {
 }
 
 #' @export
-print.yml <- function(x, ...) {
+print.yml <- function(x, ..., handlers = yml_handlers()) {
   #  save to be grabbed by last_yml()
   .ymlthis$.yml <- x
-  yml_txt <- color_yml(x)
+  yml_txt <- color_yml(x, handlers = handlers)
 
   cat_silver("---\n")
   cat(yml_txt, ...)
@@ -167,10 +175,10 @@ print.yml <- function(x, ...) {
   invisible(x)
 }
 
-color_yml <- function(x) {
+color_yml <- function(x, handlers = yml_handlers()) {
   yml_txt <- yaml::as.yaml(
     x,
-    handlers = yml_handlers(),
+    handlers = handlers,
     column.major = FALSE
   )
 

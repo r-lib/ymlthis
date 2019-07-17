@@ -35,7 +35,7 @@ pkgdown_template <- function(path = ".") {
 }
 
 
-#' Set YAML for pkgdown options
+#' Set Top-level YAML options for pkgdown
 #'
 #' These functions set YAML for various pkgdown options to be used in
 #' `_pkgdown.yml`. The options are described in greater depth in the [pkgdown
@@ -200,9 +200,9 @@ yml_pkgdown_figures <- function(
 }
 
 
-#' @param api_key The API key provided by docusearch (see the [pkgdown
+#' @param api_key The API key provided by docsearch (see the [pkgdown
 #'   vignette](https://pkgdown.r-lib.org/articles/pkgdown.html))
-#' @param index_name The index name provided by docusearch (see the [pkgdown
+#' @param index_name The index name provided by docsearch (see the [pkgdown
 #'   vignette](https://pkgdown.r-lib.org/articles/pkgdown.html))
 #' @param url the URL specifying the location of your documentation
 #' @export

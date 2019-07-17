@@ -4,8 +4,7 @@
 \alias{yml}
 \title{Create a new yml object}
 \usage{
-yml(.yml = NULL, get_yml = TRUE, author = TRUE, date = TRUE,
-  yml_handlers = NULL)
+yml(.yml = NULL, get_yml = TRUE, author = TRUE, date = TRUE)
 }
 \arguments{
 \item{.yml}{a character vector, \code{yml} object, or YAML-like list. See details.}
@@ -17,27 +16,25 @@ exists.}
 \item{author}{logical. Get default author name?}
 
 \item{date}{logical. Get default date?}
-
-\item{yml_handlers}{a \code{list} containing functions to handle YAML printing.
-See details.}
 }
 \value{
 a \code{yml} object
 }
 \description{
-\code{yml()} creates a \code{yml} object used to create YAML. \code{yml} objects print valid
-YAML cleanly to the console. By default, \code{yml()} looks for your name and uses
-today's date to use in the \code{author} and \code{date} fields, respectively. If
-you've set default YAML in \code{getOption("ymlthis.default_option")} (see
-\code{\link[=use_yml_defaults]{use_yml_defaults()}}), \code{yml()} will also use include those fields by default.
-\code{yml()} and all related\code{yml_*()} functions validate that the results are
-indeed valid YAML syntax, although not every function is able to check that
-the input fields are valid for the setting they are used in.
+\code{yml()} initializes a \code{yml} object. \code{yml} objects create valid YAML and print
+it cleanly to the console. By default, \code{yml()} looks for your name (using \code{ getOption("usethis.full_name")}, \code{getOption("devtools.name")}, and
+\code{whoami::fullname()}) and uses today's date to use in the \code{author} and \code{date}
+fields, respectively. If you've set default YAML in
+\code{getOption("ymlthis.default_option")} (see \code{\link[=use_yml_defaults]{use_yml_defaults()}}), \code{yml()}
+will also use include those fields by default. \code{yml()} and all
+related\code{yml_*()} functions validate that the results are indeed valid YAML
+syntax, although not every function is able to check that the input fields
+are valid for the setting they are used in.
 }
 \details{
 \code{.yml} accepts a character vector of YAML, such as "author: Hadley Wickham",
 an object returned by ymlthis functions that start with \code{yml_*()}, or a
-\code{list} object (e.g. \code{list(author = "Hadley Wickham", date = "07/04/2019")}).
+\code{list} object (e.g. \code{list(author = "Hadley Wickham")}).
 \code{.yml} objects are processed with \code{\link[=as_yml]{as_yml()}}, a wrapper around
 \code{\link[yaml:yaml.load]{yaml::yaml.load()}}. See that function for more details.
 }

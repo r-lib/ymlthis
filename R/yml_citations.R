@@ -1,7 +1,7 @@
 #' Set citation-related YAML options
 #'
 #' `yml_citations()` sets citation-related YAML fields, such as specifying a
-#' bibligraphy file or style.
+#' bibliography file or style.
 #'
 #' @template describe_yml_param
 #' @param bibliography a path to a bibliography file, such as a .bib file

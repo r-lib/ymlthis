@@ -29,75 +29,77 @@ yml_latex_opts(.yml, block_headings = yml_blank(),
   natbiboptions = yml_blank())
 }
 \arguments{
-\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or passed through
+\item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
 \item{block_headings}{make paragraph and subparagraph (fourth- and
 fifth-level headings, or fifth- and sixth-level with book classes)
-free-standing rather than run-in; requires further formatting to distinguish
-from subsubsection (third- or fourth-level headings)}
+free-standing rather than run-in; requires further formatting to
+distinguish from subsubsection (third- or fourth-level headings)}
 
-\item{classoption}{option for document class, e.g. oneside; repeat for
-multiple options.}
+\item{classoption}{a character vector of options for document class, e.g.
+"oneside"}
 
-\item{documentclass}{document class: usually one of the standard classes,
-article, book, and report}
+\item{documentclass}{the document class usually "article", "book", or
+"report"}
 
-\item{geometry}{option for geometry package, e.g. margin=1in; repeat for
-multiple options:}
+\item{geometry}{a character vector of options for the \href{https://ctan.org/pkg/geometry?lang=en}{geometry LaTeX package}, e.g. "margin=1in"}
 
-\item{indent}{uses document class settings for indentation (the default LaTeX
-template otherwise removes indentation and adds space between paragraphs)}
+\item{indent}{Logical. Use document class settings for indentation? The
+default LaTeX template otherwise removes indentation and adds space between
+paragraphs.}
 
-\item{linestretch}{adjusts line spacing using the setspace package, e.g. 1.25,
-1.5}
+\item{linestretch}{adjusts line spacing using the \href{https://ctan.org/pkg/setspace?lang=en}{setspace LaTeX package}, e.g. 1.25, 1.5}
 
 \item{margin_left, margin_right, margin_top, margin_bottom}{sets margins if
-geometry is not used (otherwise geometry overrides these)}
+\code{geometry} is not used, otherwise \code{geometry} overrides these.}
 
-\item{pagestyle}{control pagestyle{}: the default article class supports
-plain (default), empty (no running heads or page numbers), and headings
-(section titles in running heads)}
+\item{pagestyle}{control the \code{pagestyle} LaTeX command: the default article
+class supports "plain" (default), "empty" (no running heads or page
+numbers), and "headings" (section titles in running heads)}
 
 \item{papersize}{paper size, e.g. letter, a4}
 
-\item{secnumdepth}{numbering depth for sections (with --number-sections option
-or numbersections variable)}
+\item{secnumdepth}{numbering depth for sections (with \code{--number-sections}
+pandoc)}
 
-\item{fontenc}{allows font encoding to be specified through fontenc package
-(with pdflatex); default is T1 (see \href{https://ctan.org/pkg/encguide}{LaTeX font encodings guide})}
+\item{fontenc}{allows font encoding to be specified through \href{https://www.ctan.org/pkg/fontenc}{fontenc LaTeX package} (with pdflatex); default is "T1"
+(see \href{https://ctan.org/pkg/encguide}{LaTeX font encodings guide})}
 
 \item{fontfamily}{font package for use with pdflatex: TeX Live includes many
-options, documented in the LaTeX Font Catalogue. The default is Latin
-Modern.}
+options, documented in the \href{https://tug.dk/FontCatalogue/}{LaTeX Font Catalogue}. The default is "Latin Modern".}
 
-\item{fontfamilyoptions}{options for package used as fontfamily; repeat for
-multiple options.}
+\item{fontfamilyoptions}{a character vector of options for \code{fontfamily}.}
 
-\item{fontsize}{font size for body text. The standard classes allow 10pt,
-11pt, and 12pt.}
+\item{fontsize}{font size for body text. The standard classes allow "10pt",
+"11pt", and "12pt".}
 
 \item{mainfont, sansfont, monofont, mathfont, CJKmainfont}{font families for use
 with xelatex or lualatex: take the name of any system font, using the
-fontspec package. CJKmainfont uses the xecjk package.}
+\href{https://www.ctan.org/pkg/fontspec}{fontspec LaTeX package}. CJKmainfont
+uses the \href{https://www.ctan.org/pkg/xecjk}{xecjk LaTeX package.}.}
 
-\item{mainfontoptions, sansfontoptions, monofontoptions, mathfontoptions, CJKoptions}{options to use with mainfont, sansfont, monofont, mathfont, CJKmainfont in
-xelatex and lualatex. Allow for any choices available through fontspec; repeat
-for multiple options.}
+\item{mainfontoptions, sansfontoptions, monofontoptions, mathfontoptions, CJKoptions}{a
+character vector of options to use with mainfont, sansfont, monofont,
+mathfont, CJKmainfont in xelatex and lualatex. Allow for any choices
+available through fontspec.}
 
-\item{microtypeoptions}{options to pass to the microtype LaTeX package}
+\item{microtypeoptions}{a character vector of options to pass to the
+\href{https://www.ctan.org/pkg/microtype}{microtype LaTeX package}.}
 
-\item{colorlinks}{add color to link text; automatically enabled if any of
-linkcolor, filecolor, citecolor, urlcolor, or toccolor are set}
+\item{colorlinks}{Logical. Add color to link text? Automatically enabled if
+any of \code{linkcolor}, \code{filecolor}, \code{citecolor}, \code{urlcolor}, or \code{toccolor} are
+set.}
 
 \item{linkcolor, filecolor, citecolor, urlcolor, toccolor}{color for internal
 links, external links, citation links, linked URLs, and links in table of
-contents, respectively: uses options allowed by xcolor, including the
-dvipsnames, svgnames, and x11names lists}
+contents, respectively: uses options allowed by
+\href{https://ctan.org/pkg/xcolor?lang=en}{xcolor}, including the dvipsnames,
+svgnames, and x11names lists}
 
-\item{links_as_notes}{causes links to be printed as footnotes}
+\item{links_as_notes}{Logical. Print links as footnotes?}
 
-\item{lof, lot}{include list of figures, list of tables}
+\item{lof, lot}{Logical. Include list of figures or list of tables?}
 
 \item{thanks}{contents of acknowledgments footnote after document title}
 
@@ -105,23 +107,30 @@ dvipsnames, svgnames, and x11names lists}
 
 \item{toc_depth}{level of section to include in table of contents}
 
-\item{biblatexoptions}{list of options for biblatex}
+\item{biblatexoptions}{list of options for
+\href{https://ctan.org/pkg/biblatex}{biblatex}.}
 
-\item{biblio_style}{bibliography style, when used with natbib and biblatex.}
+\item{biblio_style}{bibliography style, when used with
+\href{https://ctan.org/pkg/natbib}{natbib} and
+\href{https://ctan.org/pkg/biblatex}{biblatex}.}
 
-\item{biblio_title}{bibliography title, when used with natbib and biblatex.}
+\item{biblio_title}{bibliography title, when used with
+\href{https://ctan.org/pkg/natbib}{natbib} and
+\href{https://ctan.org/pkg/biblatex}{biblatex}.}
 
-\item{bibliography}{bibliography to use for resolving references}
+\item{bibliography}{a path to the bibliography file to use for references}
 
-\item{natbiboptions}{list of options for natbib}
+\item{natbiboptions}{a character vector of options for
+\href{https://ctan.org/pkg/natbib}{natbib}}
 }
 \value{
 a \code{yml} object
 }
 \description{
 \code{yml_latex_opts()} sets top-level YAML fields for LaTeX options used by
-pandoc (\href{https://pandoc.org/MANUAL.html}{see the documentation}), as when
-making a PDF document with \code{pdf_document()}.
+pandoc (\href{https://pandoc.org/MANUAL.html}{see the documentation}, from which
+these descriptions were derived), as when making a PDF document with
+\code{pdf_document()}.
 }
 \examples{
 
