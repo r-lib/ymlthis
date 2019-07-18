@@ -145,6 +145,22 @@ as_yml.print_yaml <- function(x) {
   as_yml(.yml)
 }
 
+#' Load YAML from string
+#'
+#' `yml_load()` is a wrapper for [yaml::yaml.load()] that also converts the
+#' object to the `yml` class.
+#'
+#' @param x an obect to pass to [yaml::yaml.load()]
+#'
+#' @export
+#' c("title: my title", "author: Malcolm Barrett") %>%
+#'   yml_load()
+#'
+#' @export
+yml_load <- function(x) {
+  as_yml(yaml::yaml.load(x))
+}
+
 #' Set handlers to process the way YAML is printed
 #'
 #' ymlthis uses the yaml package to process and validate YAML; this package also
