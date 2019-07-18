@@ -144,11 +144,11 @@ yml_blogdown_opts <- function(
 #' YAML in a different way. However, many come with archetypes that define the
 #' YAML or TOML. To find out which types your theme has, use
 #' `blogdown_archetypes()` to see what's available. Use `blogdown_template()` to
-#' specify the archetype and it will conver the template to YAML that you can
+#' specify the archetype and it will convert the template to YAML that you can
 #' use in your post.
 #'
 #' @param type an archetype
-#' @param path a path that contains your blogdown site
+#' @param path the path to your blogdown site
 #' @param theme the theme to check for archetypes. By default,
 #'   `blogdown_template()` will attempt to read your theme from `config.toml`.
 #'
@@ -219,8 +219,10 @@ clean_archetype_files <- function(path) {
 }
 
 get_theme <- function(path) {
-  config_toml <- readLines(file.path(path, "config.toml"))
-  theme <- config_toml %>%
+  config_path <- fs::dir_ls(path) %>%
+    stringr::str_subset("config\\.(toml|yaml|yml)$")
+  config_file <- readLines(config_path)
+  theme <- config_file %>%
     stringr::str_subset("^theme") %>%
     stringr::str_remove_all("theme|=|\\s*") %>%
     stringr::str_remove_all("\"|\'")
