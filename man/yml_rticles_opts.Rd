@@ -2,6 +2,9 @@
 % Please edit documentation in R/yml_rticles.R
 \name{yml_rticles_opts}
 \alias{yml_rticles_opts}
+\alias{rticles_author}
+\alias{rticles_address}
+\alias{rticles_corr_author}
 \title{Set YAML related to rticles output formats}
 \usage{
 yml_rticles_opts(.yml, title = yml_blank(), runninghead = yml_blank(),
@@ -13,6 +16,13 @@ yml_rticles_opts(.yml, title = yml_blank(), runninghead = yml_blank(),
   bibliography = yml_blank(), longtable = yml_blank(),
   classoption = yml_blank(), header_includes = yml_blank(),
   include_after = yml_blank(), ...)
+
+rticles_author(name = yml_blank(), num = yml_blank())
+
+rticles_address(name = yml_blank(), org = yml_blank())
+
+rticles_corr_author(name = yml_blank(), author = yml_blank(),
+  address = yml_blank())
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
@@ -20,46 +30,58 @@ a \code{yml_*()} function}
 
 \item{title}{Title of the manuscript}
 
-\item{runninghead}{short author list for header (sage_article)}
+\item{runninghead}{A character vector, a short author list for the header
+(sage_article)}
 
-\item{author}{list of authors, containing \code{name} and \code{num} (sage_article,
-sim_article)}
+\item{author}{A list of authors, containing \code{name} and \code{num} fields
+(sage_article, sim_article). Use \code{rticles_author()} or a list to specify.}
 
-\item{authormark}{short author list for header (sim_article)}
+\item{authormark}{A character vector, the short author list for the header
+(sim_article)}
 
 \item{address}{list containing \code{num} and \code{org} for defining author
-affiliations (sage_article, sim_article)}
+affiliations (sage_article, sim_article). Use \code{rticles_address()} or a list
+to specify.}
 
-\item{corrauth}{corresponding author \code{name} and \code{address} (sage_article)}
+\item{corrauth}{corresponding author \code{name} and \code{address} (sage_article). Use
+\code{rticles_corr_author()} or a list to specify.}
 
-\item{corres}{author and address for correspondence (sim_article)}
+\item{corres}{\code{author} and \code{address} for correspondence (sim_article). Use
+\code{rticles_corr_author()} or a list to specify.}
 
-\item{email}{correspondence email (sage_article)}
+\item{email}{The email of the correspondence author (sage_article)}
 
-\item{abstract}{abstract, limited to 200 words (sage_article), 250 words
+\item{abstract}{The abstract, limited to 200 words (sage_article), 250 words
 (sim_article)}
 
-\item{received, revised, accepted}{dates of submission, revision, and
+\item{received, revised, accepted}{The dates of submission, revision, and
 acceptance of the manuscript (sim_article)}
 
-\item{keywords}{keywords for the article (sage_article), up to 6 keywords
+\item{keywords}{The keywords for the article (sage_article), up to 6 keywords
 (sim_article)}
 
-\item{bibliography}{BibTeX .bib file name  (sage_article, sim_article)}
+\item{bibliography}{BibTeX \code{.bib} file name  (sage_article, sim_article)}
 
-\item{longtable}{set to \code{TRUE} to include the longtable package, used by
-default from pandoc to convert markdown to LaTeX code  (sim_article)}
+\item{longtable}{Logical. Include the longtable package? Used by default from
+pandoc to convert markdown to LaTeX code (sim_article)}
 
-\item{classoption}{\code{classoption} options of the \code{sagej} class (sage_article)}
+\item{classoption}{a character vector of \code{classoption} options for the
+\code{sagej} class (sage_article)}
 
-\item{header_includes}{custom additions to the header, before the
-\code{\\begin\{document\}} statement (sage_article, sim_article)}
+\item{header_includes}{additional LaTeX code to include in the header, before
+the \code{\\begin\{document\}} statement (sage_article, sim_article)}
 
-\item{include_after}{for including additional LaTeX code before the
+\item{include_after}{additional LaTeX code to include before the
 \code{\\end\{document\}} statement (sage_article, sim_article)}
 
 \item{...}{additional named R objects, such as characters or lists, to
 transform into YAML}
+
+\item{name}{The author's name}
+
+\item{num}{The author's number or address number}
+
+\item{org}{The author's organization}
 }
 \value{
 a \code{yml} object

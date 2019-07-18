@@ -17,63 +17,66 @@ gitbook_config(toc_collapse = yml_blank(),
 }
 \arguments{
 \item{toc_collapse}{Collapse some items initially when a page is loaded via
-the collapse option. Its possible values are subsection (the default),
-section, none (or null)}
+the collapse option. Its possible values are "subsection" (the default),
+"section", "none", or \code{NULL}.}
 
-\item{toc_scroll_highlight}{enable highlighting of TOC items as you scroll
-the book body (by default this feature is enabled)}
+\item{toc_scroll_highlight}{Logical. Enable highlighting of TOC items as you
+scroll the book body? The default is \code{TRUE}.}
 
-\item{toc_before, toc_after}{add more items before and after the TOC using the
-HTML tag <li>. These items will be separated from the TOC using a
-horizontal divider}
+\item{toc_before, toc_after}{a character vector of HTML to add more items
+before and after the TOC using the HTML tag \code{<li>}. These items will be
+separated from the TOC using a horizontal divider.}
 
-\item{toolbar_position}{The toolbar option has a sub-option position, which
-can take values fixed or static. The default is that the toolbar will be
-fixed at the top of the page, so even if you scroll down the page, the
-toolbar is still visible there.}
+\item{toolbar_position}{The toolbar position: "fixed" or "static." The
+default ("fixed") is that the toolbar will be fixed at the top of the page,
+whereas when set to "static" the toolbar will not scroll with the page.}
 
 \item{edit}{If not empty, an edit button will be added to the toolbar.}
 
-\item{download}{This option takes either a character vector, or a list of
+\item{download}{This option takes either a character vector or a list of
 character vectors with the length of each vector being 2. When it is a
-character vector, it should be either a vector of filenames, or filename
-extensions, e.g., both of the following settings are okay. When you only
-provide the filename extensions, the filename is derived from the book
-filename of the configuration file _bookdown.yml}
+character vector, it should be either a vector of filenames or filename
+extensions. When you only provide the filename extensions, the filename is
+derived from the book filename of the configuration file \code{_bookdown.yml}}
 
 \item{search}{Include a search bar?}
 
-\item{fontsettings_theme}{"White" (the default), "Sepia", or "Night".}
+\item{fontsettings_theme}{The theme. "White" (the default), "Sepia", or
+"Night".}
 
 \item{fontsettings_family}{The font family. "sans" (the default) or "serif".}
 
 \item{fontsettings_size}{The font size. Default is 2.}
 
-\item{sharing_facebook}{Include Facebook share link?}
+\item{sharing_facebook}{Logical. Include Facebook share link? Default is
+\code{TRUE}.}
 
-\item{sharing_twitter}{Include Twitter share link?}
+\item{sharing_twitter}{Logical. Include Twitter share link? Default is
+\code{TRUE}.}
 
-\item{sharing_google}{Include Google share link?}
+\item{sharing_google}{Logical. Include Google share link? Default is \code{FALSE}.}
 
-\item{sharing_linkedin}{Include LinkedIn share link?}
+\item{sharing_linkedin}{Logical. Include LinkedIn share link? Default is
+\code{FALSE}.}
 
-\item{sharing_weibo}{Include Weibo share link?}
+\item{sharing_weibo}{Logical. Include Weibo share link? Default is \code{FALSE}.}
 
-\item{sharing_instapaper}{Include Instapaper share link?}
+\item{sharing_instapaper}{Logical. Include Instapaper share link? Default is
+\code{FALSE}.}
 
-\item{sharing_vk}{Include VK share link?}
+\item{sharing_vk}{Logical. Include VK share link? Default is \code{FALSE}.}
 
-\item{sharing_all}{Include all share links?}
+\item{sharing_all}{Logical. Include all share links? Default is \code{FALSE}.}
 
 \item{...}{additional named R objects, such as characters or lists, to
 transform into YAML}
 }
 \value{
-a list to use in the \code{config} argument of bookdown::gitbook()
+a list to use in the \code{config} argument of \code{\link[bookdown:gitbook]{bookdown::gitbook()}}
 }
 \description{
 \code{gitbook_config()} is a helper function to specify the \code{config} argument in
-\code{bookdown::gitbook()}, as described in the \href{https://bookdown.org/yihui/bookdown/html.html}{bookdown book}.
+\code{\link[bookdown:gitbook]{bookdown::gitbook()}}, as described in the \href{https://bookdown.org/yihui/bookdown/html.html}{bookdown book}.
 }
 \seealso{
 Other bookdown: \code{\link{yml_bookdown_opts}}

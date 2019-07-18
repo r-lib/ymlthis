@@ -68,7 +68,7 @@ yml_pagedown_opts <- function(
 #' document (see the [pagedown vignette](https://pagedown.rbind.io/)). A good
 #' workflow to write a business card is to use
 #' `pagedown_business_card_template()` to specify the YAML and pass it to
-#' [use_rmarkdown()], which will be sufficient to knit into business cards.
+#' [use_rmarkdown()], which you can then to knit into business cards.
 #'
 #' @param name The name
 #' @param person When you are creating business cards for numerous people with
@@ -76,13 +76,13 @@ yml_pagedown_opts <- function(
 #'   default values, which can be any of the values accepted by this function.
 #'   Use `pagedown_person()` to do so or manually provide them using `list(field
 #'   = value)`.
-#' @param title The title
+#' @param title The title of the person
 #' @param phone A phone number
 #' @param email An email address
 #' @param url A website URL
 #' @param address The address
 #' @param logo A path to a logo file
-#' @param .repeat the number of cards to repeat
+#' @param .repeat The number of cards to repeat
 #' @param paperwidth The paper width
 #' @param paperheight The paper height
 #' @param cardwidth The width of the card
@@ -90,7 +90,7 @@ yml_pagedown_opts <- function(
 #' @param cols The number of columns in the card grid
 #' @param rows The rows of columns in the card grid
 #' @param mainfont The font
-#' @param googlefonts A vector of Google Fonts
+#' @param googlefonts A character vector of Google Fonts
 #' @template describe_dots_param
 #'
 #' @template describe_yml_output

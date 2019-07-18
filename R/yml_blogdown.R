@@ -1,70 +1,72 @@
 #' Set Top-level YAML options for blogdown
 #'
-#' YAML in blogdown comes from a variety of sources. Technically, the
-#' configuration file for your blog can be in YAML, but this is not very
-#' common; most use `config.toml`, based on TOML (see the [blogdown
-#' book](https://bookdown.org/yihui/blogdown/configuration.html) for more). Most
-#' YAML will be for your posts (which the [blogdown
-#' book](https://bookdown.org/yihui/blogdown/content.html#yaml-metadata) also
-#' describes). Common R Markdown fields can be used, but there are two other
-#' main sources for YAML fields: Hugo itself and the theme you are using. Hugo
-#' has numerous top-level YAML to control the output (see the [Hugo
-#' documentation](https://gohugo.io/content-management/front-matter/)), and your
-#' theme may add many more or none. `yml_blogdown_opts()` supports Hugo YAML. To
-#' use YAML specific to your theme, see [blogdown_template()]
+#' YAML in blogdown comes from a variety of sources. Most YAML will be for your
+#' posts, as described in the [blogdown
+#' book](https://bookdown.org/yihui/blogdown/content.html#yaml-metadata)).
+#' Common R Markdown fields can be used, but there are two other main sources
+#' for YAML fields: Hugo itself and the Hugo theme you are using. Hugo has
+#' numerous top-level YAML to control the output (see the [Hugo
+#' documentation](https://gohugo.io/content-management/front-matter/)).
+#' `yml_blogdown_opts()` supports Hugo YAML. Your Hugo theme may also add fields
+#' to use. To find YAML specific to your theme, see [blogdown_template()]. In
+#' addition to these sources of YAML, the configuration file for your blog can
+#' also be in YAML, but this is not very common; most use a `config.toml` file,
+#' based on TOML (see the [blogdown
+#' book](https://bookdown.org/yihui/blogdown/configuration.html) for more).
 #'
 #' @template describe_yml_param
-#' @param draft You can mark a document as a draft by setting `TRUE`. Draft
-#'   posts will not be rendered if the site is built via
-#'   `blogdown::build_site()` or `blogdown::hugo_build()`, but will be rendered
-#'   in the local preview mode. See [Section D.3 of the Blogdown
+#' @param draft Logical. Set post as a draft? Draft posts will not be rendered
+#'   if the site is built via `blogdown::build_site()` or
+#'   `blogdown::hugo_build()` but will be rendered in the local preview mode.
+#'   See [Section D.3 of the blogdown
 #'   book](https://bookdown.org/yihui/blogdown/local-preview.html#local-preview).
-#' @param publishdate You may specify a future date to publish a post. Similar
-#'   to draft posts, future posts are only rendered in the local preview mode
+#'
+#' @param publishdate A future date to publish the post. Future posts are only
+#'   rendered in the local preview mode
 #' @param weight This field can take a numeric value to tell Hugo the order of
 #'   pages when sorting them, e.g., when you generate a list of all pages under
 #'   a directory, and two posts have the same date, you may assign different
 #'   weights to them to get your desired order on the list
-#' @param slug A character string as the tail of the URL. It is particularly
-#'   useful when you define custom rules for permanent URLs See [Section 2.2.2
-#'   of the Blogdown
+#' @param slug A character string used as the tail of the post URL. It is
+#'   particularly useful when you define custom rules for permanent URLs. See
+#'   [Section 2.2.2 of the blogdown
 #'   book](https://bookdown.org/yihui/blogdown/configuration.html#options).
-#' @param aliases an array of one or more aliases (e.g., old published paths of
-#'   renamed content) that will be created in the output directory structure
-#' @param audio an array of paths to audio files related to the page
-#' @param date the datetime assigned to this page. This is usually fetched from
-#'   the `date` field in front matter, but this behaviour is configurable.
-#' @param description the description for the content
-#' @param expiration_date the datetime at which the content should no longer be
-#'   published by Hugo; expired content will not be rendered unless the
-#'   --buildExpired flag is passed to the hugo command.
-#' @param headless if true, sets a leaf bundle to be
+#' @param aliases A character vector of one or more aliases (e.g., old published
+#'   paths of renamed content) that will be created in the output directory
+#'   structure
+#' @param audio A character vector of paths to audio files related to the page
+#' @param date The date assigned to this page. This is usually fetched from the
+#'   `date` field in front matter, but this behavior is configurable.
+#' @param description The description for the content
+#' @param expiration_date the date at which the content should no longer be
+#'   published by Hugo.
+#' @param headless if `TRUE`, sets a leaf bundle to be
 #'   [headless](https://gohugo.io/content-management/page-bundles/#headless-bundle).
-#' @param images an array of paths to images related to the page
-#' @param keywords the meta keywords for the content.
-#' @param layout the layout Hugo should select from the lookup order when
-#'   rendering the content. If a type is not specified in the front matter, Hugo
-#'   will look for the layout of the same name in the layout directory that
-#'   corresponds with a content’s section. See [Defining a Content
-#'   Type](https://gohugo.io/content-management/types/#defining-a-content-type).
-#' @param lastmod the datetime at which the content was last modified.
+#'
+#' @param images A character vector of paths to images related to the page
+#' @param keywords A character vector of the keywords for the content.
+#' @param layout The layout Hugo should use while rendering the content. By
+#'   default, `layout` matches `type` and is thus based on the directory.
+#'   However, it's possible to use additional layouts within a type. See [Hugo's
+#'   Defining a Content Type
+#'   documentation](https://gohugo.io/content-management/types/#defining-a-content-type).
+#'
+#'
+#' @param lastmod The date the content was last modified at
 #' @param link_title used for creating links to content
-#' @param resources used for configuring page bundle resources. See [Page
-#'   Resources](https://gohugo.io/content-management/page-resources/)
-#' @param series an array of series this page belongs to
-#' @param summary text used when providing a summary of the article in the
-#'   .Summary page variable; details available in the
+#' @param resources A named list. Used for configuring page bundle resources.
+#'   See [Hugo's Page Resources
+#'   documentation](https://gohugo.io/content-management/page-resources/)
+#' @param series A character vector of series this page belongs to
+#' @param summary A summary of the content in the `.Summary` Hugo page variable;
+#'   see the
 #'   [content-summaries](https://gohugo.io/content-management/summaries/)
-#'   section.
-#' @param title the title for the content
-#' @param type the type of the content; this value will be automatically derived
-#'   from the directory (i.e., the
-#'   [section](https://gohugo.io/content-management/sections/)) if not specified
-#'   in front matter
-#' @param url the full path to the content from the web root. It makes no
-#'   assumptions about the path of the content file. It also ignores any
-#'   language prefixes of the multilingual feature.
-#' @param videos an array of paths to videos related to the page
+#'   section of Hugo's documentation.
+#' @param title The title for the content
+#' @param type The type of the content, which is based on the from the directory
+#'   of the content if not specified
+#' @param url The full path to the content from the web root
+#' @param videos A character vector of paths to videos related to the page
 #' @template describe_dots_param
 #'
 #' @template describe_yml_output

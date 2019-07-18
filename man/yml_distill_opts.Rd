@@ -35,18 +35,17 @@ distill_resources(include = yml_blank(), exclude = yml_blank())
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
-\item{draft}{the abbreviated version of the citation included in the BibTeX
-entry. If you don’t provide a slug then one will be automatically
-generated.}
+\item{draft}{Logical. Set the post to be a draft? Draft posts won't be
+published.}
 
-\item{slug}{the abbreviated version of the citation included in the BibTeX
+\item{slug}{The abbreviated version of the citation included in the BibTeX
 entry. If you don’t provide a slug then one will be automatically
 generated.}
 
 \item{categories}{A character vector, the post categories}
 
 \item{listing}{The listing a post is under; either a character vector, the
-results of \code{distill_listing()}, or a named list.}
+output of \code{distill_listing()}, or a named list.}
 
 \item{collection}{Specify the RSS, sharing, and other settings of a listing;
 use \code{distill_collection()} or a named list.}
@@ -68,7 +67,7 @@ Card)}
 \item{compare_updates_url}{a URL that will show the differences between the
 article’s current version and the version that was initially published}
 
-\item{creative_commons}{designate articles that you create as Creative
+\item{creative_commons}{Designate articles that you create as Creative
 Commons licensed by specifying one of the standard Creative Commons
 licenses. Common options include "CC BY", "CC BY-SA", "CC BY-ND", and "CC
 BY-NC". See the \href{https://rstudio.github.io/distill/metadata.html}{distill vignette} for more
@@ -136,25 +135,26 @@ behavior.}
 more details.}
 
 \item{include, exclude}{a character vector of files to explicitly include or
-exclude when publishing a post. Can include wild cards, such as "*.csv".}
+exclude when publishing a post. Can use wild cards, such as "*.csv".}
 }
 \value{
 a \code{yml} object
 }
 \description{
-distill uses many custom YAML fields to create some of its unique features.
-These include article and website metadata, citations, .  distill also has a
-few more options for the \code{author} field than usual YAML.
-\code{yml_distill_author()} wraps \code{\link[=yml_author]{yml_author()}} to include these extra fields.
-You can specify the listings page for a post, including an optional vector of
-other posts to list with; \code{distill_listing()} is a helper function to pass to
-the \code{listing} argument to specify that. distill also uses the same approach
-to navbars as R Markdown. \code{\link[=yml_navbar]{yml_navbar()}} and friends will help you write
-the YAML for that. YAML specifying the site build, like the output field and
-navbars, can also be placed in \code{_site.yml}; see \code{\link[=yml_site_opts]{yml_site_opts()}}  for
-further R Markdown website build options and \code{\link[=use_site_yml]{use_site_yml()}} for creating
-that file based on a \code{yml} object. distill's YAML options are discussed in
-greater detail in the \href{https://rstudio.github.io/distill}{articles on the distill website}.
+distill uses many custom YAML fields to create some of its unique features,
+such as article metadata and citations. In addition to the arguments in
+\code{yml_distill_opts()}, ymlthis supports distill in a number of other ways.
+\code{yml_distill_author()} wraps \code{\link[=yml_author]{yml_author()}} to include these extra used in
+distill. For a distill blog, you can specify the listings page a post belongs
+to, including an optional vector of other posts to list with it;
+\code{distill_listing()} is a helper function to pass to the \code{listing} argument to
+specify such pages. distill uses the same approach to navbars as R Markdown.
+\code{\link[=yml_navbar]{yml_navbar()}} and friends will help you write the YAML for that. YAML
+specifying the site build, like the output field and navbars, can also be
+placed in \code{_site.yml}; see \code{\link[=yml_site_opts]{yml_site_opts()}} for further R Markdown website
+build options and \code{\link[=use_site_yml]{use_site_yml()}} for creating that file based on a \code{yml}
+object. distill's YAML options are discussed in greater detail in the
+\href{https://rstudio.github.io/distill}{articles on the distill website}.
 }
 \examples{
 post_listing <- distill_listing(

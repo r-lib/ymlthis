@@ -101,7 +101,7 @@ yml_vignette <- function(.yml, title, engine = "knitr::rmarkdown", encoding = "U
 #' R Markdown has a simple website builder baked in (see the R [Markdown
 #' book](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#site_navigation)
 #' for a detailed description). An R Markdown website must have at least have an
-#' index.Rmd file and a `_site.yml` file (which can be empty). Including YAML
+#' `index.Rmd` file and a `_site.yml` file (which can be empty). Including YAML
 #' in `_site.yml` will apply it to all R Markdown files for the website, e.g.
 #' setting the output format here will tell R Markdown to use that format across
 #' the website. R Markdown websites also support navbars, which you can specify
@@ -148,7 +148,7 @@ yml_vignette <- function(.yml, title, engine = "knitr::rmarkdown", encoding = "U
 #'
 #' @family R Markdown
 #' @family websites
-#' @seealso [use_site_yml()] [use_navbar_yml()]
+#' @seealso [use_site_yml()] [use_navbar_yml()] [use_index_rmd()]
 yml_site_opts <- function(
   .yml,
   name = yml_blank(),

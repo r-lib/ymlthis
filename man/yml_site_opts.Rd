@@ -60,7 +60,7 @@ a \code{yml} object
 \description{
 R Markdown has a simple website builder baked in (see the R \href{https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#site_navigation}{Markdown book}
 for a detailed description). An R Markdown website must have at least have an
-index.Rmd file and a \code{_site.yml} file (which can be empty). Including YAML
+\code{index.Rmd} file and a \code{_site.yml} file (which can be empty). Including YAML
 in \code{_site.yml} will apply it to all R Markdown files for the website, e.g.
 setting the output format here will tell R Markdown to use that format across
 the website. R Markdown websites also support navbars, which you can specify
@@ -92,7 +92,7 @@ yml(author = FALSE, date = FALSE) \%>\%
 
 }
 \seealso{
-\code{\link[=use_site_yml]{use_site_yml()}} \code{\link[=use_navbar_yml]{use_navbar_yml()}}
+\code{\link[=use_site_yml]{use_site_yml()}} \code{\link[=use_navbar_yml]{use_navbar_yml()}} \code{\link[=use_index_rmd]{use_index_rmd()}}
 
 Other yml: \code{\link{bib2yml}},
   \code{\link{draw_yml_tree}},

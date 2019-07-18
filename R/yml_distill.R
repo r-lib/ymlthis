@@ -1,30 +1,29 @@
 #' Set Top-level YAML options for distill
 #'
-#' distill uses many custom YAML fields to create some of its unique features.
-#' These include article and website metadata, citations, .  distill also has a
-#' few more options for the `author` field than usual YAML.
-#' `yml_distill_author()` wraps [`yml_author()`] to include these extra fields.
-#' You can specify the listings page for a post, including an optional vector of
-#' other posts to list with; `distill_listing()` is a helper function to pass to
-#' the `listing` argument to specify that. distill also uses the same approach
-#' to navbars as R Markdown. [`yml_navbar()`] and friends will help you write
-#' the YAML for that. YAML specifying the site build, like the output field and
-#' navbars, can also be placed in `_site.yml`; see [`yml_site_opts()`]  for
-#' further R Markdown website build options and [`use_site_yml()`] for creating
-#' that file based on a `yml` object. distill's YAML options are discussed in
-#' greater detail in the [articles on the distill
-#' website](https://rstudio.github.io/distill).
+#' distill uses many custom YAML fields to create some of its unique features,
+#' such as article metadata and citations. In addition to the arguments in
+#' `yml_distill_opts()`, ymlthis supports distill in a number of other ways.
+#' `yml_distill_author()` wraps [`yml_author()`] to include these extra used in
+#' distill. For a distill blog, you can specify the listings page a post belongs
+#' to, including an optional vector of other posts to list with it;
+#' `distill_listing()` is a helper function to pass to the `listing` argument to
+#' specify such pages. distill uses the same approach to navbars as R Markdown.
+#' [`yml_navbar()`] and friends will help you write the YAML for that. YAML
+#' specifying the site build, like the output field and navbars, can also be
+#' placed in `_site.yml`; see [`yml_site_opts()`] for further R Markdown website
+#' build options and [`use_site_yml()`] for creating that file based on a `yml`
+#' object. distill's YAML options are discussed in greater detail in the
+#' [articles on the distill website](https://rstudio.github.io/distill).
 #'
 #' @template describe_yml_param
-#' @param draft the abbreviated version of the citation included in the BibTeX
-#'   entry. If you don’t provide a slug then one will be automatically
-#'   generated.
-#' @param slug the abbreviated version of the citation included in the BibTeX
+#' @param draft Logical. Set the post to be a draft? Draft posts won't be
+#'   published.
+#' @param slug The abbreviated version of the citation included in the BibTeX
 #'   entry. If you don’t provide a slug then one will be automatically
 #'   generated.
 #' @param categories A character vector, the post categories
 #' @param listing The listing a post is under; either a character vector, the
-#'   results of `distill_listing()`, or a named list.
+#'   output of `distill_listing()`, or a named list.
 #' @param collection Specify the RSS, sharing, and other settings of a listing;
 #'   use `distill_collection()` or a named list.
 #' @param preview a path or link to the preview image for your article. You can
@@ -39,7 +38,7 @@
 #' @param base_url Base (root) URL for the location where the website will be
 #'   deployed (used for providing preview images for Open Graph and Twitter
 #'   Card)
-#' @param creative_commons designate articles that you create as Creative
+#' @param creative_commons Designate articles that you create as Creative
 #'   Commons licensed by specifying one of the standard Creative Commons
 #'   licenses. Common options include "CC BY", "CC BY-SA", "CC BY-ND", and "CC
 #'   BY-NC". See the [distill
@@ -259,7 +258,7 @@ distill_collection <- function(
 }
 
 #' @param include,exclude a character vector of files to explicitly include or
-#'   exclude when publishing a post. Can include wild cards, such as "*.csv".
+#'   exclude when publishing a post. Can use wild cards, such as "*.csv".
 #'
 #' @export
 #' @rdname yml_distill_opts

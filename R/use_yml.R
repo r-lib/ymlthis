@@ -5,8 +5,10 @@
 #' the `yml` object and writes it to a new R Markdown file. You may also supply
 #' `use_rmarkdown()` with an existing R Markdown file from which to read the
 #' YAML header; the YAML header from the template is then combined with `.yml`,
-#' if it's supplied, and written to a new file. By default, `use_yml()` and
-#' `use_rmarkdown()` uses the most recently printed YAML via [`last_yml()`].
+#' if it's supplied, and written to a new file. `use_index_rmd()` is a wrapper
+#' around `use_rmarkdown()` that specifically writes to a file called
+#' `index.Rmd`. By default, `use_yml()` and `use_rmarkdown()` use the most
+#' recently printed YAML via [`last_yml()`].
 #'
 #' @template describe_yml_param
 #' @param path A file path to write R Markdown file to
@@ -44,6 +46,13 @@ use_rmarkdown <- function(.yml = last_yml(), path, template = NULL) {
   rstudioapi::navigateToFile(path)
 
   invisible(.yml)
+}
+
+#' @rdname use_yml
+#' @export
+use_index_rmd <- function(.yml = last_yml(), path, template = NULL) {
+  index_rmd_path <- file_path(path, "index.Rmd")
+  use_rmarkdown(.yml = .yml, path = index_rmd_path, template = template)
 }
 
 combine_yml <- function(x, y) {
@@ -92,41 +101,41 @@ use_yml_file <- function(.yml = NULL, path) {
 #' @export
 #' @rdname use_file_yml
 use_output_yml <- function(.yml = NULL, path = ".") {
-  file_path <- file_path(path, "_output.yml")
+  yml_file_path <- file_path(path, "_output.yml")
 
-  write_yml_file(.yml, file_path)
+  write_yml_file(.yml, yml_file_path)
 }
 
 #' @export
 #' @rdname use_file_yml
 use_site_yml <- function(.yml = NULL, path = ".") {
-  file_path <- file_path(path, "_site.yml")
+  yml_file_path <- file_path(path, "_site.yml")
 
-  write_yml_file(.yml, file_path)
+  write_yml_file(.yml, yml_file_path)
 }
 
 #' @export
 #' @rdname use_file_yml
 use_navbar_yml <- function(.yml = NULL, path = ".") {
-  file_path <- file_path(path, "_navbar.yml")
+  yml_file_path <- file_path(path, "_navbar.yml")
 
-  write_yml_file(.yml, file_path)
+  write_yml_file(.yml, yml_file_path)
 }
 
 #' @export
 #' @rdname use_file_yml
 use_pkgdown_yml <- function(.yml = NULL, path = ".") {
-  file_path <- file_path(path, "_pkgdown.yml")
+  yml_file_path <- file_path(path, "_pkgdown.yml")
 
-  write_yml_file(.yml, file_path)
+  write_yml_file(.yml, yml_file_path)
 }
 
 #' @export
 #' @rdname use_file_yml
 use_bookdown_yml <- function(.yml = NULL, path = ".") {
-  file_path <- file_path(path, "_bookdown.yml")
+  yml_file_path <- file_path(path, "_bookdown.yml")
 
-  write_yml_file(.yml, file_path)
+  write_yml_file(.yml, yml_file_path)
 }
 
 

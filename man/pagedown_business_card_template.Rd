@@ -24,7 +24,7 @@ shared information, passing values to the \code{person} field can override the
 default values, which can be any of the values accepted by this function.
 Use \code{pagedown_person()} to do so or manually provide them using \code{list(field = value)}.}
 
-\item{title}{The title}
+\item{title}{The title of the person}
 
 \item{phone}{A phone number}
 
@@ -36,7 +36,7 @@ Use \code{pagedown_person()} to do so or manually provide them using \code{list(
 
 \item{logo}{A path to a logo file}
 
-\item{.repeat}{the number of cards to repeat}
+\item{.repeat}{The number of cards to repeat}
 
 \item{paperwidth}{The paper width}
 
@@ -52,7 +52,7 @@ Use \code{pagedown_person()} to do so or manually provide them using \code{list(
 
 \item{mainfont}{The font}
 
-\item{googlefonts}{A vector of Google Fonts}
+\item{googlefonts}{A character vector of Google Fonts}
 
 \item{...}{additional named R objects, such as characters or lists, to
 transform into YAML}
@@ -70,7 +70,7 @@ output, although you can also customize the output in the body of the
 document (see the \href{https://pagedown.rbind.io/}{pagedown vignette}). A good
 workflow to write a business card is to use
 \code{pagedown_business_card_template()} to specify the YAML and pass it to
-\code{\link[=use_rmarkdown]{use_rmarkdown()}}, which will be sufficient to knit into business cards.
+\code{\link[=use_rmarkdown]{use_rmarkdown()}}, which you can then to knit into business cards.
 }
 \examples{
 pagedown_business_card_template(

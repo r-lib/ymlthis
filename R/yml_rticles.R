@@ -8,28 +8,34 @@
 #'
 #' @template describe_yml_param
 #' @param title Title of the manuscript
-#' @param runninghead short author list for header (sage_article)
-#' @param author list of authors, containing `name` and `num` (sage_article,
-#'   sim_article)
-#' @param authormark short author list for header (sim_article)
+#' @param runninghead A character vector, a short author list for the header
+#'   (sage_article)
+#' @param author A list of authors, containing `name` and `num` fields
+#'   (sage_article, sim_article). Use `rticles_author()` or a list to specify.
+#' @param authormark A character vector, the short author list for the header
+#'   (sim_article)
 #' @param address list containing `num` and `org` for defining author
-#'   affiliations (sage_article, sim_article)
-#' @param corrauth corresponding author `name` and `address` (sage_article)
-#' @param corres author and address for correspondence (sim_article)
-#' @param email correspondence email (sage_article)
-#' @param abstract abstract, limited to 200 words (sage_article), 250 words
+#'   affiliations (sage_article, sim_article). Use `rticles_address()` or a list
+#'   to specify.
+#' @param corrauth corresponding author `name` and `address` (sage_article). Use
+#'   `rticles_corr_author()` or a list to specify.
+#' @param corres `author` and `address` for correspondence (sim_article). Use
+#'   `rticles_corr_author()` or a list to specify.
+#' @param email The email of the correspondence author (sage_article)
+#' @param abstract The abstract, limited to 200 words (sage_article), 250 words
 #'   (sim_article)
-#' @param received,revised,accepted dates of submission, revision, and
+#' @param received,revised,accepted The dates of submission, revision, and
 #'   acceptance of the manuscript (sim_article)
-#' @param keywords keywords for the article (sage_article), up to 6 keywords
+#' @param keywords The keywords for the article (sage_article), up to 6 keywords
 #'   (sim_article)
-#' @param bibliography BibTeX .bib file name  (sage_article, sim_article)
-#' @param longtable set to `TRUE` to include the longtable package, used by
-#'   default from pandoc to convert markdown to LaTeX code  (sim_article)
-#' @param classoption `classoption` options of the `sagej` class (sage_article)
-#' @param header_includes custom additions to the header, before the
-#'   `\\begin\{document\}` statement (sage_article, sim_article)
-#' @param include_after for including additional LaTeX code before the
+#' @param bibliography BibTeX `.bib` file name  (sage_article, sim_article)
+#' @param longtable Logical. Include the longtable package? Used by default from
+#'   pandoc to convert markdown to LaTeX code (sim_article)
+#' @param classoption a character vector of `classoption` options for the
+#'   `sagej` class (sage_article)
+#' @param header_includes additional LaTeX code to include in the header, before
+#'   the `\\begin\{document\}` statement (sage_article, sim_article)
+#' @param include_after additional LaTeX code to include before the
 #'   `\\end\{document\}` statement (sage_article, sim_article)
 #' @template describe_dots_param
 #'
@@ -91,4 +97,41 @@ yml_rticles_opts <- function(
   .yml[names(rticles_opts)] <- rticles_opts
 
   .yml
+}
+
+#' @param name The author's name
+#' @param num The author's number or address number
+#'
+#' @export
+#' @rdname yml_rticles_opts
+rticles_author <- function(name = yml_blank(), num = yml_blank()) {
+  list(
+    name = name,
+    num = num
+  ) %>%
+    purrr::discard(is_yml_blank)
+}
+
+#' @param org The author's organization
+#'
+#' @export
+#' @rdname yml_rticles_opts
+rticles_address <- function(name = yml_blank(), org = yml_blank()) {
+  list(
+    name = name,
+    org = org
+  ) %>%
+    purrr::discard(is_yml_blank)
+}
+
+
+#' @export
+#' @rdname yml_rticles_opts
+rticles_corr_author <- function(name = yml_blank(), author = yml_blank(), address = yml_blank()) {
+  list(
+    name = name,
+    author = author,
+    address = address
+  ) %>%
+    purrr::discard(is_yml_blank)
 }

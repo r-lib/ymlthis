@@ -45,16 +45,17 @@ pkgdown_template <- function(path = ".") {
 #' pkgdown also uses the same approach to navbars as R Markdown.
 #' [`yml_navbar()`] and friends will help you write the YAML for that. A useful
 #' approach to writing pkgdown YAML might be to use `pkgdown_template()` to
-#' build a template based on your package directory, modify with these functions
-#' or [yml_replace()] and [yml_discard()], then pass the results to
-#' [use_pkgdown_yml()] to write to `_pkgdown.yml`
+#' build a template based on your package directory, modify with
+#' `yml_pkgdown_*()` and `pkgdown_*()` functions or [yml_replace()] and
+#' [yml_discard()], then pass the results to [use_pkgdown_yml()] to write to
+#' `_pkgdown.yml`
 #'
 #'
 #' @template describe_yml_param
 #' @template describe_dots_param
-#' @param as_is Logical. Use the output_format and options that you have
-#'   specified.
-#' @param extension Specify the output extension, e.g. "pdf"
+#' @param as_is Logical. Use the `output_format` and options that you have
+#'   specified?
+#' @param extension The output extension, e.g. "pdf".
 #'
 #' @template describe_yml_output
 #' @export
@@ -90,8 +91,8 @@ yml_pkgdown <- function(.yml, as_is = yml_blank(), extension = yml_blank()) {
 #' @param title The title of the article or reference
 #' @param desc A description of the article or reference
 #' @param contents The contents, which can also be dplyr-style tidy selectors
-#'   (e.g "contains('index')").
-#' @param exclude What to exclude of captured by `contents`
+#'   (e.g `"contains('index')"`).
+#' @param exclude What to exclude of the what's captured by `contents`
 #'
 #' @export
 #' @rdname yml_pkgdown
@@ -121,7 +122,7 @@ pkgdown_ref <- function(
 }
 
 
-#' @param one_page Logical. Create one page per release for NEWS.md?
+#' @param one_page Logical. Create one page per release for `NEWS.md`?
 #' @export
 #' @rdname yml_pkgdown
 yml_pkgdown_news <- function(.yml, one_page = yml_blank()) {

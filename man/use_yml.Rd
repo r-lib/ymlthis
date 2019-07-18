@@ -3,11 +3,14 @@
 \name{use_yml}
 \alias{use_yml}
 \alias{use_rmarkdown}
+\alias{use_index_rmd}
 \title{Copy YAML code to your clipboard or write to a new R Markdown file}
 \usage{
 use_yml(.yml = last_yml())
 
 use_rmarkdown(.yml = last_yml(), path, template = NULL)
+
+use_index_rmd(.yml = last_yml(), path, template = NULL)
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
@@ -26,8 +29,10 @@ clipboard to paste into an R Markdown or YAML file. \code{use_rmarkdown()} takes
 the \code{yml} object and writes it to a new R Markdown file. You may also supply
 \code{use_rmarkdown()} with an existing R Markdown file from which to read the
 YAML header; the YAML header from the template is then combined with \code{.yml},
-if it's supplied, and written to a new file. By default, \code{use_yml()} and
-\code{use_rmarkdown()} uses the most recently printed YAML via \code{\link[=last_yml]{last_yml()}}.
+if it's supplied, and written to a new file. \code{use_index_rmd()} is a wrapper
+around \code{use_rmarkdown()} that specifically writes to a file called
+\code{index.Rmd}. By default, \code{use_yml()} and \code{use_rmarkdown()} use the most
+recently printed YAML via \code{\link[=last_yml]{last_yml()}}.
 }
 \seealso{
 Other yml: \code{\link{bib2yml}},

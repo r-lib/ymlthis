@@ -19,42 +19,35 @@ yml_bookdown_site(.yml)
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
-\item{book_filename}{a character vector, the filename of the main Rmd file,
-i.e., the Rmd file that is merged from all chapters. By default, it is
-named "_main.Rmd".}
+\item{book_filename}{A character vector, the filename of the main \code{.Rmd}
+file, the \code{.Rmd} file that is created by merging all chapters. By default,
+it is called "_main.Rmd".}
 
-\item{delete_merged_file}{logical. Delete the main Rmd file if it exists?}
+\item{delete_merged_file}{Logical. Delete the main \code{.Rmd} file if it exists?}
 
-\item{before_chapter_script}{one or multiple R scripts to be executed before
-each chapter}
+\item{before_chapter_script, after_chapter_script}{A character vector of one
+or more R scripts to be executed before or after each chapter}
 
-\item{after_chapter_script}{similar to \code{before_chapter_script}, but the R
-script is executed after each chapter}
+\item{edit}{A URL that collaborators can click to edit the \code{.Rmd} source
+document of the current page, usually a link to a GitHub repository. This
+link should have \code{\%s} where the actual \code{.Rmd} filename for each page will
+go.}
 
-\item{edit}{a URL that collaborators can click to edit the Rmd source
-document of the current page; this was designed primarily for GitHub
-repositories, since it is easy to edit arbitrary plain-text files on GitHub
-even in other people’s repositories (if you do not have write access to the
-repository, GitHub will automatically fork it and let you submit a pull
-request after you finish editing the file). This link should have \code{\%s} in
-it, which will be substituted by the actual Rmd filename for each page.}
+\item{history}{Similar to \code{edit}, a link to the edit/commit history of the
+current page.}
 
-\item{history}{similar to \code{edit}, a link to the edit/commit history of the
-current page}
-
-\item{rmd_files}{a character vector, the order order of Rmd files for the
+\item{rmd_files}{A character vector, the order order of \code{.Rmd} files for the
 book. \code{rmd_files} can also be a named list where each element of the list
 is named for the output type, e.g. "html" or "latex". By default, bookdown
-merges all Rmd files by the order of filenames.}
+merges all \code{.Rmd} files by the order of filenames.}
 
-\item{rmd_subdir}{whether to search for book source Rmd files in
+\item{rmd_subdir}{whether to search for book source \code{.Rmd} files in
 subdirectories (by default, only the root directory is searched). This may
-be either a boolean (e.g. true will search for book source Rmd files in the
-project directory and all subdirectories) or list of paths if you want to
-search for book source Rmd files in a subset of subdirectories}
+be either a boolean (e.g. \code{TRUE} will search for book source \code{.Rmd} files
+in the project directory and all subdirectories) or vector of paths if you
+want to search for book source \code{.Rmd} files in a subset of subdirectories.}
 
-\item{output_dir}{the output directory of the book ("_book" by default); this
-setting is read and used by}
+\item{output_dir}{the output directory of the book ("_book" by default)}
 
 \item{clean}{a character vector of files and directories to be cleaned by the
 \code{bookdown::clean_book()} function.}
@@ -71,8 +64,9 @@ bookdown uses YAML in three main places, as described in the \href{https://bookd
 YAML. \code{_output.yml} is intended for output-related YAML, such as that
 produced by \code{yml() \%>\% yml_output(bookdown::pdf_book())}. \code{_bookdown.yml} is
 intended for configuring the build of the book. Pass the results of the
-\code{yml_*()} functions to \code{use_rmarkdown(path = "index.Rmd")}
-\code{use_bookdown_yml()}, \code{use_output_yml()} to write them to these files.
+\code{yml_*()} functions to \code{use_index_rmd()}, \code{use_bookdown_yml()},
+\code{use_output_yml()} to write them to these files. \code{yml_bookdown_site()} adds
+the \code{site: "bookdown::bookdown_site"} to the YAML metadata.
 }
 \examples{
 
@@ -112,8 +106,8 @@ yml(author = FALSE, date = FALSE) \%>\%
 
 x
 
-# alternatively use `use_rmarkdown()` to write to file
-# use_rmarkdown(x, "index.Rmd")
+# alternatively use `use_index_rmd()` to write to file
+# use_index_rmd(x)
 
 output_yml <- yml(author = FALSE, date = FALSE) \%>\%
   yml_output(
@@ -133,7 +127,7 @@ output_yml
 
 }
 \seealso{
-\code{\link[=use_bookdown_yml]{use_bookdown_yml()}} \code{\link[=use_output_yml]{use_output_yml()}}
+\code{\link[=use_index_rmd]{use_index_rmd()}} \code{\link[=use_bookdown_yml]{use_bookdown_yml()}} \code{\link[=use_output_yml]{use_output_yml()}}
 
 Other yml: \code{\link{bib2yml}},
   \code{\link{draw_yml_tree}},

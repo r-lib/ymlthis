@@ -18,73 +18,70 @@ yml_blogdown_opts(.yml, draft = yml_blank(), publishdate = yml_blank(),
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
-\item{draft}{You can mark a document as a draft by setting \code{TRUE}. Draft
-posts will not be rendered if the site is built via
-\code{blogdown::build_site()} or \code{blogdown::hugo_build()}, but will be rendered
-in the local preview mode. See \href{https://bookdown.org/yihui/blogdown/local-preview.html#local-preview}{Section D.3 of the Blogdown book}.}
+\item{draft}{Logical. Set post as a draft? Draft posts will not be rendered
+if the site is built via \code{blogdown::build_site()} or
+\code{blogdown::hugo_build()} but will be rendered in the local preview mode.
+See \href{https://bookdown.org/yihui/blogdown/local-preview.html#local-preview}{Section D.3 of the blogdown book}.}
 
-\item{publishdate}{You may specify a future date to publish a post. Similar
-to draft posts, future posts are only rendered in the local preview mode}
+\item{publishdate}{A future date to publish the post. Future posts are only
+rendered in the local preview mode}
 
 \item{weight}{This field can take a numeric value to tell Hugo the order of
 pages when sorting them, e.g., when you generate a list of all pages under
 a directory, and two posts have the same date, you may assign different
 weights to them to get your desired order on the list}
 
-\item{slug}{A character string as the tail of the URL. It is particularly
-useful when you define custom rules for permanent URLs See \href{https://bookdown.org/yihui/blogdown/configuration.html#options}{Section 2.2.2 of the Blogdown book}.}
+\item{slug}{A character string used as the tail of the post URL. It is
+particularly useful when you define custom rules for permanent URLs. See
+\href{https://bookdown.org/yihui/blogdown/configuration.html#options}{Section 2.2.2 of the blogdown book}.}
 
-\item{aliases}{an array of one or more aliases (e.g., old published paths of
-renamed content) that will be created in the output directory structure}
+\item{aliases}{A character vector of one or more aliases (e.g., old published
+paths of renamed content) that will be created in the output directory
+structure}
 
-\item{audio}{an array of paths to audio files related to the page}
+\item{audio}{A character vector of paths to audio files related to the page}
 
-\item{date}{the datetime assigned to this page. This is usually fetched from
-the \code{date} field in front matter, but this behaviour is configurable.}
+\item{date}{The date assigned to this page. This is usually fetched from the
+\code{date} field in front matter, but this behavior is configurable.}
 
-\item{description}{the description for the content}
+\item{description}{The description for the content}
 
-\item{expiration_date}{the datetime at which the content should no longer be
-published by Hugo; expired content will not be rendered unless the
---buildExpired flag is passed to the hugo command.}
+\item{expiration_date}{the date at which the content should no longer be
+published by Hugo.}
 
-\item{headless}{if true, sets a leaf bundle to be
+\item{headless}{if \code{TRUE}, sets a leaf bundle to be
 \href{https://gohugo.io/content-management/page-bundles/#headless-bundle}{headless}.}
 
-\item{images}{an array of paths to images related to the page}
+\item{images}{A character vector of paths to images related to the page}
 
-\item{keywords}{the meta keywords for the content.}
+\item{keywords}{A character vector of the keywords for the content.}
 
-\item{layout}{the layout Hugo should select from the lookup order when
-rendering the content. If a type is not specified in the front matter, Hugo
-will look for the layout of the same name in the layout directory that
-corresponds with a content’s section. See \href{https://gohugo.io/content-management/types/#defining-a-content-type}{Defining a Content Type}.}
+\item{layout}{The layout Hugo should use while rendering the content. By
+default, \code{layout} matches \code{type} and is thus based on the directory.
+However, it's possible to use additional layouts within a type. See \href{https://gohugo.io/content-management/types/#defining-a-content-type}{Hugo's Defining a Content Type documentation}.}
 
-\item{lastmod}{the datetime at which the content was last modified.}
+\item{lastmod}{The date the content was last modified at}
 
 \item{link_title}{used for creating links to content}
 
-\item{resources}{used for configuring page bundle resources. See \href{https://gohugo.io/content-management/page-resources/}{Page Resources}}
+\item{resources}{A named list. Used for configuring page bundle resources.
+See \href{https://gohugo.io/content-management/page-resources/}{Hugo's Page Resources documentation}}
 
-\item{series}{an array of series this page belongs to}
+\item{series}{A character vector of series this page belongs to}
 
-\item{summary}{text used when providing a summary of the article in the
-.Summary page variable; details available in the
+\item{summary}{A summary of the content in the \code{.Summary} Hugo page variable;
+see the
 \href{https://gohugo.io/content-management/summaries/}{content-summaries}
-section.}
+section of Hugo's documentation.}
 
-\item{title}{the title for the content}
+\item{title}{The title for the content}
 
-\item{type}{the type of the content; this value will be automatically derived
-from the directory (i.e., the
-\href{https://gohugo.io/content-management/sections/}{section}) if not specified
-in front matter}
+\item{type}{The type of the content, which is based on the from the directory
+of the content if not specified}
 
-\item{url}{the full path to the content from the web root. It makes no
-assumptions about the path of the content file. It also ignores any
-language prefixes of the multilingual feature.}
+\item{url}{The full path to the content from the web root}
 
-\item{videos}{an array of paths to videos related to the page}
+\item{videos}{A character vector of paths to videos related to the page}
 
 \item{...}{additional named R objects, such as characters or lists, to
 transform into YAML}
@@ -93,15 +90,16 @@ transform into YAML}
 a \code{yml} object
 }
 \description{
-YAML in blogdown comes from a variety of sources. Technically, the
-configuration file for your blog can be in YAML, but this is not very
-common; most use \code{config.toml}, based on TOML (see the \href{https://bookdown.org/yihui/blogdown/configuration.html}{blogdown book} for more). Most
-YAML will be for your posts (which the \href{https://bookdown.org/yihui/blogdown/content.html#yaml-metadata}{blogdown book} also
-describes). Common R Markdown fields can be used, but there are two other
-main sources for YAML fields: Hugo itself and the theme you are using. Hugo
-has numerous top-level YAML to control the output (see the \href{https://gohugo.io/content-management/front-matter/}{Hugo documentation}), and your
-theme may add many more or none. \code{yml_blogdown_opts()} supports Hugo YAML. To
-use YAML specific to your theme, see \code{\link[=blogdown_template]{blogdown_template()}}
+YAML in blogdown comes from a variety of sources. Most YAML will be for your
+posts, as described in the \href{https://bookdown.org/yihui/blogdown/content.html#yaml-metadata}{blogdown book}).
+Common R Markdown fields can be used, but there are two other main sources
+for YAML fields: Hugo itself and the Hugo theme you are using. Hugo has
+numerous top-level YAML to control the output (see the \href{https://gohugo.io/content-management/front-matter/}{Hugo documentation}).
+\code{yml_blogdown_opts()} supports Hugo YAML. Your Hugo theme may also add fields
+to use. To find YAML specific to your theme, see \code{\link[=blogdown_template]{blogdown_template()}}. In
+addition to these sources of YAML, the configuration file for your blog can
+also be in YAML, but this is not very common; most use a \code{config.toml} file,
+based on TOML (see the \href{https://bookdown.org/yihui/blogdown/configuration.html}{blogdown book} for more).
 }
 \examples{
 

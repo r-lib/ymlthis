@@ -37,10 +37,10 @@ yml_pkgdown_docsearch(.yml, api_key = yml_blank(),
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
-\item{as_is}{Logical. Use the output_format and options that you have
-specified.}
+\item{as_is}{Logical. Use the \code{output_format} and options that you have
+specified?}
 
-\item{extension}{Specify the output extension, e.g. "pdf"}
+\item{extension}{The output extension, e.g. "pdf".}
 
 \item{...}{additional named R objects, such as characters or lists, to
 transform into YAML}
@@ -50,11 +50,11 @@ transform into YAML}
 \item{desc}{A description of the article or reference}
 
 \item{contents}{The contents, which can also be dplyr-style tidy selectors
-(e.g "contains('index')").}
+(e.g \code{"contains('index')"}).}
 
-\item{exclude}{What to exclude of captured by \code{contents}}
+\item{exclude}{What to exclude of the what's captured by \code{contents}}
 
-\item{one_page}{Logical. Create one page per release for NEWS.md?}
+\item{one_page}{Logical. Create one page per release for \code{NEWS.md}?}
 
 \item{dev}{The graphics device (default: "grDevices::png")}
 
@@ -89,9 +89,10 @@ Essentially, they control the build of vignettes and function references.
 pkgdown also uses the same approach to navbars as R Markdown.
 \code{\link[=yml_navbar]{yml_navbar()}} and friends will help you write the YAML for that. A useful
 approach to writing pkgdown YAML might be to use \code{pkgdown_template()} to
-build a template based on your package directory, modify with these functions
-or \code{\link[=yml_replace]{yml_replace()}} and \code{\link[=yml_discard]{yml_discard()}}, then pass the results to
-\code{\link[=use_pkgdown_yml]{use_pkgdown_yml()}} to write to \code{_pkgdown.yml}
+build a template based on your package directory, modify with
+\code{yml_pkgdown_*()} and \code{pkgdown_*()} functions or \code{\link[=yml_replace]{yml_replace()}} and
+\code{\link[=yml_discard]{yml_discard()}}, then pass the results to \code{\link[=use_pkgdown_yml]{use_pkgdown_yml()}} to write to
+\code{_pkgdown.yml}
 }
 \examples{
 
