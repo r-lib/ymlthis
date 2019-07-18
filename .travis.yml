@@ -30,10 +30,14 @@ jobs:
     - pkgdown
     - lubridate
     - devtools
-    before_deploy: Rscript -e 'remotes::install_cran("pkgdown")'
+    script:
+    - Rscript -e "devtools::install()"
+    - Rscript -e "pkgdown::build_site()"
+    - Rscript -e "remove.packages('ymlthis')"
     deploy:
-      provider: script
-      script: Rscript -e 'pkgdown::deploy_site_github()'
+      provider: pages
+      script: Rscript -e 'devtools::install()'
+      local-dir: docs
       skip-cleanup: true
       keep-history: false
       on:
