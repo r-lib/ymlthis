@@ -17,9 +17,9 @@ a \code{yml} object
 }
 \description{
 \code{bib2yml()} uses pandoc to convert a .bib file to YAML. It also accepts an
-option \code{yml} object to prepend to the the YAML from the .bib file. If you
+optional \code{yml} object to prepend to the the YAML from the .bib file. If you
 want to cite several R packages, see \code{\link[knitr:write_bib]{knitr::write_bib()}} to write a
-bibliography file and convert it with \code{[bib2yml()]}.
+bibliography file and convert it with \code{bib2yml()}.
 }
 \seealso{
 Other yml: \code{\link{draw_yml_tree}},

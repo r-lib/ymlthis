@@ -63,8 +63,9 @@ yml_clean <- function(.yml, clean) {
 #'
 #' To use an R Markdown file as a vignette, you need to specify an output format
 #' appropriate for inclusion in a package (for example, the lightweight
-#' `html_vignette()`) and to specify the `vignette` field, which specifies the
-#' title, engine, and encoding type of the vignette.
+#' `html_vignette()` ouput function included in rmarkdown) and to specify the
+#' `vignette` field, which specifies the title, engine, and encoding type of the
+#' vignette.
 #'
 #' @template describe_yml_param
 #' @param title The title of the vignette
@@ -100,24 +101,26 @@ yml_vignette <- function(.yml, title, engine = "knitr::rmarkdown", encoding = "U
 #' R Markdown has a simple website builder baked in (see the R [Markdown
 #' book](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#site_navigation)
 #' for a detailed description). An R Markdown website must have at least have an
-#' index.Rmd file and a _site.yml file (which can be empty). YAML included in
-#' _site.yml will apply to all R Markdown files related to the website, so
-#' setting the output format here will apply across the website. R Markdown
-#' websites also support navbars, which you can specify with YAML (see
-#' [yml_navbar()], as well as ?rmarkdown::render_site and
-#' ?rmarkdown::html_document). Pass `navbar_page()` to the `left` or `right` field to set up page tabs and use `navbar_separator()` to include a separators. In addition to writing YAML with `yml_*()`
-#' functions, `use_site_yml()` will take the resulting `yml` object and write it
-#' to a `_site.yml` file for you.
+#' index.Rmd file and a `_site.yml` file (which can be empty). Including YAML
+#' in `_site.yml` will apply it to all R Markdown files for the website, e.g.
+#' setting the output format here will tell R Markdown to use that format across
+#' the website. R Markdown websites also support navbars, which you can specify
+#' with YAML (see [yml_navbar()], as well as ?rmarkdown::render_site and
+#' ?rmarkdown::html_document). Pass `navbar_page()` to the `left` or `right`
+#' field to set up page tabs and use `navbar_separator()` to include a
+#' separators. In addition to writing YAML with `yml_*()` functions,
+#' `use_site_yml()` will take the a `yml` object and write it to a `_site.yml`
+#' file for you.
 #'
 #' @template describe_yml_param
 #' @param name The name of the website
 #' @param favicon Path to a file to use as the favicon
-#' @param output_dir directory to copy site content into ("_site" is the default
+#' @param output_dir Directory to copy site content into ("_site" is the default
 #'   if none is specified)
 #' @param include,exclude Files to include or exclude from the copied into
 #'   `output_dir`. You can use `*` to indicate a wildcard selection, e.g.
 #'   "*.csv".
-#' @param new_session Logical. Should each website file to be rendered in a new
+#' @param new_session Logical. Should each website file be rendered in a new
 #'   R session?
 #' @template describe_dots_param
 #'

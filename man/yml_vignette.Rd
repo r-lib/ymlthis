@@ -24,8 +24,9 @@ a \code{yml} object
 \description{
 To use an R Markdown file as a vignette, you need to specify an output format
 appropriate for inclusion in a package (for example, the lightweight
-\code{html_vignette()}) and to specify the \code{vignette} field, which specifies the
-title, engine, and encoding type of the vignette.
+\code{html_vignette()} ouput function included in rmarkdown) and to specify the
+\code{vignette} field, which specifies the title, engine, and encoding type of the
+vignette.
 }
 \examples{
 

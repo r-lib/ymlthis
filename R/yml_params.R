@@ -1,16 +1,20 @@
 #' Parameterize an R Markdown report using Shiny components
 #'
-#' R Markdown lets you add dynamic parameters to your report using the params
-#' field. The values of these variables can be called using `params$field_name`.
-#' There are several ways to change the values of the parameters: manually
-#' change the YAML, use the `params` argument in `rmarkdown::render()`, or
-#' knitting with parameters, which launches a Shiny app to select values for
-#' each. You can also pass arguments to the underlying Shiny functions using
-#' YAML. `yml_params()` accepts any number of named R objects. To set a shiny
-#' component, use the `shiny_*()` helper functions. `shiny_params()` captures a
-#' Shiny output function and transforms it to YAML. However, R Markdown supports
-#' only a limited number of components; each of these is included as a function
-#' starting with `shiny_*()`, e.g. `shiny_checkbox()`
+#' R Markdown lets you add dynamic parameters to your report using the `params`
+#' YAML field (see the [R Markdown
+#' book](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html) for
+#' examples). The values of these variables can be called inside your R Markdown
+#' document using `params$field_name`. [There are several ways to change the
+#' values of the
+#' parameters](https://bookdown.org/yihui/rmarkdown/params-knit.html): manually
+#' change the YAML, use the `params` argument in `rmarkdown::render()`, or knit
+#' with parameters, which launches a Shiny app to select values for each.
+#' `yml_params()` accepts any number of named R objects to set as YAML fields.
+#' You can also pass arguments to the underlying Shiny functions using YAML. To
+#' set a shiny component, use the `shiny_*()` helper functions. `shiny_params()`
+#' captures a Shiny output function and transforms it to YAML. However, R
+#' Markdown supports only a limited number of components; each of these is
+#' included as a function starting with `shiny_*()`, e.g. `shiny_checkbox()`
 #'
 #' @template describe_yml_param
 #' @param .shiny a Shiny function call to capture and convert to YAML

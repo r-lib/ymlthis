@@ -27,14 +27,14 @@ a \code{yml_*()} function}
 
 \item{favicon}{Path to a file to use as the favicon}
 
-\item{output_dir}{directory to copy site content into ("_site" is the default
+\item{output_dir}{Directory to copy site content into ("_site" is the default
 if none is specified)}
 
 \item{include, exclude}{Files to include or exclude from the copied into
 \code{output_dir}. You can use \code{*} to indicate a wildcard selection, e.g.
 "*.csv".}
 
-\item{new_session}{Logical. Should each website file to be rendered in a new
+\item{new_session}{Logical. Should each website file be rendered in a new
 R session?}
 
 \item{...}{additional named R objects, such as characters or lists, to
@@ -60,14 +60,16 @@ a \code{yml} object
 \description{
 R Markdown has a simple website builder baked in (see the R \href{https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#site_navigation}{Markdown book}
 for a detailed description). An R Markdown website must have at least have an
-index.Rmd file and a _site.yml file (which can be empty). YAML included in
-_site.yml will apply to all R Markdown files related to the website, so
-setting the output format here will apply across the website. R Markdown
-websites also support navbars, which you can specify with YAML (see
-\code{\link[=yml_navbar]{yml_navbar()}}, as well as ?rmarkdown::render_site and
-?rmarkdown::html_document). Pass \code{navbar_page()} to the \code{left} or \code{right} field to set up page tabs and use \code{navbar_separator()} to include a separators. In addition to writing YAML with \code{yml_*()}
-functions, \code{use_site_yml()} will take the resulting \code{yml} object and write it
-to a \code{_site.yml} file for you.
+index.Rmd file and a \code{_site.yml} file (which can be empty). Including YAML
+in \code{_site.yml} will apply it to all R Markdown files for the website, e.g.
+setting the output format here will tell R Markdown to use that format across
+the website. R Markdown websites also support navbars, which you can specify
+with YAML (see \code{\link[=yml_navbar]{yml_navbar()}}, as well as ?rmarkdown::render_site and
+?rmarkdown::html_document). Pass \code{navbar_page()} to the \code{left} or \code{right}
+field to set up page tabs and use \code{navbar_separator()} to include a
+separators. In addition to writing YAML with \code{yml_*()} functions,
+\code{use_site_yml()} will take the a \code{yml} object and write it to a \code{_site.yml}
+file for you.
 }
 \examples{
 yml(author = FALSE, date = FALSE) \%>\%

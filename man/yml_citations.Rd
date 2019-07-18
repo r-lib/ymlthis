@@ -24,14 +24,11 @@ files of dozens of journals.}
 \item{link_citations}{Logical. Add citations hyperlinks to the corresponding
 bibliography entries?}
 
-\item{natbib}{Use natbib for citations in LaTeX output. This option is not
-for use with the pandoc-citeproc filter or with PDF output. It is intended
-for use in producing a LaTeX file that can be processed with bibtex.}
+\item{natbib}{Logical. Use \href{https://ctan.org/pkg/natbib}{natbib} for
+citations in LaTeX output?}
 
-\item{biblatex}{Use biblatex for citations in LaTeX output. This option is
-not for use with the pandoc-citeproc filter or with PDF output. It is
-intended for use in producing a LaTeX file that can be processed with
-bibtex or biber.}
+\item{biblatex}{Logical. Use \href{https://ctan.org/pkg/biblatex}{biblatex} for
+citations in LaTeX output?}
 }
 \value{
 a \code{yml} object

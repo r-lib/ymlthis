@@ -15,7 +15,7 @@ a \code{yml_*()} function}
 
 \item{...}{Fields relevant to the citation (e.g. bibtex fields)}
 
-\item{.bibentry}{an object created by \code{bibentry()} or \code{citation()}. Note that
+\item{.bibentry}{An object created by \code{bibentry()} or \code{citation()}. Note that
 this requires pandoc-citeproc to be installed.}
 
 \item{id}{a character vector to use as the reference ID}
@@ -25,15 +25,15 @@ a \code{yml} object
 }
 \description{
 \code{yml_reference()} creates YAML fields for references to be used in citation.
-\code{reference()} is a simple function to add references. The easiest way to add
-references to a R Markdown file is to use a bibliography file, such as .bib,
-in the \code{bibliography} field (see \code{\link[=yml_citations]{yml_citations()}}). For documents with very
-few references, however, it might be useful to make the references
-self-contained in the YAML. \code{yml_reference()} can also transform \code{bibentry}
-and \code{citation} objects to YAML. See \code{\link[=bibentry]{bibentry()}} and \code{\link[=citation]{citation()}}. To cite
-several R packages and convert the references to YAML, it may be better to use
-\code{\link[knitr:write_bib]{knitr::write_bib()}} to write a bibliography file and convert it with
-\code{[bib2yml()]}.
+\code{reference()} is a simple function to add references to \code{yml_reference()}. The
+easiest way to add references to an R Markdown file is to use a bibliography
+file, such as .bib, in the \code{bibliography} field (see \code{\link[=yml_citations]{yml_citations()}}). For
+documents with very few references, however, it might be useful to make the
+references self-contained in the YAML. \code{yml_reference()} can also transform to
+YAML \code{bibentry} and \code{citation} objects created by\code{\link[=bibentry]{bibentry()}} and
+\code{\link[=citation]{citation()}}. To cite many R packages and convert the references to YAML,
+it may be better to use \code{\link[knitr:write_bib]{knitr::write_bib()}} to write a bibliography file and
+convert it with \code{\link[=bib2yml]{bib2yml()}}.
 }
 \examples{
 

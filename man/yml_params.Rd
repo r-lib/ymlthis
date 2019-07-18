@@ -190,17 +190,18 @@ list, but when \code{size} is set, it will be a box instead.}
 a \code{yml} object
 }
 \description{
-R Markdown lets you add dynamic parameters to your report using the params
-field. The values of these variables can be called using \code{params$field_name}.
-There are several ways to change the values of the parameters: manually
-change the YAML, use the \code{params} argument in \code{rmarkdown::render()}, or
-knitting with parameters, which launches a Shiny app to select values for
-each. You can also pass arguments to the underlying Shiny functions using
-YAML. \code{yml_params()} accepts any number of named R objects. To set a shiny
-component, use the \code{shiny_*()} helper functions. \code{shiny_params()} captures a
-Shiny output function and transforms it to YAML. However, R Markdown supports
-only a limited number of components; each of these is included as a function
-starting with \code{shiny_*()}, e.g. \code{shiny_checkbox()}
+R Markdown lets you add dynamic parameters to your report using the \code{params}
+YAML field (see the \href{https://bookdown.org/yihui/rmarkdown/parameterized-reports.html}{R Markdown book} for
+examples). The values of these variables can be called inside your R Markdown
+document using \code{params$field_name}. \href{https://bookdown.org/yihui/rmarkdown/params-knit.html}{There are several ways to change the values of the parameters}: manually
+change the YAML, use the \code{params} argument in \code{rmarkdown::render()}, or knit
+with parameters, which launches a Shiny app to select values for each.
+\code{yml_params()} accepts any number of named R objects to set as YAML fields.
+You can also pass arguments to the underlying Shiny functions using YAML. To
+set a shiny component, use the \code{shiny_*()} helper functions. \code{shiny_params()}
+captures a Shiny output function and transforms it to YAML. However, R
+Markdown supports only a limited number of components; each of these is
+included as a function starting with \code{shiny_*()}, e.g. \code{shiny_checkbox()}
 }
 \examples{
 

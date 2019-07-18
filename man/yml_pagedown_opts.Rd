@@ -68,7 +68,7 @@ Other yml: \code{\link{bib2yml}},
   \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
   \code{\link{yml_vignette}}
 
-Other pagedown: \code{\link{pagedown_buisinesscard_template}}
+Other pagedown: \code{\link{pagedown_business_card_template}}
 }
 \concept{pagedown}
 \concept{yml}

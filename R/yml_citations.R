@@ -12,15 +12,13 @@
 #' @param citation_abbreviations Path to a CSL abbreviations JSON file. See the
 #'   [pandoc-citeproc
 #'   documentation](http://manpages.ubuntu.com/manpages/xenial/man1/pandoc-citeproc.1.html).
+#'
 #' @param link_citations Logical. Add citations hyperlinks to the corresponding
 #'   bibliography entries?
-#' @param natbib Use natbib for citations in LaTeX output. This option is not
-#'   for use with the pandoc-citeproc filter or with PDF output. It is intended
-#'   for use in producing a LaTeX file that can be processed with bibtex.
-#' @param biblatex Use biblatex for citations in LaTeX output. This option is
-#'   not for use with the pandoc-citeproc filter or with PDF output. It is
-#'   intended for use in producing a LaTeX file that can be processed with
-#'   bibtex or biber.
+#' @param natbib Logical. Use [natbib](https://ctan.org/pkg/natbib) for
+#'   citations in LaTeX output?
+#' @param biblatex Logical. Use [biblatex](https://ctan.org/pkg/biblatex) for
+#'   citations in LaTeX output?
 #'
 #' @template describe_yml_output
 #' @export
@@ -57,26 +55,26 @@ yml_citations <- function(
   .yml
 }
 
-#'Write references as YAML fields
+#' Write references as YAML fields
 #'
-#'`yml_reference()` creates YAML fields for references to be used in citation.
-#'`reference()` is a simple function to add references. The easiest way to add
-#'references to a R Markdown file is to use a bibliography file, such as .bib,
-#'in the `bibliography` field (see [yml_citations()]). For documents with very
-#'few references, however, it might be useful to make the references
-#'self-contained in the YAML. `yml_reference()` can also transform `bibentry`
-#'and `citation` objects to YAML. See [bibentry()] and [citation()]. To cite
-#'several R packages and convert the references to YAML, it may be better to use
-#'[knitr::write_bib()] to write a bibliography file and convert it with
-#'`[bib2yml()]`.
+#' `yml_reference()` creates YAML fields for references to be used in citation.
+#' `reference()` is a simple function to add references to `yml_reference()`. The
+#' easiest way to add references to an R Markdown file is to use a bibliography
+#' file, such as .bib, in the `bibliography` field (see [yml_citations()]). For
+#' documents with very few references, however, it might be useful to make the
+#' references self-contained in the YAML. `yml_reference()` can also transform to
+#' YAML `bibentry` and `citation` objects created by[bibentry()] and
+#' [citation()]. To cite many R packages and convert the references to YAML,
+#' it may be better to use [knitr::write_bib()] to write a bibliography file and
+#' convert it with [`bib2yml()`].
 #'
-#'@template describe_yml_param
-#'@param ... Fields relevant to the citation (e.g. bibtex fields)
-#'@param .bibentry an object created by `bibentry()` or `citation()`. Note that
-#'  this requires pandoc-citeproc to be installed.
+#' @template describe_yml_param
+#' @param ... Fields relevant to the citation (e.g. bibtex fields)
+#' @param .bibentry An object created by `bibentry()` or `citation()`. Note that
+#'   this requires pandoc-citeproc to be installed.
 #'
-#'@template describe_yml_output
-#'@export
+#' @template describe_yml_output
+#' @export
 #'
 #' @examples
 #'
@@ -194,9 +192,9 @@ as_bibentry <- function(x) {
 #' Convert bib files to YAML
 #'
 #' `bib2yml()` uses pandoc to convert a .bib file to YAML. It also accepts an
-#' option `yml` object to prepend to the the YAML from the .bib file. If you
+#' optional `yml` object to prepend to the the YAML from the .bib file. If you
 #' want to cite several R packages, see [knitr::write_bib()] to write a
-#' bibliography file and convert it with `[bib2yml()]`.
+#' bibliography file and convert it with `bib2yml()`.
 #'
 #' @template describe_yml_param
 #' @param path a path to the .bib file

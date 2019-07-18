@@ -60,14 +60,14 @@ yml_pagedown_opts <- function(
 #' Generate a full YAML template for your pagedown business card
 #'
 #' pagedown has a unique output type to make business cards:
-#' `pagedown::business_card()`. `pagedown_buisinesscard_template()` creates a
+#' `pagedown::business_card()`. `pagedown_business_card_template()` creates a
 #' YAML template to use for this output. What's unique about this output type is
 #' that almost all of the contents are supplied through YAML. An R Markdown file
 #' that only contains YAML related to the business card is enough to produce the
 #' output, although you can also customize the output in the body of the
 #' document (see the [pagedown vignette](https://pagedown.rbind.io/)). A good
 #' workflow to write a business card is to use
-#' `pagedown_buisinesscard_template()` to specify the YAML and pass it to
+#' `pagedown_business_card_template()` to specify the YAML and pass it to
 #' [use_rmarkdown()], which will be sufficient to knit into business cards.
 #'
 #' @param name The name
@@ -97,7 +97,7 @@ yml_pagedown_opts <- function(
 #' @export
 #'
 #' @examples
-#' pagedown_buisinesscard_template(
+#' pagedown_business_card_template(
 #'   name = "Jane Doe",
 #'   title = "Miss Nobody",
 #'   phone = "+1 123-456-7890",
@@ -109,7 +109,7 @@ yml_pagedown_opts <- function(
 #'   .repeat = 12
 #' )
 #'
-#' pagedown_buisinesscard_template(
+#' pagedown_business_card_template(
 #'   phone = "+1 123-456-7890",
 #'   url = "www.example.com",
 #'   address = "2020 South Street,
@@ -138,7 +138,7 @@ yml_pagedown_opts <- function(
 #'
 #' @seealso [`use_rmarkdown()`]
 #' @family pagedown
-pagedown_buisinesscard_template <- function(
+pagedown_business_card_template <- function(
   name = yml_blank(),
   person = yml_blank(),
   title = yml_blank(),
