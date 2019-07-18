@@ -56,6 +56,7 @@ reference:
   - '`yml_distill_opts`'
   - '`yml_pagedown_opts`'
   - '`yml_pkgdown`'
+  - '`yml_rsconnect_email`'
   - '`yml_rticles_opts`'
 articles:
 - title: All vignettes

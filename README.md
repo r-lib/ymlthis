@@ -10,7 +10,7 @@ Status](https://travis-ci.com/rstudio-education/ymlthis.svg?branch=master)](http
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/lwqfvb40js0u01fs/branch/master?svg=true)](https://ci.appveyor.com/project/malcolmbarrett/ymlthis-n0nhc/branch/master)
 [![Codecov test
-coverage](https://codecov.io/gh/malcolmbarrett/ymlthis/branch/master/graph/badge.svg)](https://codecov.io/gh/malcolmbarrett/ymlthis?branch=master)
+coverage](https://codecov.io/gh/rstudio-education/ymlthis/branch/master/graph/badge.svg)](https://codecov.io/gh/rstudio-education/ymlthis?branch=master)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN
@@ -64,7 +64,7 @@ yml() %>%
 #>   affiliation: RStudio
 #> - name: Hadley Wickham
 #>   affiliation: RStudio
-#> date: '2019-07-17'
+#> date: '2019-07-18'
 #> output:
 #>   pdf_document:
 #>     keep_tex: true
