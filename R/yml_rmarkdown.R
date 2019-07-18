@@ -63,7 +63,7 @@ yml_clean <- function(.yml, clean) {
 #'
 #' To use an R Markdown file as a vignette, you need to specify an output format
 #' appropriate for inclusion in a package (for example, the lightweight
-#' `html_vignette()` ouput function included in rmarkdown) and to specify the
+#' `html_vignette()` output function included in rmarkdown) and to specify the
 #' `vignette` field, which specifies the title, engine, and encoding type of the
 #' vignette.
 #'

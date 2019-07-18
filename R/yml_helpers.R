@@ -1,9 +1,9 @@
 #' Return a blank object to be discarded from YAML
 #'
 #' ymlthis treats `NULL`, `NA`, and other common argument defaults as literal
-#' (e.g. author = NULL will produce "author: null"). `yml_blank()` is a helper
+#' (e.g. `author = NULL` will produce "author: null"). `yml_blank()` is a helper
 #' function to indicate that the field should not be included. `yml_blank()` is
-#' primarily used as a default argument in arguments that should not be included
+#' primarily used as a default argument for fields that should not be included
 #' by default.
 #'
 #' @param x a field from a `yml` object

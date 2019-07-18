@@ -2,6 +2,7 @@
 % Please edit documentation in R/yml_pagedown.R
 \name{pagedown_business_card_template}
 \alias{pagedown_business_card_template}
+\alias{pagedown_person}
 \title{Generate a full YAML template for your pagedown business card}
 \usage{
 pagedown_business_card_template(name = yml_blank(),
@@ -12,6 +13,8 @@ pagedown_business_card_template(name = yml_blank(),
   cardwidth = yml_blank(), cardheight = yml_blank(),
   cols = yml_blank(), rows = yml_blank(), mainfont = yml_blank(),
   googlefonts = yml_blank(), ...)
+
+pagedown_person(...)
 }
 \arguments{
 \item{name}{The name}

@@ -17,9 +17,9 @@ a \code{yml_blank} object
 }
 \description{
 ymlthis treats \code{NULL}, \code{NA}, and other common argument defaults as literal
-(e.g. author = NULL will produce "author: null"). \code{yml_blank()} is a helper
+(e.g. \code{author = NULL} will produce "author: null"). \code{yml_blank()} is a helper
 function to indicate that the field should not be included. \code{yml_blank()} is
-primarily used as a default argument in arguments that should not be included
+primarily used as a default argument for fields that should not be included
 by default.
 }
 \examples{

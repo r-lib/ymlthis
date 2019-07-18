@@ -3,7 +3,7 @@
 #' pagedown offers several output functions for paginated output, resumes,
 #' business cards, theses, and morem as described in the [pagedown
 #' vignette](https://pagedown.rbind.io/). pagedown also accepts a few custom
-#' top-level YAML. See [pagedown_buisinesscard_template()] for more on setting
+#' top-level YAML. See [pagedown_business_card_template()] for more on setting
 #' up the YAML for a business card.
 #'
 #' @template describe_yml_param
@@ -184,9 +184,9 @@ pagedown_business_card_template <- function(
 }
 
 #' @export
-#' @rdname pagedown_buisinesscard_template
+#' @rdname pagedown_business_card_template
 pagedown_person <- function(...) {
-  pagedown_buisinesscard_template(...) %>%
+  pagedown_business_card_template(...) %>%
     yml_discard("output") %>%
     unclass()
 }

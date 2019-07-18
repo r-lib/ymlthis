@@ -48,7 +48,7 @@ reference:
   contents:
   - '`blogdown_template`'
   - '`gitbook_config`'
-  - '`pagedown_buisinesscard_template`'
+  - '`pagedown_business_card_template`'
   - '`pkgdown_template`'
   - '`yml_blogdown_opts`'
   - '`yml_bookdown_opts`'

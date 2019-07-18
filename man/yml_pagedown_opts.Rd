@@ -36,7 +36,7 @@ a \code{yml} object
 \description{
 pagedown offers several output functions for paginated output, resumes,
 business cards, theses, and morem as described in the \href{https://pagedown.rbind.io/}{pagedown vignette}. pagedown also accepts a few custom
-top-level YAML. See \code{\link[=pagedown_buisinesscard_template]{pagedown_buisinesscard_template()}} for more on setting
+top-level YAML. See \code{\link[=pagedown_business_card_template]{pagedown_business_card_template()}} for more on setting
 up the YAML for a business card.
 }
 \examples{
