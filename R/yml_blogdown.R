@@ -150,7 +150,8 @@ yml_blogdown_opts <- function(
 #' @param type an archetype
 #' @param path the path to your blogdown site
 #' @param theme the theme to check for archetypes. By default,
-#'   `blogdown_template()` will attempt to read your theme from `config.toml`.
+#'   `blogdown_template()` will attempt to read your theme from your `config`
+#'   file.
 #'
 #' @template describe_yml_output
 #' @export
