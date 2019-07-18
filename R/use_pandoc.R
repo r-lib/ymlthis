@@ -1,16 +1,17 @@
 #' Use pandoc templates and custom highlight themes
 #'
 #' Pandoc has several built in templates and code highlighting themes that can
-#' be customized and included in the `template` and `highlight-style` fields,
-#' respectively. `pandoc_template_types()` and `pandoc_highlight_styles()`
-#' return the available templates and styles in pandoc. `use_pandoc_template()`
-#' creates a new file based on a template from pandoc or R Markdown and
+#' be customized and included in the `template` and `highlight-style` YAML
+#' fields, respectively. `pandoc_template_types()` and
+#' `pandoc_highlight_styles()` return the available templates and highlight
+#' styles in pandoc, respectively. `use_pandoc_template()` creates a new file
+#' based on a template from pandoc or R Markdown and
 #' `use_pandoc_highlight_style()` creates a new highlight theme file based on an
 #' existing pandoc theme.
 #'
 #' @param theme The name of the theme
 #' @param type The template type
-#' @param source The template source (pandoc or R Markdown)
+#' @param source The template source ("pandoc" or "rmarkdown")
 #' @param path The path to write the file to
 #'
 #' @return a character vector

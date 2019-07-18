@@ -122,3 +122,18 @@ is_utf8_output <- function() {
     l10n_info()$`UTF-8` && !is_latex_output()
   }
 }
+
+temporary_dir <- function() {
+  tmp_dir_path <- file.path(tempdir(), "ymlthis_tempdir")
+  if (!fs::dir_exists(tmp_dir_path)) {
+    fs::dir_create(tmp_dir_path)
+  }
+
+  tmp_dir_path
+}
+
+unlink_temporary_dir <- function() {
+  tmp_dir_path <- file.path(tempdir(), "ymlthis_tempdir")
+  unlink(tmp_dir_path, recursive = TRUE, force = TRUE)
+  invisible(tmp_dir_path)
+}

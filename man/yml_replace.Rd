@@ -5,7 +5,7 @@
 \alias{yml_discard}
 \alias{yml_pluck}
 \alias{yml_chuck}
-\title{Replace or discard top-level YAML fields}
+\title{Replace, pluck, or discard top-level YAML fields}
 \usage{
 yml_replace(.yml, ...)
 

@@ -1,12 +1,12 @@
-#' Copy YAML code to your clipboard
+#' Copy YAML code to your clipboard or write to a new R Markdown file
 #'
 #' `use_yml()` takes a `yml` object and puts the resulting YAML on your
-#' clipboard to paste into an R Markdown or YAML file. By default, `use_yml()`
-#' uses the most recently printed YAML via `last_yml()`. `use_rmarkdown()` takes
+#' clipboard to paste into an R Markdown or YAML file. `use_rmarkdown()` takes
 #' the `yml` object and writes it to a new R Markdown file. You may also supply
 #' `use_rmarkdown()` with an existing R Markdown file from which to read the
 #' YAML header; the YAML header from the template is then combined with `.yml`,
-#' if it's supplied, and written to a new file.
+#' if it's supplied, and written to a new file. By default, `use_yml()` and
+#' `use_rmarkdown()` uses the most recently printed YAML via [`last_yml()`].
 #'
 #' @template describe_yml_param
 #' @param path A file path to write R Markdown file to
@@ -25,8 +25,7 @@ use_rmarkdown <- function(.yml = last_yml(), path, template = NULL) {
   if (!is.null(template)) {
     existing_header <- read_yaml(template)
     printed_yaml <- existing_header %>%
-      yaml::yaml.load() %>%
-      as_yml() %>%
+      yml_load() %>%
       combine_yml(.yml) %>%
       capture_yml()
 
@@ -70,7 +69,7 @@ return_yml_code <- function(.yml) {
 #' headers will override those specified in `_output.yml`. `use_site_yml`
 #' creates `_site.yml` for use with R Markdown websites and third-party tools
 #' like the distill package (see [the R Markdown book for
-#' more](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#).
+#' more](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#)).
 #' `use_navbar_yml` is a special type of site YAML that only specifies the
 #' navbar in `_navbar.yml` `use_pkgdown_yml()` and `use_bookdown_yml()` write
 #' YAML files specific to those packages; see the
@@ -93,8 +92,7 @@ use_yml_file <- function(.yml = NULL, path) {
 #' @export
 #' @rdname use_file_yml
 use_output_yml <- function(.yml = NULL, path = ".") {
-  file_path <- "_output.yml"
-  if (path != ".") file_path <- file.path(path, file_path)
+  file_path <- file_path(path, "_output.yml")
 
   write_yml_file(.yml, file_path)
 }
@@ -102,8 +100,7 @@ use_output_yml <- function(.yml = NULL, path = ".") {
 #' @export
 #' @rdname use_file_yml
 use_site_yml <- function(.yml = NULL, path = ".") {
-  file_path <- "_site.yml"
-  if (path != ".") file_path <- file.path(path, file_path)
+  file_path <- file_path(path, "_site.yml")
 
   write_yml_file(.yml, file_path)
 }
@@ -111,8 +108,7 @@ use_site_yml <- function(.yml = NULL, path = ".") {
 #' @export
 #' @rdname use_file_yml
 use_navbar_yml <- function(.yml = NULL, path = ".") {
-  file_path <- "_navbar.yml"
-  if (path != ".") file_path <- file.path(path, file_path)
+  file_path <- file_path(path, "_navbar.yml")
 
   write_yml_file(.yml, file_path)
 }
@@ -120,8 +116,7 @@ use_navbar_yml <- function(.yml = NULL, path = ".") {
 #' @export
 #' @rdname use_file_yml
 use_pkgdown_yml <- function(.yml = NULL, path = ".") {
-  file_path <- "_pkgdown.yml"
-  if (path != ".") file_path <- file.path(path, file_path)
+  file_path <- file_path(path, "_pkgdown.yml")
 
   write_yml_file(.yml, file_path)
 }
@@ -129,8 +124,7 @@ use_pkgdown_yml <- function(.yml = NULL, path = ".") {
 #' @export
 #' @rdname use_file_yml
 use_bookdown_yml <- function(.yml = NULL, path = ".") {
-  file_path <- "_bookdown.yml"
-  if (path != ".") file_path <- file.path(path, file_path)
+  file_path <- file_path(path, "_bookdown.yml")
 
   write_yml_file(.yml, file_path)
 }
@@ -160,6 +154,10 @@ write_yml_file <- function(.yml, path) {
   usethis::ui_done("Writing {usethis::ui_path(path)}")
 
   invisible(path)
+}
+
+file_path <- function(path, .file) {
+  file.path(normalizePath(path), .file)
 }
 
 

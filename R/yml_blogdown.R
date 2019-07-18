@@ -156,7 +156,7 @@ yml_blogdown_opts <- function(
 #' @export
 blogdown_template <- function(type, path = ".", theme = NULL) {
   stop_if_blogdown_not_installed()
-  on.exit(unlink(tempdir(), recursive = TRUE, force = TRUE))
+  on.exit(unlink_temporary_dir())
 
   if (is.null(theme)) theme <- get_theme(path)
 
@@ -166,33 +166,33 @@ blogdown_template <- function(type, path = ".", theme = NULL) {
     stop("archetype ", type, " does not exist", call. = FALSE)
   }
 
-  fs::dir_create(file.path(tempdir(), "content"))
+  fs::dir_create(file.path(temporary_dir(), "content"))
   fs::file_copy(
     file.path(archetype_path, paste0(type, ".md")),
-    file.path(tempdir(), "content")
+    file.path(temporary_dir(), "content")
   )
 
   readr::write_lines(
     c("baseurl = \"/\"", "builddrafts = true"),
-    file.path(tempdir(), "config.toml")
+    file.path(temporary_dir(), "config.toml")
   )
 
   file_to_yamlify <- file.path(
-    tempdir(),
+    temporary_dir(),
     "content",
     paste0(type, ".md")
   )
   clean_archetype_files(file_to_yamlify)
 
   withr::with_dir(
-    tempdir(),
+    temporary_dir(),
     blogdown::hugo_cmd(
       args = c("convert", "toYAML", "--unsafe"),
       stdout = TRUE
     )
   )
 
-  readLines(file.path(tempdir(), "content"))
+  readLines(file.path(temporary_dir(), "content"))
 
   post_yml <- yaml::yaml.load_file(file_to_yamlify) %>%
     as_yml()

@@ -3,7 +3,7 @@
 \name{use_yml}
 \alias{use_yml}
 \alias{use_rmarkdown}
-\title{Copy YAML code to your clipboard}
+\title{Copy YAML code to your clipboard or write to a new R Markdown file}
 \usage{
 use_yml(.yml = last_yml())
 
@@ -22,12 +22,12 @@ a \code{yml_*()} function}
 }
 \description{
 \code{use_yml()} takes a \code{yml} object and puts the resulting YAML on your
-clipboard to paste into an R Markdown or YAML file. By default, \code{use_yml()}
-uses the most recently printed YAML via \code{last_yml()}. \code{use_rmarkdown()} takes
+clipboard to paste into an R Markdown or YAML file. \code{use_rmarkdown()} takes
 the \code{yml} object and writes it to a new R Markdown file. You may also supply
 \code{use_rmarkdown()} with an existing R Markdown file from which to read the
 YAML header; the YAML header from the template is then combined with \code{.yml},
-if it's supplied, and written to a new file.
+if it's supplied, and written to a new file. By default, \code{use_yml()} and
+\code{use_rmarkdown()} uses the most recently printed YAML via \code{\link[=last_yml]{last_yml()}}.
 }
 \seealso{
 Other yml: \code{\link{bib2yml}},

@@ -17,7 +17,7 @@ an object of class \code{verbatim}
 \code{yml_*()} function rather than the defaults in ymlthis and yaml. ymlthis uses
 the yaml package to check for valid syntax; yaml and ymlthis together make
 decisions about how to write syntax, which can often be done in numerous
-valid ways.
+valid ways. See \code{\link[yaml:as.yaml]{yaml::as.yaml()}} for more details.
 }
 \examples{
 # "yes" and "no" serve as alternatives to `true` and `false`. This writes

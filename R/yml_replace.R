@@ -1,4 +1,4 @@
-#' Replace or discard top-level YAML fields
+#' Replace, pluck, or discard top-level YAML fields
 #'
 #' `yml_replace()` replaces a named field with another value. As opposed to
 #' duplicating top-level fields with other functions, explicitly replacing them

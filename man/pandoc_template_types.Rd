@@ -20,7 +20,7 @@ use_pandoc_highlight_style(theme, path)
 
 \item{path}{The path to write the file to}
 
-\item{source}{The template source (pandoc or R Markdown)}
+\item{source}{The template source ("pandoc" or "rmarkdown")}
 
 \item{theme}{The name of the theme}
 }
@@ -29,10 +29,11 @@ a character vector
 }
 \description{
 Pandoc has several built in templates and code highlighting themes that can
-be customized and included in the \code{template} and \code{highlight-style} fields,
-respectively. \code{pandoc_template_types()} and \code{pandoc_highlight_styles()}
-return the available templates and styles in pandoc. \code{use_pandoc_template()}
-creates a new file based on a template from pandoc or R Markdown and
+be customized and included in the \code{template} and \code{highlight-style} YAML
+fields, respectively. \code{pandoc_template_types()} and
+\code{pandoc_highlight_styles()} return the available templates and highlight
+styles in pandoc, respectively. \code{use_pandoc_template()} creates a new file
+based on a template from pandoc or R Markdown and
 \code{use_pandoc_highlight_style()} creates a new highlight theme file based on an
 existing pandoc theme.
 }
