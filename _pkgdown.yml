@@ -28,6 +28,7 @@ reference:
   desc: null
   contents:
   - '`as_yml`'
+  - '`yml_load`'
   - '`draw_yml_tree`'
   - '`is_yml`'
   - '`last_yml`'

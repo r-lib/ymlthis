@@ -7,9 +7,14 @@
 yml_load(x)
 }
 \arguments{
-\item{x}{an obect to pass to \code{\link[yaml:yaml.load]{yaml::yaml.load()}}}
+\item{x}{an object to pass to \code{\link[yaml:yaml.load]{yaml::yaml.load()}}}
 }
 \description{
 \code{yml_load()} is a wrapper for \code{\link[yaml:yaml.load]{yaml::yaml.load()}} that also converts the
 object to the \code{yml} class.
+}
+\examples{
+c("title: my title", "author: Malcolm Barrett") \%>\%
+  yml_load()
+
 }

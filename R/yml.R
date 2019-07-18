@@ -150,9 +150,9 @@ as_yml.print_yaml <- function(x) {
 #' `yml_load()` is a wrapper for [yaml::yaml.load()] that also converts the
 #' object to the `yml` class.
 #'
-#' @param x an obect to pass to [yaml::yaml.load()]
+#' @param x an object to pass to [yaml::yaml.load()]
 #'
-#' @export
+#' @examples
 #' c("title: my title", "author: Malcolm Barrett") %>%
 #'   yml_load()
 #'
