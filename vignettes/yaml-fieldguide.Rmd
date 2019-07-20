@@ -40,7 +40,8 @@ get_params <- function(x) {
   if (!rlang::has_length(param_lists) || is.na(f)) return(data.frame())
   
   params_desc <- x[param_lists] %>% 
-    purrr::map_df(as.data.frame, stringsAsFactors = FALSE)
+    purrr::map(as.data.frame, stringsAsFactors = FALSE) %>% 
+     do.call(rbind, .)
   
   params_desc$description <- stringr::str_replace_all(
     params_desc$description, 
@@ -77,7 +78,8 @@ filter_kable <- function(.tbl, .pattern = NULL, caption = NULL) {
 }
 
 fields_df <- roxygen2::parse_package("../") %>% 
-  purrr::map_df(get_params)
+  purrr::map(get_params) %>% 
+  do.call(rbind, .)
 
 empty_yaml <- function() yml(get_yml = FALSE, author = FALSE, date = FALSE)
 ```
