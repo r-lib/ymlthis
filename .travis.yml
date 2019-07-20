@@ -32,7 +32,7 @@ jobs:
     - devtools
     script:
     - Rscript -e "devtools::install()"
-    - Rscript -e "options(ymlthis.default_yml = 'author: Malcolm Barrett'"
+    - Rscript -e "options(usethis.full_name = 'Malcolm Barrett'"
     - Rscript -e "pkgdown::build_site()"
     - Rscript -e "remove.packages('ymlthis')"
     deploy:
