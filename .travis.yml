@@ -32,7 +32,7 @@ jobs:
     - devtools
     script:
     - Rscript -e "devtools::install()"
-    - Rscript -e "withr::with_envvar(Sys.setenv(FULLNAME = 'Malcolm Barrett'), pkgdown::build_site())"
+    - Rscript -e "Sys.setenv(FULLNAME = 'Malcolm Barrett'); pkgdown::build_site()"
     - Rscript -e "remove.packages('ymlthis')"
     deploy:
       provider: pages
