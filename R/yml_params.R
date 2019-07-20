@@ -76,7 +76,16 @@ switch_shiny_param <- function(x) {
     fileInput = "file",
     radioButtons = "radio",
     selectInput = "select",
-    passwordInput = "password"
+    passwordInput = "password",
+    "shiny::checkboxInput" = "checkbox",
+    "shiny::numericInput" = "numeric",
+    "shiny::sliderInput" = "slider",
+    "shiny::dateInput" = "date",
+    "shiny::textInput" = "text",
+    "shiny::fileInput" = "file",
+    "shiny::radioButtons" = "radio",
+    "shiny::selectInput" = "select",
+    "shiny::passwordInput" = "password"
   )
 }
 
@@ -376,7 +385,7 @@ remove_default_values <- function(args, .f, drop = NULL) {
     args <- args[!(names(args) %in% drop)]
   }
   same <- purrr::map2_lgl(args[-1], fmls[-1], identical)
-  same <- c(TRUE, same)
+  same <- c(FALSE, same)
 
   args[!same]
 }

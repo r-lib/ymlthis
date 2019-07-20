@@ -65,6 +65,7 @@ yml_clean <- function(.yml, clean) {
 #' appropriate for inclusion in a package (for example, the lightweight
 #' `html_vignette()` output function included in rmarkdown) and to specify the
 #' `vignette` field, which specifies the title, engine, and encoding type of the
+#' vignette. See also [usethis::use_vignette()] for setting up a package
 #' vignette.
 #'
 #' @template describe_yml_param

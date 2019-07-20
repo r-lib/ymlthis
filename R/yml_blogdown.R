@@ -175,7 +175,7 @@ blogdown_template <- function(type, path = ".", theme = NULL) {
     file.path(temporary_dir(), "content")
   )
 
-  readr::write_lines(
+  writeLines(
     c("baseurl = \"/\"", "builddrafts = true"),
     file.path(temporary_dir(), "config.toml")
   )
@@ -214,11 +214,11 @@ blogdown_archetypes <- function(path = ".", theme = NULL) {
 }
 
 clean_archetype_files <- function(path) {
-  readr::read_file(path) %>%
+  readLines(path) %>%
     #  has trouble with these {{}} templates
     stringr::str_replace_all('\\{\\{.+\\}\\}', '\\"\\"') %>%
     stringr::str_replace_all('\\"\\"\\"\\"', '\\"\\"') %>%
-    readr::write_lines(path)
+    writeLines(path)
 }
 
 get_theme <- function(path) {

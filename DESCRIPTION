@@ -13,7 +13,7 @@ Authors@R:
              email = "rich@rstudio.com",
              comment = c(ORCID = "0000-0003-3925-190X")))
 Description: write YAML front matter for R Markdown and
-    related documents.  yml_*() functions write functions and use_*()
+    related documents. yml_*() functions write YAML and use_*()
     functions let you write the resulting YAML to your clipboard or to
     .yml files related to your project.
 License: MIT + file LICENSE
@@ -25,7 +25,6 @@ Imports:
     glue,
     magrittr,
     purrr,
-    readr,
     rlang,
     rstudioapi,
     stringr,
@@ -40,9 +39,11 @@ Suggests:
     knitr,
     pkgdown,
     rmarkdown,
+    roxygen2,
     shiny,
     spelling,
-    testthat
+    testthat,
+    xaringan
 VignetteBuilder: 
     knitr
 Encoding: UTF-8

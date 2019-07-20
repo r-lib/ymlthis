@@ -26,6 +26,7 @@ To use an R Markdown file as a vignette, you need to specify an output format
 appropriate for inclusion in a package (for example, the lightweight
 \code{html_vignette()} output function included in rmarkdown) and to specify the
 \code{vignette} field, which specifies the title, engine, and encoding type of the
+vignette. See also \code{\link[usethis:use_vignette]{usethis::use_vignette()}} for setting up a package
 vignette.
 }
 \examples{

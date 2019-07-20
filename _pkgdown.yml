@@ -82,8 +82,10 @@ navbar:
     articles:
       text: Articles
       menu:
-      - text: introduction-to-ymlthis
+      - text: An Introduction to ymlthis
         href: articles/introduction-to-ymlthis.html
+      - text: The YAML Fieldguide
+        href: articles/yaml-fieldguide.html
     github:
       icon: fa-github fa-lg
       href: https://github.com/rstudio-education/ymlthis

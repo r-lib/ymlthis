@@ -57,7 +57,8 @@ warn_if_duplicate_fields <- function(yml_object, new_fields) {
       glue::glue_collapse(sep = ", ", last = " and ")
     msg <- glue::glue(
       "Top-level fields {fields} already present. \\
-      Replacing the existing fields."
+      Replacing the existing fields. \\
+      Use `yml_replace() if you want to replace fields without a warning."
     )
     warning(msg, call. = FALSE)
   }
@@ -124,7 +125,7 @@ is_utf8_output <- function() {
 }
 
 temporary_dir <- function() {
-  tmp_dir_path <- file.path(tempdir(), "ymlthis_tempdir")
+  tmp_dir_path <- file.path(tempdir(), "..ymlthis_temp_dir..")
   if (!fs::dir_exists(tmp_dir_path)) {
     fs::dir_create(tmp_dir_path)
   }
@@ -133,7 +134,7 @@ temporary_dir <- function() {
 }
 
 unlink_temporary_dir <- function() {
-  tmp_dir_path <- file.path(tempdir(), "ymlthis_tempdir")
+  tmp_dir_path <- file.path(tempdir(), "..ymlthis_temp_dir..")
   unlink(tmp_dir_path, recursive = TRUE, force = TRUE)
   invisible(tmp_dir_path)
 }
