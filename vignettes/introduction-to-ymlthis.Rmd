@@ -1,6 +1,8 @@
 ---
 title: "An Introduction to ymlthis"
-output: rmarkdown::html_vignette
+output: 
+  prettydoc::html_pretty:
+    theme: tactile
 vignette: |-
   >
   %\VignetteIndexEntry{An Introduction to ymlthis}
