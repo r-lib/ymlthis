@@ -34,9 +34,11 @@
 #' @param classoption a character vector of `classoption` options for the
 #'   `sagej` class (sage_article)
 #' @param header_includes additional LaTeX code to include in the header, before
-#'   the `\\begin\{document\}` statement (sage_article, sim_article)
+#'   the `\\begin\{document\}` statement (sage_article, sim_article). Note that
+#'   the actual YAML field is `header-includes`
 #' @param include_after additional LaTeX code to include before the
-#'   `\\end\{document\}` statement (sage_article, sim_article)
+#'   `\\end\{document\}` statement (sage_article, sim_article). Note that the
+#'   actual YAML field is `include-after`.
 #' @template describe_dots_param
 #'
 #' @template describe_yml_output

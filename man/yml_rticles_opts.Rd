@@ -69,10 +69,12 @@ pandoc to convert markdown to LaTeX code (sim_article)}
 \code{sagej} class (sage_article)}
 
 \item{header_includes}{additional LaTeX code to include in the header, before
-the \code{\\begin\{document\}} statement (sage_article, sim_article)}
+the \code{\\begin\{document\}} statement (sage_article, sim_article). Note that
+the actual YAML field is \code{header-includes}}
 
 \item{include_after}{additional LaTeX code to include before the
-\code{\\end\{document\}} statement (sage_article, sim_article)}
+\code{\\end\{document\}} statement (sage_article, sim_article). Note that the
+actual YAML field is \code{include-after}.}
 
 \item{...}{additional named R objects, such as characters or lists, to
 transform into YAML}

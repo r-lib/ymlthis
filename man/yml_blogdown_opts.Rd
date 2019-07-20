@@ -47,7 +47,7 @@ structure}
 \item{description}{The description for the content}
 
 \item{expiration_date}{the date at which the content should no longer be
-published by Hugo.}
+published by Hugo. Note that the actual YAML field is \code{expiryDate}}
 
 \item{headless}{if \code{TRUE}, sets a leaf bundle to be
 \href{https://gohugo.io/content-management/page-bundles/#headless-bundle}{headless}.}
@@ -62,7 +62,8 @@ However, it's possible to use additional layouts within a type. See \href{https:
 
 \item{lastmod}{The date the content was last modified at}
 
-\item{link_title}{used for creating links to content}
+\item{link_title}{used for creating links to content.  Note that the actual
+YAML field is \code{linkTitle}}
 
 \item{resources}{A named list. Used for configuring page bundle resources.
 See \href{https://gohugo.io/content-management/page-resources/}{Hugo's Page Resources documentation}}

@@ -15,17 +15,21 @@ a \code{yml_*()} function}
 
 \item{toc}{Logical. Use a table of contents?}
 
-\item{toc_title}{The title for the table of contents}
+\item{toc_title}{The title for the table of contents. Note that the actual
+YAML field is \code{toc-title}}
 
 \item{lot}{Logical. Use a list of figures?}
 
-\item{lot_title}{The title for the list of figures}
+\item{lot_title}{The title for the list of figures. Note that the actual YAML
+field is \code{lot-title}}
 
 \item{chapter_name}{The chapter title prefix}
 
-\item{links_to_footnotes}{Logical. Transform all the URLs to footnotes?}
+\item{links_to_footnotes}{Logical. Transform all the URLs to footnotes? Note
+that the actual YAML field is \code{links-to-footnotes}}
 
-\item{paged_footnotes}{Logical. Render notes as footnotes?}
+\item{paged_footnotes}{Logical. Render notes as footnotes? Note that the
+actual YAML field is \code{paged-footnotes}}
 
 \item{...}{additional named R objects, such as characters or lists, to
 transform into YAML}

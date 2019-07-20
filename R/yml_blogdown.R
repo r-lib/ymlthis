@@ -39,7 +39,7 @@
 #'   `date` field in front matter, but this behavior is configurable.
 #' @param description The description for the content
 #' @param expiration_date the date at which the content should no longer be
-#'   published by Hugo.
+#'   published by Hugo. Note that the actual YAML field is `expiryDate`
 #' @param headless if `TRUE`, sets a leaf bundle to be
 #'   [headless](https://gohugo.io/content-management/page-bundles/#headless-bundle).
 #'
@@ -51,9 +51,9 @@
 #'   Defining a Content Type
 #'   documentation](https://gohugo.io/content-management/types/#defining-a-content-type).
 #'
-#'
 #' @param lastmod The date the content was last modified at
-#' @param link_title used for creating links to content
+#' @param link_title used for creating links to content.  Note that the actual
+#'   YAML field is `linkTitle`
 #' @param resources A named list. Used for configuring page bundle resources.
 #'   See [Hugo's Page Resources
 #'   documentation](https://gohugo.io/content-management/page-resources/)

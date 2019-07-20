@@ -9,7 +9,8 @@
 #' @param block_headings make paragraph and subparagraph (fourth- and
 #'   fifth-level headings, or fifth- and sixth-level with book classes)
 #'   free-standing rather than run-in; requires further formatting to
-#'   distinguish from subsubsection (third- or fourth-level headings)
+#'   distinguish from subsubsection (third- or fourth-level headings). Note that
+#'   the YAML field is actually called `block-headings`.
 #' @param classoption a character vector of options for document class, e.g.
 #'   "oneside"
 #' @param documentclass the document class usually "article", "book", or
@@ -22,7 +23,8 @@
 #' @param linestretch adjusts line spacing using the [setspace LaTeX
 #'   package](https://ctan.org/pkg/setspace?lang=en), e.g. 1.25, 1.5
 #' @param margin_left,margin_right,margin_top,margin_bottom sets margins if
-#'   `geometry` is not used, otherwise `geometry` overrides these.
+#'   `geometry` is not used, otherwise `geometry` overrides these. Note that the
+#'   actual YAML fields use `-` instead of, e.g. `margin-left`.
 #' @param pagestyle control the `pagestyle` LaTeX command: the default article
 #'   class supports "plain" (default), "empty" (no running heads or page
 #'   numbers), and "headings" (section titles in running heads)
@@ -57,19 +59,23 @@
 #'   contents, respectively: uses options allowed by
 #'   [xcolor](https://ctan.org/pkg/xcolor?lang=en), including the dvipsnames,
 #'   svgnames, and x11names lists
-#' @param links_as_notes Logical. Print links as footnotes?
+#' @param links_as_notes Logical. Print links as footnotes? Note that the actual
+#'   YAML field is `links-as-notes`
 #' @param lof,lot Logical. Include list of figures or list of tables?
 #' @param thanks contents of acknowledgments footnote after document title
 #' @param toc include table of contents
-#' @param toc_depth level of section to include in table of contents
+#' @param toc_depth level of section to include in table of contents. Note that
+#'   the actual YAML field is `toc-depth`
 #' @param biblatexoptions list of options for
 #'   [biblatex](https://ctan.org/pkg/biblatex).
 #' @param biblio_style bibliography style, when used with
 #'   [natbib](https://ctan.org/pkg/natbib) and
-#'   [biblatex](https://ctan.org/pkg/biblatex).
+#'   [biblatex](https://ctan.org/pkg/biblatex). Note that the actual YAML field
+#'   is `biblio-style`
 #' @param biblio_title bibliography title, when used with
 #'   [natbib](https://ctan.org/pkg/natbib) and
-#'   [biblatex](https://ctan.org/pkg/biblatex).
+#'   [biblatex](https://ctan.org/pkg/biblatex). Note that the actual YAML field
+#'   is `biblio-title`
 #' @param bibliography a path to the bibliography file to use for references
 #' @param natbiboptions a character vector of options for
 #'   [natbib](https://ctan.org/pkg/natbib)

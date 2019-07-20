@@ -22,9 +22,7 @@
 #' @family pkgdown
 #' @seealso [`use_pkgdown_yml()`]
 pkgdown_template <- function(path = ".") {
-  if (!requireNamespace("pkgdown", quietly = TRUE)) {
-    stop("Installing `pkgdown` is required to use `pkgdown_template()`")
-  }
+  stop_if_not_installed("pkgdown")
 
   reference <- pkgdown::template_reference(path = path)
   articles <- pkgdown::template_articles(path = path)

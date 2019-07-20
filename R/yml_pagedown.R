@@ -8,12 +8,16 @@
 #'
 #' @template describe_yml_param
 #' @param toc Logical. Use a table of contents?
-#' @param toc_title The title for the table of contents
+#' @param toc_title The title for the table of contents. Note that the actual
+#'   YAML field is `toc-title`
 #' @param lot Logical. Use a list of figures?
-#' @param lot_title The title for the list of figures
+#' @param lot_title The title for the list of figures. Note that the actual YAML
+#'   field is `lot-title`
 #' @param chapter_name The chapter title prefix
-#' @param links_to_footnotes Logical. Transform all the URLs to footnotes?
-#' @param paged_footnotes Logical. Render notes as footnotes?
+#' @param links_to_footnotes Logical. Transform all the URLs to footnotes? Note
+#'   that the actual YAML field is `links-to-footnotes`
+#' @param paged_footnotes Logical. Render notes as footnotes? Note that the
+#'   actual YAML field is `paged-footnotes`
 #' @template describe_dots_param
 #'
 #' @template describe_yml_output
@@ -82,7 +86,8 @@ yml_pagedown_opts <- function(
 #' @param url A website URL
 #' @param address The address
 #' @param logo A path to a logo file
-#' @param .repeat The number of cards to repeat
+#' @param .repeat The number of cards to repeat. Note that the actual YAML field
+#'   is `repeat`.
 #' @param paperwidth The paper width
 #' @param paperheight The paper height
 #' @param cardwidth The width of the card

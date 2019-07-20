@@ -35,7 +35,8 @@ a \code{yml_*()} function}
 \item{block_headings}{make paragraph and subparagraph (fourth- and
 fifth-level headings, or fifth- and sixth-level with book classes)
 free-standing rather than run-in; requires further formatting to
-distinguish from subsubsection (third- or fourth-level headings)}
+distinguish from subsubsection (third- or fourth-level headings). Note that
+the YAML field is actually called \code{block-headings}.}
 
 \item{classoption}{a character vector of options for document class, e.g.
 "oneside"}
@@ -52,7 +53,8 @@ paragraphs.}
 \item{linestretch}{adjusts line spacing using the \href{https://ctan.org/pkg/setspace?lang=en}{setspace LaTeX package}, e.g. 1.25, 1.5}
 
 \item{margin_left, margin_right, margin_top, margin_bottom}{sets margins if
-\code{geometry} is not used, otherwise \code{geometry} overrides these.}
+\code{geometry} is not used, otherwise \code{geometry} overrides these. Note that the
+actual YAML fields use \code{-} instead of, e.g. \code{margin-left}.}
 
 \item{pagestyle}{control the \code{pagestyle} LaTeX command: the default article
 class supports "plain" (default), "empty" (no running heads or page
@@ -97,7 +99,8 @@ contents, respectively: uses options allowed by
 \href{https://ctan.org/pkg/xcolor?lang=en}{xcolor}, including the dvipsnames,
 svgnames, and x11names lists}
 
-\item{links_as_notes}{Logical. Print links as footnotes?}
+\item{links_as_notes}{Logical. Print links as footnotes? Note that the actual
+YAML field is \code{links-as-notes}}
 
 \item{lof, lot}{Logical. Include list of figures or list of tables?}
 
@@ -105,18 +108,21 @@ svgnames, and x11names lists}
 
 \item{toc}{include table of contents}
 
-\item{toc_depth}{level of section to include in table of contents}
+\item{toc_depth}{level of section to include in table of contents. Note that
+the actual YAML field is \code{toc-depth}}
 
 \item{biblatexoptions}{list of options for
 \href{https://ctan.org/pkg/biblatex}{biblatex}.}
 
 \item{biblio_style}{bibliography style, when used with
 \href{https://ctan.org/pkg/natbib}{natbib} and
-\href{https://ctan.org/pkg/biblatex}{biblatex}.}
+\href{https://ctan.org/pkg/biblatex}{biblatex}. Note that the actual YAML field
+is \code{biblio-style}}
 
 \item{biblio_title}{bibliography title, when used with
 \href{https://ctan.org/pkg/natbib}{natbib} and
-\href{https://ctan.org/pkg/biblatex}{biblatex}.}
+\href{https://ctan.org/pkg/biblatex}{biblatex}. Note that the actual YAML field
+is \code{biblio-title}}
 
 \item{bibliography}{a path to the bibliography file to use for references}
 

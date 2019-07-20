@@ -12,9 +12,10 @@
 #' @param citation_abbreviations Path to a CSL abbreviations JSON file. See the
 #'   [pandoc-citeproc
 #'   documentation](http://manpages.ubuntu.com/manpages/xenial/man1/pandoc-citeproc.1.html).
+#'   Note that the actual YAML field is `citation-abbreviations`.
 #'
 #' @param link_citations Logical. Add citations hyperlinks to the corresponding
-#'   bibliography entries?
+#'   bibliography entries?  Note that the actual YAML field is `link-citations`.
 #' @param natbib Logical. Use [natbib](https://ctan.org/pkg/natbib) for
 #'   citations in LaTeX output?
 #' @param biblatex Logical. Use [biblatex](https://ctan.org/pkg/biblatex) for
