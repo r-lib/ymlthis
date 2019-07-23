@@ -263,7 +263,7 @@ fields_df %>%
 
 ```{r}
 fields_df %>% 
-  filter_kable("blogdown", caption = "blogdown YAML")
+  filter_kable("yml_blogdown_opts", caption = "blogdown YAML")
 ```
 
 ## bookdown YAML
@@ -277,7 +277,7 @@ fields_df %>%
 
 ```{r}
 fields_df %>% 
-  filter_kable("pkgdown", caption = "pkgdown YAML")
+  filter_kable("yml_pkgdown", caption = "pkgdown YAML")
 ```
 
 ## pagedown YAML
