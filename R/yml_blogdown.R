@@ -215,7 +215,7 @@ blogdown_archetypes <- function(path = ".", theme = NULL) {
 
 clean_archetype_files <- function(path) {
   readLines(path) %>%
-    #  has trouble with these {{}} templates
+    #  remove {{expr}} functions
     stringr::str_replace_all('\\{\\{.+\\}\\}', '\\"\\"') %>%
     stringr::str_replace_all('\\"\\"\\"\\"', '\\"\\"') %>%
     writeLines(path)

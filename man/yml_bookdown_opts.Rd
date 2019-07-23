@@ -129,8 +129,8 @@ output_yml
 \seealso{
 \code{\link[=use_index_rmd]{use_index_rmd()}} \code{\link[=use_bookdown_yml]{use_bookdown_yml()}} \code{\link[=use_output_yml]{use_output_yml()}}
 
-Other yml: \code{\link{bib2yml}},
-  \code{\link{draw_yml_tree}},
+Other yml: \code{\link{asis_yaml_output}},
+  \code{\link{bib2yml}}, \code{\link{draw_yml_tree}},
   \code{\link{use_yml_defaults}},
   \code{\link{use_yml_file}}, \code{\link{use_yml}},
   \code{\link{yml_author}},

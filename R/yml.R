@@ -222,6 +222,23 @@ cat_silver <- function(x) {
   cat(crayon::silver(x))
 }
 
+#' Export yml object as a YAML knitr code chunk
+#'
+#' `asis_yaml_output()` exports a `yml` object as a YAML knitr code chunk
+#' instead of as an R object. Doing so adds code highlighting for YAML syntax.
+#'
+#' @template describe_yml_param
+#'
+#' @export
+asis_yaml_output <- function(.yml) {
+  x <- .yml %>%
+    capture_yml() %>%
+    glue::glue_collapse("\n")
+
+  glue::glue("```yaml\n{x}\n```") %>%
+    knitr::asis_output()
+}
+
 #' Is object a yml object?
 #'
 #' @param x An object to test

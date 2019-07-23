@@ -121,8 +121,8 @@ yml(author = FALSE, date = FALSE) \%>\%
 
 }
 \seealso{
-Other yml: \code{\link{bib2yml}},
-  \code{\link{draw_yml_tree}},
+Other yml: \code{\link{asis_yaml_output}},
+  \code{\link{bib2yml}}, \code{\link{draw_yml_tree}},
   \code{\link{use_yml_defaults}},
   \code{\link{use_yml_file}}, \code{\link{use_yml}},
   \code{\link{yml_blogdown_opts}},

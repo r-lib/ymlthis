@@ -37,6 +37,7 @@ reference:
   - '`yml_handlers`'
   - '`yml_replace`'
   - '`yml_verbatim`'
+  - '`asis_yaml_output`'
 - title: Writing to YAML and R Markdown files
   desc: null
   contents:

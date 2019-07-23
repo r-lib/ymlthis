@@ -47,8 +47,8 @@ yml_bookdown_opts yml_bookdown_site yml_pkgdown yml_pkgdown_articles
 yml_pkgdown_docsearch yml_pkgdown_figures yml_pkgdown_news
 yml_pkgdown_reference
 
-Other yml: \code{\link{bib2yml}},
-  \code{\link{draw_yml_tree}},
+Other yml: \code{\link{asis_yaml_output}},
+  \code{\link{bib2yml}}, \code{\link{draw_yml_tree}},
   \code{\link{use_yml_defaults}}, \code{\link{use_yml}},
   \code{\link{yml_author}},
   \code{\link{yml_blogdown_opts}},

@@ -188,8 +188,8 @@ yml(author = FALSE, date = FALSE) \%>\%
 \seealso{
 \code{\link[=use_site_yml]{use_site_yml()}} \code{\link[=use_rmarkdown]{use_rmarkdown()}}
 
-Other yml: \code{\link{bib2yml}},
-  \code{\link{draw_yml_tree}},
+Other yml: \code{\link{asis_yaml_output}},
+  \code{\link{bib2yml}}, \code{\link{draw_yml_tree}},
   \code{\link{use_yml_defaults}},
   \code{\link{use_yml_file}}, \code{\link{use_yml}},
   \code{\link{yml_author}},

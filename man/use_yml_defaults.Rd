@@ -24,9 +24,10 @@ to return the saved YAML.
 \seealso{
 \code{\link[=yml]{yml()}} \code{\link[=get_yml_defaults]{get_yml_defaults()}}
 
-Other yml: \code{\link{bib2yml}},
-  \code{\link{draw_yml_tree}}, \code{\link{use_yml_file}},
-  \code{\link{use_yml}}, \code{\link{yml_author}},
+Other yml: \code{\link{asis_yaml_output}},
+  \code{\link{bib2yml}}, \code{\link{draw_yml_tree}},
+  \code{\link{use_yml_file}}, \code{\link{use_yml}},
+  \code{\link{yml_author}},
   \code{\link{yml_blogdown_opts}},
   \code{\link{yml_bookdown_opts}},
   \code{\link{yml_citations}}, \code{\link{yml_clean}},
