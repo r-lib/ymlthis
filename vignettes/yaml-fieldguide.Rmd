@@ -20,9 +20,7 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(ymlthis)
-```
 
-```{r}
 function_name <- function(x) {
   function_call <- as.character(attr(x, "call"))
   ifelse(rlang::has_length(function_call), function_call[[2]], NA)
@@ -87,14 +85,14 @@ empty_yaml <- function() yml(get_yml = FALSE, author = FALSE, date = FALSE)
 # YAML: An overview
 ## Basic syntax
 
-The basic syntax of YAML is to use key-value pairs in the format `key: value`. A YAML code block should be fenced in with `---` before and after (you can also use `...` to end the YAML block, but this is not very common in R Markdown).
+The basic syntax of YAML is to use key-value pairs in the format `key: value`. A YAML code block should be fenced in with `---` before and after (you can also use `...` to end the YAML block, but this is not very common in **R Markdown**).
 
 ```{r}
 yml(date = FALSE) %>% 
   asis_yaml_output()
 ```
 
-In R, the equivalent structure is a list with named character vector: `list(author = "Malcolm Barrett")`. In fact, you can call this list in R Markdown using the `metadata` object: `metadata$author` will return the YAML in the metadata header. 
+In R, the equivalent structure is a list with named character vector: `list(author = "Malcolm Barrett")`. In fact, you can call this list in **R Markdown** using the `metadata` object: `metadata$author` will return the YAML in the metadata header. 
 
 In YAML, spaces are used to indicate nesting. When we want to specify the output function `pdf_document(toc = TRUE)`, we need to nest it under the `output` field. We also need to nest `toc` under `pdf_document` so that it gets passed to that function correctly.
 
@@ -119,7 +117,6 @@ list(output = list(pdf_document = NULL), toc = TRUE) %>%
   as_yml() %>% 
   draw_yml_tree()
 ```
-
 
 If you use output functions without additional arguments, the value of `output` can simply be the name of the function. 
 
@@ -153,7 +150,7 @@ category: [R, Reprodicible Research]
 ---
 ```
 
-By default, ymlthis uses the `-` syntax for vectors. You also see `-` used to group elements together. For instance, in the `params` field for parameterized reports, we give . While you can use `metadata` to call objects in `params`, `params` has it's own object you can call directly: `params$a` and `params$data` will return the values of `a` and `data`.
+By default, **ymlthis** uses the `-` syntax for vectors. You also see `-` used to group elements together. For instance, in the `params` field for parameterized reports, we give . While you can use `metadata` to call objects in `params`, `params` has it's own object you can call directly: `params$a` and `params$data` will return the values of `a` and `data`.
 
 ```{r}
 empty_yaml() %>% 
@@ -163,7 +160,6 @@ empty_yaml() %>%
   ) %>% 
   asis_yaml_output()
 ```
-
 
 In R, the equivalent structure is a nested list that contains a list of unnamed lists: `list(param = list(list(a = 1, input = numeric), list(data = "data.csv", input = "file")))`. The inner-most lists group items together, e.g. `list(a = 1, input = numeric)` groups `a` and `input`.
 
@@ -202,7 +198,7 @@ toc: yes
 toc: on
 ```
 
-By default, ymlthis uses `true/false`. If you want to use any of these values literally (e.g. you want a string equal to `"yes"`), you need to quote them as a string:
+By default, **ymlthis** uses `true/false`. If you want to use any of these values literally (e.g. you want a string equal to `"yes"`), you need to quote them as a string:
 
 ```{r}
 empty_yaml() %>% 
@@ -210,24 +206,24 @@ empty_yaml() %>%
   asis_yaml_output()
 ```
 
-`NULL` can be specified using `null` or `~`. By default, ymlthis uses `null`. If you want to specify an empty vector, use `[]`, e.g. `category: []`. For an empty string, just use `""`.
+`NULL` can be specified using `null` or `~`. By default, **ymlthis** uses `null`. If you want to specify an empty vector, use `[]`, e.g. `category: []`. For an empty string, just use `""`.
 
 ## Sources of YAML
 
-Where do the YAML fields you use in R Markdown come from? Many YAML fields that we use come from Pandoc and R Markdown. These both use YAML to specify the build of the document and to pass information to be printed in a template. Pandoc templates can also be customized to add new YAML. The most common sources of YAML are:
+Where do the YAML fields you use in **R Markdown** come from? Many YAML fields that we use come from Pandoc and **R Markdown**. These both use YAML to specify the build of the document and to pass information to be printed in a template. Pandoc templates can also be customized to add new YAML. The most common sources of YAML are:
 
 1. Pandoc
-1. R Markdown
+1. **R Markdown**
 1. Output functions (such as `rmarkdown::pdf_document()`)
 1. Custom Pandoc templates
-1. R Markdown extension packages (such as blogdown)
-1. Hugo (in the case of blogdown)
+1. **R Markdown** extension packages (such as **blogdown**)
+1. Hugo (in the case of **blogdown**)
 
 Because YAML is an extensible approach to metadata, and there is often no way to validate that your YAML is correct. YAML will often fail silently if you, for instance, make a typo in the field name or misspecify the nesting between fields. 
 
 # Fieldguide
 
-ymlthis attempts to write common YAML for you in the right way and to document the many YAML field options in one place. The fieldguide is a collection of all the fields documented in the ymlthis help pages, organized by source. Note that some argument names do not match the YAML field name exactly in order because not all field names are valid R names (e.g. the `link-citations` YAML field needs to be `link_citations` in R); these differences are noted in the argument description. Additionally, not all of these arguments are top-level YAML; see the linked help pages for more details.
+**ymlthis** attempts to write common YAML for you in the right way and to document the many YAML field options in one place. The fieldguide is a collection of all the fields documented in the **ymlthis** help pages, organized by source. Note that some argument names do not match the YAML field name exactly in order because not all field names are valid R names (e.g. the `link-citations` YAML field needs to be `link_citations` in R); these differences are noted in the argument description. Additionally, not all of these arguments are top-level YAML; see the linked help pages for more details.
 
 ## Basic YAML
 

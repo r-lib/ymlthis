@@ -10,7 +10,9 @@ vignette: |-
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r setup, echo=FALSE}
+library(ymlthis)
+
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -18,41 +20,52 @@ knitr::opts_chunk$set(
 
 check <- function() "<span style='color:green'>\u2713</span>"
 cross <- function() "<span style='color:red'>\u2717</span>"
+knit_print.yml <- function(x, ...) {
+  ymlthis::asis_yaml_output(x)
+}
 ```
 
-ymlthis is a package to help you write YAML metadata for R Markdown documents and related tools like blogdown, bookdown, and pkgdown. YAML serves two main roles: to pass information to be printed in the document, such as the title and author, and to control how the document is rendered, anything from the output type (HTML vs. PDF) and typesetting options to what should happen with files created while rendering. See the [YAML Fieldguide](yaml-fieldguide.html) for a more general introduction to YAML and for YAML field documentation.
+**ymlthis** is a package to help you write YAML metadata for **R Markdown** documents and related tools like **blogdown**, **bookdown**, and **pkgdown**. YAML serves two main roles: to pass information to be printed in the document, such as the title and author, and to control how the document is rendered, anything from the output type (HTML vs. PDF) and typesetting options to what should happen with files created while rendering. See the [YAML Fieldguide](yaml-fieldguide.html) for a more general introduction to YAML and for YAML field documentation.
 
-# Writing YAML with ymlthis
+# Writing YAML with **ymlthis**
 
-ymlthis makes it easy to write valid YAML by handling the syntax and documenting the majority of YAML fields in one place. `yml()` creates a `yml` object that, by default, sets the author name and date. ymlthis uses name options in devtools and usethis (`options(devtools.name = "name")` and `options(usethis.full_name = "name")`, respectively), as well as the whoami package, to try to find the author's name. By default, the date is set to `` `r knitr::inline_expr('format(Sys.Date())')` ``, which will update the date when knitting.
+**ymlthis** makes it easy to write valid YAML by handling the syntax and documenting the majority of YAML fields in one place. `yml()` creates a `yml` object that, by default, sets the author name and date. **ymlthis** uses name options in **devtools** and **usethis** (`options(devtools.name = "name")` and `options(usethis.full_name = "name")`, respectively), as well as the **whoami** package, to try to find the author's name. By default, the date is set to `` `r knitr::inline_expr('format(Sys.Date())')` ``, which will update the date when knitting.
 
-```{r setup}
-library(ymlthis)
+```{r}
 yml()
 ```
 
+
 Functions that start with `yml_*()` take and return `yml` objects, so they can be used to add or modify YAML fields. For instance, to add a title, use `yml_title()`
 
-```{r}
+```{r }
 yml() %>% 
   yml_title("An introduction to ymlthis")
 ```
 
-An essential use of YAML in R Markdown is to set the output type. By default, the `output` YAML field looks like
+An essential use of YAML in **R Markdown** is to set the output type. By default, the `output` YAML field looks like
 
 ``` yaml
 output: html_document
 ```
 
-which calls `rmarkdown::html_document()` when knitting. All of the nested fields passed to `output` come from the output function you are using (so you can check `?pkg::output_function()` to see what the options are). ymlthis writes and validates output YAML by parsing calls to these functions:
+which calls `rmarkdown::html_document()` when knitting. All of the nested fields passed to `output` come from the output function you are using (so you can check `?pkg::output_function()` to see what the options are). **ymlthis** writes and validates output YAML by parsing calls to these functions. We can, for example, nest **R Markdown**'s `pdf_document()` inside `yml_output()`:
 
 ```{r}
 yml() %>% 
   yml_output(pdf_document())
+```
 
+Arguments within the output functions can be given values:
+
+```{r}
 yml() %>% 
   yml_output(pdf_document(toc = TRUE))
+```
 
+And we can nest multiple output functions to facilitate rendering to multiple formats:
+
+```{r}
 yml() %>% 
   yml_output(
     pdf_document(toc = TRUE),
@@ -60,7 +73,7 @@ yml() %>%
   )
 ```
 
-YAML fields come from a variety of places: R Markdown itself, your output function, Pandoc (for example, as options used in LaTeX), and custom templates. Many of these fields are documented in `yml_*()` functions
+YAML fields can come from a variety of places: **R Markdown** itself, your output function, Pandoc (for example, as options used in LaTeX), and custom templates. Many of these fields are documented in `yml_*()` functions.
 
 ```{r}
 yml() %>%
@@ -84,21 +97,21 @@ You can also use `yml_toplevel()` to append any named field to your YAML not oth
 
 ## Parameterized reports
 
-[Parameterized reports](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html) are a powerful feature of R markdown that lets you specify variables in the YAML metadata that you can use in your report, letting you re-use reports for a variety of settings. To set parameters, you use the `params` YAML field and access the parameter in your report by calling `params$variable_name`. Basic YAML for parameters looks like this
+[Parameterized reports](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html) are a powerful feature of **R Markdown** that lets you specify variables in the YAML metadata that you can use in your report, letting you re-use reports for a variety of settings. To set parameters, you use the `params` YAML field and access the parameter in your report by calling `params$variable_name`. Basic YAML for parameters looks like this
 
 ```yaml
 params:
   country: "Turkey"
 ```
 
-Calling `params$country` in the R Markdown document will thus return "Turkey". `yml_params()` will write this for you:
+Calling `params$country` in the **R Markdown** document will thus return `"Turkey"`. `yml_params()` will write this for you:
 
 ```{r}
 yml() %>% 
   yml_params(country = "Turkey")
 ```
 
-You can also fill in parameters using a Shiny app with the "Knit with Parameters" button in the RStudio IDE or by passing "ask" to the `params` argument in `rmarkdown::render()`. While R Markdown will try to guess the Shiny widget type by the value of the parameter, you can specify them yourself with ymlthis functions that start with `shiny_*()`.
+You can also fill in parameters using a **Shiny** app with the "Knit with Parameters" button in the RStudio IDE or by passing `"ask"` to the `params` argument in `rmarkdown::render()`. While **R Markdown** will try to guess the Shiny widget type by the value of the parameter, you can specify them yourself with **ymlthis** functions that start with `shiny_*()`.
 
 ```{r}
 yml() %>%
@@ -112,7 +125,7 @@ yml() %>%
 
 ## References and citations
 
-[R Markdown has excellent support for citations](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html). The simplest way to use references in an R Markdown file is to add a bibliography file using the `bibliography` field.
+[**R Markdown** has excellent support for citations](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html). The simplest way to use references in an **R Markdown** file is to add a bibliography file using the `bibliography` field.
 
 ```{r}
 yml() %>% 
@@ -158,11 +171,11 @@ If you have an existing `.bib` file, but you want to specify it in the YAML, ins
 
 # R Markdown extensions
 
-Packages that extend R Markdown, such as bookdown and blogdown, also extend the YAML used to make documents. One of the main ways that other packages introduce YAML is through new output functions. [xaringan](https://bookdown.org/yihui/rmarkdown/xaringan.html), for instance, doesn't use custom YAML outside of its output function, so ymlthis supports it out-of-box. Passing `xaringan::moon_reader()` to `yml_output()` will write the YAML for you.
+Packages that extend **R Markdown**, such as **bookdown** and **blogdown**, also extend the YAML used to make documents. One of the main ways that other packages introduce YAML is through new output functions. [**xaringan**](https://bookdown.org/yihui/rmarkdown/xaringan.html), for instance, doesn't use custom YAML outside of its output function, so **ymlthis** supports it out-of-box. Passing `xaringan::moon_reader()` to `yml_output()` will write the YAML for you.
 
 ```{r}
 yml() %>% 
-yml_title("Presentation Ninja") %>% 
+  yml_title("Presentation Ninja") %>% 
   yml_subtitle("with xaringan") %>% 
   yml_output(
     xaringan::moon_reader(
@@ -177,7 +190,7 @@ yml_title("Presentation Ninja") %>%
 ```
 
 
-Other packages add additional YAML. ymlthis can process any output function and also supports six R Markdown packages: bookdown, blogdown, pkgdown, pagedown, rticles, and distill. ymlthis also supports YAML for writing scheduled emails with RStudio Connect. You can find functions supporting these packages with the patterns `yml_packagename_*()` and `packagename_*()` (`rsconnect`, in the case of RStudio Connect functions). Functions that start with `yml_packagename_*()` document YAML fields and return `yml` objects, while functions that start with `packagename_*()` are helper functions. There are also a few template functions. `pkgdown_template()`, for instance, will assemble a full template for `_pkgdown.yml` and return it as a `yml` object, and `blogdown_template()` will return YAML templates matching your Hugo theme.
+Other packages add additional YAML. **ymlthis** can process any output function and also supports six **R Markdown** packages: **bookdown**, **blogdown**, **pkgdown**, **pagedown**, **rticles**, and **distill**. **ymlthis** also supports YAML for writing scheduled emails with RStudio Connect. You can find functions supporting these packages with the patterns `yml_packagename_*()` and `packagename_*()` (`rsconnect`, in the case of RStudio Connect functions). Functions that start with `yml_packagename_*()` document YAML fields and return `yml` objects, while functions that start with `packagename_*()` are helper functions. There are also a few template functions. `pkgdown_template()`, for instance, will assemble a full template for `_pkgdown.yml` and return it as a `yml` object, and `blogdown_template()` will return YAML templates matching your Hugo theme.
 
 |  package|  output function | top-level YAML |
 |--:|--:|--:|
@@ -196,9 +209,9 @@ Table: Sources of YAML in R Markdown Extension
 
 # R Markdown workflows
 
-ymlthis prints YAML cleanly to the console such that you could copy and paste it into an R Markdown document. Passing a `yml` object to `use_yml()` will put it directly on your clipboard. Often, you want to write YAML to a file, either `.yml` or to the metadata section of a `.Rmd` file. `use_rmarkdown()`, `use_yml_file()`, and friends will take a `yml` object and write to a file for you. For instance, using `pkgdown_template() %>% use_pkgdown_yml()` will write the YAML for your pkgdown site to `_pkgdown.yml` based on your package directory. ymlthis also has some helper functions for working with Pandoc templates and highlighting themes.
+**ymlthis** prints YAML cleanly to the console such that you could copy and paste it into an **R Markdown** document. Passing a `yml` object to `use_yml()` will put it directly on your clipboard. Often, you want to write YAML to a file, either `.yml` or to the metadata section of a `.Rmd` file. `use_rmarkdown()`, `use_yml_file()`, and friends will take a `yml` object and write to a file for you. For instance, using `pkgdown_template() %>% use_pkgdown_yml()` will write the YAML for your **pkgdown** site to `_pkgdown.yml` based on your package directory. **ymlthis** also has some helper functions for working with Pandoc templates and highlighting themes.
 
-As an example, let's set up the navbar YAML for an R Markdown website and then pass it to `use_navbar_yml()`.
+As an example, let's set up the navbar YAML for an **R Markdown** website and then pass it to `use_navbar_yml()`.
 
 ```{r}
 navbar_yaml <- yml(author = FALSE, date = FALSE) %>%
@@ -251,14 +264,15 @@ Table: ymlthis `use_*()` to write to `.Rmd` files
 |  `use_pandoc_highlight_style()` |  Write pandoc theme templates to a `.theme` file |
 |  `use_pandoc_template()` | Write pandoc templates to a file  |
 
-Table: Additional ymlthis `use_*()` functions
+Table: Additional **ymlthis** `use_*()` functions
 
 # Working with yml objects 
 
-Under the hood, `yml` objects are lists of types that match the corresponding YAML and are only converted to YAML when printing or writing to files. Because `yml` objects are just lists, you can work with them as such. ymlthis also includes several purrr-like functions for working with `yml` objects, such as `yml_discard()`, `yml_pluck()`, and `yml_replace()`.
+Under the hood, `yml` objects are lists of types that match the corresponding YAML and are only converted to YAML when printing or writing to files. Because `yml` objects are just lists, you can work with them as such. **ymlthis** also includes several **purrr**-like functions for working with `yml` objects. Let's define a `yml` object that has a fairly comprehensive set of options:
 
 ```{r}
-x <- yml() %>%
+x <- 
+  yml() %>%
   yml_author(
     c("Yihui Xie", "Hadley Wickham"),
     affiliation = "RStudio"
@@ -274,17 +288,31 @@ x <- yml() %>%
     html_document()
   ) %>%
   yml_latex_opts(biblio_style = "apalike")
+```
 
+The resulting YAML of `x` is:
+
+```{r echo=FALSE}
+x %>% ymlthis::asis_yaml_output()
+```
+
+We can use `yml_discard()` to remove the `category` option:
+
+```{r}
 x %>% 
   yml_discard("category")
+```
 
+We can use **purrr**-style lambdas to express what to discard. How about any YAML fields with a length greater than one?
+
+```{r}
 x %>% 
-  # supports purrr-style lambdas
   yml_discard(~ length(.x) > 1)
+```
 
+The `yml_pluck()` function is useful for selectively acquiring a nested portion of the YAML:
+
+```{r}
 x %>% 
   yml_pluck("output", "pdf_document")
 ```
-
-
-
