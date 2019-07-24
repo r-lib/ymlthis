@@ -20,7 +20,6 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(ymlthis)
-library(rmarkdown)
 
 function_name <- function(x) {
   function_call <- as.character(attr(x, "call"))
