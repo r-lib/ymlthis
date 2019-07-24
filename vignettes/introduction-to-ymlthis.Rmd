@@ -20,6 +20,9 @@ knitr::opts_chunk$set(
 
 check <- function() "<span style='color:green'>\u2713</span>"
 cross <- function() "<span style='color:red'>\u2717</span>"
+knit_print.yml <- function(x, ...) {
+  ymlthis::asis_yaml_output(x)
+}
 ```
 
 **ymlthis** is a package to help you write YAML metadata for **R Markdown** documents and related tools like **blogdown**, **bookdown**, and **pkgdown**. YAML serves two main roles: to pass information to be printed in the document, such as the title and author, and to control how the document is rendered, anything from the output type (HTML vs. PDF) and typesetting options to what should happen with files created while rendering. See the [YAML Fieldguide](yaml-fieldguide.html) for a more general introduction to YAML and for YAML field documentation.
@@ -28,24 +31,16 @@ cross <- function() "<span style='color:red'>\u2717</span>"
 
 **ymlthis** makes it easy to write valid YAML by handling the syntax and documenting the majority of YAML fields in one place. `yml()` creates a `yml` object that, by default, sets the author name and date. **ymlthis** uses name options in **devtools** and **usethis** (`options(devtools.name = "name")` and `options(usethis.full_name = "name")`, respectively), as well as the **whoami** package, to try to find the author's name. By default, the date is set to `` `r knitr::inline_expr('format(Sys.Date())')` ``, which will update the date when knitting.
 
-```{r eval=FALSE}
+```{r}
 yml()
 ```
-```{r echo=FALSE}
-yml() %>%
-  ymlthis::asis_yaml_output()
-```
+
 
 Functions that start with `yml_*()` take and return `yml` objects, so they can be used to add or modify YAML fields. For instance, to add a title, use `yml_title()`
 
-```{r eval=FALSE}
+```{r }
 yml() %>% 
   yml_title("An introduction to ymlthis")
-```
-```{r echo=FALSE}
-yml() %>% 
-  yml_title("An introduction to ymlthis") %>%
-  ymlthis::asis_yaml_output()
 ```
 
 An essential use of YAML in **R Markdown** is to set the output type. By default, the `output` YAML field looks like
@@ -56,49 +51,31 @@ output: html_document
 
 which calls `rmarkdown::html_document()` when knitting. All of the nested fields passed to `output` come from the output function you are using (so you can check `?pkg::output_function()` to see what the options are). **ymlthis** writes and validates output YAML by parsing calls to these functions. We can, for example, nest **R Markdown**'s `pdf_document()` inside `yml_output()`:
 
-```{r eval=FALSE}
+```{r}
 yml() %>% 
   yml_output(pdf_document())
-```
-```{r echo=FALSE}
-yml() %>% 
-  yml_output(pdf_document()) %>%
-  ymlthis::asis_yaml_output()
 ```
 
 Arguments within the output functions can be given values:
 
-```{r eval=FALSE}
+```{r}
 yml() %>% 
   yml_output(pdf_document(toc = TRUE))
-```
-```{r echo=FALSE}
-yml() %>% 
-  yml_output(pdf_document(toc = TRUE)) %>%
-  ymlthis::asis_yaml_output()
 ```
 
 And we can nest multiple output functions to facilitate rendering to multiple formats:
 
-```{r eval=FALSE}
+```{r}
 yml() %>% 
   yml_output(
     pdf_document(toc = TRUE),
     html_document()
   )
 ```
-```{r echo=FALSE}
-yml() %>% 
-  yml_output(
-    pdf_document(toc = TRUE),
-    html_document()
-  ) %>%
-  ymlthis::asis_yaml_output()
-```
 
 YAML fields can come from a variety of places: **R Markdown** itself, your output function, Pandoc (for example, as options used in LaTeX), and custom templates. Many of these fields are documented in `yml_*()` functions.
 
-```{r eval=FALSE}
+```{r}
 yml() %>%
   yml_author(
     c("Yihui Xie", "Hadley Wickham"),
@@ -115,24 +92,6 @@ yml() %>%
   ) %>%
   yml_latex_opts(biblio_style = "apalike")
 ```
-```{r echo=FALSE}
-yml() %>%
-  yml_author(
-    c("Yihui Xie", "Hadley Wickham"),
-    affiliation = "RStudio"
-  ) %>%
-  yml_date("07/04/2019") %>%
-  yml_title("Reproducible Research in R") %>% 
-  yml_category(c("r", "reprodicibility")) %>% 
-  yml_output(
-    pdf_document(
-      keep_tex = TRUE,
-      includes = includes2(after_body = "footer.tex")
-    )
-  ) %>%
-  yml_latex_opts(biblio_style = "apalike") %>%
-  ymlthis::asis_yaml_output()
-```
 
 You can also use `yml_toplevel()` to append any named field to your YAML not otherwise covered.
 
@@ -147,19 +106,14 @@ params:
 
 Calling `params$country` in the **R Markdown** document will thus return `"Turkey"`. `yml_params()` will write this for you:
 
-```{r eval=FALSE}
+```{r}
 yml() %>% 
   yml_params(country = "Turkey")
-```
-```{r echo=FALSE}
-yml() %>% 
-  yml_params(country = "Turkey") %>%
-  ymlthis::asis_yaml_output()
 ```
 
 You can also fill in parameters using a **Shiny** app with the "Knit with Parameters" button in the RStudio IDE or by passing `"ask"` to the `params` argument in `rmarkdown::render()`. While **R Markdown** will try to guess the Shiny widget type by the value of the parameter, you can specify them yourself with **ymlthis** functions that start with `shiny_*()`.
 
-```{r eval=FALSE}
+```{r}
 yml() %>%
   yml_params(
     data = shiny_file("Upload Data (.csv)"),
@@ -168,34 +122,19 @@ yml() %>%
     show_plot = shiny_checkbox("Plot the data?", TRUE)
   )
 ```
-```{r echo=FALSE}
-yml() %>%
-  yml_params(
-    data = shiny_file("Upload Data (.csv)"),
-    n = shiny_numeric("n to sample", 10),
-    date = shiny_date("Date"),
-    show_plot = shiny_checkbox("Plot the data?", TRUE)
-  ) %>%
-  ymlthis::asis_yaml_output()
-```
 
 ## References and citations
 
 [**R Markdown** has excellent support for citations](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html). The simplest way to use references in an **R Markdown** file is to add a bibliography file using the `bibliography` field.
 
-```{r eval=FALSE}
+```{r}
 yml() %>% 
   yml_citations(bibliography = "refs.bib")
-```
-```{r echo=FALSE}
-yml() %>% 
-  yml_citations(bibliography = "refs.bib") %>%
-  ymlthis::asis_yaml_output()
 ```
 
 However, if you only have a few references and want to keep your file self-contained, you can also specify references directly in your YAML using `yml_reference()` and `reference()`.
 
-```{r eval=FALSE}
+```{r}
 ref <- reference(
   id = "fenner2012a",
   title = "One-click science marketing",
@@ -220,43 +159,12 @@ ref <- reference(
 yml() %>%
   yml_reference(ref)
 ```
-```{r echo=FALSE}
-ref <- reference(
-  id = "fenner2012a",
-  title = "One-click science marketing",
-  author = list(
-    family = "Fenner",
-    given = "Martin"
-  ),
-  `container-title` = "Nature Materials",
-  volume = 11L,
-  URL = "http://dx.doi.org/10.1038/nmat3283",
-  DOI = "10.1038/nmat3283",
-  issue = 4L,
-  publisher = "Nature Publishing Group",
-  page = "261-263",
-  type = "article-journal",
-  issued = list(
-    year = 2012,
-    month = 3
-  )
-)
-
-yml() %>%
-  yml_reference(ref) %>%
-  ymlthis::asis_yaml_output()
-```
 
 `yml_reference()` also supports package citation using the `.bibentry` argument and `citation()`.
 
-```{r eval=FALSE}
+```{r}
 yml() %>%
   yml_reference(.bibentry = citation("purrr"))
-```
-```{r echo=FALSE}
-yml() %>%
-  yml_reference(.bibentry = citation("purrr")) %>%
-  ymlthis::asis_yaml_output()
 ```
 
 If you have an existing `.bib` file, but you want to specify it in the YAML, instead, you can convert it with `bib2yml()`. For instance, if you wrote a `.bib` file for the packages used in your document with `knitr::write_bib()`, `bib2yml()` will translate the file to YAML you can include directly in the metadata.
@@ -265,7 +173,7 @@ If you have an existing `.bib` file, but you want to specify it in the YAML, ins
 
 Packages that extend **R Markdown**, such as **bookdown** and **blogdown**, also extend the YAML used to make documents. One of the main ways that other packages introduce YAML is through new output functions. [**xaringan**](https://bookdown.org/yihui/rmarkdown/xaringan.html), for instance, doesn't use custom YAML outside of its output function, so **ymlthis** supports it out-of-box. Passing `xaringan::moon_reader()` to `yml_output()` will write the YAML for you.
 
-```{r eval=FALSE}
+```{r}
 yml() %>% 
   yml_title("Presentation Ninja") %>% 
   yml_subtitle("with xaringan") %>% 
@@ -279,22 +187,6 @@ yml() %>%
       )
     )
   )
-```
-```{r echo=FALSE}
-yml() %>% 
-  yml_title("Presentation Ninja") %>% 
-  yml_subtitle("with xaringan") %>% 
-  yml_output(
-    xaringan::moon_reader(
-      lib_dir = "libs",
-      nature = list(
-        highlightStyle = "github",
-        highlightLines = TRUE,
-        countIncrementalSlides = FALSE
-      )
-    )
-  ) %>%
-  ymlthis::asis_yaml_output()
 ```
 
 
@@ -406,37 +298,21 @@ x %>% ymlthis::asis_yaml_output()
 
 We can use `yml_discard()` to remove the `category` option:
 
-```{r eval=FALSE}
+```{r}
 x %>% 
   yml_discard("category")
-```
-```{r echo=FALSE}
-x %>% 
-  yml_discard("category") %>%
-  ymlthis::asis_yaml_output()
 ```
 
 We can use **purrr**-style lambdas to express what to discard. How about any YAML fields with a length greater than one?
 
-```{r eval=FALSE}
+```{r}
 x %>% 
   yml_discard(~ length(.x) > 1)
-```
-```{r echo=FALSE}
-x %>% 
-  yml_discard(~ length(.x) > 1) %>%
-  ymlthis::asis_yaml_output()
 ```
 
 The `yml_pluck()` function is useful for selectively acquiring a nested portion of the YAML:
 
-```{r eval=FALSE}
+```{r}
 x %>% 
   yml_pluck("output", "pdf_document")
 ```
-```{r echo=FALSE}
-x %>% 
-  yml_pluck("output", "pdf_document") %>%
-  ymlthis::asis_yaml_output()
-```
-
