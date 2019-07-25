@@ -2,16 +2,34 @@
 % Please edit documentation in R/yml_pkgdown.R
 \name{yml_pkgdown}
 \alias{yml_pkgdown}
+\alias{yml_pkgdown_opts}
+\alias{yml_pkgdown_development}
+\alias{yml_pkgdown_template}
 \alias{yml_pkgdown_reference}
 \alias{pkgdown_ref}
 \alias{yml_pkgdown_news}
 \alias{yml_pkgdown_articles}
 \alias{pkgdown_article}
+\alias{yml_pkgdown_tutorial}
+\alias{pkgdown_tutorial}
 \alias{yml_pkgdown_figures}
 \alias{yml_pkgdown_docsearch}
 \title{Set Top-level YAML options for pkgdown}
 \usage{
 yml_pkgdown(.yml, as_is = yml_blank(), extension = yml_blank())
+
+yml_pkgdown_opts(.yml, site_title = yml_blank(),
+  destination = yml_blank(), url = yml_blank(),
+  toc_depth = yml_blank())
+
+yml_pkgdown_development(.yml, mode = yml_blank(),
+  dev_destination = yml_blank(), version_label = yml_blank(),
+  version_tooltip = yml_blank())
+
+yml_pkgdown_template(.yml, bootswatch = yml_blank(),
+  ganalytics = yml_blank(), noindex = yml_blank(),
+  package = yml_blank(), path = yml_blank(), assets = yml_blank(),
+  default_assets = yml_blank())
 
 yml_pkgdown_reference(.yml, ...)
 
@@ -25,13 +43,18 @@ yml_pkgdown_articles(.yml, ...)
 pkgdown_article(title = yml_blank(), desc = yml_blank(),
   contents = yml_blank(), exclude = yml_blank(), ...)
 
+yml_pkgdown_tutorial(.yml, ...)
+
+pkgdown_tutorial(name = yml_blank(), title = yml_blank(),
+  tutorial_url = yml_blank(), source = yml_blank(), ...)
+
 yml_pkgdown_figures(.yml, dev = yml_blank(), dpi = yml_blank(),
   dev.args = yml_blank(), fig.ext = yml_blank(),
   fig.width = yml_blank(), fig.height = yml_blank(),
   fig.retina = yml_blank(), fig.asp = yml_blank(), ...)
 
 yml_pkgdown_docsearch(.yml, api_key = yml_blank(),
-  index_name = yml_blank(), url = yml_blank())
+  index_name = yml_blank(), doc_url = yml_blank())
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
@@ -42,10 +65,59 @@ specified?}
 
 \item{extension}{The output extension, e.g. "pdf".}
 
+\item{site_title}{The title of the website (by default, this is the package
+name). Note that the actual YAML is \code{title} (specified as \code{site_title} to
+avoid duplication with content titles).}
+
+\item{destination}{The path where the site should be rendered ("docs/" by
+default)}
+
+\item{url}{URL where the site will be published; setting the URL will allow
+other pkgdown sites to link to your site when needed, generate a
+\code{sitemap.xml} to increase the searchability of your site, and generate a
+\code{CNAME}.}
+
+\item{toc_depth}{The depth of the headers included in the Table of Contents.
+Note that the actual YAML is \code{depth} and is nested under \code{toc}.}
+
+\item{mode}{The development mode of the site, one of: "auto", "release",
+"development", or "unreleased". \code{development} controls where the site is
+built; the color of the package version; the optional tooltip associated
+with the version; and the indexing of the site by search engines. See
+\code{?pkgdown::build_site()} for more details.}
+
+\item{dev_destination}{The subdirectory used for the development site, which
+defaults to "dev/". Note that the actual YAML is \code{destination} and is
+nested under \code{development}.}
+
+\item{version_label}{Label to display for "development" and "unreleased"
+mode. One of: "danger" (the default), "default", "info", or "warning".}
+
+\item{version_tooltip}{A custom message to include in the version tooltip}
+
+\item{bootswatch}{A bootswatch theme for the site. See the options at
+\url{https://gallery.shinyapps.io/117-shinythemes/}.}
+
+\item{ganalytics}{A Google Analytics tracking id}
+
+\item{noindex}{Logical. Suppress indexing of your pages by web robots?}
+
+\item{package}{an R package with with directories \code{inst/pkgdown/assets} and
+\code{inst/pkgdown/templates} to override the default templates and add
+additional assets; alternatively, you can specify this in \code{path} and
+\code{assets}}
+
+\item{path}{A path to templates with which to override the default pkgdown
+templates}
+
+\item{assets}{A path to additional assets to include}
+
+\item{default_assets}{Logical. Include default assets?}
+
 \item{...}{additional named R objects, such as characters or lists, to
 transform into YAML}
 
-\item{title}{The title of the article or reference}
+\item{title}{The title of the article, reference, tutorial, or other resource}
 
 \item{desc}{A description of the article or reference}
 
@@ -55,6 +127,12 @@ transform into YAML}
 \item{exclude}{What to exclude of the what's captured by \code{contents}}
 
 \item{one_page}{Logical. Create one page per release for \code{NEWS.md}?}
+
+\item{name}{The name of the file}
+
+\item{tutorial_url}{The tutorial URL to embed in an iframe}
+
+\item{source}{A URL to the source code of the tutorial}
 
 \item{dev}{The graphics device (default: "grDevices::png")}
 
@@ -76,7 +154,7 @@ transform into YAML}
 
 \item{index_name}{The index name provided by docsearch (see the \href{https://pkgdown.r-lib.org/articles/pkgdown.html}{pkgdown vignette})}
 
-\item{url}{the URL specifying the location of your documentation}
+\item{doc_url}{the URL specifying the location of your documentation. Note that the actual YAML field is \code{url} but is nested.}
 }
 \value{
 a \code{yml} object
@@ -84,7 +162,7 @@ a \code{yml} object
 \description{
 These functions set YAML for various pkgdown options to be used in
 \code{_pkgdown.yml}. The options are described in greater depth in the \href{https://pkgdown.r-lib.org/articles/pkgdown.html}{pkgdown vignette} and in the help
-pages for \code{pkgdown::build_articles()} and \code{pkgdown::build_reference()}.
+pages for \code{pkgdown::build_site()}, \code{pkgdown::build_articles()}, \code{pkgdown::build_reference()}, and \code{pkgdown::build_tutorials()}.
 Essentially, they control the build of vignettes and function references.
 pkgdown also uses the same approach to navbars as R Markdown.
 \code{\link[=yml_navbar]{yml_navbar()}} and friends will help you write the YAML for that. A useful
