@@ -8,6 +8,7 @@ reference:
   - '`yml_latex_opts`'
   - '`yml_runtime`'
   - '`yml_clean`'
+  - '`yml_resource_files`'
   - '`includes2`'
 - title: Parameterized R Markdown Reports
   desc: null

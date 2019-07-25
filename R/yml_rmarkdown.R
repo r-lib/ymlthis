@@ -97,6 +97,32 @@ yml_vignette <- function(.yml, title, engine = "knitr::rmarkdown", encoding = "U
   .yml
 }
 
+#' Add external resource files to R Markdown document
+#'
+#' The `resource_files` field specifies a character vectors of paths to external
+#' resources to include in the output, e.g. files that are necessary for
+#' rendering. These files are handled with
+#' `rmarkdown::find_external_resources()`.
+#'
+#' @template describe_yml_param
+#' @param resource_files A path to a file, directory, or a wildcard pattern
+#'   (such as "data/*.csv")
+#'
+#' @template describe_yml_output
+#' @export
+#'
+#' @examples
+#'
+#' yml() %>%
+#'   yml_resource_files(c("data/mydata.csv", "images/figure.png"))
+yml_resource_files <- function(.yml, resource_files) {
+  stop_if_not_type(resource_files, "character")
+  warn_if_duplicate_fields(.yml, list(resource_files = ""))
+  .yml$resource_files <- resource_files
+
+  .yml
+}
+
 #' Add site options for `_site.yml` and navbars for R Markdown websites
 #'
 #' R Markdown has a simple website builder baked in (see the R [Markdown
