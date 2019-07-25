@@ -6,11 +6,11 @@
 <!-- badges: start -->
 
 [![Build
-Status](https://travis-ci.com/rstudio-education/ymlthis.svg?branch=master)](https://travis-ci.com/rstudio-education/ymlthis)
+Status](https://travis-ci.com/r-lib/ymlthis.svg?branch=master)](https://travis-ci.com/r-lib/ymlthis)
 [![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/lwqfvb40js0u01fs/branch/master?svg=true)](https://ci.appveyor.com/project/malcolmbarrett/ymlthis-n0nhc/branch/master)
+status](https://ci.appveyor.com/api/projects/status/folqefg7g5afi4w1?svg=true)](https://ci.appveyor.com/project/malcolmbarrett/ymlthis/branch/master)
 [![Codecov test
-coverage](https://codecov.io/gh/rstudio-education/ymlthis/branch/master/graph/badge.svg)](https://codecov.io/gh/rstudio-education/ymlthis?branch=master)
+coverage](https://codecov.io/gh/r-lib/ymlthis/branch/master/graph/badge.svg)](https://codecov.io/gh/r-lib/ymlthis?branch=master)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN
@@ -64,7 +64,7 @@ yml() %>%
 #>   affiliation: RStudio
 #> - name: Hadley Wickham
 #>   affiliation: RStudio
-#> date: '2019-07-18'
+#> date: '2019-07-25'
 #> output:
 #>   pdf_document:
 #>     keep_tex: true
