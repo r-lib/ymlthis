@@ -20,7 +20,7 @@ status](https://www.r-pkg.org/badges/version/ymlthis)](https://cran.r-project.or
 ymlthis makes it easy to write YAML front matter for R Markdown and
 related documents. `yml_*()` functions write functions and `use_*()`
 functions let you write the resulting YAML to your clipboard or to
-`.yaml` files related to your project.
+`.yml` files related to your project.
 
 ## Installation
 
@@ -28,7 +28,7 @@ You can install the development version of ymlthis from GitHub with:
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("rstudio-education/ymlthis")
+remotes::install_github("r-lib/ymlthis")
 ```
 
 ## Example
@@ -57,7 +57,7 @@ yml() %>%
     pdf_document(keep_tex = TRUE, includes = includes2(after_body = "footer.tex")), 
     bookdown::html_document2()
   ) %>% 
-  yml_latex_opts(biblio_style = "apa-like")
+  yml_latex_opts(biblio_style = "apalike")
 #> ---
 #> author:
 #> - name: Yihui Xie
@@ -71,6 +71,6 @@ yml() %>%
 #>     includes:
 #>       after_body: footer.tex
 #>   bookdown::html_document2: default
-#> biblio-style: apa-like
+#> biblio-style: apalike
 #> ---
 ```

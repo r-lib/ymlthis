@@ -17,8 +17,8 @@ Description: write YAML front matter for R Markdown and
     let you write the resulting YAML to your clipboard or to .yml files
     related to your project.
 License: MIT + file LICENSE
-URL: https://github.com/rstudio-education/ymlthis
-BugReports: https://github.com/rstudio-education/ymlthis/issues
+URL: https://github.com/r-lib/ymlthis
+BugReports: https://github.com/r-lib/ymlthis/issues
 Imports: 
     crayon,
     fs,
