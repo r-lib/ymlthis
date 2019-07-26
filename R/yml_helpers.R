@@ -104,3 +104,24 @@ includes2 <- function(in_header = yml_blank(), before_body = yml_blank(), after_
 
   purrr::discard(includes_list, is_yml_blank)
 }
+
+#' Check if field exists in YAML
+#'
+#' `has_field()` retrieves the names of all fields (including nested fields) and
+#' checks if `field` is among them.
+#'
+#' @template describe_yml_param
+#' @param field A character vector, the name of the field(s) to check for
+#'
+#' @return logical
+#' @export
+#'
+#' @examples
+#'
+#' has_field(yml(), "author")
+#' has_field(yml(), "toc")
+#'
+has_field <- function(.yml, field) {
+  fields <- flatten_yml_names(.yml)
+  field %in% fields
+}

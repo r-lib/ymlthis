@@ -78,8 +78,6 @@ filter_kable <- function(.tbl, .pattern = NULL, caption = NULL) {
 fields_df <- roxygen2::parse_package("../") %>% 
   purrr::map(get_params) %>% 
   do.call(rbind, .)
-
-empty_yaml <- function() yml(get_yml = FALSE, author = FALSE, date = FALSE)
 ```
 
 # YAML: An overview
@@ -97,7 +95,7 @@ In R, the equivalent structure is a list with named character vector: `list(auth
 In YAML, spaces are used to indicate nesting. When we want to specify the output function `pdf_document(toc = TRUE)`, we need to nest it under the `output` field. We also need to nest `toc` under `pdf_document` so that it gets passed to that function correctly.
 
 ```{r}
-empty_yaml() %>% 
+yml_empty() %>% 
   yml_output(pdf_document(toc = TRUE)) %>% 
   asis_yaml_output()
 ```
@@ -105,7 +103,7 @@ empty_yaml() %>%
 In R, the equivalent structure is a nested list, each with a name: `list(output = list(pdf_document = list(toc = TRUE)))`. Similarly, you can call this in R Markdown using the `metadata` object, e.g. `metadata$output$pdf_document$toc`. The hierarchical structure (which you can see with `draw_yml_tree()`) looks like this:
 
 ```{r}
-empty_yaml() %>% 
+yml_empty() %>% 
   yml_output(pdf_document(toc = TRUE)) %>% 
   draw_yml_tree()
 ```
@@ -121,7 +119,7 @@ list(output = list(pdf_document = NULL), toc = TRUE) %>%
 If you use output functions without additional arguments, the value of `output` can simply be the name of the function. 
 
 ```{r}
-empty_yaml() %>% 
+yml_empty() %>% 
   yml_output(html_document()) %>% 
   asis_yaml_output()
 ```
@@ -129,7 +127,7 @@ empty_yaml() %>%
 However, if you're specifying more than one output type, you must use the nesting syntax. If you don't want to include additional arguments, use `"default"` as the function's value.
 
 ```{r}
-empty_yaml() %>% 
+yml_empty() %>% 
   yml_output(html_document(), pdf_document(toc = TRUE)) %>% 
   asis_yaml_output()
 ```
@@ -137,7 +135,7 @@ empty_yaml() %>%
 Some YAML fields take unnamed vectors as their value. You can specify an element of the vector by adding a new line and `-` (note that the values are not indented below `category` here).
 
 ```{r}
-empty_yaml() %>% 
+yml_empty() %>% 
   yml_category(c("R", "Reprodicible Research")) %>% 
   asis_yaml_output()
 ```
@@ -153,7 +151,7 @@ category: [R, Reprodicible Research]
 By default, **ymlthis** uses the `-` syntax for vectors. You also see `-` used to group elements together. For instance, in the `params` field for parameterized reports, we give . While you can use `metadata` to call objects in `params`, `params` has it's own object you can call directly: `params$a` and `params$data` will return the values of `a` and `data`.
 
 ```{r}
-empty_yaml() %>% 
+yml_empty() %>% 
   yml_params(
     list(a = 1, input = "numeric"), 
     list(data = "data.csv", input = "text")
@@ -164,7 +162,7 @@ empty_yaml() %>%
 In R, the equivalent structure is a nested list that contains a list of unnamed lists: `list(param = list(list(a = 1, input = numeric), list(data = "data.csv", input = "file")))`. The inner-most lists group items together, e.g. `list(a = 1, input = numeric)` groups `a` and `input`.
 
 ```{r}
-empty_yaml() %>% 
+yml_empty() %>% 
   yml_params(
     list(a = 1, input = "numeric"), 
     list(data = "data.csv", input = "text")
@@ -177,7 +175,7 @@ empty_yaml() %>%
 You may have noticed that strings in YAML don't always need to be quoted. However, it can be useful to explicitly wrap strings in quotes when they contain special characters like `:` and `@`.
 
 ```{r}
-empty_yaml() %>% 
+yml_empty() %>% 
   yml_title("R Markdown: An Introduction") %>% 
   asis_yaml_output()
 ```
@@ -201,7 +199,7 @@ toc: on
 By default, **ymlthis** uses `true/false`. If you want to use any of these values literally (e.g. you want a string equal to `"yes"`), you need to quote them as a string:
 
 ```{r}
-empty_yaml() %>% 
+yml_empty() %>% 
   yml_params(x = "yes") %>% 
   asis_yaml_output()
 ```
@@ -229,16 +227,16 @@ Because YAML is an extensible approach to metadata, and there is often no way to
 
 ```{r}
 fields_df %>% 
-  filter_kable("yml_author|yml_runtime|yml_clean", caption = "Basic YAML")
+  filter_kable("yml_author|yml_runtime|yml_clean|yml_toc", caption = "Basic YAML")
 ```
 
 The nested fields for the `output` field are based on the arguments of the output function. See the help page for the function you are using, e.g., `?rmarkdown::pdf_document`.
 
-## Pandoc Options
+## LaTeX/PDF Options
 
 ```{r}
 fields_df %>% 
-  filter_kable("latex|html|word", caption = "Pandoc Options")
+  filter_kable("latex", caption = "LaTeX/PDF Options")
 ```
 
 ## R Markdown Websites

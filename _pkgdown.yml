@@ -10,6 +10,7 @@ reference:
   - '`yml_clean`'
   - '`yml_resource_files`'
   - '`includes2`'
+  - '`yml_toc`'
 - title: Parameterized R Markdown Reports
   desc: null
   contents:
@@ -32,6 +33,7 @@ reference:
   - '`yml_load`'
   - '`draw_yml_tree`'
   - '`is_yml`'
+  - '`has_field`'
   - '`last_yml`'
   - '`yml_blank`'
   - '`yml_code`'

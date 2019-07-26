@@ -6,7 +6,8 @@
 #' `whoami::fullname()`) and uses today's date to use in the `author` and `date`
 #' fields, respectively. If you've set default YAML in
 #' `getOption("ymlthis.default_option")` (see [use_yml_defaults()]), `yml()`
-#' will also use include those fields by default. `yml()` and all
+#' will also use include those fields by default. `yml_empty()` is a wrapper
+#' that doesn't use any of these default YAML fields. `yml()` and all
 #' related`yml_*()` functions validate that the results are indeed valid YAML
 #' syntax, although not every function is able to check that the input fields
 #' are valid for the setting they are used in.
@@ -15,9 +16,9 @@
 #'
 #' `.yml` accepts a character vector of YAML, such as "author: Hadley Wickham",
 #' an object returned by ymlthis functions that start with `yml_*()`, or a
-#' `list` object (e.g. `list(author = "Hadley Wickham")`).
-#' `.yml` objects are processed with [`as_yml()`], a wrapper around
-#' [`yaml::yaml.load()`]. See that function for more details.
+#' `list` object (e.g. `list(author = "Hadley Wickham")`). `.yml` objects are
+#' processed with [`as_yml()`], a wrapper around [`yaml::yaml.load()`]. See that
+#' function for more details.
 #'
 #' @param .yml a character vector, `yml` object, or YAML-like list. See details.
 #' @param get_yml logical. Use YAML stored in
@@ -77,6 +78,13 @@ yml <- function(.yml = NULL, get_yml = TRUE, author = TRUE, date = TRUE) {
   if (date) .yml$date <- format_sys_date()
 
   .yml
+}
+
+
+#' @rdname yml
+#' @export
+yml_empty <- function() {
+  yml(get_yml = FALSE, author = FALSE, date = FALSE)
 }
 
 #' Convert to yml object
@@ -198,9 +206,8 @@ color_yml <- function(x, handlers = yml_handlers()) {
     column.major = FALSE
   )
 
-  field_names <- seq(from = 0, to = purrr::vec_depth(x) - 1) %>%
-    purrr::map(~purrr::map_depth(x, .x, names, .ragged = TRUE)) %>%
-    unlist(use.names = FALSE) %>%
+  field_names <- x %>%
+    flatten_yml_names() %>%
     paste(collapse = "|")
 
   # start with `-`, spaces, or beginning line, and end with a colon
@@ -216,6 +223,12 @@ color_yml <- function(x, handlers = yml_handlers()) {
     stringr::str_replace_all("(?<!\\:)\\:(?!\\:)", crayon::silver)
 
   yml_txt
+}
+
+flatten_yml_names <- function(x) {
+  seq(from = 0, to = purrr::vec_depth(x) - 1) %>%
+    purrr::map(~purrr::map_depth(x, .x, names, .ragged = TRUE)) %>%
+    unlist(use.names = FALSE)
 }
 
 cat_silver <- function(x) {
