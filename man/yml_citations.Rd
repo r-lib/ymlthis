@@ -6,7 +6,7 @@
 \usage{
 yml_citations(.yml, bibliography = yml_blank(), csl = yml_blank(),
   citation_abbreviations = yml_blank(), link_citations = yml_blank(),
-  natbib = yml_blank(), biblatex = yml_blank())
+  nocite = yml_blank(), suppress_bibliography = yml_blank())
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
@@ -25,18 +25,21 @@ Note that the actual YAML field is \code{citation-abbreviations}.}
 \item{link_citations}{Logical. Add citations hyperlinks to the corresponding
 bibliography entries?  Note that the actual YAML field is \code{link-citations}.}
 
-\item{natbib}{Logical. Use \href{https://ctan.org/pkg/natbib}{natbib} for
-citations in LaTeX output?}
+\item{nocite}{Citation IDs (\code{"@item1"}) to include in the bibliography even if
+they are not cited in the document. Including the wildcard pattern \code{"@*"}
+will include all citations in the bibliography regardless of if they're
+cited in the document.}
 
-\item{biblatex}{Logical. Use \href{https://ctan.org/pkg/biblatex}{biblatex} for
-citations in LaTeX output?}
+\item{suppress_bibliography}{Logical. Suppress bibliography?}
 }
 \value{
 a \code{yml} object
 }
 \description{
 \code{yml_citations()} sets citation-related YAML fields, such as specifying a
-bibliography file or style.
+bibliography file or style. For controlling the citation engine in PDF
+documents, see the \code{citation_package} argument in
+\code{rmarkdown::pdf_document()}.
 }
 \examples{
 
@@ -61,7 +64,7 @@ Other yml: \code{\link{asis_yaml_output}},
   \code{\link{yml_rsconnect_email}},
   \code{\link{yml_rticles_opts}},
   \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
-  \code{\link{yml_vignette}}
+  \code{\link{yml_toc}}, \code{\link{yml_vignette}}
 
 Other citations: \code{\link{bib2yml}},
   \code{\link{yml_reference}}

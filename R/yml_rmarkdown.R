@@ -97,6 +97,50 @@ yml_vignette <- function(.yml, title, engine = "knitr::rmarkdown", encoding = "U
   .yml
 }
 
+#' Specify Table of Contents options
+#'
+#' It's generally better to specify Table of Contents in the output function you
+#' are using so you have a clearer idea of your options (e.g. `html_document(toc
+#' = TRUE, toc_float = TRUE)`). However, you can also generally specify at the
+#' top level of YAML.
+#'
+#' @template describe_yml_param
+#' @param toc Logical. Use a Table of Contents?
+#' @param toc_depth An integer. The depth of headers to use in the TOC. Note
+#'   that the actual YAML field is `toc-depth`.
+#' @param toc_title The title of the TOC. Note that the actual YAML field is
+#'   `toc-title`.
+#' @template describe_dots_param
+#'
+#' @template describe_yml_output
+#' @export
+#'
+#' @examples
+#'
+#' yml() %>%
+#'  yml_toc(toc = TRUE, toc_depth = 1, toc_title = "Article Outline")
+#'
+yml_toc <- function(
+  .yml,
+  toc = yml_blank(),
+  toc_depth = yml_blank(),
+  toc_title = yml_blank(),
+  ...
+) {
+  toc_opts <- list(
+    toc = toc,
+    "toc-depth" = toc_depth,
+    "toc-title" = toc_title,
+    ...
+  ) %>%
+    purrr::discard(is_yml_blank)
+
+  warn_if_duplicate_fields(.yml, toc_opts)
+  .yml[names(toc_opts)] <- toc_opts
+
+  .yml
+}
+
 #' Add external resource files to R Markdown document
 #'
 #' The `resource_files` field specifies a character vectors of paths to external

@@ -1,7 +1,9 @@
 #' Set citation-related YAML options
 #'
 #' `yml_citations()` sets citation-related YAML fields, such as specifying a
-#' bibliography file or style.
+#' bibliography file or style. For controlling the citation engine in PDF
+#' documents, see the `citation_package` argument in
+#' `rmarkdown::pdf_document()`.
 #'
 #' @template describe_yml_param
 #' @param bibliography a path to a bibliography file, such as a .bib file
@@ -12,14 +14,14 @@
 #' @param citation_abbreviations Path to a CSL abbreviations JSON file. See the
 #'   [pandoc-citeproc
 #'   documentation](http://manpages.ubuntu.com/manpages/xenial/man1/pandoc-citeproc.1.html).
-#'   Note that the actual YAML field is `citation-abbreviations`.
-#'
+#'    Note that the actual YAML field is `citation-abbreviations`.
 #' @param link_citations Logical. Add citations hyperlinks to the corresponding
 #'   bibliography entries?  Note that the actual YAML field is `link-citations`.
-#' @param natbib Logical. Use [natbib](https://ctan.org/pkg/natbib) for
-#'   citations in LaTeX output?
-#' @param biblatex Logical. Use [biblatex](https://ctan.org/pkg/biblatex) for
-#'   citations in LaTeX output?
+#' @param nocite Citation IDs (`"@item1"`) to include in the bibliography even if
+#'   they are not cited in the document. Including the wildcard pattern `"@*"`
+#'   will include all citations in the bibliography regardless of if they're
+#'   cited in the document.
+#' @param suppress_bibliography Logical. Suppress bibliography?
 #'
 #' @template describe_yml_output
 #' @export
@@ -36,16 +38,16 @@ yml_citations <- function(
   csl = yml_blank(),
   citation_abbreviations = yml_blank(),
   link_citations = yml_blank(),
-  natbib = yml_blank(),
-  biblatex = yml_blank()
+  nocite = yml_blank(),
+  suppress_bibliography = yml_blank()
 ) {
   citation_opts <- list(
     bibliography = bibliography,
     csl = csl,
     "citation-abbreviations" = citation_abbreviations,
     "link-citations" = link_citations,
-    natbib = natbib,
-    biblatex = biblatex
+    nocite = nocite,
+    "suppress-bibliography" = suppress_bibliography
   )
 
   citation_opts <- purrr::discard(citation_opts, is_yml_blank)

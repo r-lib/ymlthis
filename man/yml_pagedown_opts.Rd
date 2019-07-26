@@ -71,7 +71,7 @@ Other yml: \code{\link{asis_yaml_output}},
   \code{\link{yml_rsconnect_email}},
   \code{\link{yml_rticles_opts}},
   \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
-  \code{\link{yml_vignette}}
+  \code{\link{yml_toc}}, \code{\link{yml_vignette}}
 
 Other pagedown: \code{\link{pagedown_business_card_template}}
 }
