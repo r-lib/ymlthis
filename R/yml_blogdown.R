@@ -195,8 +195,6 @@ blogdown_template <- function(type, path = ".", theme = NULL) {
     )
   )
 
-  readLines(file.path(temporary_dir(), "content"))
-
   post_yml <- yaml::yaml.load_file(file_to_yamlify) %>%
     as_yml()
 

@@ -26,8 +26,9 @@ to return the saved YAML.
 
 Other yml: \code{\link{asis_yaml_output}},
   \code{\link{bib2yml}}, \code{\link{draw_yml_tree}},
-  \code{\link{has_field}}, \code{\link{use_yml_file}},
-  \code{\link{use_yml}}, \code{\link{yml_author}},
+  \code{\link{has_field}}, \code{\link{read_json}},
+  \code{\link{use_yml_file}}, \code{\link{use_yml}},
+  \code{\link{yml_author}},
   \code{\link{yml_blogdown_opts}},
   \code{\link{yml_bookdown_opts}},
   \code{\link{yml_citations}}, \code{\link{yml_clean}},

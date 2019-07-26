@@ -17,7 +17,7 @@ instead of as an R object. Doing so adds code highlighting for YAML syntax.
 \seealso{
 Other yml: \code{\link{bib2yml}},
   \code{\link{draw_yml_tree}}, \code{\link{has_field}},
-  \code{\link{use_yml_defaults}},
+  \code{\link{read_json}}, \code{\link{use_yml_defaults}},
   \code{\link{use_yml_file}}, \code{\link{use_yml}},
   \code{\link{yml_author}},
   \code{\link{yml_blogdown_opts}},

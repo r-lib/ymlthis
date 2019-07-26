@@ -48,6 +48,7 @@ reference:
   - '`use_yml_file`'
   - '`use_yml`'
   - '`use_yml_defaults`'
+  - '`read_json`'
 - title: R Markdown Extensions
   desc: null
   contents:
