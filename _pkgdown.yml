@@ -52,15 +52,15 @@ reference:
 - title: R Markdown Extensions
   desc: null
   contents:
-  - '`blogdown_template`'
-  - '`gitbook_config`'
-  - '`pagedown_business_card_template`'
-  - '`pkgdown_template`'
   - '`yml_blogdown_opts`'
+  - '`blogdown_template`'
   - '`yml_bookdown_opts`'
+  - '`gitbook_config`'
   - '`yml_distill_opts`'
   - '`yml_pagedown_opts`'
+  - '`pagedown_business_card_template`'
   - '`yml_pkgdown`'
+  - '`pkgdown_template`'
   - '`yml_rsconnect_email`'
   - '`yml_rticles_opts`'
 articles:
@@ -93,5 +93,5 @@ navbar:
         href: articles/yaml-fieldguide.html
     github:
       icon: fa-github fa-lg
-      href: https://github.com/rstudio-education/ymlthis
+      href: https://github.com/r-lib/ymlthis
 
