@@ -143,14 +143,8 @@ use_bookdown_yml <- function(.yml = NULL, path = ".", build_ignore = FALSE, git_
 
 
 write_yml_file <- function(.yml, path, build_ignore = FALSE, git_ignore = FALSE) {
-
-  if (build_ignore) {
-    usethis::use_build_ignore(path)
-  }
-
-  if (git_ignore) {
-    usethis::use_git_ignore(path)
-  }
+  if (build_ignore) usethis::use_build_ignore(path)
+  if (git_ignore) usethis::use_git_ignore(path)
 
   if (file.exists(path)) {
     question <- glue::glue("Overwrite pre-existing file {usethis::ui_path(path)}?")

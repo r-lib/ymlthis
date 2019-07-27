@@ -11,9 +11,11 @@ read_json(path)
 
 read_toml(path)
 
-write_as_json(.yml = NULL, path = NULL, out = NULL)
+write_as_json(.yml = NULL, path = NULL, out = NULL,
+  build_ignore = FALSE, git_ignore = FALSE)
 
-write_as_toml(.yml = NULL, path = NULL, out = NULL)
+write_as_toml(.yml = NULL, path = NULL, out = NULL,
+  build_ignore = FALSE, git_ignore = FALSE)
 }
 \arguments{
 \item{path}{a path to a JSON or TOML file}
@@ -23,14 +25,21 @@ a \code{yml_*()} function}
 
 \item{out}{The path to write out to. If \code{NULL}, will write to the \code{path} but
 change the file extension to \code{.toml} or \code{.json}.}
+
+\item{build_ignore}{Logical. Should the file be added to the \code{.Rbuildignore}
+file?}
+
+\item{git_ignore}{Logical. Should the file be added to the \code{.gitignore} file?}
 }
 \value{
 a \code{yml} object (if reading) or the path (if writing)
 }
 \description{
 Read JSON and TOML files in as \code{yml} objects with \code{read_*()}. Write \code{yml}
-objects out as JSON and YAML files with \code{write_as_*()}. These functions rely
-on Hugo and blogdown, so you must have blogdown installed.
+objects out as JSON and YAML files with \code{write_as_*()}. You can also provide
+\code{write_as_*()} a path to an existing \code{.yml} file to translate to JSON or
+TOML. These functions rely on Hugo and blogdown, so you must have blogdown
+installed.
 }
 \seealso{
 Other yml: \code{\link{asis_yaml_output}},
