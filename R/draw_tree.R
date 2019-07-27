@@ -22,7 +22,10 @@
 #'
 draw_yml_tree <- function(.yml = last_yml(), indent = "") {
   any_vectors <- any(purrr::map_lgl(.yml, is_long_vector))
-  if (any_vectors) print_vector_leaves(.yml, indent)
+  if (any_vectors) {
+    print_vector_leaves(.yml, indent)
+    return(invisible(.yml))
+  }
 
   nested <- purrr::map_lgl(.yml, is.list)
   for (i in seq_along(.yml)) {
