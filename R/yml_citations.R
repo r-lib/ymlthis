@@ -174,7 +174,7 @@ reference <- function(id = NULL, ...) {
 }
 
 bibentry2yml <- function(.bibentry) {
-  on.exit(unlink_temporary_dir())
+  on.exit(unlink_temporary_dir(), add = TRUE)
   .bibtex <- utils::capture.output(print(.bibentry, style = "Bibtex"))
   writeLines(.bibtex, file.path(temporary_dir(), "bibtex.bib"))
 

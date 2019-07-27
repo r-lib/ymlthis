@@ -159,7 +159,7 @@ yml_blogdown_opts <- function(
 #' @export
 blogdown_template <- function(type, path = ".", theme = NULL) {
   stop_if_blogdown_not_installed()
-  on.exit(unlink_temporary_dir())
+  on.exit(unlink_temporary_dir(), add = TRUE)
 
   if (is.null(theme)) theme <- get_theme(path)
 

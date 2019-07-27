@@ -57,7 +57,7 @@ write_as_metadata <- function(.yml, path, out, extension, to, build_ignore, git_
 
   if (!is.null(.yml)) {
     path <- write_temp_yaml(.yml)
-    on.exit(unlink(path))
+    on.exit(unlink(path), add = TRUE)
   }
   if (is.null(out)) out <- swap_extension(path, extension)
   if (build_ignore) usethis::use_build_ignore(out)
@@ -91,7 +91,7 @@ write_temp_yaml <- function(.yml) {
 
 convert_metadata <- function(path, to = c("YAML", "TOML", "JSON"), out = NULL) {
   stop_if_blogdown_not_installed()
-  on.exit(unlink_temporary_dir())
+  on.exit(unlink_temporary_dir(), add = TRUE)
   to <- match.arg(to)
 
   file_to_convert <- fs::path_file(path) %>%
