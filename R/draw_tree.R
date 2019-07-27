@@ -29,10 +29,6 @@ draw_yml_tree <- function(.yml = last_yml(), indent = "") {
 
   nested <- purrr::map_lgl(.yml, is.list)
   for (i in seq_along(.yml)) {
-    # if (field_vectors[i]) {
-    #   print_vector_leaves(.yml[i], indent)
-    #   next
-    # }
     if (i == length(.yml)) {
       if (nested[i]) {
         if (!rlang::is_named(.yml[i])) {
