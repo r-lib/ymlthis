@@ -9,23 +9,34 @@
 \alias{use_bookdown_yml}
 \title{Write YAML to file}
 \usage{
-use_yml_file(.yml = NULL, path)
+use_yml_file(.yml = NULL, path, build_ignore = FALSE,
+  git_ignore = FALSE)
 
-use_output_yml(.yml = NULL, path = ".")
+use_output_yml(.yml = NULL, path = ".", build_ignore = FALSE,
+  git_ignore = FALSE)
 
-use_site_yml(.yml = NULL, path = ".")
+use_site_yml(.yml = NULL, path = ".", build_ignore = FALSE,
+  git_ignore = FALSE)
 
-use_navbar_yml(.yml = NULL, path = ".")
+use_navbar_yml(.yml = NULL, path = ".", build_ignore = FALSE,
+  git_ignore = FALSE)
 
-use_pkgdown_yml(.yml = NULL, path = ".")
+use_pkgdown_yml(.yml = NULL, path = ".", build_ignore = TRUE,
+  git_ignore = FALSE)
 
-use_bookdown_yml(.yml = NULL, path = ".")
+use_bookdown_yml(.yml = NULL, path = ".", build_ignore = FALSE,
+  git_ignore = FALSE)
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
 \item{path}{a file path to write the file to}
+
+\item{build_ignore}{Logical. Should the file be added to the \code{.Rbuildignore}
+file?}
+
+\item{git_ignore}{Logical. Should the file be added to the \code{.gitignore} file?}
 }
 \description{
 Write \code{yml} objects to a file. \code{use_yml_file()} writes to any given file

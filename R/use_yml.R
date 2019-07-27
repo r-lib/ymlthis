@@ -50,7 +50,7 @@ use_rmarkdown <- function(.yml = last_yml(), path, template = NULL) {
 
 #' @rdname use_yml
 #' @export
-use_index_rmd <- function(.yml = last_yml(), path, template = NULL) {
+use_index_rmd <- function(.yml = last_yml(), path = ".", template = NULL) {
   index_rmd_path <- file_path(path, "index.Rmd")
   use_rmarkdown(.yml = .yml, path = index_rmd_path, template = template)
 }
@@ -88,58 +88,70 @@ return_yml_code <- function(.yml) {
 #'
 #' @template describe_yml_param
 #' @param path a file path to write the file to
+#' @param build_ignore Logical. Should the file be added to the `.Rbuildignore`
+#'   file?
+#' @param git_ignore Logical. Should the file be added to the `.gitignore` file?
 #'
 #' @seealso yml_bookdown_opts yml_bookdown_site yml_pkgdown yml_pkgdown_articles
 #'   yml_pkgdown_docsearch yml_pkgdown_figures yml_pkgdown_news
 #'   yml_pkgdown_reference
 #' @export
 #' @rdname use_file_yml
-use_yml_file <- function(.yml = NULL, path) {
-  write_yml_file(.yml, path)
+use_yml_file <- function(.yml = NULL, path, build_ignore = FALSE, git_ignore = FALSE) {
+  write_yml_file(.yml, path, build_ignore = build_ignore, git_ignore = git_ignore)
 }
 
 #' @export
 #' @rdname use_file_yml
-use_output_yml <- function(.yml = NULL, path = ".") {
+use_output_yml <- function(.yml = NULL, path = ".", build_ignore = FALSE, git_ignore = FALSE) {
   yml_file_path <- file_path(path, "_output.yml")
 
-  write_yml_file(.yml, yml_file_path)
+  write_yml_file(.yml, yml_file_path, build_ignore = build_ignore, git_ignore = git_ignore)
 }
 
 #' @export
 #' @rdname use_file_yml
-use_site_yml <- function(.yml = NULL, path = ".") {
+use_site_yml <- function(.yml = NULL, path = ".", build_ignore = FALSE, git_ignore = FALSE) {
   yml_file_path <- file_path(path, "_site.yml")
 
-  write_yml_file(.yml, yml_file_path)
+  write_yml_file(.yml, yml_file_path, build_ignore = build_ignore, git_ignore = git_ignore)
 }
 
 #' @export
 #' @rdname use_file_yml
-use_navbar_yml <- function(.yml = NULL, path = ".") {
+use_navbar_yml <- function(.yml = NULL, path = ".", build_ignore = FALSE, git_ignore = FALSE) {
   yml_file_path <- file_path(path, "_navbar.yml")
 
-  write_yml_file(.yml, yml_file_path)
+  write_yml_file(.yml, yml_file_path, build_ignore = build_ignore, git_ignore = git_ignore)
 }
 
 #' @export
 #' @rdname use_file_yml
-use_pkgdown_yml <- function(.yml = NULL, path = ".") {
+use_pkgdown_yml <- function(.yml = NULL, path = ".", build_ignore = TRUE, git_ignore = FALSE) {
   yml_file_path <- file_path(path, "_pkgdown.yml")
 
-  write_yml_file(.yml, yml_file_path)
+  write_yml_file(.yml, yml_file_path, build_ignore = build_ignore, git_ignore = git_ignore)
 }
 
 #' @export
 #' @rdname use_file_yml
-use_bookdown_yml <- function(.yml = NULL, path = ".") {
+use_bookdown_yml <- function(.yml = NULL, path = ".", build_ignore = FALSE, git_ignore = FALSE) {
   yml_file_path <- file_path(path, "_bookdown.yml")
 
-  write_yml_file(.yml, yml_file_path)
+  write_yml_file(.yml, yml_file_path, build_ignore = build_ignore, git_ignore = git_ignore)
 }
 
 
-write_yml_file <- function(.yml, path) {
+write_yml_file <- function(.yml, path, build_ignore = FALSE, git_ignore = FALSE) {
+
+  if (build_ignore) {
+    usethis::use_build_ignore(path)
+  }
+
+  if (git_ignore) {
+    usethis::use_git_ignore(path)
+  }
+
   if (file.exists(path)) {
     question <- glue::glue("Overwrite pre-existing file {usethis::ui_path(path)}?")
     go_ahead <- usethis::ui_yeah(question)
