@@ -1,13 +1,15 @@
-read_yaml <- function(path) {
+read_rmd <- function(path, output = c("frontmatter", "body")) {
+  output <- match.arg(output)
   input_lines <- readLines(path)
   delimiters <- grep("^(---|\\.\\.\\.)\\s*$", input_lines)
   if (!validate_front_matter(delimiters, input_lines)) {
     return(yml_blank())
   }
 
-  front_matter <- input_lines[(delimiters[1]):(delimiters[2])]
+  return_lines <- (delimiters[1]):(delimiters[2])
+  if (output == "body") return_lines <- -return_lines
 
-  front_matter
+  input_lines[return_lines]
 }
 
 is_blank <- function(x) {

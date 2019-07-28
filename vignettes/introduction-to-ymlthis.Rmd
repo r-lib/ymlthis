@@ -237,7 +237,27 @@ fs::dir_create(path)
 use_navbar_yml(navbar_yaml, path = path)
 ```
 
-In addition to writing to files, you can save YAML to your `.Rprofile` using `options(ymlthis.defaults = "{YAML}")`. `yml()` will return the stored YAML by default. If you pass a `yml` object to `use_yml_defaults()`, the code to do this will be placed on your clipboard, which you should paste into your `.Rprofile`. Open that file with `usethis::edit_r_profile()`.
+In addition to writing to files, you can save YAML to your `.Rprofile` using `options(ymlthis.defaults = "{YAML}")`. `yml()` will return the stored YAML by default. If you pass a `yml` object to `use_yml_defaults()`, the code to do this will be placed on your clipboard, which you should paste into your `.Rprofile`. Open that file with `usethis::edit_r_profile()`. You can also set a default for body text for `use_rmarkdown()` by setting the `ymlthis.rmd_body()` option, e.g. `options(ymlthis.rmd_body = "{your text}")` (or take advantage of `use_rmd_defaults()`). Together with specifying default YAML, `use_rmarkdown()` also serves as an ad-hoc way to make R Markdown templates. 
+
+```{r}
+options(
+  ymlthis.default_yml = "author: Malcolm Barrett
+date: '`r format(Sys.Date())`'
+output: bookdown::pdf_document2",
+  ymlthis.rmd_body = c(
+    "",
+    setup_chunk(),
+    "",
+    code_chunk(
+      library(ymlthis)
+    )
+  )
+)
+
+#  use temporary path set above
+use_rmarkdown(path = file.path(path, "analysis.Rmd"))
+```
+
 
 |  function | action |
 |--:|--:|

@@ -2,20 +2,31 @@
 #'
 #' `use_yml()` takes a `yml` object and puts the resulting YAML on your
 #' clipboard to paste into an R Markdown or YAML file. `use_rmarkdown()` takes
-#' the `yml` object and writes it to a new R Markdown file. You may also supply
-#' `use_rmarkdown()` with an existing R Markdown file from which to read the
-#' YAML header; the YAML header from the template is then combined with `.yml`,
-#' if it's supplied, and written to a new file. `use_index_rmd()` is a wrapper
-#' around `use_rmarkdown()` that specifically writes to a file called
-#' `index.Rmd`. By default, `use_yml()` and `use_rmarkdown()` use the most
-#' recently printed YAML via [`last_yml()`].
+#' the `yml` object and writes it to a new R Markdown file. You can add text to
+#' include in the body of the file. If it's not specified, `use_rmarkdown()`
+#' will use [`setup_chunk()`] by default. You can also set a default for `body`
+#' using `options(ymlthis.rmd_body = "{your text}")`; see [use_rmd_defaults()].
+#' Together with specifying default YAML (see [use_yml_defaults()]),
+#' `use_rmarkdown()` also serves as an ad-hoc way to make R Markdown templates.
+#' You may also supply `use_rmarkdown()` with an existing R Markdown file from
+#' which to read the YAML header; the YAML header from the template is then
+#' combined with `.yml`, if it's supplied, and written to a new file.
+#' `use_index_rmd()` is a wrapper around `use_rmarkdown()` that specifically
+#' writes to a file called `index.Rmd`. By default, `use_yml()` and
+#' `use_rmarkdown()` use the most recently printed YAML via [`last_yml()`].
 #'
 #' @template describe_yml_param
 #' @param path A file path to write R Markdown file to
 #' @param template An existing R Markdown file to read YAML from
+#' @param include_yaml Logical. Include the template YAML?
+#' @param include_body Logical. Include the template body?
+#' @param body A character vector to use in the body of the R Markdown file. If
+#'   no template is set, checks `getOption("ymlthis.rmd_body")` (see
+#'   [`use_rmd_defaults()`]) and otherwise uses [`setup_chunk()`].
 #'
 #' @return `use_yml()` invisibly returns the input `yml` object
 #' @export
+#' @seealso [`code_chunk()`] [`setup_chunk()`]
 use_yml <- function(.yml = last_yml()) {
   return_yml_code(.yml)
 }
@@ -23,29 +34,36 @@ use_yml <- function(.yml = last_yml()) {
 
 #' @rdname use_yml
 #' @export
-use_rmarkdown <- function(.yml = last_yml(), path, template = NULL) {
-  if (!is.null(template)) {
-    existing_header <- read_yaml(template)
-    printed_yaml <- existing_header %>%
-      yml_load() %>%
-      combine_yml(.yml) %>%
-      capture_yml()
+use_rmarkdown <- function(.yml = last_yml(), path, template = NULL, include_yaml = TRUE, include_body = TRUE, body = NULL) {
 
-    rmarkdown_header <- c(printed_yaml, "\n")
-
-    usethis::write_over(path, rmarkdown_header)
-    rstudioapi::navigateToFile(path)
-
-    return(invisible(.yml))
+  if (!is.null(template) && fs::is_dir(template)) {
+    template_skeleton <- file.path(template, "skeleton", "skeleton.Rmd")
+    if (!file.exists(template_skeleton)) {
+      stop("A directory must include an R Markdown template in `skeleton/skleton.Rmd`", call. = FALSE)
+    }
+    template <- template_skeleton
   }
 
-  printed_yaml <- capture_yml(.yml)
-  rmarkdown_template <- c(printed_yaml, "\n")
+  if (!is.null(template) && include_yaml) {
+    existing_yaml <- read_rmd(template) %>%
+      yml_load()
+    .yml <- combine_yml(.yml, existing_yaml)
+  }
+  rmarkdown_txt <- capture_yml(.yml)
 
-  usethis::write_over(path, rmarkdown_template)
-  rstudioapi::navigateToFile(path)
+  if (is.null(template) && is.null(body)) body <- getOption("ymlthis.rmd_body")
+  if (is.null(template) && is.null(body)) body <- c("", setup_chunk())
 
-  invisible(.yml)
+  rmarkdown_txt <- c(rmarkdown_txt, body)
+  if (!is.null(template) && include_body) {
+    existing_body <- read_rmd(template, output = "body")
+    rmarkdown_txt <- c(rmarkdown_txt, existing_body)
+  }
+
+  usethis::write_over(path, rmarkdown_txt)
+  if (rstudioapi::isAvailable()) rstudioapi::navigateToFile(path)
+
+  invisible(path)
 }
 
 #' @rdname use_yml
@@ -56,7 +74,6 @@ use_index_rmd <- function(.yml = last_yml(), path = ".", template = NULL) {
 }
 
 combine_yml <- function(x, y) {
-  warn_if_duplicate_fields(x, y)
   x[names(y)] <- y
 
   x
@@ -182,10 +199,13 @@ file_path <- function(path, .file) {
 #' that will save the resulting YAML as the default for `yml()`. The code that
 #' is placed on the clipboard is raw YAML passed to `ymlthis.default_yml` via
 #' `options()`. Saving this code to your `.Rprofile` (see
-#' [`usethis::edit_r_profile()`])) will allow [`yml()`] or [`get_yml_defaults()`]
-#' to return the saved YAML.
+#' [`usethis::edit_r_profile()`])) will allow [`yml()`] or
+#' [`get_yml_defaults()`] to return the saved YAML. `use_rmd_defaults()` does
+#' the same for `ymlthis.rmd_body`, which is used in [use_rmarkdown()] as the
+#' body text of the created R Markdown file.
 #'
 #' @template describe_yml_param
+#' @param x a character vector to use as the body text in [use_rmarkdown()].
 #'
 #' @seealso [yml()] [get_yml_defaults()]
 #' @export
@@ -217,6 +237,21 @@ use_yml_defaults <- function(.yml) {
 
 #' @export
 #' @rdname use_yml_defaults
+use_rmd_defaults <- function(x) {
+  rmd_text <- glue::glue_collapse(x, sep = "\n")
+  rmd_code <- glue::glue("options(ymlthis.rmd_body = \"{rmd_text}\")")
+
+  usethis::ui_code_block(rmd_code)
+  usethis::ui_todo(
+    "Run interactively or paste into .Rprofile \\
+   (perhaps using {usethis::ui_code('usethis::edit_r_profile()')})"
+  )
+
+  invisible(x)
+}
+
+#' @export
+#' @rdname use_yml_defaults
 get_yml_defaults <- function() {
   .yml <- getOption("ymlthis.default_yml")
   if (is.null(.yml)) return(NULL)
@@ -224,6 +259,12 @@ get_yml_defaults <- function() {
   if (is.character(.yml)) .yml <- yaml::yaml.load(.yml)
 
   as_yml(.yml)
+}
+
+#' @export
+#' @rdname use_yml_defaults
+get_rmd_defaults <- function() {
+  getOption("ymlthis.rmd_body")
 }
 
 raw_yml <- function(x) {

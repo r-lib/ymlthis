@@ -8,7 +8,8 @@
 \usage{
 use_yml(.yml = last_yml())
 
-use_rmarkdown(.yml = last_yml(), path, template = NULL)
+use_rmarkdown(.yml = last_yml(), path, template = NULL,
+  include_yaml = TRUE, include_body = TRUE, body = NULL)
 
 use_index_rmd(.yml = last_yml(), path = ".", template = NULL)
 }
@@ -19,6 +20,14 @@ a \code{yml_*()} function}
 \item{path}{A file path to write R Markdown file to}
 
 \item{template}{An existing R Markdown file to read YAML from}
+
+\item{include_yaml}{Logical. Include the template YAML?}
+
+\item{include_body}{Logical. Include the template body?}
+
+\item{body}{A character vector to use in the body of the R Markdown file. If
+no template is set, checks \code{getOption("ymlthis.rmd_body")} (see
+\code{\link[=use_rmd_defaults]{use_rmd_defaults()}}) and otherwise uses \code{\link[=setup_chunk]{setup_chunk()}}.}
 }
 \value{
 \code{use_yml()} invisibly returns the input \code{yml} object
@@ -26,15 +35,22 @@ a \code{yml_*()} function}
 \description{
 \code{use_yml()} takes a \code{yml} object and puts the resulting YAML on your
 clipboard to paste into an R Markdown or YAML file. \code{use_rmarkdown()} takes
-the \code{yml} object and writes it to a new R Markdown file. You may also supply
-\code{use_rmarkdown()} with an existing R Markdown file from which to read the
-YAML header; the YAML header from the template is then combined with \code{.yml},
-if it's supplied, and written to a new file. \code{use_index_rmd()} is a wrapper
-around \code{use_rmarkdown()} that specifically writes to a file called
-\code{index.Rmd}. By default, \code{use_yml()} and \code{use_rmarkdown()} use the most
-recently printed YAML via \code{\link[=last_yml]{last_yml()}}.
+the \code{yml} object and writes it to a new R Markdown file. You can add text to
+include in the body of the file. If it's not specified, \code{use_rmarkdown()}
+will use \code{\link[=setup_chunk]{setup_chunk()}} by default. You can also set a default for \code{body}
+using \code{options(ymlthis.rmd_body = "{your text}")}; see \code{\link[=use_rmd_defaults]{use_rmd_defaults()}}.
+Together with specifying default YAML (see \code{\link[=use_yml_defaults]{use_yml_defaults()}}),
+\code{use_rmarkdown()} also serves as an ad-hoc way to make R Markdown templates.
+You may also supply \code{use_rmarkdown()} with an existing R Markdown file from
+which to read the YAML header; the YAML header from the template is then
+combined with \code{.yml}, if it's supplied, and written to a new file.
+\code{use_index_rmd()} is a wrapper around \code{use_rmarkdown()} that specifically
+writes to a file called \code{index.Rmd}. By default, \code{use_yml()} and
+\code{use_rmarkdown()} use the most recently printed YAML via \code{\link[=last_yml]{last_yml()}}.
 }
 \seealso{
+\code{\link[=code_chunk]{code_chunk()}} \code{\link[=setup_chunk]{setup_chunk()}}
+
 Other yml: \code{\link{asis_yaml_output}},
   \code{\link{bib2yml}}, \code{\link{draw_yml_tree}},
   \code{\link{has_field}}, \code{\link{read_json}},
