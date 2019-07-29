@@ -47,11 +47,11 @@ get_params <- function(x) {
     " "
   )
   
-  params_desc$name <- stringr::str_replace_all(
-    params_desc$name,
-    ",",
-    ", "
-  )
+  params_desc$name <- params_desc$name %>% 
+    stringr::str_split(",") %>% 
+    purrr::map_chr(
+      ~paste0("`", .x, "`") %>% paste(collapse = ", ")
+    )
   
   cbind(func = f, params_desc, stringsAsFactors = FALSE)
 }
