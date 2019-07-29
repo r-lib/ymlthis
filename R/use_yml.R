@@ -61,7 +61,7 @@ use_rmarkdown <- function(.yml = last_yml(), path, template = NULL, include_yaml
   }
 
   usethis::write_over(path, rmarkdown_txt)
-  if (rstudioapi::isAvailable()) rstudioapi::navigateToFile(path)
+  if (rstudioapi::isAvailable()) rstudioapi::navigateToFile(path, line = 2)
 
   invisible(path)
 }
