@@ -90,6 +90,8 @@ navbar:
       menu:
       - text: An Introduction to ymlthis
         href: articles/introduction-to-ymlthis.html
+      - text: "YAML: An Overview"
+        href: articles/yaml-overview.html
       - text: The YAML Fieldguide
         href: articles/yaml-fieldguide.html
     github:
