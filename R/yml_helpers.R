@@ -66,8 +66,11 @@ yml_verbatim <- function(x) {
 #'
 #' @examples
 #'
-#' yml_code(sys.Date())
-#' yml_params_code(sys.Date())
+#' yml_empty() %>%
+#'   yml_date(yml_code(sys.Date()))
+#'
+#' yml_empty() %>%
+#'   yml_params(date = yml_params_code(sys.Date()))
 #'
 #' @seealso [yml_verbatim()]
 yml_code <- function(x) {
@@ -80,8 +83,10 @@ yml_code <- function(x) {
 #' @rdname yml_code
 yml_params_code <- function(x) {
   x <- rlang::enquo(x)
-  glue::glue("!r {rlang::quo_text(x)}") %>%
-    yml_verbatim()
+  x <- rlang::quo_text(x)
+  attr(x, "tag") <- "!r"
+
+  x
 }
 
 

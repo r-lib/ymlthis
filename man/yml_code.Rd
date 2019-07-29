@@ -24,8 +24,11 @@ differently when using in the \code{params} field for parameterized reports;
 }
 \examples{
 
-yml_code(sys.Date())
-yml_params_code(sys.Date())
+yml_empty() \%>\%
+  yml_date(yml_code(sys.Date()))
+
+yml_empty() \%>\%
+  yml_params(date = yml_params_code(sys.Date()))
 
 }
 \seealso{
