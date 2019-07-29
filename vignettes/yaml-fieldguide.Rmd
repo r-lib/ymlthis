@@ -80,8 +80,6 @@ fields_df <- roxygen2::parse_package("../") %>%
   do.call(rbind, .)
 ```
 
-# Fieldguide
-
 **ymlthis** attempts to write common YAML for you in the right way and to document the many YAML field options in one place. The fieldguide is a collection of all the fields documented in the **ymlthis** help pages, organized by source. Note that some argument names do not match the YAML field name exactly in order because not all field names are valid R names (e.g. the `link-citations` YAML field needs to be `link_citations` in R); these differences are noted in the argument description. Additionally, not all of these arguments are top-level YAML; see the linked help pages for more details.
 
 ## Basic YAML
