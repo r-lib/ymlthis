@@ -216,6 +216,8 @@ yml() \%>\%
 
 }
 \seealso{
+\code{\link[=yml_params_code]{yml_params_code()}}
+
 Other yml: \code{\link{asis_yaml_output}},
   \code{\link{bib2yml}}, \code{\link{draw_yml_tree}},
   \code{\link{has_field}}, \code{\link{read_json}},

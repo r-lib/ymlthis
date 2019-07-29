@@ -55,7 +55,9 @@ yml_verbatim <- function(x) {
 #'
 #' `yml_code()` takes R code and writes it as valid YAML to be evaluated during
 #' knitting. Note that `yml_code()` does not evaluate or validate the R code but
-#' only captures it to use in the YAML field.
+#' only captures it to use in the YAML field. R code needs to be formatted
+#' differently when using in the `params` field for parameterized reports;
+#' `yml_params_code` will format this correctly for you.
 #'
 #' @param x valid R code
 #'
@@ -65,6 +67,7 @@ yml_verbatim <- function(x) {
 #' @examples
 #'
 #' yml_code(sys.Date())
+#' yml_params_code(sys.Date())
 #'
 #' @seealso [yml_verbatim()]
 yml_code <- function(x) {
@@ -72,6 +75,15 @@ yml_code <- function(x) {
   glue::glue("`r {rlang::quo_text(x)} `") %>%
     yml_verbatim()
 }
+
+#' @export
+#' @rdname yml_code
+yml_params_code <- function(x) {
+  x <- rlang::enquo(x)
+  glue::glue("!r {rlang::quo_text(x)}") %>%
+    yml_verbatim()
+}
+
 
 #' Include content within output
 #'

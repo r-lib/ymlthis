@@ -2,9 +2,12 @@
 % Please edit documentation in R/yml_helpers.R
 \name{yml_code}
 \alias{yml_code}
+\alias{yml_params_code}
 \title{Take code and write it as valid YAML}
 \usage{
 yml_code(x)
+
+yml_params_code(x)
 }
 \arguments{
 \item{x}{valid R code}
@@ -15,11 +18,14 @@ a character vector with class \code{verbatim}
 \description{
 \code{yml_code()} takes R code and writes it as valid YAML to be evaluated during
 knitting. Note that \code{yml_code()} does not evaluate or validate the R code but
-only captures it to use in the YAML field.
+only captures it to use in the YAML field. R code needs to be formatted
+differently when using in the \code{params} field for parameterized reports;
+\code{yml_params_code} will format this correctly for you.
 }
 \examples{
 
 yml_code(sys.Date())
+yml_params_code(sys.Date())
 
 }
 \seealso{

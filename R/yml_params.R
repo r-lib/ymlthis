@@ -36,6 +36,7 @@
 #'
 #' @family R Markdown
 #' @family shiny
+#' @seealso [`yml_params_code()`]
 yml_params <- function(.yml, ...) {
   warn_if_duplicate_fields(.yml, list(params = ""))
   .yml$params <- list(...)
