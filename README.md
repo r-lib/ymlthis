@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Build
-Status](https://travis-ci.com/r-lib/ymlthis.svg?branch=master)](https://travis-ci.com/r-lib/ymlthis)
+Status](https://travis-ci.org/r-lib/ymlthis.svg?branch=master)](https://travis-ci.org/r-lib/ymlthis)
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/folqefg7g5afi4w1?svg=true)](https://ci.appveyor.com/project/malcolmbarrett/ymlthis/branch/master)
 [![Codecov test
@@ -64,7 +64,7 @@ yml() %>%
 #>   affiliation: RStudio
 #> - name: Hadley Wickham
 #>   affiliation: RStudio
-#> date: '2019-07-25'
+#> date: '2019-07-29'
 #> output:
 #>   pdf_document:
 #>     keep_tex: true
