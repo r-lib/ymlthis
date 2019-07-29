@@ -115,9 +115,9 @@ get_author_name <- function() {
 
   usethis::ui_stop(
     "
-    `{usethis::ui_code('name')}` argument is missing.
-    Set it globally with {usethis::ui_code('options(usethis.full_name = \"My name\")')}\\
-    probably in your {usethis::ui_path('.Rprofile')}.
+    `{usethis::ui_code(name)}` argument is missing.
+    Set it globally with {usethis::ui_code('options(usethis.full_name = \"My name\")')} \\
+    (perhaps using {usethis::ui_code('usethis::edit_r_profile()')}).
     "
   )
 }

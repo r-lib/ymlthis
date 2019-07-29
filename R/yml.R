@@ -71,10 +71,13 @@ yml <- function(.yml = NULL, get_yml = TRUE, author = TRUE, date = TRUE) {
     .yml[default_fields] <- default_yml
   }
 
-  if (author) .yml$author <- tryCatch(
-    get_author_name(),
-    error = function(e) yml_blank()
-  )
+  if (author) {
+    author_name <- tryCatch(
+      get_author_name(),
+      error = function(e) yml_blank()
+    )
+    if (!is_yml_blank(author_name)) .yml$name <- author_name
+  }
   if (date) .yml$date <- format_sys_date()
 
   .yml
