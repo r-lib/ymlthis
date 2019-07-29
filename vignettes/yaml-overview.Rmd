@@ -4,7 +4,9 @@ output:
   prettydoc::html_pretty:
     theme: tactile
 vignette: |
-  %\VignetteIndexEntry{YAML: an Overview} %\VignetteEngine{knitr::rmarkdown} %\VignetteEncoding{UTF-8}
+  %\VignetteIndexEntry{YAML: an Overview}
+  %\VignetteEngine{knitr::rmarkdown} 
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include = FALSE}
