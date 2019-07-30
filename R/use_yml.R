@@ -239,9 +239,7 @@ use_yml_defaults <- function(.yml) {
 #' @rdname use_yml_defaults
 use_rmd_defaults <- function(x) {
   rmd_text <- glue::glue_collapse(x, sep = "\n")
-  rmd_code <- glue::glue("options(ymlthis.rmd_body = \"{rmd_text}\")")
-
-  usethis::ui_code_block(rmd_code)
+  usethis::ui_code_block("options(ymlthis.rmd_body = \"{rmd_text}\")")
   usethis::ui_todo(
     "Run interactively or paste into .Rprofile \\
    (perhaps using {usethis::ui_code('usethis::edit_r_profile()')})"
