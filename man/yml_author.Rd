@@ -107,7 +107,7 @@ adds \code{url} and \code{affiliation_url} to the \code{author} field (see
 also contain \code{...} which allow for these unique fields.
 }
 \examples{
-yml(author = FALSE, date = FALSE) \%>\%
+yml_empty() \%>\%
   yml_author("Yihui Xie") \%>\%
   yml_date("02-02-2002") \%>\%
   yml_title("R Markdown: An Introduction") \%>\%

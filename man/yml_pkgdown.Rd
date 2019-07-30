@@ -174,7 +174,7 @@ build a template based on your package directory, modify with
 }
 \examples{
 
-yml(author = FALSE, date = FALSE) \%>\%
+yml_empty() \%>\%
   yml_pkgdown(
     as_is = TRUE,
     extension = "pdf"

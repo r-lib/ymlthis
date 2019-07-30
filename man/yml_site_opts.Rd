@@ -72,7 +72,7 @@ separators. In addition to writing YAML with \code{yml_*()} functions,
 file for you.
 }
 \examples{
-yml(author = FALSE, date = FALSE) \%>\%
+yml_empty() \%>\%
   yml_site_opts(
     name = "my-website",
     output_dir =  "_site",

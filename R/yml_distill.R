@@ -72,7 +72,7 @@
 #'   yml_title("Gallery of featured posts") %>%
 #'   yml_distill_opts(listing = post_listing)
 #'
-#' yml(author = FALSE, date = FALSE) %>%
+#' yml_empty() %>%
 #'   yml_title("Reproducible Finance with R") %>%
 #'   yml_description("Exploring reproducible finance with the R statistical,
 #'   computing environment.") %>%

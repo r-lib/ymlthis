@@ -55,7 +55,7 @@
 #' @export
 #'
 #' @examples
-#' yml(author = FALSE, date = FALSE) %>%
+#' yml_empty() %>%
 #'   yml_author("Yihui Xie") %>%
 #'   yml_date("02-02-2002") %>%
 #'   yml_title("R Markdown: An Introduction") %>%

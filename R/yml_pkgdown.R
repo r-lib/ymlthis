@@ -60,7 +60,7 @@ pkgdown_template <- function(path = ".") {
 #'
 #' @examples
 #'
-#' yml(author = FALSE, date = FALSE) %>%
+#' yml_empty() %>%
 #'   yml_pkgdown(
 #'     as_is = TRUE,
 #'     extension = "pdf"

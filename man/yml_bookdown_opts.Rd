@@ -70,7 +70,7 @@ the \code{site: "bookdown::bookdown_site"} to the YAML metadata.
 }
 \examples{
 
-yml(author = FALSE, date = FALSE) \%>\%
+yml_empty() \%>\%
   yml_bookdown_opts(
     book_filename = "my-book.Rmd",
     before_chapter_script = c("script1.R", "script2.R"),
@@ -80,7 +80,7 @@ yml(author = FALSE, date = FALSE) \%>\%
     clean = c("my-book.bbl", "R-packages.bib")
  )
 
-yml(author = FALSE, date = FALSE) \%>\%
+yml_empty() \%>\%
   yml_bookdown_opts(
     rmd_files = list(
       html = c("index.Rmd", "abstract.Rmd", "intro.Rmd"),
@@ -88,7 +88,7 @@ yml(author = FALSE, date = FALSE) \%>\%
     )
  )
 
- x <- yml(author = FALSE, date = FALSE) \%>\%
+ x <- yml_empty() \%>\%
   yml_title("A Minimal Book Example") \%>\%
   yml_date(yml_code(Sys.Date())) \%>\%
   yml_author("Yihui Xie") \%>\%
@@ -109,7 +109,7 @@ x
 # alternatively use `use_index_rmd()` to write to file
 # use_index_rmd(x)
 
-output_yml <- yml(author = FALSE, date = FALSE) \%>\%
+output_yml <- yml_empty() \%>\%
   yml_output(
     bookdown::gitbook(
       lib_dir = "assets",

@@ -214,7 +214,7 @@ Table: Sources of YAML in R Markdown Extension
 As an example, let's set up the navbar YAML for an **R Markdown** website and then pass it to `use_navbar_yml()`.
 
 ```{r}
-navbar_yaml <- yml(author = FALSE, date = FALSE) %>%
+navbar_yaml <- yml_empty() %>%
   yml_site_opts(
     name = "my-website",
     output_dir =  "_site",

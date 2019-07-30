@@ -199,7 +199,7 @@ yml_resource_files <- function(.yml, resource_files) {
 #' @export
 #'
 #' @examples
-#' yml(author = FALSE, date = FALSE) %>%
+#' yml_empty() %>%
 #'   yml_site_opts(
 #'     name = "my-website",
 #'     output_dir =  "_site",
