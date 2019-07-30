@@ -246,9 +246,9 @@ date: '`r format(Sys.Date())`'
 output: bookdown::pdf_document2",
   ymlthis.rmd_body = c(
     "",
-    setup_chunk(),
+    ymlthis::setup_chunk(),
     "",
-    code_chunk(
+    ymlthis::code_chunk(
       library(ymlthis)
     )
   )
