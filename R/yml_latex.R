@@ -24,7 +24,7 @@
 #'   package](https://ctan.org/pkg/setspace?lang=en), e.g. 1.25, 1.5
 #' @param margin_left,margin_right,margin_top,margin_bottom sets margins if
 #'   `geometry` is not used, otherwise `geometry` overrides these. Note that the
-#'   actual YAML fields use `-` instead of, e.g. `margin-left`.
+#'   actual YAML fields use `-` instead of `_`, e.g. `margin-left`.
 #' @param pagestyle control the `pagestyle` LaTeX command: the default article
 #'   class supports "plain" (default), "empty" (no running heads or page
 #'   numbers), and "headings" (section titles in running heads)
