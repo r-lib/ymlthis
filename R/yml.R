@@ -245,12 +245,14 @@ cat_silver <- function(x) {
 #' instead of as an R object. Doing so adds code highlighting for YAML syntax.
 #'
 #' @template describe_yml_param
+#' @param fences Logical. Write fences ("---") before and after YAML?
 #'
 #' @export
-asis_yaml_output <- function(.yml) {
+asis_yaml_output <- function(.yml, fences = TRUE) {
   x <- .yml %>%
-    capture_yml() %>%
-    glue::glue_collapse("\n")
+    capture_yml()
+  if (!fences) x <- x[which(x != "---")]
+  x <- glue::glue_collapse(x, "\n")
 
   glue::glue("```yaml\n{x}\n```") %>%
     knitr::asis_output()

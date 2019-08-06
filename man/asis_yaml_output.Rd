@@ -4,11 +4,13 @@
 \alias{asis_yaml_output}
 \title{Export yml object as a YAML knitr code chunk}
 \usage{
-asis_yaml_output(.yml)
+asis_yaml_output(.yml, fences = TRUE)
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
+
+\item{fences}{Logical. Write fences ("---") before and after YAML?}
 }
 \description{
 \code{asis_yaml_output()} exports a \code{yml} object as a YAML knitr code chunk
