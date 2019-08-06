@@ -64,7 +64,7 @@ pandoc_template_types <- function() {
 #' @rdname pandoc_template_types
 pandoc_highlight_styles <- function() {
   stop_if_pandoc_not_installed()
-  system2("pandoc", "--list-highlight-styles", stdout = TRUE)
+  system2(rmarkdown::pandoc_exec(), "--list-highlight-styles", stdout = TRUE)
 }
 
 
@@ -88,7 +88,7 @@ use_pandoc_template <- function(type, path, source = c("rmarkdown", "pandoc")) {
 
   if (source == "pandoc") {
     args <- glue::glue("--print-default-template={type}")
-    x <- system2("pandoc", args = args, stdout = TRUE)
+    x <- system2(rmarkdown::pandoc_exec(), args = args, stdout = TRUE)
   }
 
   usethis::write_over(path, x)
@@ -116,7 +116,7 @@ use_pandoc_highlight_style <- function(theme, path) {
   }
 
   args <- glue::glue("--print-highlight-style={theme}")
-  x <- system2("pandoc", args = args, stdout = TRUE)
+  x <- system2(rmarkdown::pandoc_exec(), args = args, stdout = TRUE)
 
   usethis::write_over(path, x)
 }
@@ -127,3 +127,8 @@ stop_if_pandoc_not_installed <- function() {
     stop("pandoc must be installed to use this function")
   }
 }
+
+pandoc_citeproc_exec <- function() {
+  paste0(rmarkdown::pandoc_exec(), "-citeproc")
+}
+

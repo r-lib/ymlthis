@@ -209,7 +209,7 @@ as_bibentry <- function(x) {
 bib2yml <- function(.yml = NULL, path) {
   args <- c(path, "--bib2yaml")
 
-  bib_yml <- system2("pandoc-citeproc", args = args, stdout = TRUE) %>%
+  bib_yml <- system2(pandoc_citeproc_exec(), args = args, stdout = TRUE) %>%
     paste(collapse = "\n") %>%
     as_yml()
 
