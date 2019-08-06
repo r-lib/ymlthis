@@ -141,6 +141,7 @@ as_yml.list <- function(x) {
 as_yml.character <- function(x) {
   if (length(x) == 1) {
     .yml <- yaml::yaml.load(x)
+    if (is.character(.yml)) return(.yml)
     return(as_yml(.yml))
   }
 

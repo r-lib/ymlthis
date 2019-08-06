@@ -91,10 +91,12 @@ return_yml_code <- function(.yml) {
 #' Write `yml` objects to a file. `use_yml_file()` writes to any given file
 #' name. `use_output_yml()` creates file `_output.yml`, which can be used by
 #' multiple R Markdown documents. All documents located in the same directory as
-#' `_output.yml` will inherit its options. Options defined within document YAML
-#' headers will override those specified in `_output.yml`. `use_site_yml`
-#' creates `_site.yml` for use with R Markdown websites and third-party tools
-#' like the distill package (see [the R Markdown book for
+#' `_output.yml` will inherit its output options. Options defined within
+#' document YAML headers will override those specified in `_output.yml`. Note
+#' that `use_output_yml()` plucks the output field from `yml`; any other YAML
+#' top-level fields will be ignored. `use_site_yml` creates `_site.yml` for use
+#' with R Markdown websites and third-party tools like the distill package (see
+#' [the R Markdown book for
 #' more](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#)).
 #' `use_navbar_yml` is a special type of site YAML that only specifies the
 #' navbar in `_navbar.yml` `use_pkgdown_yml()` and `use_bookdown_yml()` write
@@ -122,8 +124,9 @@ use_yml_file <- function(.yml = NULL, path, build_ignore = FALSE, git_ignore = F
 #' @rdname use_file_yml
 use_output_yml <- function(.yml = NULL, path = ".", build_ignore = FALSE, git_ignore = FALSE) {
   yml_file_path <- file_path(path, "_output.yml")
-
-  write_yml_file(.yml, yml_file_path, build_ignore = build_ignore, git_ignore = git_ignore)
+  if ("output" %nin% names(.yml)) stop("No output field found. Specify with `yml_output()`", call. = FALSE)
+  output <- yml_pluck(.yml, "output")
+  write_yml_file(output, yml_file_path, build_ignore = build_ignore, git_ignore = git_ignore)
 }
 
 #' @export
@@ -172,6 +175,11 @@ write_yml_file <- function(.yml, path, build_ignore = FALSE, git_ignore = FALSE)
   }
 
   if (!is.null(.yml)) {
+    if (is.character(.yml) && length(.yml) == 1) {
+      usethis::write_over(path, .yml)
+      return(invisible(path))
+    }
+
     yml_txt <- yaml::as.yaml(
       .yml,
       handlers = yml_handlers(),
