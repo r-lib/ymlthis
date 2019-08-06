@@ -101,7 +101,8 @@ transform into YAML}
 
 \item{affiliation}{The author's affiliation; must match length of \code{name},
 e.g. if \code{name} has length of two, \code{affiliation} must as well; use \code{NA} if
-you don't want to include an affiliation for a given author.}
+you don't want to include an affiliation for a given author.Note that not
+all formats support the \code{affiliation} field.}
 
 \item{affiliation_url}{the affiliation URL}
 

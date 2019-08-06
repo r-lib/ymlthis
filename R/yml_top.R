@@ -16,9 +16,12 @@
 #' @param name A character vector, name of the author(s)
 #' @param affiliation The author's affiliation; must match length of `name`,
 #'   e.g. if `name` has length of two, `affiliation` must as well; use `NA` if
-#'   you don't want to include an affiliation for a given author.
-#' @param date The date; by default this is "`` `r format(Sys.Date())` ``", which
-#'   will populate the date automatically.
+#'   you don't want to include an affiliation for a given author.Note that not
+#'   all formats support the `affiliation` field.
+#' @param email The author email address. Note that not all formats support the
+#'   `email` field.
+#' @param date The date; by default this is "`` `r format(Sys.Date())` ``",
+#'   which will populate the date automatically.
 #' @param format When the default `date` is used, the format passed to
 #'   [`format.Date()`].
 #' @param title A character vector, the title of the document
@@ -67,21 +70,26 @@
 #'   yml_category("r") %>%
 #'   yml_lang("en-US")
 #'
-yml_author <- function(.yml, name = NULL, affiliation = NULL, ...) {
-  if (!is.null(name) && is.null(affiliation)) {
+yml_author <- function(.yml, name = NULL, affiliation = NULL, email = NULL, ...) {
+  non_null_args <- purrr::map_lgl(list(name, affiliation, email, ...), Negate(is.null)) %>%
+    sum()
+
+  if (!is.null(name) && non_null_args == 1) {
     stop_if_not_all_type(name, "character")
     .yml$author <- name
     return(.yml)
   }
 
-  if (!is.null(name) && !is.null(affiliation)) {
+  if (non_null_args > 1) {
     stop_if_not_all_type(name, "character")
     stop_if_not_all_type(affiliation, "character")
     #  use unnamed inner list to create `-` group:
     #  - author
     #    affiliation
-    arg_list <- list(name = name, affiliation = affiliation, ...)
-    .yml$author <- purrr::pmap(arg_list, author_list)
+    arg_list <- list(name = name, affiliation = affiliation, email = email, ...) %>%
+      purrr::map_if(is.null, ~NA)
+    .yml$author <- arg_list %>%
+      purrr::pmap(author_list)
     return(.yml)
   }
 
@@ -92,9 +100,9 @@ yml_author <- function(.yml, name = NULL, affiliation = NULL, ...) {
   .yml
 }
 
-author_list <- function(name, affiliation, ...) {
-  list(name = name, affiliation = affiliation, ...) %>%
-    purrr::discard(~is.na(.x))
+author_list <- function(name, affiliation, email, ...) {
+  list(name = name, affiliation = affiliation, email = email, ...) %>%
+    purrr::discard(is.na)
 }
 
 get_author_name <- function() {

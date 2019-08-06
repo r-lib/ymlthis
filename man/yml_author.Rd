@@ -14,7 +14,7 @@
 \alias{yml_toplevel}
 \title{Set Top-level R Markdown YAML Fields}
 \usage{
-yml_author(.yml, name = NULL, affiliation = NULL, ...)
+yml_author(.yml, name = NULL, affiliation = NULL, email = NULL, ...)
 
 yml_date(.yml, date = NULL, format = "")
 
@@ -44,13 +44,17 @@ a \code{yml_*()} function}
 
 \item{affiliation}{The author's affiliation; must match length of \code{name},
 e.g. if \code{name} has length of two, \code{affiliation} must as well; use \code{NA} if
-you don't want to include an affiliation for a given author.}
+you don't want to include an affiliation for a given author.Note that not
+all formats support the \code{affiliation} field.}
+
+\item{email}{The author email address. Note that not all formats support the
+\code{email} field.}
 
 \item{...}{additional named R objects, such as characters or lists, to
 transform into YAML}
 
-\item{date}{The date; by default this is "\code{`r format(Sys.Date())`}", which
-will populate the date automatically.}
+\item{date}{The date; by default this is "\code{`r format(Sys.Date())`}",
+which will populate the date automatically.}
 
 \item{format}{When the default \code{date} is used, the format passed to
 \code{\link[=format.Date]{format.Date()}}.}
