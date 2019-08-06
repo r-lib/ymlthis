@@ -76,7 +76,7 @@ yml <- function(.yml = NULL, get_yml = TRUE, author = TRUE, date = TRUE) {
       get_author_name(),
       error = function(e) yml_blank()
     )
-    if (!is_yml_blank(author_name)) .yml$name <- author_name
+    if (!is_yml_blank(author_name)) .yml$author <- author_name
   }
   if (date) .yml$date <- format_sys_date()
 
