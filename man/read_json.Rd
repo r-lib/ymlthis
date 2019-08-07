@@ -12,10 +12,10 @@ read_json(path)
 read_toml(path)
 
 write_as_json(.yml = NULL, path = NULL, out = NULL,
-  build_ignore = FALSE, git_ignore = FALSE)
+  build_ignore = FALSE, git_ignore = FALSE, quiet = FALSE)
 
 write_as_toml(.yml = NULL, path = NULL, out = NULL,
-  build_ignore = FALSE, git_ignore = FALSE)
+  build_ignore = FALSE, git_ignore = FALSE, quiet = FALSE)
 }
 \arguments{
 \item{path}{a path to a JSON or TOML file}
@@ -30,6 +30,8 @@ change the file extension to \code{.toml} or \code{.json}.}
 file?}
 
 \item{git_ignore}{Logical. Should the file be added to the \code{.gitignore} file?}
+
+\item{quiet}{Logical. Whether to message about what is happening.}
 }
 \value{
 a \code{yml} object (if reading) or the path (if writing)

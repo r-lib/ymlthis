@@ -23,6 +23,7 @@
 #' @param body A character vector to use in the body of the R Markdown file. If
 #'   no template is set, checks `getOption("ymlthis.rmd_body")` (see
 #'   [`use_rmd_defaults()`]) and otherwise uses [`setup_chunk()`].
+#' @param quiet	Logical. Whether to message about what is happening.
 #'
 #' @return `use_yml()` invisibly returns the input `yml` object
 #' @export
@@ -34,7 +35,7 @@ use_yml <- function(.yml = last_yml()) {
 
 #' @rdname use_yml
 #' @export
-use_rmarkdown <- function(.yml = last_yml(), path, template = NULL, include_yaml = TRUE, include_body = TRUE, body = NULL) {
+use_rmarkdown <- function(.yml = last_yml(), path, template = NULL, include_yaml = TRUE, include_body = TRUE, body = NULL, quiet = FALSE) {
 
   if (!is.null(template) && fs::is_dir(template)) {
     template_skeleton <- file.path(template, "skeleton", "skeleton.Rmd")
@@ -60,7 +61,7 @@ use_rmarkdown <- function(.yml = last_yml(), path, template = NULL, include_yaml
     rmarkdown_txt <- c(rmarkdown_txt, existing_body)
   }
 
-  usethis::write_over(path, rmarkdown_txt)
+  usethis::write_over(path, rmarkdown_txt, quiet = quiet)
   if (rstudioapi::isAvailable()) rstudioapi::navigateToFile(path, line = 2)
 
   invisible(path)
@@ -68,9 +69,9 @@ use_rmarkdown <- function(.yml = last_yml(), path, template = NULL, include_yaml
 
 #' @rdname use_yml
 #' @export
-use_index_rmd <- function(.yml = last_yml(), path = ".", template = NULL) {
+use_index_rmd <- function(.yml = last_yml(), path = ".", template = NULL, quiet = FALSE) {
   index_rmd_path <- file_path(path, "index.Rmd")
-  use_rmarkdown(.yml = .yml, path = index_rmd_path, template = template)
+  use_rmarkdown(.yml = .yml, path = index_rmd_path, template = template, quiet = quiet)
 }
 
 combine_yml <- function(x, y) {
@@ -110,59 +111,60 @@ return_yml_code <- function(.yml) {
 #' @param build_ignore Logical. Should the file be added to the `.Rbuildignore`
 #'   file?
 #' @param git_ignore Logical. Should the file be added to the `.gitignore` file?
+#' @param quiet	Logical. Whether to message about what is happening.
 #'
 #' @seealso yml_bookdown_opts yml_bookdown_site yml_pkgdown yml_pkgdown_articles
 #'   yml_pkgdown_docsearch yml_pkgdown_figures yml_pkgdown_news
 #'   yml_pkgdown_reference
 #' @export
 #' @rdname use_file_yml
-use_yml_file <- function(.yml = NULL, path, build_ignore = FALSE, git_ignore = FALSE) {
-  write_yml_file(.yml, path, build_ignore = build_ignore, git_ignore = git_ignore)
+use_yml_file <- function(.yml = NULL, path, build_ignore = FALSE, git_ignore = FALSE, quiet = FALSE) {
+  write_yml_file(.yml, path, build_ignore = build_ignore, git_ignore = git_ignore, quiet = quiet)
 }
 
 #' @export
 #' @rdname use_file_yml
-use_output_yml <- function(.yml = NULL, path = ".", build_ignore = FALSE, git_ignore = FALSE) {
+use_output_yml <- function(.yml = NULL, path = ".", build_ignore = FALSE, git_ignore = FALSE, quiet = FALSE) {
   yml_file_path <- file_path(path, "_output.yml")
   if ("output" %nin% names(.yml)) stop("No output field found. Specify with `yml_output()`", call. = FALSE)
   output <- yml_pluck(.yml, "output")
-  write_yml_file(output, yml_file_path, build_ignore = build_ignore, git_ignore = git_ignore)
+  write_yml_file(output, yml_file_path, build_ignore = build_ignore, git_ignore = git_ignore, quiet = quiet)
 }
 
 #' @export
 #' @rdname use_file_yml
-use_site_yml <- function(.yml = NULL, path = ".", build_ignore = FALSE, git_ignore = FALSE) {
+use_site_yml <- function(.yml = NULL, path = ".", build_ignore = FALSE, git_ignore = FALSE, quiet = FALSE) {
   yml_file_path <- file_path(path, "_site.yml")
 
-  write_yml_file(.yml, yml_file_path, build_ignore = build_ignore, git_ignore = git_ignore)
+  write_yml_file(.yml, yml_file_path, build_ignore = build_ignore, git_ignore = git_ignore, quiet = quiet)
 }
 
 #' @export
 #' @rdname use_file_yml
-use_navbar_yml <- function(.yml = NULL, path = ".", build_ignore = FALSE, git_ignore = FALSE) {
+use_navbar_yml <- function(.yml = NULL, path = ".", build_ignore = FALSE, git_ignore = FALSE, quiet = FALSE) {
   yml_file_path <- file_path(path, "_navbar.yml")
 
-  write_yml_file(.yml, yml_file_path, build_ignore = build_ignore, git_ignore = git_ignore)
+  write_yml_file(.yml, yml_file_path, build_ignore = build_ignore, git_ignore = git_ignore, quiet = quiet)
 }
 
 #' @export
 #' @rdname use_file_yml
-use_pkgdown_yml <- function(.yml = NULL, path = ".", build_ignore = TRUE, git_ignore = FALSE) {
+use_pkgdown_yml <- function(.yml = NULL, path = ".", build_ignore = TRUE, git_ignore = FALSE, quiet = FALSE) {
   yml_file_path <- file_path(path, "_pkgdown.yml")
 
-  write_yml_file(.yml, yml_file_path, build_ignore = build_ignore, git_ignore = git_ignore)
+  write_yml_file(.yml, yml_file_path, build_ignore = build_ignore, git_ignore = git_ignore, quiet = quiet)
 }
 
 #' @export
 #' @rdname use_file_yml
-use_bookdown_yml <- function(.yml = NULL, path = ".", build_ignore = FALSE, git_ignore = FALSE) {
+use_bookdown_yml <- function(.yml = NULL, path = ".", build_ignore = FALSE, git_ignore = FALSE, quiet = FALSE) {
   yml_file_path <- file_path(path, "_bookdown.yml")
 
-  write_yml_file(.yml, yml_file_path, build_ignore = build_ignore, git_ignore = git_ignore)
+  write_yml_file(.yml, yml_file_path, build_ignore = build_ignore, git_ignore = git_ignore, quiet = quiet)
 }
 
 
-write_yml_file <- function(.yml, path, build_ignore = FALSE, git_ignore = FALSE) {
+write_yml_file <- function(.yml, path, build_ignore = FALSE, git_ignore = FALSE, quiet = FALSE) {
   if (build_ignore) usethis::use_build_ignore(path)
   if (git_ignore) usethis::use_git_ignore(path)
 
@@ -176,7 +178,7 @@ write_yml_file <- function(.yml, path, build_ignore = FALSE, git_ignore = FALSE)
 
   if (!is.null(.yml)) {
     if (is.character(.yml) && length(.yml) == 1) {
-      usethis::write_over(path, .yml)
+      usethis::write_over(path, .yml, quiet = FALSE)
       return(invisible(path))
     }
 
@@ -186,7 +188,7 @@ write_yml_file <- function(.yml, path, build_ignore = FALSE, git_ignore = FALSE)
       column.major = FALSE
     )
 
-    usethis::write_over(path, yml_txt)
+    usethis::write_over(path, yml_txt, quiet = FALSE)
     return(invisible(path))
   }
 

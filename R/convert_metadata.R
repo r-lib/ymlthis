@@ -10,6 +10,7 @@
 #' @param path a path to a JSON or TOML file
 #' @param out The path to write out to. If `NULL`, will write to the `path` but
 #'   change the file extension to `.toml` or `.json`.
+#' @param quiet	Logical. Whether to message about what is happening.
 #' @inheritParams use_yml_file
 #'
 #' @return a `yml` object (if reading) or the path (if writing)
@@ -26,7 +27,7 @@ read_toml <- function(path) {
 
 #' @export
 #' @rdname read_json
-write_as_json <- function(.yml = NULL, path = NULL, out = NULL, build_ignore = FALSE, git_ignore = FALSE) {
+write_as_json <- function(.yml = NULL, path = NULL, out = NULL, build_ignore = FALSE, git_ignore = FALSE, quiet = FALSE) {
   write_as_metadata(
     .yml = .yml,
     path = path,
@@ -34,13 +35,14 @@ write_as_json <- function(.yml = NULL, path = NULL, out = NULL, build_ignore = F
     extension = ".json",
     to = "JSON",
     build_ignore = build_ignore,
-    git_ignore = git_ignore
+    git_ignore = git_ignore,
+    quiet = quiet
   )
 }
 
 #' @export
 #' @rdname read_json
-write_as_toml <- function(.yml = NULL, path = NULL, out = NULL, build_ignore = FALSE, git_ignore = FALSE) {
+write_as_toml <- function(.yml = NULL, path = NULL, out = NULL, build_ignore = FALSE, git_ignore = FALSE, quiet = FALSE) {
   write_as_metadata(
     .yml = .yml,
     path = path,
@@ -48,11 +50,12 @@ write_as_toml <- function(.yml = NULL, path = NULL, out = NULL, build_ignore = F
     extension = ".toml",
     to = "TOML",
     build_ignore = build_ignore,
-    git_ignore = git_ignore
+    git_ignore = git_ignore,
+    quiet = quiet
   )
 }
 
-write_as_metadata <- function(.yml, path, out, extension, to, build_ignore, git_ignore) {
+write_as_metadata <- function(.yml, path, out, extension, to, build_ignore, git_ignore, quiet = FALSE) {
   stop_if_both_args_given(.yml, path)
 
   if (!is.null(.yml)) {
@@ -63,7 +66,7 @@ write_as_metadata <- function(.yml, path, out, extension, to, build_ignore, git_
   if (build_ignore) usethis::use_build_ignore(out)
   if (git_ignore) usethis::use_git_ignore(out)
 
-  convert_metadata(path = path, to = to, out = out)
+  convert_metadata(path = path, to = to, out = out, quiet = FALSE)
 }
 
 swap_extension <- function(path, ext) paste0(fs::path_ext_remove(path), ext)
@@ -89,7 +92,7 @@ write_temp_yaml <- function(.yml) {
   .file
 }
 
-convert_metadata <- function(path, to = c("YAML", "TOML", "JSON"), out = NULL) {
+convert_metadata <- function(path, to = c("YAML", "TOML", "JSON"), out = NULL, quiet = FALSE) {
   stop_if_blogdown_not_installed()
   on.exit(unlink_temporary_dir(), add = TRUE)
   to <- match.arg(to)
@@ -127,7 +130,7 @@ convert_metadata <- function(path, to = c("YAML", "TOML", "JSON"), out = NULL) {
   file_txt <- readLines(file_to_convert) %>%
     purrr::discard(~.x %in% c("---", "+++", "..."))
 
-  usethis::write_over(out, file_txt)
+  usethis::write_over(out, file_txt, quiet = quiet)
   invisible(out)
 }
 
