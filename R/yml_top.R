@@ -150,7 +150,7 @@ format_sys_date <- function(format = "") {
     return("`r format(Sys.Date())`")
   }
 
-  glue::glue("`r format(Sys.Date(), format = {format})`")
+  glue::glue("`r format(Sys.Date(), format = \"{format}\")`")
 }
 
 #' @export
