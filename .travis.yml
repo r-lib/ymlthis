@@ -25,11 +25,8 @@ jobs:
     name: pkgdown
     r: release
     if: branch IN (master)
-    r_binary_packages:
-    - pkgdown
-    - lubridate
-    - devtools
     script:
+    - Rscript -e "remotes::install_cran(c('pkgdown', 'lubridate', 'devtools'))"
     - Rscript -e "devtools::install()"
     - Rscript -e "Sys.setenv(FULLNAME = 'Malcolm Barrett'); pkgdown::build_site()"
     - Rscript -e "remove.packages('ymlthis')"
