@@ -39,13 +39,15 @@ Suggests:
     bookdown,
     covr,
     knitr,
+    miniUI,
     pkgdown,
     prettydoc,
     roxygen2,
     shiny,
     spelling,
     testthat,
-    xaringan
+    xaringan,
+    readr
 VignetteBuilder: 
     knitr
 Encoding: UTF-8

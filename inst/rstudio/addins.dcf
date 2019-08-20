@@ -1,0 +1,5 @@
+Name: Write New R Markdown or YAML File
+Description: Write YAML and send it to a new R Markdown file, YAML file, or copy it to your clipboard
+Binding: launch_yaml_addin
+Interactive: true
+
