@@ -99,7 +99,7 @@ library(miniUI)
    })
 
   shiny::observeEvent(input$done, {
-     input_date <- swap_arg(input$date)
+     input_date <- swap_arg(as.character(input$date))
      if (input$use_date) input_date <- NULL
 
      shiny_yml <- yml_empty() %>%

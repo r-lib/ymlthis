@@ -1,6 +1,7 @@
 # Resources ---------------------------------------------------------------
 library(ymlthis)
 shiny::addResourcePath("sbs", system.file("www", package = "shinyBS"))
+
 # Functions ---------------------------------------------------------------
 author_name <- function() {
  tryCatch(
@@ -19,7 +20,8 @@ arg_textInput <- function(arg_name, arg_val, f_name, id =  NULL) {
  if (is.null(id)) id <- f_name
  input_id <- glue::glue("{id}_{arg_name}")
  ph <- args_as_char(arg_val)
- shiny::textInput(input_id, arg_name, placeholder = ph)
+ arg_name <- glue::glue("<code>{arg_name}</code>")
+ shiny::textInput(input_id, shiny::HTML(arg_name), placeholder = ph)
 }
 
 ui_function_args <- function(f_name, id = NULL, ns = "rmarkdown") {
@@ -84,7 +86,7 @@ ui_param <- function(param, value, shiny_function, label) {
    param_label("value", value),
    param_label("label", label),
    input_button,
-   shiny::actionButton(glue::glue("remove_param_{param}"), "Remove"),
+   shinyBS::bsButton(glue::glue("remove_param_{param}"), "Remove", style = "danger"),
    height = 70
  )
  shiny::tags$div(param_row, id = glue::glue("param_{param}"))
