@@ -18,8 +18,25 @@ knitr::opts_chunk$set(
 )
 ```
 
+
+```{r pandoc_check, echo=FALSE}
+if (!rmarkdown::pandoc_available()) {
+  cat("pandoc is required to use ymlthis. Please visit https://pandoc.org/ for more information.")
+  knitr::knit_exit()
+}
+```
+
+
+```{r roxygen_check, echo=FALSE}
+if (!requireNamespace("roxygen2")) {
+  cat("roxygen2 is required to render this vignette: `install.packages('roxygen2'`")
+  knitr::knit_exit()
+}
+```
+
 ```{r setup}
 library(ymlthis)
+options(devtools.name = "Malcolm Barrett")
 
 function_name <- function(x) {
   function_call <- as.character(attr(x, "call"))

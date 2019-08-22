@@ -22,14 +22,14 @@ object to the console.
 \examples{
 # draw the most recently used `yml`
 draw_yml_tree()
-
+\dontrun{
 yml() \%>\%
   yml_output(
     pdf_document(keep_tex = TRUE),
     html_document()
   ) \%>\%
     draw_yml_tree()
-
+}
 }
 \seealso{
 Other yml: \code{\link{asis_yaml_output}},

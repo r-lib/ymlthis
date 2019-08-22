@@ -54,7 +54,7 @@ yml(date = FALSE)
   yml_keywords(
     c("data cleaning", "data tidying", "relational databases", "R")
   )
-
+\dontrun{
 yml() \%>\%
   yml_author(
     c("Yihui Xie", "Hadley Wickham"),
@@ -68,5 +68,5 @@ yml() \%>\%
    )
   ) \%>\%
   yml_latex_opts(biblio_style = "apalike")
-
+}
 }

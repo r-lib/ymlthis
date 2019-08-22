@@ -139,7 +139,7 @@ these descriptions were derived), as when making a PDF document with
 \code{pdf_document()}.
 }
 \examples{
-
+\dontrun{
 yml() \%>\%
    yml_output(pdf_document()) \%>\%
    yml_latex_opts(
@@ -147,7 +147,7 @@ yml() \%>\%
      fontsize = "11pt",
      links_as_note = TRUE
    )
-
+}
 }
 \seealso{
 Other yml: \code{\link{asis_yaml_output}},

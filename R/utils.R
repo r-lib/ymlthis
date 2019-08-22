@@ -125,7 +125,7 @@ is_utf8_output <- function() {
 }
 
 temporary_dir <- function() {
-  tmp_dir_path <- file.path(tempdir(), "..ymlthis_temp_dir..")
+  tmp_dir_path <- file.path(tempdir(), "ymlthis_temp_dir__")
   if (!fs::dir_exists(tmp_dir_path)) {
     fs::dir_create(tmp_dir_path)
   }
@@ -134,7 +134,7 @@ temporary_dir <- function() {
 }
 
 unlink_temporary_dir <- function() {
-  tmp_dir_path <- file.path(tempdir(), "..ymlthis_temp_dir..")
+  tmp_dir_path <- file.path(tempdir(), "ymlthis_temp_dir__")
   unlink(tmp_dir_path, recursive = TRUE, force = TRUE)
   invisible(tmp_dir_path)
 }

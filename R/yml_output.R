@@ -18,7 +18,7 @@
 #' @export
 #'
 #' @examples
-#'
+#'\dontrun{
 #' yml() %>%
 #'   yml_output(html_document())
 #'
@@ -27,7 +27,7 @@
 #'     pdf_document(keep_tex = TRUE, includes = includes2(after_body = "footer.tex")),
 #'     bookdown::html_document2()
 #'   )
-#'
+#'}
 yml_output <- function(.yml, ...) {
   x <- rlang::enquos(...)
   validate_output_yml(x)

@@ -28,7 +28,7 @@ their respective R functions. If you wanted to see the available fields in
 function using \code{?pdf_document}.
 }
 \examples{
-
+\dontrun{
 yml() \%>\%
   yml_output(html_document())
 
@@ -37,7 +37,7 @@ yml() \%>\%
     pdf_document(keep_tex = TRUE, includes = includes2(after_body = "footer.tex")),
     bookdown::html_document2()
   )
-
+}
 }
 \seealso{
 Other yml: \code{\link{asis_yaml_output}},

@@ -10,3 +10,4 @@ _travis.yml
 ^appveyor\.yml$
 ^\.github$
 docs
+^cran-comments\.md$

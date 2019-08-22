@@ -107,11 +107,12 @@ yml_params_code <- function(x) {
 #' @export
 #'
 #' @examples
-#'
+#'\dontrun{
 #' yml() %>%
 #'   yml_output(
 #'     pdf_document(includes = includes2(after_body = "footer.tex"))
 #'   )
+#'}
 includes2 <- function(in_header = yml_blank(), before_body = yml_blank(), after_body = yml_blank()) {
   includes_list <- list(
     in_header = in_header,

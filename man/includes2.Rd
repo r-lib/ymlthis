@@ -26,9 +26,10 @@ that uses \code{yml_blank()} instead of \code{NULL} as the argument defaults, as
 ymlthis treats NULLs as literal YAML syntax ("null").
 }
 \examples{
-
+\dontrun{
 yml() \%>\%
   yml_output(
     pdf_document(includes = includes2(after_body = "footer.tex"))
   )
+}
 }

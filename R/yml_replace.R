@@ -18,7 +18,7 @@
 #' @export
 #'
 #' @examples
-#'
+#'\dontrun{
 #' yml() %>%
 #'   yml_clean(TRUE) %>%
 #'   yml_replace(clean = FALSE) %>%
@@ -30,7 +30,7 @@
 #'     html_document()
 #'   )%>%
 #'   yml_discard(~ length(.x) > 1)
-#'
+#'}
 #'
 yml_replace <- function(.yml, ...) {
   new <- list(...)

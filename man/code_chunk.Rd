@@ -27,12 +27,12 @@ default it uses \code{include = FALSE} and inserts \code{knitr::opts_chunk$set(e
 bodies for \code{\link[=use_rmarkdown]{use_rmarkdown()}}.
 }
 \examples{
-
+\dontrun{
 setup_chunk()
 
 code_chunk({
-   yml() \%>\%
-     yml_output(pdf_document())
+  yml() \%>\%
+    yml_output(pdf_document())
 }, chunk_name = "yml_example")
-
+}
 }

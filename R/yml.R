@@ -42,7 +42,7 @@
 #'   yml_keywords(
 #'     c("data cleaning", "data tidying", "relational databases", "R")
 #'   )
-#'
+#'\dontrun{
 #' yml() %>%
 #'   yml_author(
 #'     c("Yihui Xie", "Hadley Wickham"),
@@ -56,7 +56,7 @@
 #'    )
 #'   ) %>%
 #'   yml_latex_opts(biblio_style = "apalike")
-#'
+#'}
 yml <- function(.yml = NULL, get_yml = TRUE, author = TRUE, date = TRUE) {
   if (is.null(.yml)) .yml <- list()
   .yml <- as_yml(.yml)

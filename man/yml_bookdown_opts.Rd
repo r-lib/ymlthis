@@ -108,7 +108,7 @@ x
 
 # alternatively use `use_index_rmd()` to write to file
 # use_index_rmd(x)
-
+\dontrun{
 output_yml <- yml_empty() \%>\%
   yml_output(
     bookdown::gitbook(
@@ -119,8 +119,8 @@ output_yml <- yml_empty() \%>\%
     bookdown::pdf_book(keep_tex = TRUE),
     bookdown::html_book(css = "toc.css")
   )
-
 output_yml
+}
 
 # alternatively use `use_output_yml()` to write to `_output.yml`
 # use_output_yml(output_yml)

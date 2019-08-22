@@ -12,14 +12,14 @@
 #' @examples
 #' # draw the most recently used `yml`
 #' draw_yml_tree()
-#'
+#'\dontrun{
 #' yml() %>%
 #'   yml_output(
 #'     pdf_document(keep_tex = TRUE),
 #'     html_document()
 #'   ) %>%
 #'     draw_yml_tree()
-#'
+#'}
 draw_yml_tree <- function(.yml = last_yml(), indent = "") {
   any_vectors <- any(purrr::map_lgl(.yml, is_long_vector))
   if (any_vectors) {

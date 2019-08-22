@@ -12,7 +12,7 @@ vignette: |-
 
 ```{r setup, echo=FALSE}
 library(ymlthis)
-
+options(devtools.name = "Malcolm Barrett")
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -24,6 +24,14 @@ knit_print.yml <- function(x, ...) {
   ymlthis::asis_yaml_output(x)
 }
 ```
+
+```{r pandoc_check, echo=FALSE}
+if (!rmarkdown::pandoc_available()) {
+  cat("pandoc is required to use ymlthis. Please visit https://pandoc.org/ for more information.")
+  knitr::knit_exit()
+}
+```
+
 
 **ymlthis** is a package to help you write YAML metadata for **R Markdown** documents and related tools like **blogdown**, **bookdown**, and **pkgdown**. YAML serves two main roles: to pass information to be printed in the document, such as the title and author, and to control how the document is rendered, anything from the output type (HTML vs. PDF) and typesetting options to what should happen with files created while rendering. See the [YAML: An Overview](yaml-overview.html) for a more general introduction to YAML and the [YAML Fieldguide](yaml-fieldguide.html) for YAML field documentation.
 

@@ -84,7 +84,7 @@
 #' @export
 #'
 #' @examples
-#'
+#'\dontrun{
 #' yml() %>%
 #'    yml_output(pdf_document()) %>%
 #'    yml_latex_opts(
@@ -92,7 +92,7 @@
 #'      fontsize = "11pt",
 #'      links_as_note = TRUE
 #'    )
-#'
+#'}
 yml_latex_opts <- function(
   .yml,
   block_headings = yml_blank(),

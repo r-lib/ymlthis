@@ -39,7 +39,7 @@ are wrappers around \code{\link[purrr:pluck]{purrr::pluck()}} and \code{\link[pu
 objects.
 }
 \examples{
-
+\dontrun{
 yml() \%>\%
   yml_clean(TRUE) \%>\%
   yml_replace(clean = FALSE) \%>\%
@@ -51,7 +51,7 @@ yml() \%>\%
     html_document()
   )\%>\%
   yml_discard(~ length(.x) > 1)
-
+}
 
 }
 \seealso{
