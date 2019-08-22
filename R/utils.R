@@ -25,6 +25,7 @@ stop_if_blogdown_not_installed <- function() {
 }
 
 stop_if_not_type <- function(x, type) {
+  if (is_yml_blank(x)) return(invisible(x))
   if (!inherits(x, type)) {
     x_text <- rlang::quo_text(rlang::quo(x))
     stop_must_be_type(x_text, type)
