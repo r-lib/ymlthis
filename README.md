@@ -64,7 +64,7 @@ yml() %>%
 #>   affiliation: RStudio
 #> - name: Hadley Wickham
 #>   affiliation: RStudio
-#> date: '2019-07-29'
+#> date: '2019-08-23'
 #> output:
 #>   pdf_document:
 #>     keep_tex: true
@@ -74,3 +74,10 @@ yml() %>%
 #> biblio-style: apalike
 #> ---
 ```
+
+## Add-in
+
+ymlthis also includes an add-in that will create YAML for you and put it
+in a file, such as an `.Rmd` file, or on your clipboard.
+
+![](https://i.imgur.com/5dFkcx9.gif)
