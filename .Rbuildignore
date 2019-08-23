@@ -11,3 +11,4 @@ _travis.yml
 ^\.github$
 docs
 ^cran-comments\.md$
+^addin.gif$
