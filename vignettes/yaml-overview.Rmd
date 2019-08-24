@@ -39,7 +39,7 @@ yml(date = FALSE) %>%
   asis_yaml_output()
 ```
 
-In R, the equivalent structure is a list with named character vector: `list(author = "Malcolm Barrett")`. In fact, you can call this list in **R Markdown** using the `metadata` object: `metadata$author` will return the YAML in the metadata header. 
+In R, the equivalent structure is a list with named character vector: `list(author = "Malcolm Barrett")`. In fact, you can call this list in **R Markdown** using the `metadata` object; in this case, `metadata$author` will return `"Malcolm Barrett"` 
 
 In YAML, spaces are used to indicate nesting. When we want to specify the output function `pdf_document(toc = TRUE)`, we need to nest it under the `output` field. We also need to nest `toc` under `pdf_document` so that it gets passed to that function correctly.
 
@@ -57,7 +57,16 @@ yml_empty() %>%
   draw_yml_tree()
 ```
 
-Without the extra indents, YAML doesn't know `toc` is connected to `pdf_document` and thinks the value of `pdf_document` is `NULL`:
+Without the extra indents, YAML doesn't know `toc` is connected to `pdf_document` and thinks the value of `pdf_document` is `NULL`. YAML that looks like this:
+
+```yaml
+---
+output:
+  pdf_document:
+toc: true
+---
+```
+has a hierarchy that looks like this:
 
 ```{r}
 list(output = list(pdf_document = NULL), toc = TRUE) %>% 
@@ -97,7 +106,7 @@ category: [R, Reprodicible Research]
 ---
 ```
 
-By default, **ymlthis** uses the `-` syntax for vectors. You also see `-` used to group elements together. For instance, in the `params` field for parameterized reports, we give . While you can use `metadata` to call objects in `params`, `params` has it's own object you can call directly: `params$a` and `params$data` will return the values of `a` and `data`.
+By default, **ymlthis** uses the `-` syntax for vectors.`-` is also used to group elements together. For instance, in the `params` field for parameterized reports, we group parameter information together by using `-`. The first line is the name and value of the parameter, while all the lines until the next `-` are extra information about the parameter. While you can use `metadata` to call objects in `params`, `params` has it's own object you can call directly: `params$a` and `params$data` will return the values of `a` and `data`.
 
 ```{r}
 yml_empty() %>% 
@@ -145,7 +154,7 @@ toc: yes
 toc: on
 ```
 
-By default, **ymlthis** uses `true/false`. If you want to use any of these values literally (e.g. you want a string equal to `"yes"`), you need to quote them as a string:
+By default, **ymlthis** uses `true/false`. If you want to use any of these values literally (e.g. you want a string equal to `"yes"`), you need to wrap them in quotation marks:
 
 ```{r}
 yml_empty() %>% 
@@ -153,11 +162,11 @@ yml_empty() %>%
   asis_yaml_output()
 ```
 
-`NULL` can be specified using `null` or `~`. By default, **ymlthis** uses `null`. If you want to specify an empty vector, use `[]`, e.g. `category: []`. For an empty string, just use `""`.
+`NULL` can be specified using `null` or `~`. By default, **ymlthis** uses `null`. If you want to specify an empty vector, use `[]`, e.g. `category: []`. For an empty string, just use empty quotation marks (`""`).
 
 # Sources of YAML
 
-Where do the YAML fields you use in **R Markdown** come from? Many YAML fields that we use come from Pandoc and **R Markdown**. These both use YAML to specify the build of the document and to pass information to be printed in a template. Pandoc templates can also be customized to add new YAML. The most common sources of YAML are:
+Where do the YAML fields you use in **R Markdown** come from? Many YAML fields that we use come from Pandoc from the **rmarkdown** package. These both use YAML to specify the build of the document and to pass information to be printed in a template. Pandoc templates can also be customized to add new YAML. The most common sources of YAML are:
 
 1. Pandoc
 1. **R Markdown**
@@ -166,5 +175,5 @@ Where do the YAML fields you use in **R Markdown** come from? Many YAML fields t
 1. **R Markdown** extension packages (such as **blogdown**)
 1. Hugo (in the case of **blogdown**)
 
-Because YAML is an extensible approach to metadata, and there is often no way to validate that your YAML is correct. YAML will often fail silently if you, for instance, make a typo in the field name or misspecify the nesting between fields. 
+Because YAML is an extensible approach to metadata, and there is often no way to validate that your YAML is correct. YAML will often fail silently if you, for instance, make a typo in the field name or misspecify the nesting between fields. For more information on the fields available in R Markdown and friends, see the [YAML Fieldguide](yaml-fieldguide.html).
 

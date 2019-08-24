@@ -64,14 +64,14 @@ yml() %>%
   yml_output(pdf_document())
 ```
 
-Arguments within the output functions can be given values:
+Passing arguments to the output functions will nest them correctly for YAML.
 
 ```{r}
 yml() %>% 
   yml_output(pdf_document(toc = TRUE))
 ```
 
-And we can nest multiple output functions to facilitate rendering to multiple formats:
+And we can pass multiple output functions to facilitate rendering R Markdown files to multiple formats:
 
 ```{r}
 yml() %>% 
@@ -81,7 +81,7 @@ yml() %>%
   )
 ```
 
-YAML fields can come from a variety of places: **R Markdown** itself, your output function, Pandoc (for example, as options used in LaTeX), and custom templates. Many of these fields are documented in `yml_*()` functions.
+YAML fields can come from a variety of places: **R Markdown** itself, the output function, Pandoc (for example, as options used in LaTeX), and custom templates. Many of these fields are documented in `yml_*()` functions.
 
 ```{r}
 yml() %>%
@@ -101,11 +101,11 @@ yml() %>%
   yml_latex_opts(biblio_style = "apalike")
 ```
 
-You can also use `yml_toplevel()` to append any named field to your YAML not otherwise covered.
+You can also use `yml_toplevel()` to append any YAML fields not covered in **ymlthis**.
 
 ## Parameterized reports
 
-[Parameterized reports](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html) are a powerful feature of **R Markdown** that lets you specify variables in the YAML metadata that you can use in your report, letting you re-use reports for a variety of settings. To set parameters, you use the `params` YAML field and access the parameter in your report by calling `params$variable_name`. Basic YAML for parameters looks like this
+[Parameterized reports](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html) are a powerful feature of **R Markdown** that lets you specify variables in the YAML metadata used in your report, letting you re-use reports for a variety of settings. To set parameters, you use the `params` YAML field and access the parameter in your report by calling `params$variable_name`. Basic YAML for parameters looks like this
 
 ```yaml
 params:
@@ -198,7 +198,7 @@ yml() %>%
 ```
 
 
-Other packages add additional YAML. **ymlthis** can process any output function and also supports six **R Markdown** packages: **bookdown**, **blogdown**, **pkgdown**, **pagedown**, **rticles**, and **distill**. **ymlthis** also supports YAML for writing scheduled emails with RStudio Connect. You can find functions supporting these packages with the patterns `yml_packagename_*()` and `packagename_*()` (`rsconnect`, in the case of RStudio Connect functions). Functions that start with `yml_packagename_*()` document YAML fields and return `yml` objects, while functions that start with `packagename_*()` are helper functions. There are also a few template functions. `pkgdown_template()`, for instance, will assemble a full template for `_pkgdown.yml` and return it as a `yml` object, and `blogdown_template()` will return YAML templates matching your Hugo theme.
+**ymlthis** can process any output function. Other packages also add additional YAML; **ymlthis** supports six **R Markdown** packages: **bookdown**, **blogdown**, **pkgdown**, **pagedown**, **rticles**, and **distill**. **ymlthis** also supports YAML for writing scheduled emails with RStudio Connect. You can find functions supporting these packages with the patterns `yml_packagename_*()` and `packagename_*()` (`rsconnect`, in the case of RStudio Connect functions). Functions that start with `yml_packagename_*()` document YAML fields and return `yml` objects, while functions that start with `packagename_*()` are helper functions. There are also a few template functions. `pkgdown_template()`, for instance, will assemble a full template for `_pkgdown.yml` and return it as a `yml` object, and `blogdown_template()` will return YAML templates matching your Hugo theme.
 
 |  package|  output function | top-level YAML |
 |--:|--:|--:|
@@ -217,7 +217,19 @@ Table: Sources of YAML in R Markdown Extension
 
 # R Markdown workflows
 
-**ymlthis** prints YAML cleanly to the console such that you could copy and paste it into an **R Markdown** document. Passing a `yml` object to `use_yml()` will put it directly on your clipboard. Often, you want to write YAML to a file, either `.yml` or to the metadata section of a `.Rmd` file. `use_rmarkdown()`, `use_yml_file()`, and friends will take a `yml` object and write to a file for you. For instance, using `pkgdown_template() %>% use_pkgdown_yml()` will write the YAML for your **pkgdown** site to `_pkgdown.yml` based on your package directory. **ymlthis** also has some helper functions for working with Pandoc templates and highlighting themes.
+**ymlthis** prints YAML cleanly to the console such that you could copy and paste it into an **R Markdown** document. However, **ymlthis** also provides a number of other workflows. 
+
+### YAML add-in
+
+The easiest way is to use the Shiny add-in included with **ymlthis**; the add-in supports the most commonly used R Markdown options, citations, LaTeX options, and parameterized reports. You can then export the YAML to an R Markdown file, YAML file, or have it placed on your clipboard.
+
+For more flexibility or to use R Markdown extension packages, you'll have to write code, as we've been doing in this vignette. Your main options are to write the YAML to a file or to place it on your clipboard.
+
+### Writing to files
+
+`use_rmarkdown()`, `use_yml_file()`, and friends will take a `yml` object and write to a file for you. Passing `yml` objects to `use_rmarkdown()` is often the simplest approach: it will translate the `yml` object into YAML and open a new R Markdown file for you with the metadata already written.
+
+**ymlthis** also supports YAML files. For instance, using `pkgdown_template() %>% use_pkgdown_yml()` will write the YAML for your **pkgdown** site to `_pkgdown.yml` based on your package directory. **ymlthis** also has some helper functions for working with Pandoc templates and highlighting themes.
 
 As an example, let's set up the navbar YAML for an **R Markdown** website and then pass it to `use_navbar_yml()`.
 
@@ -284,6 +296,10 @@ Table: ymlthis `use_*()` functions to write to `.yml` files
 |  `use_index_rmd()` | Write `yml` to `Index.Rmd`  |
 
 Table: ymlthis `use_*()` to write to `.Rmd` files
+
+### Placing YAML on your clipboard
+
+A final way to use **ymlthis** is to put YAML on your clipboard to paste into a file or other setting. To place rendered YAML on your clipboard, simply pass a `yml` object to `use_yml()`.
 
 |  function | action |
 |--:|--:|
