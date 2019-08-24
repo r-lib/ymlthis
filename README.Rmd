@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 [![Build Status](https://travis-ci.org/r-lib/ymlthis.svg?branch=master)](https://travis-ci.org/r-lib/ymlthis)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/folqefg7g5afi4w1?svg=true)](https://ci.appveyor.com/project/malcolmbarrett/ymlthis/branch/master)
 [![Codecov test coverage](https://codecov.io/gh/r-lib/ymlthis/branch/master/graph/badge.svg)](https://codecov.io/gh/r-lib/ymlthis?branch=master)
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![CRAN status](https://www.r-pkg.org/badges/version/ymlthis)](https://cran.r-project.org/package=ymlthis)
 <!-- badges: end -->
 
