@@ -2,9 +2,7 @@ context("test-basic_yaml_results")
 if (!rmarkdown::pandoc_available()) testthat::skip("Pandoc not found")
 
 test_that("YAML is rendered correctly", {
-  testthat::skip_on_os("windows")
-
-  rslt <- yml() %>%
+  rslt <- yml_empty() %>%
   yml_author(
     c("Yihui Xie", "Hadley Wickham"),
     affiliation = rep("RStudio", 2)

@@ -158,7 +158,7 @@ yml_pkgdown_development <- function(
 }
 
 #' @param bootswatch A bootswatch theme for the site. See the options at
-#'   [https://gallery.shinyapps.io/117-shinythemes/](https://gallery.shinyapps.io/117-shinythemes/).
+#'   <https://rstudio.github.io/shinythemes/>.
 #'
 #' @param ganalytics A Google Analytics tracking id
 #' @param noindex Logical. Suppress indexing of your pages by web robots?

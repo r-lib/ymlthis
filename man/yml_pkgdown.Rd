@@ -96,7 +96,7 @@ mode. One of: "danger" (the default), "default", "info", or "warning".}
 \item{version_tooltip}{A custom message to include in the version tooltip}
 
 \item{bootswatch}{A bootswatch theme for the site. See the options at
-\url{https://gallery.shinyapps.io/117-shinythemes/}.}
+\url{https://rstudio.github.io/shinythemes/}.}
 
 \item{ganalytics}{A Google Analytics tracking id}
 
