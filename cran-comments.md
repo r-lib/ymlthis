@@ -8,3 +8,6 @@
 0 errors | 0 warnings | 1 note
 
 * This is a new release.
+* This is a re-submission. The following errors were fixed:
+  - Fixed test error on certain OSs where object contents were out of order
+  - Changed link to shinyapps to a static site to avoid curl connection problems
