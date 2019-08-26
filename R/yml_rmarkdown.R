@@ -215,8 +215,6 @@ yml_resource_files <- function(.yml, resource_files) {
 #'   ) %>%
 #'   yml_output(html_document(toc = TRUE, highlight = "textmate"))
 #'
-#' # optionally pass to `use_site_yml()` to write this YAML to `_site.yml`
-#'
 #' @family R Markdown
 #' @family websites
 #' @seealso [use_site_yml()] [use_navbar_yml()] [use_index_rmd()]

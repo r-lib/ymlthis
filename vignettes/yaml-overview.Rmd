@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(ymlthis)
-options(devtools.name = "Malcolm Barrett")
+oldoption <- options(devtools.name = "Malcolm Barrett")
 ```
 
 ```{r pandoc_check, echo=FALSE}
@@ -177,3 +177,7 @@ Where do the YAML fields you use in **R Markdown** come from? Many YAML fields t
 
 Because YAML is an extensible approach to metadata, and there is often no way to validate that your YAML is correct. YAML will often fail silently if you, for instance, make a typo in the field name or misspecify the nesting between fields. For more information on the fields available in R Markdown and friends, see the [YAML Fieldguide](yaml-fieldguide.html).
 
+
+```{r, include=FALSE}
+options(oldoption)
+```

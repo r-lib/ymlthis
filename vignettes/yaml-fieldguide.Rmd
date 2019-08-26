@@ -36,7 +36,7 @@ if (!requireNamespace("roxygen2")) {
 
 ```{r setup}
 library(ymlthis)
-options(devtools.name = "Malcolm Barrett")
+oldoption <- options(devtools.name = "Malcolm Barrett")
 
 function_name <- function(x) {
   function_call <- as.character(attr(x, "call"))
@@ -176,4 +176,8 @@ fields_df %>%
 ```{r}
 fields_df %>% 
   filter_kable("rsconnect", caption = "RStudio Connect Scheduled Email YAML")
+```
+
+```{r, include=FALSE}
+options(oldoption)
 ```

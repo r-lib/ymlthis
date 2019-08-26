@@ -78,8 +78,7 @@
 #'
 #' x
 #'
-#' # alternatively use `use_index_rmd()` to write to file
-#' # use_index_rmd(x)
+#'
 #'\dontrun{
 #' output_yml <- yml_empty() %>%
 #'   yml_output(
@@ -94,8 +93,6 @@
 #' output_yml
 #'}
 #'
-#' # alternatively use `use_output_yml()` to write to `_output.yml`
-#' # use_output_yml(output_yml)
 #'
 #' @family bookdown
 #' @seealso [`use_index_rmd()`] [`use_bookdown_yml()`] [`use_output_yml()`]

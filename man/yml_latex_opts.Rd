@@ -145,7 +145,7 @@ yml() \%>\%
    yml_latex_opts(
      fontfamily = "Fira Sans Thin",
      fontsize = "11pt",
-     links_as_note = TRUE
+     links_as_notes = TRUE
    )
 }
 }

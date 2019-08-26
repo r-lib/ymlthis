@@ -12,7 +12,7 @@ vignette: |-
 
 ```{r setup, echo=FALSE}
 library(ymlthis)
-options(devtools.name = "Malcolm Barrett")
+oldoption <- options(devtools.name = "Malcolm Barrett")
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -260,7 +260,7 @@ use_navbar_yml(navbar_yaml, path = path)
 In addition to writing to files, you can save YAML to your `.Rprofile` using `options(ymlthis.defaults = "{YAML}")`. `yml()` will return the stored YAML by default. If you pass a `yml` object to `use_yml_defaults()`, the code to do this will be placed on your clipboard, which you should paste into your `.Rprofile`. Open that file with `usethis::edit_r_profile()`. You can also set a default for body text for `use_rmarkdown()` by setting the `ymlthis.rmd_body()` option, e.g. `options(ymlthis.rmd_body = "{your text}")` (or take advantage of `use_rmd_defaults()`). Together with specifying default YAML, `use_rmarkdown()` also serves as an ad-hoc way to make R Markdown templates. 
 
 ```{r}
-options(
+old <- options(
   ymlthis.default_yml = "author: Malcolm Barrett
 date: '`r format(Sys.Date())`'
 output: bookdown::pdf_document2",
@@ -276,6 +276,9 @@ output: bookdown::pdf_document2",
 
 #  use temporary path set above
 use_rmarkdown(path = file.path(path, "analysis.Rmd"))
+
+# reset previous option defaults
+options(old)
 ```
 
 
@@ -360,3 +363,8 @@ The `yml_pluck()` function is useful for selectively acquiring a nested portion 
 x %>% 
   yml_pluck("output", "pdf_document")
 ```
+
+```{r, include=FALSE}
+options(oldoption)
+```
+

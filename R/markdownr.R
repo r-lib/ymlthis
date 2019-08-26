@@ -18,10 +18,10 @@
 #' \dontrun{
 #'setup_chunk()
 #'
-#'code_chunk({
+#' code_chunk({
 #'   yml() %>%
 #'     yml_output(pdf_document())
-#'}, chunk_name = "yml_example")
+#' }, chunk_name = "yml_example")
 #' }
 code_chunk <- function(chunk_code, chunk_name = NULL, chunk_args = NULL) {
   chunk_args <- splice_args(rlang::enquo(chunk_args))

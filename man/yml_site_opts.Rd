@@ -88,8 +88,6 @@ yml_empty() \%>\%
   ) \%>\%
   yml_output(html_document(toc = TRUE, highlight = "textmate"))
 
-# optionally pass to `use_site_yml()` to write this YAML to `_site.yml`
-
 }
 \seealso{
 \code{\link[=use_site_yml]{use_site_yml()}} \code{\link[=use_navbar_yml]{use_navbar_yml()}} \code{\link[=use_index_rmd]{use_index_rmd()}}
