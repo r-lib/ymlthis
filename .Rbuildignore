@@ -12,3 +12,4 @@ _travis.yml
 docs
 ^cran-comments\.md$
 ^addin.gif$
+^CRAN-RELEASE$

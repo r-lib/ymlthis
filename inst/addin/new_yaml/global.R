@@ -153,19 +153,10 @@ input_starts_with <- function(input, .match) {
 
 capture_arg <- function(x) {
  if (x == "" || stringr::str_detect(x, "[\"\']{2}")) return(x)
- readr_installed <- requireNamespace("readr", quietly = TRUE)
- if (readr_installed && is.character(x)) {
-   arg_guess <- readr::parse_guess(x, guess_integer = TRUE)
-   if (is.character(arg_guess)) arg_guess <- glue::glue("\"{arg_guess}\"")
-   return(arg_guess)
- }
- if (is.numeric(x) || is.logical(x)) return(x)
- evaluated_arg <- tryCatch(
-   rlang::eval_tidy(rlang::parse_expr(x)),
-   error = function(e) ""
- )
- if (is.numeric(evaluated_arg) || is.logical(evaluated_arg)) return(evaluated_arg)
- glue::glue("\"{x}\"")
+ arg_guess <- type.convert(x, as.is = TRUE)
+ if (is.character(arg_guess)) arg_guess <- glue::glue("\"{arg_guess}\"")
+
+ arg_guess
 }
 
 parse_arguments <- function(x) {
