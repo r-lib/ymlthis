@@ -203,7 +203,7 @@ capture_output_functions <- function(.yml, input) {
 
 parse_param <- function(param, value, shiny_input, input, label) {
  if (is_yml_blank(swap_arg(shiny_input))) {
-   return(glue::glue("{param} = {capture_arg(value)}"))
+   return(glue::glue("\"{param}\" = {capture_arg(value)}"))
  }
  .match <- glue::glue("modal_param_{param}")
  shiny_call <- parse_output(
@@ -213,7 +213,7 @@ parse_param <- function(param, value, shiny_input, input, label) {
    value = value,
    label = label
  )
- glue::glue("{param} = {shiny_call}")
+ glue::glue("\"{param}\" = {shiny_call}")
 }
 
 capture_params <- function(.yml, params_handlers, input) {
