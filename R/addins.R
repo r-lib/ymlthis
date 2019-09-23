@@ -24,7 +24,7 @@ launch_yaml_addin <- function() {
   app <- shiny::shinyAppDir(addin_dir)
   shiny::runGadget(
     app,
-    viewer = shiny::dialogViewer("New YAML")
+    viewer = shiny::dialogViewer("New YAML", height = 750)
   )
   #sys.source(system.file("addin", "new_yaml", "new_yaml.R", package = "ymlthis"))
 }

@@ -68,7 +68,7 @@ main_yaml_panel <- miniUI::miniTabPanel(
      ),
      height = 150
    ),
-   scrollable = FALSE
+   scrollable = TRUE
  )
 )
 # R Markdown Options Panel ------------------------------------------------
@@ -103,7 +103,7 @@ rmarkdown_opts_panel <- miniUI::miniTabPanel(
      shiny::checkboxInput("clean", "Clean intermediate files", value = TRUE, width = "95%"),
      height = 70
    ),
-   scrollable = FALSE
+   scrollable = TRUE
  ),
  icon = shiny::icon("data")
 )
@@ -144,7 +144,7 @@ latex_opts_panel <- miniUI::miniTabPanel(
      shiny::textInput("thanks", "Thanks", width = "95%"),
      height = 70
    ),
-   scrollable = FALSE
+   scrollable = TRUE
  ),
  icon = shiny::icon("data")
 )
@@ -177,7 +177,7 @@ citations_panel <- miniUI::miniTabPanel(
      shiny::textInput("biblatexoptions", "biblatex options", width = "95%"),
      height = 70
    ),
-   scrollable = FALSE
+   scrollable = TRUE
  ),
  icon = shiny::icon("data")
 )
