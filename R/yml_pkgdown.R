@@ -14,7 +14,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' pkgdown_template() %>%
 #'   use_pkgdown_yml()
 #' }

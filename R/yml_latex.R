@@ -84,7 +84,7 @@
 #' @export
 #'
 #' @examples
-#'\dontrun{
+#'\donttest{
 #' yml() %>%
 #'    yml_output(pdf_document()) %>%
 #'    yml_latex_opts(

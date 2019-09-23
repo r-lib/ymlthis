@@ -22,7 +22,7 @@ sections. \code{pkgdown_template()} is particularly useful with
 \code{use_pkgdown_yml()} to write directly to the \code{_pkgdown.yml} file.
 }
 \examples{
-\dontrun{
+\donttest{
 pkgdown_template() \%>\%
   use_pkgdown_yml()
 }

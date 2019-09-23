@@ -107,7 +107,7 @@ yml_empty() \%>\%
 x
 
 
-\dontrun{
+\donttest{
 output_yml <- yml_empty() \%>\%
   yml_output(
     bookdown::gitbook(

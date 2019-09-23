@@ -54,7 +54,7 @@ yml(date = FALSE)
   yml_keywords(
     c("data cleaning", "data tidying", "relational databases", "R")
   )
-\dontrun{
+\donttest{
 yml() \%>\%
   yml_author(
     c("Yihui Xie", "Hadley Wickham"),

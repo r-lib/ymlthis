@@ -107,7 +107,7 @@ yml_params_code <- function(x) {
 #' @export
 #'
 #' @examples
-#'\dontrun{
+#'\donttest{
 #' yml() %>%
 #'   yml_output(
 #'     pdf_document(includes = includes2(after_body = "footer.tex"))

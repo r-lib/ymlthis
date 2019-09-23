@@ -18,7 +18,7 @@
 #' @export
 #'
 #' @examples
-#'\dontrun{
+#'\donttest{
 #' yml() %>%
 #'   yml_clean(TRUE) %>%
 #'   yml_replace(clean = FALSE) %>%

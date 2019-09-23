@@ -28,7 +28,7 @@ their respective R functions. If you wanted to see the available fields in
 function using \code{?pdf_document}.
 }
 \examples{
-\dontrun{
+\donttest{
 yml() \%>\%
   yml_output(html_document())
 

@@ -1,5 +1,5 @@
 Package: ymlthis
-Title: Write YAML for R Markdown, bookdown, blogdown, and More
+Title: Write 'YAML' for 'R Markdown', 'bookdown', 'blogdown', and More
 Version: 0.1.0
 Authors@R: 
     c(person(given = "Malcolm",
@@ -14,9 +14,9 @@ Authors@R:
              comment = c(ORCID = "0000-0003-3925-190X")),
       person(given = "RStudio",
              role = c("cph", "fnd")))
-Description: Write YAML front matter for R Markdown and related
-    documents. 'yml_*()' functions write YAML and 'use_*()' functions let
-    you write the resulting YAML to your clipboard or to '.yml' files
+Description: Write 'YAML' front matter for R Markdown and related
+    documents. yml_*() functions write 'YAML' and use_*() functions let
+    you write the resulting 'YAML' to your clipboard or to .yml files
     related to your project.
 License: MIT + file LICENSE
 URL: https://ymlthis.r-lib.org, https://github.com/r-lib/ymlthis

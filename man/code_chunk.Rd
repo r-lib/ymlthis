@@ -27,7 +27,7 @@ default it uses \code{include = FALSE} and inserts \code{knitr::opts_chunk$set(e
 bodies for \code{\link[=use_rmarkdown]{use_rmarkdown()}}.
 }
 \examples{
-\dontrun{
+\donttest{
 setup_chunk()
 
 code_chunk({

@@ -22,7 +22,7 @@ object to the console.
 \examples{
 # draw the most recently used `yml`
 draw_yml_tree()
-\dontrun{
+\donttest{
 yml() \%>\%
   yml_output(
     pdf_document(keep_tex = TRUE),

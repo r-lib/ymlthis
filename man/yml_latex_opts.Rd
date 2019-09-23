@@ -139,7 +139,7 @@ these descriptions were derived), as when making a PDF document with
 \code{pdf_document()}.
 }
 \examples{
-\dontrun{
+\donttest{
 yml() \%>\%
    yml_output(pdf_document()) \%>\%
    yml_latex_opts(

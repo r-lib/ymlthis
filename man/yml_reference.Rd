@@ -91,7 +91,7 @@ bref <- c(
      key = "boot-book"
    )
 )
-\dontrun{
+\donttest{
 # requires pandoc-citeproc to be installed
 yml() \%>\%
   yml_reference(.bibentry = bref)

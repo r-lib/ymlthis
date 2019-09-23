@@ -18,7 +18,7 @@
 #' @export
 #'
 #' @examples
-#'\dontrun{
+#'\donttest{
 #' yml() %>%
 #'   yml_output(html_document())
 #'
