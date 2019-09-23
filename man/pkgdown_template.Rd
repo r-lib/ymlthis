@@ -23,6 +23,7 @@ sections. \code{pkgdown_template()} is particularly useful with
 }
 \examples{
 \donttest{
+# requires this to be a package directory
 pkgdown_template() \%>\%
   use_pkgdown_yml()
 }

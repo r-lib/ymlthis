@@ -8,6 +8,9 @@
 0 errors | 0 warnings | 1 note
 
 * This is a new release.
+* This is a third re-submission. The following problems were addressed:
+  - Quotation usage in DESCRIPTION file fixed
+  - Changed dontrun{} examples to donttest{}
 * This is a second re-submission. The following problems were addressed:
   - Confirmed author list; all mentions of "author" in package documentation are strictly related to examples for the `author` YAML field and not related to development of this package.
   - Added reset of `option()` in vignettes
