@@ -64,7 +64,7 @@ yml() %>%
 #>   affiliation: RStudio
 #> - name: Hadley Wickham
 #>   affiliation: RStudio
-#> date: '2019-08-23'
+#> date: '2019-09-30'
 #> output:
 #>   pdf_document:
 #>     keep_tex: true
