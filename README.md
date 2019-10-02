@@ -24,7 +24,13 @@ functions let you write the resulting YAML to your clipboard or to
 
 ## Installation
 
-You can install the development version of ymlthis from GitHub with:
+You can install ymlthis from CRAN with:
+
+``` r
+install.packages("ymlthis")
+```
+
+Or you can install the development version of ymlthis from GitHub with:
 
 ``` r
 # install.packages("remotes")
@@ -64,7 +70,7 @@ yml() %>%
 #>   affiliation: RStudio
 #> - name: Hadley Wickham
 #>   affiliation: RStudio
-#> date: '2019-09-30'
+#> date: '2019-10-02'
 #> output:
 #>   pdf_document:
 #>     keep_tex: true

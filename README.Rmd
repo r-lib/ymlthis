@@ -26,7 +26,13 @@ ymlthis makes it easy to write YAML front matter for R Markdown and related docu
 
 ## Installation
 
-You can install the development version of ymlthis from GitHub with:
+You can install ymlthis from CRAN with:
+
+``` r
+install.packages("ymlthis")
+```
+
+Or you can install the development version of ymlthis from GitHub with:
 
 ``` r
 # install.packages("remotes")
