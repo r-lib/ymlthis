@@ -178,7 +178,7 @@ write_yml_file <- function(.yml, path, build_ignore = FALSE, git_ignore = FALSE,
 
   if (!is.null(.yml)) {
     if (is.character(.yml) && length(.yml) == 1) {
-      usethis::write_over(path, .yml, quiet = FALSE)
+      usethis::write_over(path, .yml, quiet = quiet)
       return(invisible(path))
     }
 
@@ -188,7 +188,7 @@ write_yml_file <- function(.yml, path, build_ignore = FALSE, git_ignore = FALSE,
       column.major = FALSE
     )
 
-    usethis::write_over(path, yml_txt, quiet = FALSE)
+    usethis::write_over(path, yml_txt, quiet = quiet)
     return(invisible(path))
   }
 
