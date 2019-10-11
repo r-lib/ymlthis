@@ -57,6 +57,13 @@ YAML files specific to those packages; see the
 \href{https://bookdown.org/yihui/bookdown/configuration.html}{blogdown}
 documentation for more.
 }
+\details{
+By default, the yaml package adds a new line to the end of files. Some
+environments, such as RStudio Projects, allow you to append new lines
+automatically. Thus, you may end up with 2 new lines at the end of your file.
+If you'd like to turn off this behavior, set
+\code{options(ymlthis.remove_blank_line = TRUE)}.
+}
 \seealso{
 yml_bookdown_opts yml_bookdown_site yml_pkgdown yml_pkgdown_articles
 yml_pkgdown_docsearch yml_pkgdown_figures yml_pkgdown_news

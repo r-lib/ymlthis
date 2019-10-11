@@ -121,6 +121,12 @@ return_yml_code <- function(.yml) {
 #' [blogdown](https://bookdown.org/yihui/bookdown/configuration.html)
 #' documentation for more.
 #'
+#' By default, the yaml package adds a new line to the end of files. Some
+#' environments, such as RStudio Projects, allow you to append new lines
+#' automatically. Thus, you may end up with 2 new lines at the end of your file.
+#' If you'd like to turn off this behavior, set
+#' `options(ymlthis.remove_blank_line = TRUE)`.
+#'
 #' @template describe_yml_param
 #' @param path a file path to write the file to
 #' @param build_ignore Logical. Should the file be added to the `.Rbuildignore`
