@@ -69,9 +69,9 @@ use_rmarkdown <- function(.yml = last_yml(), path, template = NULL, include_yaml
 
 #' @rdname use_yml
 #' @export
-use_index_rmd <- function(.yml = last_yml(), path = ".", template = NULL, quiet = FALSE) {
+use_index_rmd <- function(.yml = last_yml(), path, template = NULL, include_yaml = TRUE, include_body = TRUE, body = NULL, quiet = FALSE) {
   index_rmd_path <- file_path(path, "index.Rmd")
-  use_rmarkdown(.yml = .yml, path = index_rmd_path, template = template, quiet = quiet)
+  use_rmarkdown(.yml = .yml, path = index_rmd_path, template = template, include_yaml = include_yaml, include_body = include_body, body = body, quiet = quiet)
 }
 
 combine_yml <- function(x, y) {
