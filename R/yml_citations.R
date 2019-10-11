@@ -32,9 +32,12 @@
 #'   yml_citations(bibliography = "references.bib", csl = "aje.csl")
 #'
 #' @family citations
+#' @inheritParams yml_latex_opts
 yml_citations <- function(
   .yml,
   bibliography = yml_blank(),
+  biblio_style = yml_blank(),
+  biblio_title = yml_blank(),
   csl = yml_blank(),
   citation_abbreviations = yml_blank(),
   link_citations = yml_blank(),
@@ -43,6 +46,8 @@ yml_citations <- function(
 ) {
   citation_opts <- list(
     bibliography = bibliography,
+    "biblio-style" = biblio_style,
+    "biblio-title" = biblio_title,
     csl = csl,
     "citation-abbreviations" = citation_abbreviations,
     "link-citations" = link_citations,

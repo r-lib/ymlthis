@@ -4,15 +4,27 @@
 \alias{yml_citations}
 \title{Set citation-related YAML options}
 \usage{
-yml_citations(.yml, bibliography = yml_blank(), csl = yml_blank(),
-  citation_abbreviations = yml_blank(), link_citations = yml_blank(),
-  nocite = yml_blank(), suppress_bibliography = yml_blank())
+yml_citations(.yml, bibliography = yml_blank(),
+  biblio_style = yml_blank(), biblio_title = yml_blank(),
+  csl = yml_blank(), citation_abbreviations = yml_blank(),
+  link_citations = yml_blank(), nocite = yml_blank(),
+  suppress_bibliography = yml_blank())
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
 a \code{yml_*()} function}
 
 \item{bibliography}{a path to a bibliography file, such as a .bib file}
+
+\item{biblio_style}{bibliography style, when used with
+\href{https://ctan.org/pkg/natbib}{natbib} and
+\href{https://ctan.org/pkg/biblatex}{biblatex}. Note that the actual YAML field
+is \code{biblio-style}}
+
+\item{biblio_title}{bibliography title, when used with
+\href{https://ctan.org/pkg/natbib}{natbib} and
+\href{https://ctan.org/pkg/biblatex}{biblatex}. Note that the actual YAML field
+is \code{biblio-title}}
 
 \item{csl}{a path to a Citation Style Language (CSL) file. CSL files are used
 to specify the citation style; see the \href{https://github.com/citation-style-language/styles}{CSL repository} for the CSL
