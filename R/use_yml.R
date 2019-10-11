@@ -193,6 +193,7 @@ write_yml_file <- function(.yml, path, build_ignore = FALSE, git_ignore = FALSE,
 
   if (!is.null(.yml)) {
     if (is.character(.yml) && length(.yml) == 1) {
+      if (check_remove_blank_line()) .yml <- remove_blank_line(.yml)
       usethis::write_over(path, .yml, quiet = quiet)
       return(invisible(path))
     }
@@ -203,6 +204,7 @@ write_yml_file <- function(.yml, path, build_ignore = FALSE, git_ignore = FALSE,
       column.major = FALSE
     )
 
+    if (check_remove_blank_line()) .yml <- remove_blank_line(.yml)
     usethis::write_over(path, yml_txt, quiet = quiet)
     return(invisible(path))
   }
@@ -215,6 +217,21 @@ write_yml_file <- function(.yml, path, build_ignore = FALSE, git_ignore = FALSE,
 
 file_path <- function(path, .file) {
   file.path(normalizePath(path), .file)
+}
+
+check_remove_blank_line <- function() {
+  remove_line_opt <- getOption("ymlthis.remove_blank_line")
+  option_set <- !is.null(remove_line_opt)
+  if (option_set) {
+    if (!is.logical(remove_line_opt)) stop("option `ymlthis.remove_blank_line` must be either logical or `NULL`")
+    return(remove_line_opt)
+  }
+
+  FALSE
+}
+
+remove_blank_line <- function(x) {
+  stringr::str_remove(x, "\n$")
 }
 
 
