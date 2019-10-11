@@ -24,6 +24,9 @@
 #'   no template is set, checks `getOption("ymlthis.rmd_body")` (see
 #'   [`use_rmd_defaults()`]) and otherwise uses [`setup_chunk()`].
 #' @param quiet	Logical. Whether to message about what is happening.
+#' @param open_doc Logical. Open the document after it's created? By default,
+#'   this is `TRUE` if it is an interactive session and `FALSE` if not. Also
+#'   checks that RStudio is available.
 #'
 #' @return `use_yml()` invisibly returns the input `yml` object
 #' @export
@@ -35,7 +38,8 @@ use_yml <- function(.yml = last_yml()) {
 
 #' @rdname use_yml
 #' @export
-use_rmarkdown <- function(.yml = last_yml(), path, template = NULL, include_yaml = TRUE, include_body = TRUE, body = NULL, quiet = FALSE) {
+use_rmarkdown <- function(.yml = last_yml(), path, template = NULL, include_yaml = TRUE,
+                          include_body = TRUE, body = NULL, quiet = FALSE, open_doc = interactive()) {
 
   if (!is.null(template) && fs::is_dir(template)) {
     template_skeleton <- file.path(template, "skeleton", "skeleton.Rmd")
@@ -62,16 +66,26 @@ use_rmarkdown <- function(.yml = last_yml(), path, template = NULL, include_yaml
   }
 
   usethis::write_over(path, rmarkdown_txt, quiet = quiet)
-  if (rstudioapi::isAvailable() && interactive()) rstudioapi::navigateToFile(path, line = 2)
+  if (rstudioapi::isAvailable() && open_doc) rstudioapi::navigateToFile(path, line = 2)
 
   invisible(path)
 }
 
 #' @rdname use_yml
 #' @export
-use_index_rmd <- function(.yml = last_yml(), path = ".", template = NULL, quiet = FALSE) {
+use_index_rmd <- function(.yml = last_yml(), path, template = NULL, include_yaml = TRUE,
+                          include_body = TRUE, body = NULL, quiet = FALSE, open_doc = interactive()) {
   index_rmd_path <- file_path(path, "index.Rmd")
-  use_rmarkdown(.yml = .yml, path = index_rmd_path, template = template, quiet = quiet)
+  use_rmarkdown(
+    .yml = .yml,
+    path = index_rmd_path,
+    template = template,
+    include_yaml = include_yaml,
+    include_body = include_body,
+    body = body,
+    quiet = quiet,
+    open_doc = open_doc
+  )
 }
 
 combine_yml <- function(x, y) {
@@ -79,6 +93,7 @@ combine_yml <- function(x, y) {
 
   x
 }
+
 return_yml_code <- function(.yml) {
   yaml_text <- capture_yml(.yml)
   usethis::ui_code_block(yaml_text)
