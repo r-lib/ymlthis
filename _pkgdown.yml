@@ -95,6 +95,14 @@ navbar:
         href: articles/yaml-overview.html
       - text: The YAML Fieldguide
         href: articles/yaml-fieldguide.html
+      - text: News
+    menu:
+    - text: "Blog posts"
+    - text: "ymlthis 0.1.0"
+      href: https://malco.io/2019/10/10/introducing-ymlthis/
+    - text: "------------------"
+    - text: "Change log"
+      href: news/index.html
     github:
       icon: fa-github fa-lg
       href: https://github.com/r-lib/ymlthis
