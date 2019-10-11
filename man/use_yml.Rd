@@ -10,10 +10,11 @@ use_yml(.yml = last_yml())
 
 use_rmarkdown(.yml = last_yml(), path, template = NULL,
   include_yaml = TRUE, include_body = TRUE, body = NULL,
-  quiet = FALSE)
+  quiet = FALSE, open_doc = interactive())
 
-use_index_rmd(.yml = last_yml(), path = ".", template = NULL,
-  quiet = FALSE)
+use_index_rmd(.yml = last_yml(), path, template = NULL,
+  include_yaml = TRUE, include_body = TRUE, body = NULL,
+  quiet = FALSE, open_doc = interactive())
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
@@ -32,6 +33,10 @@ no template is set, checks \code{getOption("ymlthis.rmd_body")} (see
 \code{\link[=use_rmd_defaults]{use_rmd_defaults()}}) and otherwise uses \code{\link[=setup_chunk]{setup_chunk()}}.}
 
 \item{quiet}{Logical. Whether to message about what is happening.}
+
+\item{open_doc}{Logical. Open the document after it's created? By default,
+this is \code{TRUE} if it is an interactive session and \code{FALSE} if not. Also
+checks that RStudio is available.}
 }
 \value{
 \code{use_yml()} invisibly returns the input \code{yml} object
