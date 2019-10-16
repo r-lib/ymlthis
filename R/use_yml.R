@@ -124,7 +124,7 @@ return_yml_code <- function(.yml) {
 #' By default, the yaml package adds a new line to the end of files. Some
 #' environments, such as RStudio Projects, allow you to append new lines
 #' automatically. Thus, you may end up with 2 new lines at the end of your file.
-#' If you'd like to turn off this behavior, set
+#' If you'd like to automatically remove the last new line in the file, set
 #' `options(ymlthis.remove_blank_line = TRUE)`.
 #'
 #' @template describe_yml_param
