@@ -121,6 +121,12 @@ return_yml_code <- function(.yml) {
 #' [blogdown](https://bookdown.org/yihui/bookdown/configuration.html)
 #' documentation for more.
 #'
+#' By default, the yaml package adds a new line to the end of files. Some
+#' environments, such as RStudio Projects, allow you to append new lines
+#' automatically. Thus, you may end up with 2 new lines at the end of your file.
+#' If you'd like to automatically remove the last new line in the file, set
+#' `options(ymlthis.remove_blank_line = TRUE)`.
+#'
 #' @template describe_yml_param
 #' @param path a file path to write the file to
 #' @param build_ignore Logical. Should the file be added to the `.Rbuildignore`
@@ -193,6 +199,7 @@ write_yml_file <- function(.yml, path, build_ignore = FALSE, git_ignore = FALSE,
 
   if (!is.null(.yml)) {
     if (is.character(.yml) && length(.yml) == 1) {
+      if (check_remove_blank_line()) .yml <- remove_blank_line(.yml)
       usethis::write_over(path, .yml, quiet = quiet)
       return(invisible(path))
     }
@@ -203,6 +210,7 @@ write_yml_file <- function(.yml, path, build_ignore = FALSE, git_ignore = FALSE,
       column.major = FALSE
     )
 
+    if (check_remove_blank_line()) .yml <- remove_blank_line(.yml)
     usethis::write_over(path, yml_txt, quiet = quiet)
     return(invisible(path))
   }
@@ -215,6 +223,21 @@ write_yml_file <- function(.yml, path, build_ignore = FALSE, git_ignore = FALSE,
 
 file_path <- function(path, .file) {
   file.path(normalizePath(path), .file)
+}
+
+check_remove_blank_line <- function() {
+  remove_line_opt <- getOption("ymlthis.remove_blank_line")
+  option_set <- !is.null(remove_line_opt)
+  if (option_set) {
+    if (!is.logical(remove_line_opt)) stop("option `ymlthis.remove_blank_line` must be either logical or `NULL`")
+    return(remove_line_opt)
+  }
+
+  FALSE
+}
+
+remove_blank_line <- function(x) {
+  stringr::str_remove(x, "\n$")
 }
 
 
