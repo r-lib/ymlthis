@@ -4,8 +4,11 @@
 \alias{includes2}
 \title{Include content within output}
 \usage{
-includes2(in_header = yml_blank(), before_body = yml_blank(),
-  after_body = yml_blank())
+includes2(
+  in_header = yml_blank(),
+  before_body = yml_blank(),
+  after_body = yml_blank()
+)
 }
 \arguments{
 \item{in_header}{One or more files with content to be included in the header
@@ -27,7 +30,7 @@ ymlthis treats NULLs as literal YAML syntax ("null").
 }
 \examples{
 \donttest{
-yml() \%>\%
+yml() %>%
   yml_output(
     pdf_document(includes = includes2(after_body = "footer.tex"))
   )

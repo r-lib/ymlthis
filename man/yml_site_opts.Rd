@@ -5,23 +5,41 @@
 \alias{yml_navbar}
 \alias{navbar_page}
 \alias{navbar_separator}
-\title{Add site options for \code{_site.yml} and navbars for R Markdown websites}
+\title{Add site options for \verb{_site.yml} and navbars for R Markdown websites}
 \usage{
-yml_site_opts(.yml, name = yml_blank(), favicon = yml_blank(),
-  output_dir = yml_blank(), include = yml_blank(),
-  exclude = yml_blank(), new_session = yml_blank(), ...)
+yml_site_opts(
+  .yml,
+  name = yml_blank(),
+  favicon = yml_blank(),
+  output_dir = yml_blank(),
+  include = yml_blank(),
+  exclude = yml_blank(),
+  new_session = yml_blank(),
+  ...
+)
 
-yml_navbar(.yml, title = yml_blank(), type = yml_blank(),
-  left = yml_blank(), right = yml_blank(), ...)
+yml_navbar(
+  .yml,
+  title = yml_blank(),
+  type = yml_blank(),
+  left = yml_blank(),
+  right = yml_blank(),
+  ...
+)
 
-navbar_page(text = yml_blank(), href = yml_blank(),
-  icon = yml_blank(), menu = yml_blank(), ...)
+navbar_page(
+  text = yml_blank(),
+  href = yml_blank(),
+  icon = yml_blank(),
+  menu = yml_blank(),
+  ...
+)
 
 navbar_separator()
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
-a \code{yml_*()} function}
+a \verb{yml_*()} function}
 
 \item{name}{The name of the website}
 
@@ -31,7 +49,7 @@ a \code{yml_*()} function}
 if none is specified)}
 
 \item{include, exclude}{Files to include or exclude from the copied into
-\code{output_dir}. You can use \code{*} to indicate a wildcard selection, e.g.
+\code{output_dir}. You can use \verb{*} to indicate a wildcard selection, e.g.
 "*.csv".}
 
 \item{new_session}{Logical. Should each website file be rendered in a new
@@ -60,15 +78,15 @@ a \code{yml} object
 \description{
 R Markdown has a simple website builder baked in (see the R \href{https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#site_navigation}{Markdown book}
 for a detailed description). An R Markdown website must have at least have an
-\code{index.Rmd} file and a \code{_site.yml} file (which can be empty). Including YAML
-in \code{_site.yml} will apply it to all R Markdown files for the website, e.g.
+\code{index.Rmd} file and a \verb{_site.yml} file (which can be empty). Including YAML
+in \verb{_site.yml} will apply it to all R Markdown files for the website, e.g.
 setting the output format here will tell R Markdown to use that format across
 the website. R Markdown websites also support navbars, which you can specify
 with YAML (see \code{\link[=yml_navbar]{yml_navbar()}}, as well as ?rmarkdown::render_site and
 ?rmarkdown::html_document). Pass \code{navbar_page()} to the \code{left} or \code{right}
 field to set up page tabs and use \code{navbar_separator()} to include a
-separators. In addition to writing YAML with \code{yml_*()} functions,
-\code{use_site_yml()} will take the a \code{yml} object and write it to a \code{_site.yml}
+separators. In addition to writing YAML with \verb{yml_*()} functions,
+\code{use_site_yml()} will take the a \code{yml} object and write it to a \verb{_site.yml}
 file for you.
 }
 \examples{
@@ -92,32 +110,44 @@ yml_empty() \%>\%
 \seealso{
 \code{\link[=use_site_yml]{use_site_yml()}} \code{\link[=use_navbar_yml]{use_navbar_yml()}} \code{\link[=use_index_rmd]{use_index_rmd()}}
 
-Other yml: \code{\link{asis_yaml_output}},
-  \code{\link{bib2yml}}, \code{\link{draw_yml_tree}},
-  \code{\link{has_field}}, \code{\link{read_json}},
-  \code{\link{use_yml_defaults}},
-  \code{\link{use_yml_file}}, \code{\link{use_yml}},
-  \code{\link{yml_author}},
-  \code{\link{yml_blogdown_opts}},
-  \code{\link{yml_bookdown_opts}},
-  \code{\link{yml_citations}}, \code{\link{yml_clean}},
-  \code{\link{yml_distill_opts}},
-  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
-  \code{\link{yml_pagedown_opts}},
-  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
-  \code{\link{yml_reference}}, \code{\link{yml_replace}},
-  \code{\link{yml_resource_files}},
-  \code{\link{yml_rsconnect_email}},
-  \code{\link{yml_rticles_opts}},
-  \code{\link{yml_runtime}}, \code{\link{yml_toc}},
-  \code{\link{yml_vignette}}
+Other yml: 
+\code{\link{asis_yaml_output}()},
+\code{\link{bib2yml}()},
+\code{\link{draw_yml_tree}()},
+\code{\link{has_field}()},
+\code{\link{read_json}()},
+\code{\link{use_yml_defaults}()},
+\code{\link{use_yml_file}()},
+\code{\link{use_yml}()},
+\code{\link{yml_author}()},
+\code{\link{yml_blogdown_opts}()},
+\code{\link{yml_bookdown_opts}()},
+\code{\link{yml_citations}()},
+\code{\link{yml_clean}()},
+\code{\link{yml_distill_opts}()},
+\code{\link{yml_latex_opts}()},
+\code{\link{yml_output}()},
+\code{\link{yml_pagedown_opts}()},
+\code{\link{yml_params}()},
+\code{\link{yml_pkgdown}()},
+\code{\link{yml_reference}()},
+\code{\link{yml_replace}()},
+\code{\link{yml_resource_files}()},
+\code{\link{yml_rsconnect_email}()},
+\code{\link{yml_rticles_opts}()},
+\code{\link{yml_runtime}()},
+\code{\link{yml_toc}()},
+\code{\link{yml_vignette}()}
 
-Other R Markdown: \code{\link{yml_clean}},
-  \code{\link{yml_params}}, \code{\link{yml_runtime}},
-  \code{\link{yml_vignette}}
+Other R Markdown: 
+\code{\link{yml_clean}()},
+\code{\link{yml_params}()},
+\code{\link{yml_runtime}()},
+\code{\link{yml_vignette}()}
 
-Other websites: \code{\link{yml_distill_opts}},
-  \code{\link{yml_pkgdown}}
+Other websites: 
+\code{\link{yml_distill_opts}()},
+\code{\link{yml_pkgdown}()}
 }
 \concept{R Markdown}
 \concept{websites}

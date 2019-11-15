@@ -38,7 +38,7 @@ yml_toplevel(.yml, ...)
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
-a \code{yml_*()} function}
+a \verb{yml_*()} function}
 
 \item{name}{A character vector, name of the author(s)}
 
@@ -107,7 +107,7 @@ YAML; it checks for duplicate fields but is unable to validate the input
 beyond that it is valid YAML syntax. Some R Markdown templates allow for
 additional variations of the YAML here. For instance, the distill package
 adds \code{url} and \code{affiliation_url} to the \code{author} field (see
-\link{yml_distill_author}, which wraps \link{yml_author}). Several \code{yml_*()} functions
+\link{yml_distill_author}, which wraps \link{yml_author}). Several \verb{yml_*()} functions
 also contain \code{...} which allow for these unique fields.
 }
 \examples{
@@ -125,23 +125,33 @@ yml_empty() \%>\%
 
 }
 \seealso{
-Other yml: \code{\link{asis_yaml_output}},
-  \code{\link{bib2yml}}, \code{\link{draw_yml_tree}},
-  \code{\link{has_field}}, \code{\link{read_json}},
-  \code{\link{use_yml_defaults}},
-  \code{\link{use_yml_file}}, \code{\link{use_yml}},
-  \code{\link{yml_blogdown_opts}},
-  \code{\link{yml_bookdown_opts}},
-  \code{\link{yml_citations}}, \code{\link{yml_clean}},
-  \code{\link{yml_distill_opts}},
-  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
-  \code{\link{yml_pagedown_opts}},
-  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
-  \code{\link{yml_reference}}, \code{\link{yml_replace}},
-  \code{\link{yml_resource_files}},
-  \code{\link{yml_rsconnect_email}},
-  \code{\link{yml_rticles_opts}},
-  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
-  \code{\link{yml_toc}}, \code{\link{yml_vignette}}
+Other yml: 
+\code{\link{asis_yaml_output}()},
+\code{\link{bib2yml}()},
+\code{\link{draw_yml_tree}()},
+\code{\link{has_field}()},
+\code{\link{read_json}()},
+\code{\link{use_yml_defaults}()},
+\code{\link{use_yml_file}()},
+\code{\link{use_yml}()},
+\code{\link{yml_blogdown_opts}()},
+\code{\link{yml_bookdown_opts}()},
+\code{\link{yml_citations}()},
+\code{\link{yml_clean}()},
+\code{\link{yml_distill_opts}()},
+\code{\link{yml_latex_opts}()},
+\code{\link{yml_output}()},
+\code{\link{yml_pagedown_opts}()},
+\code{\link{yml_params}()},
+\code{\link{yml_pkgdown}()},
+\code{\link{yml_reference}()},
+\code{\link{yml_replace}()},
+\code{\link{yml_resource_files}()},
+\code{\link{yml_rsconnect_email}()},
+\code{\link{yml_rticles_opts}()},
+\code{\link{yml_runtime}()},
+\code{\link{yml_site_opts}()},
+\code{\link{yml_toc}()},
+\code{\link{yml_vignette}()}
 }
 \concept{yml}

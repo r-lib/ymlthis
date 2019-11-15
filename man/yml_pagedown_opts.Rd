@@ -4,14 +4,20 @@
 \alias{yml_pagedown_opts}
 \title{Top-level YAML options for pagedown}
 \usage{
-yml_pagedown_opts(.yml, toc = yml_blank(), toc_title = yml_blank(),
-  lot = yml_blank(), lot_title = yml_blank(),
-  chapter_name = yml_blank(), links_to_footnotes = yml_blank(),
-  paged_footnotes = yml_blank())
+yml_pagedown_opts(
+  .yml,
+  toc = yml_blank(),
+  toc_title = yml_blank(),
+  lot = yml_blank(),
+  lot_title = yml_blank(),
+  chapter_name = yml_blank(),
+  links_to_footnotes = yml_blank(),
+  paged_footnotes = yml_blank()
+)
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
-a \code{yml_*()} function}
+a \verb{yml_*()} function}
 
 \item{toc}{Logical. Use a table of contents?}
 
@@ -55,26 +61,37 @@ yml() \%>\%
 
 }
 \seealso{
-Other yml: \code{\link{asis_yaml_output}},
-  \code{\link{bib2yml}}, \code{\link{draw_yml_tree}},
-  \code{\link{has_field}}, \code{\link{read_json}},
-  \code{\link{use_yml_defaults}},
-  \code{\link{use_yml_file}}, \code{\link{use_yml}},
-  \code{\link{yml_author}},
-  \code{\link{yml_blogdown_opts}},
-  \code{\link{yml_bookdown_opts}},
-  \code{\link{yml_citations}}, \code{\link{yml_clean}},
-  \code{\link{yml_distill_opts}},
-  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
-  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
-  \code{\link{yml_reference}}, \code{\link{yml_replace}},
-  \code{\link{yml_resource_files}},
-  \code{\link{yml_rsconnect_email}},
-  \code{\link{yml_rticles_opts}},
-  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
-  \code{\link{yml_toc}}, \code{\link{yml_vignette}}
+Other yml: 
+\code{\link{asis_yaml_output}()},
+\code{\link{bib2yml}()},
+\code{\link{draw_yml_tree}()},
+\code{\link{has_field}()},
+\code{\link{read_json}()},
+\code{\link{use_yml_defaults}()},
+\code{\link{use_yml_file}()},
+\code{\link{use_yml}()},
+\code{\link{yml_author}()},
+\code{\link{yml_blogdown_opts}()},
+\code{\link{yml_bookdown_opts}()},
+\code{\link{yml_citations}()},
+\code{\link{yml_clean}()},
+\code{\link{yml_distill_opts}()},
+\code{\link{yml_latex_opts}()},
+\code{\link{yml_output}()},
+\code{\link{yml_params}()},
+\code{\link{yml_pkgdown}()},
+\code{\link{yml_reference}()},
+\code{\link{yml_replace}()},
+\code{\link{yml_resource_files}()},
+\code{\link{yml_rsconnect_email}()},
+\code{\link{yml_rticles_opts}()},
+\code{\link{yml_runtime}()},
+\code{\link{yml_site_opts}()},
+\code{\link{yml_toc}()},
+\code{\link{yml_vignette}()}
 
-Other pagedown: \code{\link{pagedown_business_card_template}}
+Other pagedown: 
+\code{\link{pagedown_business_card_template}()}
 }
 \concept{pagedown}
 \concept{yml}

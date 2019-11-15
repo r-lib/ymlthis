@@ -18,47 +18,88 @@
 \usage{
 yml_pkgdown(.yml, as_is = yml_blank(), extension = yml_blank())
 
-yml_pkgdown_opts(.yml, site_title = yml_blank(),
-  destination = yml_blank(), url = yml_blank(),
-  toc_depth = yml_blank())
+yml_pkgdown_opts(
+  .yml,
+  site_title = yml_blank(),
+  destination = yml_blank(),
+  url = yml_blank(),
+  toc_depth = yml_blank()
+)
 
-yml_pkgdown_development(.yml, mode = yml_blank(),
-  dev_destination = yml_blank(), version_label = yml_blank(),
-  version_tooltip = yml_blank())
+yml_pkgdown_development(
+  .yml,
+  mode = yml_blank(),
+  dev_destination = yml_blank(),
+  version_label = yml_blank(),
+  version_tooltip = yml_blank()
+)
 
-yml_pkgdown_template(.yml, bootswatch = yml_blank(),
-  ganalytics = yml_blank(), noindex = yml_blank(),
-  package = yml_blank(), path = yml_blank(), assets = yml_blank(),
-  default_assets = yml_blank())
+yml_pkgdown_template(
+  .yml,
+  bootswatch = yml_blank(),
+  ganalytics = yml_blank(),
+  noindex = yml_blank(),
+  package = yml_blank(),
+  path = yml_blank(),
+  assets = yml_blank(),
+  default_assets = yml_blank()
+)
 
 yml_pkgdown_reference(.yml, ...)
 
-pkgdown_ref(title = yml_blank(), desc = yml_blank(),
-  contents = yml_blank(), exclude = yml_blank(), ...)
+pkgdown_ref(
+  title = yml_blank(),
+  desc = yml_blank(),
+  contents = yml_blank(),
+  exclude = yml_blank(),
+  ...
+)
 
 yml_pkgdown_news(.yml, one_page = yml_blank())
 
 yml_pkgdown_articles(.yml, ...)
 
-pkgdown_article(title = yml_blank(), desc = yml_blank(),
-  contents = yml_blank(), exclude = yml_blank(), ...)
+pkgdown_article(
+  title = yml_blank(),
+  desc = yml_blank(),
+  contents = yml_blank(),
+  exclude = yml_blank(),
+  ...
+)
 
 yml_pkgdown_tutorial(.yml, ...)
 
-pkgdown_tutorial(name = yml_blank(), title = yml_blank(),
-  tutorial_url = yml_blank(), source = yml_blank(), ...)
+pkgdown_tutorial(
+  name = yml_blank(),
+  title = yml_blank(),
+  tutorial_url = yml_blank(),
+  source = yml_blank(),
+  ...
+)
 
-yml_pkgdown_figures(.yml, dev = yml_blank(), dpi = yml_blank(),
-  dev.args = yml_blank(), fig.ext = yml_blank(),
-  fig.width = yml_blank(), fig.height = yml_blank(),
-  fig.retina = yml_blank(), fig.asp = yml_blank(), ...)
+yml_pkgdown_figures(
+  .yml,
+  dev = yml_blank(),
+  dpi = yml_blank(),
+  dev.args = yml_blank(),
+  fig.ext = yml_blank(),
+  fig.width = yml_blank(),
+  fig.height = yml_blank(),
+  fig.retina = yml_blank(),
+  fig.asp = yml_blank(),
+  ...
+)
 
-yml_pkgdown_docsearch(.yml, api_key = yml_blank(),
-  index_name = yml_blank(), doc_url = yml_blank())
+yml_pkgdown_docsearch(
+  .yml,
+  api_key = yml_blank(),
+  index_name = yml_blank(),
+  doc_url = yml_blank()
+)
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
-a \code{yml_*()} function}
+a \verb{yml_*()} function}
 
 \item{as_is}{Logical. Use the \code{output_format} and options that you have
 specified?}
@@ -161,16 +202,16 @@ a \code{yml} object
 }
 \description{
 These functions set YAML for various pkgdown options to be used in
-\code{_pkgdown.yml}. The options are described in greater depth in the \href{https://pkgdown.r-lib.org/articles/pkgdown.html}{pkgdown vignette} and in the help
+\verb{_pkgdown.yml}. The options are described in greater depth in the \href{https://pkgdown.r-lib.org/articles/pkgdown.html}{pkgdown vignette} and in the help
 pages for \code{pkgdown::build_site()}, \code{pkgdown::build_articles()}, \code{pkgdown::build_reference()}, and \code{pkgdown::build_tutorials()}.
 Essentially, they control the build of vignettes and function references.
 pkgdown also uses the same approach to navbars as R Markdown.
 \code{\link[=yml_navbar]{yml_navbar()}} and friends will help you write the YAML for that. A useful
 approach to writing pkgdown YAML might be to use \code{pkgdown_template()} to
 build a template based on your package directory, modify with
-\code{yml_pkgdown_*()} and \code{pkgdown_*()} functions or \code{\link[=yml_replace]{yml_replace()}} and
+\verb{yml_pkgdown_*()} and \verb{pkgdown_*()} functions or \code{\link[=yml_replace]{yml_replace()}} and
 \code{\link[=yml_discard]{yml_discard()}}, then pass the results to \code{\link[=use_pkgdown_yml]{use_pkgdown_yml()}} to write to
-\code{_pkgdown.yml}
+\verb{_pkgdown.yml}
 }
 \examples{
 
@@ -195,30 +236,41 @@ yml_empty() \%>\%
 \seealso{
 \code{\link[=use_pkgdown_yml]{use_pkgdown_yml()}} \code{\link[=yml_navbar]{yml_navbar()}}
 
-Other yml: \code{\link{asis_yaml_output}},
-  \code{\link{bib2yml}}, \code{\link{draw_yml_tree}},
-  \code{\link{has_field}}, \code{\link{read_json}},
-  \code{\link{use_yml_defaults}},
-  \code{\link{use_yml_file}}, \code{\link{use_yml}},
-  \code{\link{yml_author}},
-  \code{\link{yml_blogdown_opts}},
-  \code{\link{yml_bookdown_opts}},
-  \code{\link{yml_citations}}, \code{\link{yml_clean}},
-  \code{\link{yml_distill_opts}},
-  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
-  \code{\link{yml_pagedown_opts}},
-  \code{\link{yml_params}}, \code{\link{yml_reference}},
-  \code{\link{yml_replace}},
-  \code{\link{yml_resource_files}},
-  \code{\link{yml_rsconnect_email}},
-  \code{\link{yml_rticles_opts}},
-  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
-  \code{\link{yml_toc}}, \code{\link{yml_vignette}}
+Other yml: 
+\code{\link{asis_yaml_output}()},
+\code{\link{bib2yml}()},
+\code{\link{draw_yml_tree}()},
+\code{\link{has_field}()},
+\code{\link{read_json}()},
+\code{\link{use_yml_defaults}()},
+\code{\link{use_yml_file}()},
+\code{\link{use_yml}()},
+\code{\link{yml_author}()},
+\code{\link{yml_blogdown_opts}()},
+\code{\link{yml_bookdown_opts}()},
+\code{\link{yml_citations}()},
+\code{\link{yml_clean}()},
+\code{\link{yml_distill_opts}()},
+\code{\link{yml_latex_opts}()},
+\code{\link{yml_output}()},
+\code{\link{yml_pagedown_opts}()},
+\code{\link{yml_params}()},
+\code{\link{yml_reference}()},
+\code{\link{yml_replace}()},
+\code{\link{yml_resource_files}()},
+\code{\link{yml_rsconnect_email}()},
+\code{\link{yml_rticles_opts}()},
+\code{\link{yml_runtime}()},
+\code{\link{yml_site_opts}()},
+\code{\link{yml_toc}()},
+\code{\link{yml_vignette}()}
 
-Other pkgdown: \code{\link{pkgdown_template}}
+Other pkgdown: 
+\code{\link{pkgdown_template}()}
 
-Other websites: \code{\link{yml_distill_opts}},
-  \code{\link{yml_site_opts}}
+Other websites: 
+\code{\link{yml_distill_opts}()},
+\code{\link{yml_site_opts}()}
 }
 \concept{pkgdown}
 \concept{websites}

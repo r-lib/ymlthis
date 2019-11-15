@@ -8,32 +8,56 @@
 \alias{distill_resources}
 \title{Set Top-level YAML options for distill}
 \usage{
-yml_distill_opts(.yml, draft = yml_blank(), slug = yml_blank(),
-  categories = yml_blank(), listing = yml_blank(),
-  collection = yml_blank(), citation_url = yml_blank(),
-  preview = yml_blank(), repository_url = yml_blank(),
-  base_url = yml_blank(), compare_updates_url = yml_blank(),
-  creative_commons = yml_blank(), twitter_site = yml_blank(),
-  twitter_creator = yml_blank(), journal_title = yml_blank(),
-  journal_issn = yml_blank(), journal_publisher = yml_blank(),
-  volume = yml_blank(), issue = yml_blank(), doi = yml_blank(),
-  resources = yml_blank(), ...)
+yml_distill_opts(
+  .yml,
+  draft = yml_blank(),
+  slug = yml_blank(),
+  categories = yml_blank(),
+  listing = yml_blank(),
+  collection = yml_blank(),
+  citation_url = yml_blank(),
+  preview = yml_blank(),
+  repository_url = yml_blank(),
+  base_url = yml_blank(),
+  compare_updates_url = yml_blank(),
+  creative_commons = yml_blank(),
+  twitter_site = yml_blank(),
+  twitter_creator = yml_blank(),
+  journal_title = yml_blank(),
+  journal_issn = yml_blank(),
+  journal_publisher = yml_blank(),
+  volume = yml_blank(),
+  issue = yml_blank(),
+  doi = yml_blank(),
+  resources = yml_blank(),
+  ...
+)
 
-yml_distill_author(.yml, name = yml_blank(), url = yml_blank(),
-  affiliation = yml_blank(), affiliation_url = yml_blank())
+yml_distill_author(
+  .yml,
+  name = yml_blank(),
+  url = yml_blank(),
+  affiliation = yml_blank(),
+  affiliation_url = yml_blank()
+)
 
 distill_listing(listing_name = "posts", slugs = NULL)
 
-distill_collection(collection_name = "post",
-  feed_items_max = yml_blank(), disqus_name = yml_blank(),
-  disqus_hidden = yml_blank(), share = yml_blank(),
-  citations = yml_blank(), subscribe = yml_blank())
+distill_collection(
+  collection_name = "post",
+  feed_items_max = yml_blank(),
+  disqus_name = yml_blank(),
+  disqus_hidden = yml_blank(),
+  share = yml_blank(),
+  citations = yml_blank(),
+  subscribe = yml_blank()
+)
 
 distill_resources(include = yml_blank(), exclude = yml_blank())
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
-a \code{yml_*()} function}
+a \verb{yml_*()} function}
 
 \item{draft}{Logical. Set the post to be a draft? Draft posts won't be
 published.}
@@ -126,7 +150,7 @@ this is \code{FALSE} so as not to obscure the bibliography and other appendices.
 "facebook", "google-plus", and "pinterest". (\code{base_url} field is required
 in order to use sharing links)}
 
-\item{citations}{Logical. If your \code{_site.yml} file provides a \code{base_url}
+\item{citations}{Logical. If your \verb{_site.yml} file provides a \code{base_url}
 field, an article citation appendix and related metadata will be included
 automatically within all published posts. Set to \code{FALSE} to disable this
 behavior.}
@@ -152,7 +176,7 @@ to, including an optional vector of other posts to list with it;
 specify such pages. distill uses the same approach to navbars as R Markdown.
 \code{\link[=yml_navbar]{yml_navbar()}} and friends will help you write the YAML for that. YAML
 specifying the site build, like the output field and navbars, can also be
-placed in \code{_site.yml}; see \code{\link[=yml_site_opts]{yml_site_opts()}} for further R Markdown website
+placed in \verb{_site.yml}; see \code{\link[=yml_site_opts]{yml_site_opts()}} for further R Markdown website
 build options and \code{\link[=use_site_yml]{use_site_yml()}} for creating that file based on a \code{yml}
 object. distill's YAML options are discussed in greater detail in the
 \href{https://rstudio.github.io/distill}{articles on the distill website}.
@@ -189,27 +213,38 @@ yml_empty() \%>\%
 \seealso{
 \code{\link[=use_site_yml]{use_site_yml()}} \code{\link[=use_rmarkdown]{use_rmarkdown()}}
 
-Other yml: \code{\link{asis_yaml_output}},
-  \code{\link{bib2yml}}, \code{\link{draw_yml_tree}},
-  \code{\link{has_field}}, \code{\link{read_json}},
-  \code{\link{use_yml_defaults}},
-  \code{\link{use_yml_file}}, \code{\link{use_yml}},
-  \code{\link{yml_author}},
-  \code{\link{yml_blogdown_opts}},
-  \code{\link{yml_bookdown_opts}},
-  \code{\link{yml_citations}}, \code{\link{yml_clean}},
-  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
-  \code{\link{yml_pagedown_opts}},
-  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
-  \code{\link{yml_reference}}, \code{\link{yml_replace}},
-  \code{\link{yml_resource_files}},
-  \code{\link{yml_rsconnect_email}},
-  \code{\link{yml_rticles_opts}},
-  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
-  \code{\link{yml_toc}}, \code{\link{yml_vignette}}
+Other yml: 
+\code{\link{asis_yaml_output}()},
+\code{\link{bib2yml}()},
+\code{\link{draw_yml_tree}()},
+\code{\link{has_field}()},
+\code{\link{read_json}()},
+\code{\link{use_yml_defaults}()},
+\code{\link{use_yml_file}()},
+\code{\link{use_yml}()},
+\code{\link{yml_author}()},
+\code{\link{yml_blogdown_opts}()},
+\code{\link{yml_bookdown_opts}()},
+\code{\link{yml_citations}()},
+\code{\link{yml_clean}()},
+\code{\link{yml_latex_opts}()},
+\code{\link{yml_output}()},
+\code{\link{yml_pagedown_opts}()},
+\code{\link{yml_params}()},
+\code{\link{yml_pkgdown}()},
+\code{\link{yml_reference}()},
+\code{\link{yml_replace}()},
+\code{\link{yml_resource_files}()},
+\code{\link{yml_rsconnect_email}()},
+\code{\link{yml_rticles_opts}()},
+\code{\link{yml_runtime}()},
+\code{\link{yml_site_opts}()},
+\code{\link{yml_toc}()},
+\code{\link{yml_vignette}()}
 
-Other websites: \code{\link{yml_pkgdown}},
-  \code{\link{yml_site_opts}}
+Other websites: 
+\code{\link{yml_pkgdown}()},
+\code{\link{yml_site_opts}()}
 }
 \concept{distill}
 \concept{websites}

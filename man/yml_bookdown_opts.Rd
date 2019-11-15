@@ -5,19 +5,26 @@
 \alias{yml_bookdown_site}
 \title{Set Top-level YAML options for bookdown}
 \usage{
-yml_bookdown_opts(.yml, book_filename = yml_blank(),
+yml_bookdown_opts(
+  .yml,
+  book_filename = yml_blank(),
   delete_merged_file = yml_blank(),
   before_chapter_script = yml_blank(),
-  after_chapter_script = yml_blank(), edit = yml_blank(),
-  history = yml_blank(), rmd_files = yml_blank(),
-  rmd_subdir = yml_blank(), output_dir = yml_blank(),
-  clean = yml_blank(), ...)
+  after_chapter_script = yml_blank(),
+  edit = yml_blank(),
+  history = yml_blank(),
+  rmd_files = yml_blank(),
+  rmd_subdir = yml_blank(),
+  output_dir = yml_blank(),
+  clean = yml_blank(),
+  ...
+)
 
 yml_bookdown_site(.yml)
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
-a \code{yml_*()} function}
+a \verb{yml_*()} function}
 
 \item{book_filename}{A character vector, the filename of the main \code{.Rmd}
 file, the \code{.Rmd} file that is created by merging all chapters. By default,
@@ -30,7 +37,7 @@ or more R scripts to be executed before or after each chapter}
 
 \item{edit}{A URL that collaborators can click to edit the \code{.Rmd} source
 document of the current page, usually a link to a GitHub repository. This
-link should have \code{\%s} where the actual \code{.Rmd} filename for each page will
+link should have \verb{\%s} where the actual \code{.Rmd} filename for each page will
 go.}
 
 \item{history}{Similar to \code{edit}, a link to the edit/commit history of the
@@ -60,11 +67,11 @@ a \code{yml} object
 }
 \description{
 bookdown uses YAML in three main places, as described in the \href{https://bookdown.org/yihui/rmarkdown/bookdown-project.html}{bookdown book}:
-\code{index.Rmd}, \code{_output.yml}, and \code{_bookdown.yml}. \code{index.Rmd} can take most
-YAML. \code{_output.yml} is intended for output-related YAML, such as that
-produced by \code{yml() \%>\% yml_output(bookdown::pdf_book())}. \code{_bookdown.yml} is
+\code{index.Rmd}, \verb{_output.yml}, and \verb{_bookdown.yml}. \code{index.Rmd} can take most
+YAML. \verb{_output.yml} is intended for output-related YAML, such as that
+produced by \code{yml() \%>\% yml_output(bookdown::pdf_book())}. \verb{_bookdown.yml} is
 intended for configuring the build of the book. Pass the results of the
-\code{yml_*()} functions to \code{use_index_rmd()}, \code{use_bookdown_yml()},
+\verb{yml_*()} functions to \code{use_index_rmd()}, \code{use_bookdown_yml()},
 \code{use_output_yml()} to write them to these files. \code{yml_bookdown_site()} adds
 the \code{site: "bookdown::bookdown_site"} to the YAML metadata.
 }
@@ -108,7 +115,7 @@ x
 
 
 \donttest{
-output_yml <- yml_empty() \%>\%
+output_yml <- yml_empty() %>%
   yml_output(
     bookdown::gitbook(
       lib_dir = "assets",
@@ -126,26 +133,37 @@ output_yml
 \seealso{
 \code{\link[=use_index_rmd]{use_index_rmd()}} \code{\link[=use_bookdown_yml]{use_bookdown_yml()}} \code{\link[=use_output_yml]{use_output_yml()}}
 
-Other yml: \code{\link{asis_yaml_output}},
-  \code{\link{bib2yml}}, \code{\link{draw_yml_tree}},
-  \code{\link{has_field}}, \code{\link{read_json}},
-  \code{\link{use_yml_defaults}},
-  \code{\link{use_yml_file}}, \code{\link{use_yml}},
-  \code{\link{yml_author}},
-  \code{\link{yml_blogdown_opts}},
-  \code{\link{yml_citations}}, \code{\link{yml_clean}},
-  \code{\link{yml_distill_opts}},
-  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
-  \code{\link{yml_pagedown_opts}},
-  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
-  \code{\link{yml_reference}}, \code{\link{yml_replace}},
-  \code{\link{yml_resource_files}},
-  \code{\link{yml_rsconnect_email}},
-  \code{\link{yml_rticles_opts}},
-  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
-  \code{\link{yml_toc}}, \code{\link{yml_vignette}}
+Other yml: 
+\code{\link{asis_yaml_output}()},
+\code{\link{bib2yml}()},
+\code{\link{draw_yml_tree}()},
+\code{\link{has_field}()},
+\code{\link{read_json}()},
+\code{\link{use_yml_defaults}()},
+\code{\link{use_yml_file}()},
+\code{\link{use_yml}()},
+\code{\link{yml_author}()},
+\code{\link{yml_blogdown_opts}()},
+\code{\link{yml_citations}()},
+\code{\link{yml_clean}()},
+\code{\link{yml_distill_opts}()},
+\code{\link{yml_latex_opts}()},
+\code{\link{yml_output}()},
+\code{\link{yml_pagedown_opts}()},
+\code{\link{yml_params}()},
+\code{\link{yml_pkgdown}()},
+\code{\link{yml_reference}()},
+\code{\link{yml_replace}()},
+\code{\link{yml_resource_files}()},
+\code{\link{yml_rsconnect_email}()},
+\code{\link{yml_rticles_opts}()},
+\code{\link{yml_runtime}()},
+\code{\link{yml_site_opts}()},
+\code{\link{yml_toc}()},
+\code{\link{yml_vignette}()}
 
-Other bookdown: \code{\link{gitbook_config}}
+Other bookdown: 
+\code{\link{gitbook_config}()}
 }
 \concept{bookdown}
 \concept{yml}

@@ -47,7 +47,7 @@ Suggests:
     knitr,
     pkgdown,
     prettydoc,
-    roxygen2,
+    roxygen2 (>= 7.0.0),
     spelling,
     testthat,
     xaringan
@@ -57,4 +57,4 @@ Encoding: UTF-8
 Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.0

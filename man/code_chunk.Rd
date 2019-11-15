@@ -31,7 +31,7 @@ bodies for \code{\link[=use_rmarkdown]{use_rmarkdown()}}.
 setup_chunk()
 
 code_chunk({
-  yml() \%>\%
+  yml() %>%
     yml_output(pdf_document())
 }, chunk_name = "yml_example")
 }
