@@ -9,27 +9,57 @@
 \alias{use_bookdown_yml}
 \title{Write YAML to file}
 \usage{
-use_yml_file(.yml = NULL, path, build_ignore = FALSE,
-  git_ignore = FALSE, quiet = FALSE)
+use_yml_file(
+  .yml = NULL,
+  path,
+  build_ignore = FALSE,
+  git_ignore = FALSE,
+  quiet = FALSE
+)
 
-use_output_yml(.yml = NULL, path = ".", build_ignore = FALSE,
-  git_ignore = FALSE, quiet = FALSE)
+use_output_yml(
+  .yml = NULL,
+  path = ".",
+  build_ignore = FALSE,
+  git_ignore = FALSE,
+  quiet = FALSE
+)
 
-use_site_yml(.yml = NULL, path = ".", build_ignore = FALSE,
-  git_ignore = FALSE, quiet = FALSE)
+use_site_yml(
+  .yml = NULL,
+  path = ".",
+  build_ignore = FALSE,
+  git_ignore = FALSE,
+  quiet = FALSE
+)
 
-use_navbar_yml(.yml = NULL, path = ".", build_ignore = FALSE,
-  git_ignore = FALSE, quiet = FALSE)
+use_navbar_yml(
+  .yml = NULL,
+  path = ".",
+  build_ignore = FALSE,
+  git_ignore = FALSE,
+  quiet = FALSE
+)
 
-use_pkgdown_yml(.yml = NULL, path = ".", build_ignore = TRUE,
-  git_ignore = FALSE, quiet = FALSE)
+use_pkgdown_yml(
+  .yml = NULL,
+  path = ".",
+  build_ignore = TRUE,
+  git_ignore = FALSE,
+  quiet = FALSE
+)
 
-use_bookdown_yml(.yml = NULL, path = ".", build_ignore = FALSE,
-  git_ignore = FALSE, quiet = FALSE)
+use_bookdown_yml(
+  .yml = NULL,
+  path = ".",
+  build_ignore = FALSE,
+  git_ignore = FALSE,
+  quiet = FALSE
+)
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
-a \code{yml_*()} function}
+a \verb{yml_*()} function}
 
 \item{path}{a file path to write the file to}
 
@@ -42,16 +72,16 @@ file?}
 }
 \description{
 Write \code{yml} objects to a file. \code{use_yml_file()} writes to any given file
-name. \code{use_output_yml()} creates file \code{_output.yml}, which can be used by
+name. \code{use_output_yml()} creates file \verb{_output.yml}, which can be used by
 multiple R Markdown documents. All documents located in the same directory as
-\code{_output.yml} will inherit its output options. Options defined within
-document YAML headers will override those specified in \code{_output.yml}. Note
+\verb{_output.yml} will inherit its output options. Options defined within
+document YAML headers will override those specified in \verb{_output.yml}. Note
 that \code{use_output_yml()} plucks the output field from \code{yml}; any other YAML
-top-level fields will be ignored. \code{use_site_yml} creates \code{_site.yml} for use
+top-level fields will be ignored. \code{use_site_yml} creates \verb{_site.yml} for use
 with R Markdown websites and third-party tools like the distill package (see
 \href{https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#}{the R Markdown book for more}).
 \code{use_navbar_yml} is a special type of site YAML that only specifies the
-navbar in \code{_navbar.yml} \code{use_pkgdown_yml()} and \code{use_bookdown_yml()} write
+navbar in \verb{_navbar.yml} \code{use_pkgdown_yml()} and \code{use_bookdown_yml()} write
 YAML files specific to those packages; see the
 \href{https://pkgdown.r-lib.org/articles/pkgdown.html}{pkgdown} and
 \href{https://bookdown.org/yihui/bookdown/configuration.html}{blogdown}
@@ -69,23 +99,33 @@ yml_bookdown_opts yml_bookdown_site yml_pkgdown yml_pkgdown_articles
 yml_pkgdown_docsearch yml_pkgdown_figures yml_pkgdown_news
 yml_pkgdown_reference
 
-Other yml: \code{\link{asis_yaml_output}},
-  \code{\link{bib2yml}}, \code{\link{draw_yml_tree}},
-  \code{\link{has_field}}, \code{\link{read_json}},
-  \code{\link{use_yml_defaults}}, \code{\link{use_yml}},
-  \code{\link{yml_author}},
-  \code{\link{yml_blogdown_opts}},
-  \code{\link{yml_bookdown_opts}},
-  \code{\link{yml_citations}}, \code{\link{yml_clean}},
-  \code{\link{yml_distill_opts}},
-  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
-  \code{\link{yml_pagedown_opts}},
-  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
-  \code{\link{yml_reference}}, \code{\link{yml_replace}},
-  \code{\link{yml_resource_files}},
-  \code{\link{yml_rsconnect_email}},
-  \code{\link{yml_rticles_opts}},
-  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
-  \code{\link{yml_toc}}, \code{\link{yml_vignette}}
+Other yml: 
+\code{\link{asis_yaml_output}()},
+\code{\link{bib2yml}()},
+\code{\link{draw_yml_tree}()},
+\code{\link{has_field}()},
+\code{\link{read_json}()},
+\code{\link{use_yml_defaults}()},
+\code{\link{use_yml}()},
+\code{\link{yml_author}()},
+\code{\link{yml_blogdown_opts}()},
+\code{\link{yml_bookdown_opts}()},
+\code{\link{yml_citations}()},
+\code{\link{yml_clean}()},
+\code{\link{yml_distill_opts}()},
+\code{\link{yml_latex_opts}()},
+\code{\link{yml_output}()},
+\code{\link{yml_pagedown_opts}()},
+\code{\link{yml_params}()},
+\code{\link{yml_pkgdown}()},
+\code{\link{yml_reference}()},
+\code{\link{yml_replace}()},
+\code{\link{yml_resource_files}()},
+\code{\link{yml_rsconnect_email}()},
+\code{\link{yml_rticles_opts}()},
+\code{\link{yml_runtime}()},
+\code{\link{yml_site_opts}()},
+\code{\link{yml_toc}()},
+\code{\link{yml_vignette}()}
 }
 \concept{yml}

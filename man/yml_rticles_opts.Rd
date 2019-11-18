@@ -7,26 +7,42 @@
 \alias{rticles_corr_author}
 \title{Set YAML related to rticles output formats}
 \usage{
-yml_rticles_opts(.yml, title = yml_blank(), runninghead = yml_blank(),
-  author = yml_blank(), authormark = yml_blank(),
-  address = yml_blank(), corrauth = yml_blank(),
-  corres = yml_blank(), email = yml_blank(), abstract = yml_blank(),
-  received = yml_blank(), revised = yml_blank(),
-  accepted = yml_blank(), keywords = yml_blank(),
-  bibliography = yml_blank(), longtable = yml_blank(),
-  classoption = yml_blank(), header_includes = yml_blank(),
-  include_after = yml_blank(), ...)
+yml_rticles_opts(
+  .yml,
+  title = yml_blank(),
+  runninghead = yml_blank(),
+  author = yml_blank(),
+  authormark = yml_blank(),
+  address = yml_blank(),
+  corrauth = yml_blank(),
+  corres = yml_blank(),
+  email = yml_blank(),
+  abstract = yml_blank(),
+  received = yml_blank(),
+  revised = yml_blank(),
+  accepted = yml_blank(),
+  keywords = yml_blank(),
+  bibliography = yml_blank(),
+  longtable = yml_blank(),
+  classoption = yml_blank(),
+  header_includes = yml_blank(),
+  include_after = yml_blank(),
+  ...
+)
 
 rticles_author(name = yml_blank(), num = yml_blank())
 
 rticles_address(name = yml_blank(), org = yml_blank())
 
-rticles_corr_author(name = yml_blank(), author = yml_blank(),
-  address = yml_blank())
+rticles_corr_author(
+  name = yml_blank(),
+  author = yml_blank(),
+  address = yml_blank()
+)
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
-a \code{yml_*()} function}
+a \verb{yml_*()} function}
 
 \item{title}{Title of the manuscript}
 
@@ -69,11 +85,11 @@ pandoc to convert markdown to LaTeX code (sim_article)}
 \code{sagej} class (sage_article)}
 
 \item{header_includes}{additional LaTeX code to include in the header, before
-the \code{\\begin\{document\}} statement (sage_article, sim_article). Note that
+the \verb{\\\\begin\\\{document\\\}} statement (sage_article, sim_article). Note that
 the actual YAML field is \code{header-includes}}
 
 \item{include_after}{additional LaTeX code to include before the
-\code{\\end\{document\}} statement (sage_article, sim_article). Note that the
+\verb{\\\\end\\\{document\\\}} statement (sage_article, sim_article). Note that the
 actual YAML field is \code{include-after}.}
 
 \item{...}{additional named R objects, such as characters or lists, to
@@ -102,23 +118,33 @@ yml() \%>\%
 
 }
 \seealso{
-Other yml: \code{\link{asis_yaml_output}},
-  \code{\link{bib2yml}}, \code{\link{draw_yml_tree}},
-  \code{\link{has_field}}, \code{\link{read_json}},
-  \code{\link{use_yml_defaults}},
-  \code{\link{use_yml_file}}, \code{\link{use_yml}},
-  \code{\link{yml_author}},
-  \code{\link{yml_blogdown_opts}},
-  \code{\link{yml_bookdown_opts}},
-  \code{\link{yml_citations}}, \code{\link{yml_clean}},
-  \code{\link{yml_distill_opts}},
-  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
-  \code{\link{yml_pagedown_opts}},
-  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
-  \code{\link{yml_reference}}, \code{\link{yml_replace}},
-  \code{\link{yml_resource_files}},
-  \code{\link{yml_rsconnect_email}},
-  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
-  \code{\link{yml_toc}}, \code{\link{yml_vignette}}
+Other yml: 
+\code{\link{asis_yaml_output}()},
+\code{\link{bib2yml}()},
+\code{\link{draw_yml_tree}()},
+\code{\link{has_field}()},
+\code{\link{read_json}()},
+\code{\link{use_yml_defaults}()},
+\code{\link{use_yml_file}()},
+\code{\link{use_yml}()},
+\code{\link{yml_author}()},
+\code{\link{yml_blogdown_opts}()},
+\code{\link{yml_bookdown_opts}()},
+\code{\link{yml_citations}()},
+\code{\link{yml_clean}()},
+\code{\link{yml_distill_opts}()},
+\code{\link{yml_latex_opts}()},
+\code{\link{yml_output}()},
+\code{\link{yml_pagedown_opts}()},
+\code{\link{yml_params}()},
+\code{\link{yml_pkgdown}()},
+\code{\link{yml_reference}()},
+\code{\link{yml_replace}()},
+\code{\link{yml_resource_files}()},
+\code{\link{yml_rsconnect_email}()},
+\code{\link{yml_runtime}()},
+\code{\link{yml_site_opts}()},
+\code{\link{yml_toc}()},
+\code{\link{yml_vignette}()}
 }
 \concept{yml}

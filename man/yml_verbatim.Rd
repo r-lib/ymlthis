@@ -14,7 +14,7 @@ an object of class \code{verbatim}
 }
 \description{
 \code{yml_verbatim()} is a helper function to write YAML precisely as given to the
-\code{yml_*()} function rather than the defaults in ymlthis and yaml. ymlthis uses
+\verb{yml_*()} function rather than the defaults in ymlthis and yaml. ymlthis uses
 the yaml package to check for valid syntax; yaml and ymlthis together make
 decisions about how to write syntax, which can often be done in numerous
 valid ways. See \code{\link[yaml:as.yaml]{yaml::as.yaml()}} for more details.

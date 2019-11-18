@@ -4,16 +4,28 @@
 \alias{gitbook_config}
 \title{Configure \code{bookdown::gitbook()} output}
 \usage{
-gitbook_config(toc_collapse = yml_blank(),
-  toc_scroll_highlight = yml_blank(), toc_before = yml_blank(),
-  toc_after = yml_blank(), toolbar_position = yml_blank(),
-  edit = yml_blank(), download = yml_blank(), search = yml_blank(),
-  fontsettings_theme = yml_blank(), fontsettings_family = yml_blank(),
-  fontsettings_size = yml_blank(), sharing_facebook = yml_blank(),
-  sharing_twitter = yml_blank(), sharing_google = yml_blank(),
-  sharing_linkedin = yml_blank(), sharing_weibo = yml_blank(),
-  sharing_instapaper = yml_blank(), sharing_vk = yml_blank(),
-  sharing_all = yml_blank(), ...)
+gitbook_config(
+  toc_collapse = yml_blank(),
+  toc_scroll_highlight = yml_blank(),
+  toc_before = yml_blank(),
+  toc_after = yml_blank(),
+  toolbar_position = yml_blank(),
+  edit = yml_blank(),
+  download = yml_blank(),
+  search = yml_blank(),
+  fontsettings_theme = yml_blank(),
+  fontsettings_family = yml_blank(),
+  fontsettings_size = yml_blank(),
+  sharing_facebook = yml_blank(),
+  sharing_twitter = yml_blank(),
+  sharing_google = yml_blank(),
+  sharing_linkedin = yml_blank(),
+  sharing_weibo = yml_blank(),
+  sharing_instapaper = yml_blank(),
+  sharing_vk = yml_blank(),
+  sharing_all = yml_blank(),
+  ...
+)
 }
 \arguments{
 \item{toc_collapse}{Collapse some items initially when a page is loaded via
@@ -24,7 +36,7 @@ the collapse option. Its possible values are "subsection" (the default),
 scroll the book body? The default is \code{TRUE}.}
 
 \item{toc_before, toc_after}{a character vector of HTML to add more items
-before and after the TOC using the HTML tag \code{<li>}. These items will be
+before and after the TOC using the HTML tag \verb{<li>}. These items will be
 separated from the TOC using a horizontal divider.}
 
 \item{toolbar_position}{The toolbar position: "fixed" or "static." The
@@ -37,7 +49,7 @@ whereas when set to "static" the toolbar will not scroll with the page.}
 character vectors with the length of each vector being 2. When it is a
 character vector, it should be either a vector of filenames or filename
 extensions. When you only provide the filename extensions, the filename is
-derived from the book filename of the configuration file \code{_bookdown.yml}}
+derived from the book filename of the configuration file \verb{_bookdown.yml}}
 
 \item{search}{Include a search bar?}
 
@@ -79,6 +91,7 @@ a list to use in the \code{config} argument of \code{\link[bookdown:gitbook]{boo
 \code{\link[bookdown:gitbook]{bookdown::gitbook()}}, as described in the \href{https://bookdown.org/yihui/bookdown/html.html}{bookdown book}.
 }
 \seealso{
-Other bookdown: \code{\link{yml_bookdown_opts}}
+Other bookdown: 
+\code{\link{yml_bookdown_opts}()}
 }
 \concept{bookdown}

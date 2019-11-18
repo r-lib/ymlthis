@@ -20,35 +20,79 @@ shiny_params(.shiny)
 
 shiny_checkbox(label, value = FALSE, width = NULL)
 
-shiny_numeric(label, value, min = NA, max = NA, step = NA,
-  width = NULL)
+shiny_numeric(label, value, min = NA, max = NA, step = NA, width = NULL)
 
-shiny_slider(label, min, max, value, step = NULL, round = FALSE,
-  format = NULL, locale = NULL, ticks = TRUE, animate = FALSE,
-  width = NULL, sep = ",", pre = NULL, post = NULL,
-  timeFormat = NULL, timezone = NULL, dragRange = TRUE)
+shiny_slider(
+  label,
+  min,
+  max,
+  value,
+  step = NULL,
+  round = FALSE,
+  format = NULL,
+  locale = NULL,
+  ticks = TRUE,
+  animate = FALSE,
+  width = NULL,
+  sep = ",",
+  pre = NULL,
+  post = NULL,
+  timeFormat = NULL,
+  timezone = NULL,
+  dragRange = TRUE
+)
 
-shiny_date(label, value = NULL, min = NULL, max = NULL,
-  format = "yyyy-mm-dd", startview = "month", weekstart = 0,
-  language = "en", width = NULL, autoclose = TRUE,
-  datesdisabled = NULL, daysofweekdisabled = NULL)
+shiny_date(
+  label,
+  value = NULL,
+  min = NULL,
+  max = NULL,
+  format = "yyyy-mm-dd",
+  startview = "month",
+  weekstart = 0,
+  language = "en",
+  width = NULL,
+  autoclose = TRUE,
+  datesdisabled = NULL,
+  daysofweekdisabled = NULL
+)
 
 shiny_text(label, value = "", width = NULL, placeholder = NULL)
 
-shiny_file(label, multiple = FALSE, accept = NULL, width = NULL,
-  buttonLabel = "Browse...", placeholder = "No file selected")
+shiny_file(
+  label,
+  multiple = FALSE,
+  accept = NULL,
+  width = NULL,
+  buttonLabel = "Browse...",
+  placeholder = "No file selected"
+)
 
-shiny_radio(label, choices = NULL, selected = NULL, inline = FALSE,
-  width = NULL, choiceNames = NULL, choiceValues = NULL)
+shiny_radio(
+  label,
+  choices = NULL,
+  selected = NULL,
+  inline = FALSE,
+  width = NULL,
+  choiceNames = NULL,
+  choiceValues = NULL
+)
 
-shiny_select(label, choices, selected = NULL, multiple = FALSE,
-  selectize = TRUE, width = NULL, size = NULL)
+shiny_select(
+  label,
+  choices,
+  selected = NULL,
+  multiple = FALSE,
+  selectize = TRUE,
+  width = NULL,
+  size = NULL
+)
 
 shiny_password(label, value = "", width = NULL, placeholder = NULL)
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
-a \code{yml_*()} function}
+a \verb{yml_*()} function}
 
 \item{...}{additional named R objects, such as characters or lists, to
 transform into YAML}
@@ -59,7 +103,7 @@ transform into YAML}
 
 \item{value}{Initial value (\code{TRUE} or \code{FALSE}).}
 
-\item{width}{The width of the input, e.g. '400px', or '100%'; see
+\item{width}{The width of the input, e.g. '400px', or '100\%'; see
 \code{\link[shiny:validateCssUnit]{shiny::validateCssUnit()}}}
 
 \item{min}{Minimum allowed value}
@@ -95,7 +139,7 @@ using \code{\link[shiny:animationOptions]{shiny::animationOptions()}}}
 format string, to be passed to the Javascript strftime library. See
 \url{https://github.com/samsonjs/strftime} for more details. The allowed
 format specifications are very similar, but not identical, to those for R's
-\code{\link[base]{strftime}} function. For Dates, the default is \code{"\%F"}
+\code{\link[base:strftime]{base::strftime()}} function. For Dates, the default is \code{"\%F"}
 (like \code{"2015-07-01"}), and for POSIXt, the default is \code{"\%F \%T"}
 (like \code{"2015-07-01 15:32:10"}).}
 
@@ -139,7 +183,7 @@ be entered into the control. Internet Explorer 8 and 9 do not support this
 option.}
 
 \item{multiple}{Whether the user should be allowed to select and upload
-multiple files at once. \bold{Does not work on older browsers, including
+multiple files at once. \strong{Does not work on older browsers, including
 Internet Explorer 9 and earlier.}}
 
 \item{accept}{A character vector of MIME types; gives the browser a hint of
@@ -183,8 +227,8 @@ Examples.}
 
 \item{size}{Number of items to show in the selection box; a larger number
 will result in a taller box. Not compatible with \code{selectize=TRUE}.
-Normally, when \code{multiple=FALSE}, a select input will be a drop-down
-list, but when \code{size} is set, it will be a box instead.}
+Normally, when \code{multiple=FALSE}, a select input will be a drop-down list,
+but when \code{size} is set, it will be a box instead.}
 }
 \value{
 a \code{yml} object
@@ -199,10 +243,10 @@ change the YAML, use the \code{params} argument in \code{rmarkdown::render()}, o
 with parameters, which launches a Shiny app to select values for each.
 \code{yml_params()} accepts any number of named R objects to set as YAML fields.
 You can also pass arguments to the underlying Shiny functions using YAML. To
-set a shiny component, use the \code{shiny_*()} helper functions. \code{shiny_params()}
+set a shiny component, use the \verb{shiny_*()} helper functions. \code{shiny_params()}
 captures a Shiny output function and transforms it to YAML. However, R
 Markdown supports only a limited number of components; each of these is
-included as a function starting with \code{shiny_*()}, e.g. \code{shiny_checkbox()}
+included as a function starting with \verb{shiny_*()}, e.g. \code{shiny_checkbox()}
 }
 \examples{
 
@@ -218,31 +262,43 @@ yml() \%>\%
 \seealso{
 \code{\link[=yml_params_code]{yml_params_code()}}
 
-Other yml: \code{\link{asis_yaml_output}},
-  \code{\link{bib2yml}}, \code{\link{draw_yml_tree}},
-  \code{\link{has_field}}, \code{\link{read_json}},
-  \code{\link{use_yml_defaults}},
-  \code{\link{use_yml_file}}, \code{\link{use_yml}},
-  \code{\link{yml_author}},
-  \code{\link{yml_blogdown_opts}},
-  \code{\link{yml_bookdown_opts}},
-  \code{\link{yml_citations}}, \code{\link{yml_clean}},
-  \code{\link{yml_distill_opts}},
-  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
-  \code{\link{yml_pagedown_opts}},
-  \code{\link{yml_pkgdown}}, \code{\link{yml_reference}},
-  \code{\link{yml_replace}},
-  \code{\link{yml_resource_files}},
-  \code{\link{yml_rsconnect_email}},
-  \code{\link{yml_rticles_opts}},
-  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
-  \code{\link{yml_toc}}, \code{\link{yml_vignette}}
+Other yml: 
+\code{\link{asis_yaml_output}()},
+\code{\link{bib2yml}()},
+\code{\link{draw_yml_tree}()},
+\code{\link{has_field}()},
+\code{\link{read_json}()},
+\code{\link{use_yml_defaults}()},
+\code{\link{use_yml_file}()},
+\code{\link{use_yml}()},
+\code{\link{yml_author}()},
+\code{\link{yml_blogdown_opts}()},
+\code{\link{yml_bookdown_opts}()},
+\code{\link{yml_citations}()},
+\code{\link{yml_clean}()},
+\code{\link{yml_distill_opts}()},
+\code{\link{yml_latex_opts}()},
+\code{\link{yml_output}()},
+\code{\link{yml_pagedown_opts}()},
+\code{\link{yml_pkgdown}()},
+\code{\link{yml_reference}()},
+\code{\link{yml_replace}()},
+\code{\link{yml_resource_files}()},
+\code{\link{yml_rsconnect_email}()},
+\code{\link{yml_rticles_opts}()},
+\code{\link{yml_runtime}()},
+\code{\link{yml_site_opts}()},
+\code{\link{yml_toc}()},
+\code{\link{yml_vignette}()}
 
-Other R Markdown: \code{\link{yml_clean}},
-  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
-  \code{\link{yml_vignette}}
+Other R Markdown: 
+\code{\link{yml_clean}()},
+\code{\link{yml_runtime}()},
+\code{\link{yml_site_opts}()},
+\code{\link{yml_vignette}()}
 
-Other shiny: \code{\link{yml_runtime}}
+Other shiny: 
+\code{\link{yml_runtime}()}
 }
 \concept{R Markdown}
 \concept{shiny}

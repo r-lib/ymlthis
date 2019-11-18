@@ -13,18 +13,18 @@ pkgdown_template(path = ".")
 a \code{yml} object
 }
 \description{
-pkgdown includes three helpful \code{pkgdown::template_*()} functions to generate
-the navbar, reference, and article YAML for the \code{_pkgdown.yml} file.
+pkgdown includes three helpful \verb{pkgdown::template_*()} functions to generate
+the navbar, reference, and article YAML for the \verb{_pkgdown.yml} file.
 \code{pkgdown_template()} is a wrapper function that runs all three, combines
 them, and converts them to a \code{yml} object. You may also pass
-\code{pkgdown::template_*()} functions to \code{as_yml()} to convert the individual
+\verb{pkgdown::template_*()} functions to \code{as_yml()} to convert the individual
 sections. \code{pkgdown_template()} is particularly useful with
-\code{use_pkgdown_yml()} to write directly to the \code{_pkgdown.yml} file.
+\code{use_pkgdown_yml()} to write directly to the \verb{_pkgdown.yml} file.
 }
 \examples{
 \donttest{
 # requires this to be a package directory
-pkgdown_template() \%>\%
+pkgdown_template() %>%
   use_pkgdown_yml()
 }
 
@@ -32,6 +32,7 @@ pkgdown_template() \%>\%
 \seealso{
 \code{\link[=use_pkgdown_yml]{use_pkgdown_yml()}}
 
-Other pkgdown: \code{\link{yml_pkgdown}}
+Other pkgdown: 
+\code{\link{yml_pkgdown}()}
 }
 \concept{pkgdown}

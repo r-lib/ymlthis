@@ -4,19 +4,36 @@
 \alias{yml_blogdown_opts}
 \title{Set Top-level YAML options for blogdown}
 \usage{
-yml_blogdown_opts(.yml, draft = yml_blank(), publishdate = yml_blank(),
-  weight = yml_blank(), slug = yml_blank(), aliases = yml_blank(),
-  audio = yml_blank(), date = yml_blank(), description = yml_blank(),
-  expiration_date = yml_blank(), headless = yml_blank(),
-  images = yml_blank(), keywords = yml_blank(), layout = yml_blank(),
-  lastmod = yml_blank(), link_title = yml_blank(),
-  resources = yml_blank(), series = yml_blank(),
-  summary = yml_blank(), title = yml_blank(), type = yml_blank(),
-  url = yml_blank(), videos = yml_blank(), ...)
+yml_blogdown_opts(
+  .yml,
+  draft = yml_blank(),
+  publishdate = yml_blank(),
+  weight = yml_blank(),
+  slug = yml_blank(),
+  aliases = yml_blank(),
+  audio = yml_blank(),
+  date = yml_blank(),
+  description = yml_blank(),
+  expiration_date = yml_blank(),
+  headless = yml_blank(),
+  images = yml_blank(),
+  keywords = yml_blank(),
+  layout = yml_blank(),
+  lastmod = yml_blank(),
+  link_title = yml_blank(),
+  resources = yml_blank(),
+  series = yml_blank(),
+  summary = yml_blank(),
+  title = yml_blank(),
+  type = yml_blank(),
+  url = yml_blank(),
+  videos = yml_blank(),
+  ...
+)
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
-a \code{yml_*()} function}
+a \verb{yml_*()} function}
 
 \item{draft}{Logical. Set post as a draft? Draft posts will not be rendered
 if the site is built via \code{blogdown::build_site()} or
@@ -111,23 +128,33 @@ yml() \%>\%
   )
 }
 \seealso{
-Other yml: \code{\link{asis_yaml_output}},
-  \code{\link{bib2yml}}, \code{\link{draw_yml_tree}},
-  \code{\link{has_field}}, \code{\link{read_json}},
-  \code{\link{use_yml_defaults}},
-  \code{\link{use_yml_file}}, \code{\link{use_yml}},
-  \code{\link{yml_author}},
-  \code{\link{yml_bookdown_opts}},
-  \code{\link{yml_citations}}, \code{\link{yml_clean}},
-  \code{\link{yml_distill_opts}},
-  \code{\link{yml_latex_opts}}, \code{\link{yml_output}},
-  \code{\link{yml_pagedown_opts}},
-  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
-  \code{\link{yml_reference}}, \code{\link{yml_replace}},
-  \code{\link{yml_resource_files}},
-  \code{\link{yml_rsconnect_email}},
-  \code{\link{yml_rticles_opts}},
-  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
-  \code{\link{yml_toc}}, \code{\link{yml_vignette}}
+Other yml: 
+\code{\link{asis_yaml_output}()},
+\code{\link{bib2yml}()},
+\code{\link{draw_yml_tree}()},
+\code{\link{has_field}()},
+\code{\link{read_json}()},
+\code{\link{use_yml_defaults}()},
+\code{\link{use_yml_file}()},
+\code{\link{use_yml}()},
+\code{\link{yml_author}()},
+\code{\link{yml_bookdown_opts}()},
+\code{\link{yml_citations}()},
+\code{\link{yml_clean}()},
+\code{\link{yml_distill_opts}()},
+\code{\link{yml_latex_opts}()},
+\code{\link{yml_output}()},
+\code{\link{yml_pagedown_opts}()},
+\code{\link{yml_params}()},
+\code{\link{yml_pkgdown}()},
+\code{\link{yml_reference}()},
+\code{\link{yml_replace}()},
+\code{\link{yml_resource_files}()},
+\code{\link{yml_rsconnect_email}()},
+\code{\link{yml_rticles_opts}()},
+\code{\link{yml_runtime}()},
+\code{\link{yml_site_opts}()},
+\code{\link{yml_toc}()},
+\code{\link{yml_vignette}()}
 }
 \concept{yml}

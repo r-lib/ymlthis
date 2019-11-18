@@ -39,23 +39,27 @@ library(ymlthis)
 oldoption <- options(devtools.name = "Malcolm Barrett")
 
 function_name <- function(x) {
-  function_call <- as.character(attr(x, "call"))
-  ifelse(rlang::has_length(function_call), function_call[[2]], NA)
+  function_call <- x$call
+  ifelse(rlang::has_length(function_call), as.character(function_call[[2]]), NA)
 }
 
+block_names <- function(x) x$tags %>% purrr::map_chr(~.x$tag)
+
 get_doc_name <- function(x) {
-  doc_name <- x[["rdname"]]
-  if (is.null(doc_name)) doc_name <- function_name(x)
-  doc_name
+  tags <- block_names(x)
+  rdname_index <- which(tags == "rdname")
+  if (purrr::is_empty(rdname_index)) return(function_name(x))
+  
+  x$tags[[rdname_index]]$val
 }
 
 get_params <- function(x) {
-  param_lists <- which(names(x) == "param")
+  param_lists <- which(block_names(x) == "param")
   f <- get_doc_name(x)
   if (!rlang::has_length(param_lists) || is.na(f)) return(data.frame())
   
-  params_desc <- x[param_lists] %>% 
-    purrr::map(as.data.frame, stringsAsFactors = FALSE) %>% 
+  params_desc <- x$tags[param_lists] %>% 
+    purrr::map(~as.data.frame(.x$val, stringsAsFactors = FALSE)) %>% 
      do.call(rbind, .)
   
   params_desc$description <- stringr::str_replace_all(
@@ -74,7 +78,7 @@ get_params <- function(x) {
 }
 
 link_help_page <- function(x) {
-  glue::glue("<a href='https://r-lib.github.io/ymlthis/reference/{x}.html'>{x}</a>")
+  glue::glue("<a href='https://ymlthis.r-lib.org//reference/{x}.html'>{x}</a>")
 } 
 
 filter_kable <- function(.tbl, .pattern = NULL, caption = NULL) {

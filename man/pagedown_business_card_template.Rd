@@ -5,14 +5,26 @@
 \alias{pagedown_person}
 \title{Generate a full YAML template for your pagedown business card}
 \usage{
-pagedown_business_card_template(name = yml_blank(),
-  person = yml_blank(), title = yml_blank(), phone = yml_blank(),
-  email = yml_blank(), url = yml_blank(), address = yml_blank(),
-  logo = yml_blank(), .repeat = yml_blank(),
-  paperwidth = yml_blank(), paperheight = yml_blank(),
-  cardwidth = yml_blank(), cardheight = yml_blank(),
-  cols = yml_blank(), rows = yml_blank(), mainfont = yml_blank(),
-  googlefonts = yml_blank(), ...)
+pagedown_business_card_template(
+  name = yml_blank(),
+  person = yml_blank(),
+  title = yml_blank(),
+  phone = yml_blank(),
+  email = yml_blank(),
+  url = yml_blank(),
+  address = yml_blank(),
+  logo = yml_blank(),
+  .repeat = yml_blank(),
+  paperwidth = yml_blank(),
+  paperheight = yml_blank(),
+  cardwidth = yml_blank(),
+  cardheight = yml_blank(),
+  cols = yml_blank(),
+  rows = yml_blank(),
+  mainfont = yml_blank(),
+  googlefonts = yml_blank(),
+  ...
+)
 
 pagedown_person(...)
 }
@@ -37,7 +49,7 @@ Use \code{pagedown_person()} to do so or manually provide them using \code{list(
 \item{logo}{A path to a logo file}
 
 \item{.repeat}{The number of cards to repeat. Note that the actual YAML field
-is \code{repeat}.}
+is \verb{repeat}.}
 
 \item{paperwidth}{The paper width}
 
@@ -117,6 +129,7 @@ pagedown_business_card_template(
 \seealso{
 \code{\link[=use_rmarkdown]{use_rmarkdown()}}
 
-Other pagedown: \code{\link{yml_pagedown_opts}}
+Other pagedown: 
+\code{\link{yml_pagedown_opts}()}
 }
 \concept{pagedown}

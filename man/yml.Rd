@@ -31,13 +31,13 @@ fields, respectively. If you've set default YAML in
 \code{getOption("ymlthis.default_option")} (see \code{\link[=use_yml_defaults]{use_yml_defaults()}}), \code{yml()}
 will also use include those fields by default. \code{yml_empty()} is a wrapper
 that doesn't use any of these default YAML fields. \code{yml()} and all
-related\code{yml_*()} functions validate that the results are indeed valid YAML
+related\verb{yml_*()} functions validate that the results are indeed valid YAML
 syntax, although not every function is able to check that the input fields
 are valid for the setting they are used in.
 }
 \details{
 \code{.yml} accepts a character vector of YAML, such as "author: Hadley Wickham",
-an object returned by ymlthis functions that start with \code{yml_*()}, or a
+an object returned by ymlthis functions that start with \verb{yml_*()}, or a
 \code{list} object (e.g. \code{list(author = "Hadley Wickham")}). \code{.yml} objects are
 processed with \code{\link[=as_yml]{as_yml()}}, a wrapper around \code{\link[yaml:yaml.load]{yaml::yaml.load()}}. See that
 function for more details.
@@ -55,18 +55,18 @@ yml(date = FALSE)
     c("data cleaning", "data tidying", "relational databases", "R")
   )
 \donttest{
-yml() \%>\%
+yml() %>%
   yml_author(
     c("Yihui Xie", "Hadley Wickham"),
     affiliation = rep("RStudio", 2)
-  ) \%>\%
-  yml_date("07/04/2019") \%>\%
+  ) %>%
+  yml_date("07/04/2019") %>%
   yml_output(
     pdf_document(
     keep_tex = TRUE,
     includes = includes2(after_body = "footer.tex")
    )
-  ) \%>\%
+  ) %>%
   yml_latex_opts(biblio_style = "apalike")
 }
 }

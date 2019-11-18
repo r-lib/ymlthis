@@ -8,7 +8,7 @@ last_yml()
 }
 \description{
 ymlthis stores the most recently printed \code{yml} object; you can use
-\code{last_yml()} to retrieve it to modify, pass to \code{use_*()} functions, and so
+\code{last_yml()} to retrieve it to modify, pass to \verb{use_*()} functions, and so
 on.
 }
 \examples{

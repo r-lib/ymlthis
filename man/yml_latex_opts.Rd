@@ -4,33 +4,58 @@
 \alias{yml_latex_opts}
 \title{Set LaTeX YAML options for PDF output}
 \usage{
-yml_latex_opts(.yml, block_headings = yml_blank(),
-  classoption = yml_blank(), documentclass = yml_blank(),
-  geometry = yml_blank(), indent = yml_blank(),
-  linestretch = yml_blank(), margin_left = yml_blank(),
-  margin_right = yml_blank(), margin_top = yml_blank(),
-  margin_bottom = yml_blank(), pagestyle = yml_blank(),
-  papersize = yml_blank(), secnumdepth = yml_blank(),
-  fontenc = yml_blank(), fontfamily = yml_blank(),
-  fontfamilyoptions = yml_blank(), fontsize = yml_blank(),
-  mainfont = yml_blank(), sansfont = yml_blank(),
-  monofont = yml_blank(), mathfont = yml_blank(),
-  CJKmainfont = yml_blank(), mainfontoptions = yml_blank(),
-  sansfontoptions = yml_blank(), monofontoptions = yml_blank(),
-  mathfontoptions = yml_blank(), CJKoptions = yml_blank(),
-  microtypeoptions = yml_blank(), colorlinks = yml_blank(),
-  linkcolor = yml_blank(), filecolor = yml_blank(),
-  citecolor = yml_blank(), urlcolor = yml_blank(),
-  toccolor = yml_blank(), links_as_notes = yml_blank(),
-  lof = yml_blank(), lot = yml_blank(), thanks = yml_blank(),
-  toc = yml_blank(), toc_depth = yml_blank(),
-  biblatexoptions = yml_blank(), biblio_style = yml_blank(),
-  biblio_title = yml_blank(), bibliography = yml_blank(),
-  natbiboptions = yml_blank())
+yml_latex_opts(
+  .yml,
+  block_headings = yml_blank(),
+  classoption = yml_blank(),
+  documentclass = yml_blank(),
+  geometry = yml_blank(),
+  indent = yml_blank(),
+  linestretch = yml_blank(),
+  margin_left = yml_blank(),
+  margin_right = yml_blank(),
+  margin_top = yml_blank(),
+  margin_bottom = yml_blank(),
+  pagestyle = yml_blank(),
+  papersize = yml_blank(),
+  secnumdepth = yml_blank(),
+  fontenc = yml_blank(),
+  fontfamily = yml_blank(),
+  fontfamilyoptions = yml_blank(),
+  fontsize = yml_blank(),
+  mainfont = yml_blank(),
+  sansfont = yml_blank(),
+  monofont = yml_blank(),
+  mathfont = yml_blank(),
+  CJKmainfont = yml_blank(),
+  mainfontoptions = yml_blank(),
+  sansfontoptions = yml_blank(),
+  monofontoptions = yml_blank(),
+  mathfontoptions = yml_blank(),
+  CJKoptions = yml_blank(),
+  microtypeoptions = yml_blank(),
+  colorlinks = yml_blank(),
+  linkcolor = yml_blank(),
+  filecolor = yml_blank(),
+  citecolor = yml_blank(),
+  urlcolor = yml_blank(),
+  toccolor = yml_blank(),
+  links_as_notes = yml_blank(),
+  lof = yml_blank(),
+  lot = yml_blank(),
+  thanks = yml_blank(),
+  toc = yml_blank(),
+  toc_depth = yml_blank(),
+  biblatexoptions = yml_blank(),
+  biblio_style = yml_blank(),
+  biblio_title = yml_blank(),
+  bibliography = yml_blank(),
+  natbiboptions = yml_blank()
+)
 }
 \arguments{
 \item{.yml}{a \code{yml} object created by \code{yml()}, \code{as_yml()}, or returned by
-a \code{yml_*()} function}
+a \verb{yml_*()} function}
 
 \item{block_headings}{make paragraph and subparagraph (fourth- and
 fifth-level headings, or fifth- and sixth-level with book classes)
@@ -54,7 +79,7 @@ paragraphs.}
 
 \item{margin_left, margin_right, margin_top, margin_bottom}{sets margins if
 \code{geometry} is not used, otherwise \code{geometry} overrides these. Note that the
-actual YAML fields use \code{-} instead of \code{_}, e.g. \code{margin-left}.}
+actual YAML fields use \verb{-} instead of \verb{_}, e.g. \code{margin-left}.}
 
 \item{pagestyle}{control the \code{pagestyle} LaTeX command: the default article
 class supports "plain" (default), "empty" (no running heads or page
@@ -140,8 +165,8 @@ these descriptions were derived), as when making a PDF document with
 }
 \examples{
 \donttest{
-yml() \%>\%
-   yml_output(pdf_document()) \%>\%
+yml() %>%
+   yml_output(pdf_document()) %>%
    yml_latex_opts(
      fontfamily = "Fira Sans Thin",
      fontsize = "11pt",
@@ -150,23 +175,33 @@ yml() \%>\%
 }
 }
 \seealso{
-Other yml: \code{\link{asis_yaml_output}},
-  \code{\link{bib2yml}}, \code{\link{draw_yml_tree}},
-  \code{\link{has_field}}, \code{\link{read_json}},
-  \code{\link{use_yml_defaults}},
-  \code{\link{use_yml_file}}, \code{\link{use_yml}},
-  \code{\link{yml_author}},
-  \code{\link{yml_blogdown_opts}},
-  \code{\link{yml_bookdown_opts}},
-  \code{\link{yml_citations}}, \code{\link{yml_clean}},
-  \code{\link{yml_distill_opts}}, \code{\link{yml_output}},
-  \code{\link{yml_pagedown_opts}},
-  \code{\link{yml_params}}, \code{\link{yml_pkgdown}},
-  \code{\link{yml_reference}}, \code{\link{yml_replace}},
-  \code{\link{yml_resource_files}},
-  \code{\link{yml_rsconnect_email}},
-  \code{\link{yml_rticles_opts}},
-  \code{\link{yml_runtime}}, \code{\link{yml_site_opts}},
-  \code{\link{yml_toc}}, \code{\link{yml_vignette}}
+Other yml: 
+\code{\link{asis_yaml_output}()},
+\code{\link{bib2yml}()},
+\code{\link{draw_yml_tree}()},
+\code{\link{has_field}()},
+\code{\link{read_json}()},
+\code{\link{use_yml_defaults}()},
+\code{\link{use_yml_file}()},
+\code{\link{use_yml}()},
+\code{\link{yml_author}()},
+\code{\link{yml_blogdown_opts}()},
+\code{\link{yml_bookdown_opts}()},
+\code{\link{yml_citations}()},
+\code{\link{yml_clean}()},
+\code{\link{yml_distill_opts}()},
+\code{\link{yml_output}()},
+\code{\link{yml_pagedown_opts}()},
+\code{\link{yml_params}()},
+\code{\link{yml_pkgdown}()},
+\code{\link{yml_reference}()},
+\code{\link{yml_replace}()},
+\code{\link{yml_resource_files}()},
+\code{\link{yml_rsconnect_email}()},
+\code{\link{yml_rticles_opts}()},
+\code{\link{yml_runtime}()},
+\code{\link{yml_site_opts}()},
+\code{\link{yml_toc}()},
+\code{\link{yml_vignette}()}
 }
 \concept{yml}
