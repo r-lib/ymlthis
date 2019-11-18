@@ -1,5 +1,6 @@
-# ymlthis (development version)
+# ymlthis 0.1.1
 
+* Fixed errors in the fieldguide introduced by changes in roxygen2 7.0.0 (#50)
 * Add option `ymlthis.remove_blank_line`. If `TRUE`, YAML files will have their final lines removed (#42)
 * Synced arguments for `use_rmarkdown()` and `use_index_rmd()` and added `open_doc` argument to disable opening file (#41)
 * Fix bug where `usethis::write_over()` was not getting the `quiet` argument set correctly (issue #37)
