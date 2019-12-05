@@ -1,5 +1,7 @@
 # ymlthis (development version)
 
+* fixed bug wjere removing a blank line did not work because it called the wrong object (issue #52, thanks @dchiu911) 
+
 # ymlthis 0.1.1
 
 * Fixed errors in the fieldguide introduced by changes in roxygen2 7.0.0 (#50)

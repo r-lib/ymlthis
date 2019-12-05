@@ -210,7 +210,7 @@ write_yml_file <- function(.yml, path, build_ignore = FALSE, git_ignore = FALSE,
       column.major = FALSE
     )
 
-    if (check_remove_blank_line()) .yml <- remove_blank_line(.yml)
+    if (check_remove_blank_line()) yml_txt <- remove_blank_line(yml_txt)
     usethis::write_over(path, yml_txt, quiet = quiet)
     return(invisible(path))
   }
