@@ -6,3 +6,5 @@
 ## R CMD check results
 
 0 errors | 0 warnings | 0 note
+
+* This patch fixes CRAN warnings due to the recent R CMD Check documentation bug fix
