@@ -49,7 +49,7 @@ Use \code{pagedown_person()} to do so or manually provide them using \code{list(
 \item{logo}{A path to a logo file}
 
 \item{.repeat}{The number of cards to repeat. Note that the actual YAML field
-is \verb{repeat}.}
+is \code{repeat}.}
 
 \item{paperwidth}{The paper width}
 

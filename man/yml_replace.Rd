@@ -40,16 +40,16 @@ objects.
 }
 \examples{
 \donttest{
-yml() %>%
-  yml_clean(TRUE) %>%
-  yml_replace(clean = FALSE) %>%
+yml() \%>\%
+  yml_clean(TRUE) \%>\%
+  yml_replace(clean = FALSE) \%>\%
   yml_discard("author")
 
-yml() %>%
+yml() \%>\%
   yml_output(
     pdf_document(),
     html_document()
-  )%>%
+  )\%>\%
   yml_discard(~ length(.x) > 1)
 }
 

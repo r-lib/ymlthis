@@ -79,7 +79,7 @@ paragraphs.}
 
 \item{margin_left, margin_right, margin_top, margin_bottom}{sets margins if
 \code{geometry} is not used, otherwise \code{geometry} overrides these. Note that the
-actual YAML fields use \verb{-} instead of \verb{_}, e.g. \code{margin-left}.}
+actual YAML fields use \code{-} instead of \verb{_}, e.g. \code{margin-left}.}
 
 \item{pagestyle}{control the \code{pagestyle} LaTeX command: the default article
 class supports "plain" (default), "empty" (no running heads or page
@@ -165,8 +165,8 @@ these descriptions were derived), as when making a PDF document with
 }
 \examples{
 \donttest{
-yml() %>%
-   yml_output(pdf_document()) %>%
+yml() \%>\%
+   yml_output(pdf_document()) \%>\%
    yml_latex_opts(
      fontfamily = "Fira Sans Thin",
      fontsize = "11pt",

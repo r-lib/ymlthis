@@ -36,9 +36,6 @@ that the actual YAML field is \code{links-to-footnotes}}
 
 \item{paged_footnotes}{Logical. Render notes as footnotes? Note that the
 actual YAML field is \code{paged-footnotes}}
-
-\item{...}{additional named R objects, such as characters or lists, to
-transform into YAML}
 }
 \value{
 a \code{yml} object

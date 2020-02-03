@@ -18,7 +18,6 @@
 #'   that the actual YAML field is `links-to-footnotes`
 #' @param paged_footnotes Logical. Render notes as footnotes? Note that the
 #'   actual YAML field is `paged-footnotes`
-#' @template describe_dots_param
 #'
 #' @template describe_yml_output
 #' @export

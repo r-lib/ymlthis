@@ -48,25 +48,25 @@ yml()
 
 yml(date = FALSE)
 
-"author: Hadley Wickham\\ndate: 2014-09-12" \%>\%
+"author: Hadley Wickham\ndate: 2014-09-12" \%>\%
   yml() \%>\%
   yml_title("Tidy Data") \%>\%
   yml_keywords(
     c("data cleaning", "data tidying", "relational databases", "R")
   )
 \donttest{
-yml() %>%
+yml() \%>\%
   yml_author(
     c("Yihui Xie", "Hadley Wickham"),
     affiliation = rep("RStudio", 2)
-  ) %>%
-  yml_date("07/04/2019") %>%
+  ) \%>\%
+  yml_date("07/04/2019") \%>\%
   yml_output(
     pdf_document(
     keep_tex = TRUE,
     includes = includes2(after_body = "footer.tex")
    )
-  ) %>%
+  ) \%>\%
   yml_latex_opts(biblio_style = "apalike")
 }
 }

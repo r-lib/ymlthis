@@ -23,11 +23,11 @@ object to the console.
 # draw the most recently used `yml`
 draw_yml_tree()
 \donttest{
-yml() %>%
+yml() \%>\%
   yml_output(
     pdf_document(keep_tex = TRUE),
     html_document()
-  ) %>%
+  ) \%>\%
     draw_yml_tree()
 }
 }

@@ -93,10 +93,10 @@ bref <- c(
 )
 \donttest{
 # requires pandoc-citeproc to be installed
-yml() %>%
+yml() \%>\%
   yml_reference(.bibentry = bref)
 
-yml() %>%
+yml() \%>\%
   yml_reference(.bibentry = citation("purrr"))
 }
 }

@@ -30,7 +30,7 @@ ymlthis treats NULLs as literal YAML syntax ("null").
 }
 \examples{
 \donttest{
-yml() %>%
+yml() \%>\%
   yml_output(
     pdf_document(includes = includes2(after_body = "footer.tex"))
   )

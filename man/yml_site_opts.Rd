@@ -49,7 +49,7 @@ a \verb{yml_*()} function}
 if none is specified)}
 
 \item{include, exclude}{Files to include or exclude from the copied into
-\code{output_dir}. You can use \verb{*} to indicate a wildcard selection, e.g.
+\code{output_dir}. You can use \code{*} to indicate a wildcard selection, e.g.
 "*.csv".}
 
 \item{new_session}{Logical. Should each website file be rendered in a new

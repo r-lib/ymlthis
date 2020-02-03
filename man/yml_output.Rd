@@ -29,10 +29,10 @@ function using \code{?pdf_document}.
 }
 \examples{
 \donttest{
-yml() %>%
+yml() \%>\%
   yml_output(html_document())
 
-yml() %>%
+yml() \%>\%
   yml_output(
     pdf_document(keep_tex = TRUE, includes = includes2(after_body = "footer.tex")),
     bookdown::html_document2()

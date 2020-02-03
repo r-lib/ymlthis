@@ -115,7 +115,7 @@ x
 
 
 \donttest{
-output_yml <- yml_empty() %>%
+output_yml <- yml_empty() \%>\%
   yml_output(
     bookdown::gitbook(
       lib_dir = "assets",
