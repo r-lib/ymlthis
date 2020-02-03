@@ -1,5 +1,6 @@
 # ymlthis 0.1.2
 
+* updated roxygen2 rendering and removed unnecesary `...` description from `yml_pagedown_opts()`
 * fixed bug where removing a blank line did not work because it called the wrong object (issue #52, thanks @dchiu911) 
 
 # ymlthis 0.1.1
