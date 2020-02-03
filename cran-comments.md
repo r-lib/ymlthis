@@ -6,5 +6,3 @@
 ## R CMD check results
 
 0 errors | 0 warnings | 0 note
-
-* This is a patch to fix errors after release of roxygen2 7.0.0
