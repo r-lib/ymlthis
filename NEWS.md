@@ -1,4 +1,4 @@
-# ymlthis (development version)
+# ymlthis 0.1.2
 
 * fixed bug where removing a blank line did not work because it called the wrong object (issue #52, thanks @dchiu911) 
 
