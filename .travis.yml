@@ -20,22 +20,3 @@ jobs:
     r: release
     r_binary_packages: covr
     script: Rscript -e "covr::codecov()"
-
-  - stage: deploy
-    name: pkgdown
-    r: release
-    if: branch IN (master)
-    script:
-    - Rscript -e "remotes::install_cran(c('pkgdown', 'lubridate', 'devtools'))"
-    - Rscript -e "devtools::install()"
-    - Rscript -e "Sys.setenv(FULLNAME = 'Malcolm Barrett'); pkgdown::build_site()"
-    - Rscript -e "remove.packages('ymlthis')"
-    deploy:
-      provider: pages
-      script: Rscript -e 'devtools::install()'
-      local-dir: docs
-      skip-cleanup: true
-      keep-history: false
-      on:
-        all_branches: true
-      github_token: $GITHUB_TOKEN
