@@ -119,52 +119,52 @@
 </h1>
 <p><strong>ymlthis</strong> makes it easy to write valid YAML by handling the syntax and documenting the majority of YAML fields in one place. <code><a href="../reference/yml.html">yml()</a></code> creates a <code>yml</code> object that, by default, sets the author name and date. <strong>ymlthis</strong> uses name options in <strong>devtools</strong> and <strong>usethis</strong> (<code><a href="https://rdrr.io/r/base/options.html">options(devtools.name = "name")</a></code> and <code><a href="https://rdrr.io/r/base/options.html">options(usethis.full_name = "name")</a></code>, respectively), as well as the <strong>whoami</strong> package, to try to find the author’s name. By default, the date is set to <code>`r format(Sys.Date())`</code>, which will update the date when knitting.</p>
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="../reference/yml.html">yml</a></span>()</pre></body></html></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="fu">author:</span><span class="at"> Malcolm Barrett</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="fu">date:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1"></a><span class="pp">---</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="pp">---</span></span></code></pre></div>
 <p>Functions that start with <code>yml_*()</code> take and return <code>yml</code> objects, so they can be used to add or modify YAML fields. For instance, to add a title, use <code><a href="../reference/yml_author.html">yml_title()</a></code></p>
 <div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="../reference/yml.html">yml</a></span>() <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/yml_author.html">yml_title</a></span>(<span class="st">"An introduction to ymlthis"</span>)</pre></body></html></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="fu">author:</span><span class="at"> Malcolm Barrett</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="fu">date:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="fu">title:</span><span class="at"> An introduction to ymlthis</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1"></a><span class="pp">---</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> An introduction to ymlthis</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="pp">---</span></span></code></pre></div>
 <p>An essential use of YAML in <strong>R Markdown</strong> is to set the output type. By default, the <code>output</code> YAML field looks like</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="fu">output:</span><span class="at"> html_document</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span></code></pre></div>
 <p>which calls <code><a href="https://rdrr.io/pkg/rmarkdown/man/html_document.html">rmarkdown::html_document()</a></code> when knitting. All of the nested fields passed to <code>output</code> come from the output function you are using (so you can check <code>?pkg::output_function()</code> to see what the options are). <strong>ymlthis</strong> writes and validates output YAML by parsing calls to these functions. We can, for example, nest <strong>R Markdown</strong>’s <code>pdf_document()</code> inside <code><a href="../reference/yml_output.html">yml_output()</a></code>:</p>
 <div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="../reference/yml.html">yml</a></span>() <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/yml_output.html">yml_output</a></span>(<span class="fu">pdf_document</span>())</pre></body></html></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="fu">author:</span><span class="at"> Malcolm Barrett</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="fu">date:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="fu">output:</span><span class="at"> pdf_document</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1"></a><span class="pp">---</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> pdf_document</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="pp">---</span></span></code></pre></div>
 <p>Passing arguments to the output functions will nest them correctly for YAML.</p>
 <div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="fu"><a href="../reference/yml.html">yml</a></span>() <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/yml_output.html">yml_output</a></span>(<span class="fu">pdf_document</span>(<span class="kw">toc</span> <span class="kw">=</span> <span class="fl">TRUE</span>))</pre></body></html></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="fu">author:</span><span class="at"> Malcolm Barrett</span></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="fu">date:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="fu">output:</span></a>
-<a class="sourceLine" id="cb9-5" data-line-number="5">  <span class="fu">pdf_document:</span></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6">    <span class="fu">toc:</span><span class="at"> true</span></a>
-<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1"></a><span class="pp">---</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="pp">---</span></span></code></pre></div>
 <p>And we can pass multiple output functions to facilitate rendering R Markdown files to multiple formats:</p>
 <div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="fu"><a href="../reference/yml.html">yml</a></span>() <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/yml_output.html">yml_output</a></span>(
     <span class="fu">pdf_document</span>(<span class="kw">toc</span> <span class="kw">=</span> <span class="fl">TRUE</span>),
     <span class="fu">html_document</span>()
   )</pre></body></html></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="fu">author:</span><span class="at"> Malcolm Barrett</span></a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="fu">date:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></a>
-<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="fu">output:</span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5">  <span class="fu">pdf_document:</span></a>
-<a class="sourceLine" id="cb11-6" data-line-number="6">    <span class="fu">toc:</span><span class="at"> true</span></a>
-<a class="sourceLine" id="cb11-7" data-line-number="7">  <span class="fu">html_document:</span><span class="at"> default</span></a>
-<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1"></a><span class="pp">---</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a><span class="pp">---</span></span></code></pre></div>
 <p>YAML fields can come from a variety of places: <strong>R Markdown</strong> itself, the output function, Pandoc (for example, as options used in LaTeX), and custom templates. Many of these fields are documented in <code>yml_*()</code> functions.</p>
 <div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="fu"><a href="../reference/yml.html">yml</a></span>() <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/yml_author.html">yml_author</a></span>(
@@ -181,40 +181,40 @@
     )
   ) <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/yml_latex_opts.html">yml_latex_opts</a></span>(<span class="kw">biblio_style</span> <span class="kw">=</span> <span class="st">"apalike"</span>)</pre></body></html></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="fu">author:</span></a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="kw">-</span> <span class="fu">name:</span><span class="at"> Yihui Xie</span></a>
-<a class="sourceLine" id="cb13-4" data-line-number="4">  <span class="fu">affiliation:</span><span class="at"> RStudio</span></a>
-<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="kw">-</span> <span class="fu">name:</span><span class="at"> Hadley Wickham</span></a>
-<a class="sourceLine" id="cb13-6" data-line-number="6">  <span class="fu">affiliation:</span><span class="at"> RStudio</span></a>
-<a class="sourceLine" id="cb13-7" data-line-number="7"><span class="fu">date:</span><span class="at"> 07/04/2019</span></a>
-<a class="sourceLine" id="cb13-8" data-line-number="8"><span class="fu">title:</span><span class="at"> Reproducible Research in R</span></a>
-<a class="sourceLine" id="cb13-9" data-line-number="9"><span class="fu">category:</span></a>
-<a class="sourceLine" id="cb13-10" data-line-number="10"><span class="kw">-</span> r</a>
-<a class="sourceLine" id="cb13-11" data-line-number="11"><span class="kw">-</span> reprodicibility</a>
-<a class="sourceLine" id="cb13-12" data-line-number="12"><span class="fu">output:</span></a>
-<a class="sourceLine" id="cb13-13" data-line-number="13">  <span class="fu">pdf_document:</span></a>
-<a class="sourceLine" id="cb13-14" data-line-number="14">    <span class="fu">keep_tex:</span><span class="at"> true</span></a>
-<a class="sourceLine" id="cb13-15" data-line-number="15">    <span class="fu">includes:</span></a>
-<a class="sourceLine" id="cb13-16" data-line-number="16">      <span class="fu">after_body:</span><span class="at"> footer.tex</span></a>
-<a class="sourceLine" id="cb13-17" data-line-number="17"><span class="fu">biblio-style:</span><span class="at"> apalike</span></a>
-<a class="sourceLine" id="cb13-18" data-line-number="18"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1"></a><span class="pp">---</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="fu">author</span><span class="kw">:</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Yihui Xie</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="at">  </span><span class="fu">affiliation</span><span class="kw">:</span><span class="at"> RStudio</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Hadley Wickham</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="at">  </span><span class="fu">affiliation</span><span class="kw">:</span><span class="at"> RStudio</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> 07/04/2019</span></span>
+<span id="cb13-8"><a href="#cb13-8"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Reproducible Research in R</span></span>
+<span id="cb13-9"><a href="#cb13-9"></a><span class="fu">category</span><span class="kw">:</span></span>
+<span id="cb13-10"><a href="#cb13-10"></a><span class="kw">-</span><span class="at"> r</span></span>
+<span id="cb13-11"><a href="#cb13-11"></a><span class="kw">-</span><span class="at"> reprodicibility</span></span>
+<span id="cb13-12"><a href="#cb13-12"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb13-13"><a href="#cb13-13"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span></span>
+<span id="cb13-14"><a href="#cb13-14"></a><span class="at">    </span><span class="fu">keep_tex</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb13-15"><a href="#cb13-15"></a><span class="at">    </span><span class="fu">includes</span><span class="kw">:</span></span>
+<span id="cb13-16"><a href="#cb13-16"></a><span class="at">      </span><span class="fu">after_body</span><span class="kw">:</span><span class="at"> footer.tex</span></span>
+<span id="cb13-17"><a href="#cb13-17"></a><span class="fu">biblio-style</span><span class="kw">:</span><span class="at"> apalike</span></span>
+<span id="cb13-18"><a href="#cb13-18"></a><span class="pp">---</span></span></code></pre></div>
 <p>You can also use <code><a href="../reference/yml_author.html">yml_toplevel()</a></code> to append any YAML fields not covered in <strong>ymlthis</strong>.</p>
 <div id="parameterized-reports" class="section level2">
 <h2 class="hasAnchor">
 <a href="#parameterized-reports" class="anchor"></a>Parameterized reports</h2>
 <p><a href="https://bookdown.org/yihui/rmarkdown/parameterized-reports.html">Parameterized reports</a> are a powerful feature of <strong>R Markdown</strong> that lets you specify variables in the YAML metadata used in your report, letting you re-use reports for a variety of settings. To set parameters, you use the <code>params</code> YAML field and access the parameter in your report by calling <code>params$variable_name</code>. Basic YAML for parameters looks like this</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="fu">params:</span></a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">  <span class="fu">country:</span><span class="at"> </span><span class="st">"Turkey"</span></a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">params</span><span class="kw">:</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="at">  </span><span class="fu">country</span><span class="kw">:</span><span class="at"> </span><span class="st">"Turkey"</span></span></code></pre></div>
 <p>Calling <code>params$country</code> in the <strong>R Markdown</strong> document will thus return <code>"Turkey"</code>. <code><a href="../reference/yml_params.html">yml_params()</a></code> will write this for you:</p>
 <div class="sourceCode" id="cb15"><html><body><pre class="r"><span class="fu"><a href="../reference/yml.html">yml</a></span>() <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/yml_params.html">yml_params</a></span>(<span class="kw">country</span> <span class="kw">=</span> <span class="st">"Turkey"</span>)</pre></body></html></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="fu">author:</span><span class="at"> Malcolm Barrett</span></a>
-<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="fu">date:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></a>
-<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="fu">params:</span></a>
-<a class="sourceLine" id="cb16-5" data-line-number="5">  <span class="fu">country:</span><span class="at"> Turkey</span></a>
-<a class="sourceLine" id="cb16-6" data-line-number="6"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1"></a><span class="pp">---</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="fu">params</span><span class="kw">:</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="at">  </span><span class="fu">country</span><span class="kw">:</span><span class="at"> Turkey</span></span>
+<span id="cb16-6"><a href="#cb16-6"></a><span class="pp">---</span></span></code></pre></div>
 <p>You can also fill in parameters using a <strong>Shiny</strong> app with the “Knit with Parameters” button in the RStudio IDE or by passing <code>"ask"</code> to the <code>params</code> argument in <code><a href="https://rdrr.io/pkg/rmarkdown/man/render.html">rmarkdown::render()</a></code>. While <strong>R Markdown</strong> will try to guess the Shiny widget type by the value of the parameter, you can specify them yourself with <strong>ymlthis</strong> functions that start with <code>shiny_*()</code>.</p>
 <div class="sourceCode" id="cb17"><html><body><pre class="r"><span class="fu"><a href="../reference/yml.html">yml</a></span>() <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/yml_params.html">yml_params</a></span>(
@@ -223,25 +223,25 @@
     <span class="kw">date</span> <span class="kw">=</span> <span class="fu"><a href="../reference/yml_params.html">shiny_date</a></span>(<span class="st">"Date"</span>),
     <span class="kw">show_plot</span> <span class="kw">=</span> <span class="fu"><a href="../reference/yml_params.html">shiny_checkbox</a></span>(<span class="st">"Plot the data?"</span>, <span class="fl">TRUE</span>)
   )</pre></body></html></div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="fu">author:</span><span class="at"> Malcolm Barrett</span></a>
-<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="fu">date:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></a>
-<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="fu">params:</span></a>
-<a class="sourceLine" id="cb18-5" data-line-number="5">  <span class="fu">data:</span></a>
-<a class="sourceLine" id="cb18-6" data-line-number="6">    <span class="fu">input:</span><span class="at"> file</span></a>
-<a class="sourceLine" id="cb18-7" data-line-number="7">    <span class="fu">label:</span><span class="at"> Upload Data (.csv)</span></a>
-<a class="sourceLine" id="cb18-8" data-line-number="8">  <span class="fu">'n':</span></a>
-<a class="sourceLine" id="cb18-9" data-line-number="9">    <span class="fu">input:</span><span class="at"> numeric</span></a>
-<a class="sourceLine" id="cb18-10" data-line-number="10">    <span class="fu">label:</span><span class="at"> n to sample</span></a>
-<a class="sourceLine" id="cb18-11" data-line-number="11">    <span class="fu">value:</span><span class="at"> 10.0</span></a>
-<a class="sourceLine" id="cb18-12" data-line-number="12">  <span class="fu">date:</span></a>
-<a class="sourceLine" id="cb18-13" data-line-number="13">    <span class="fu">input:</span><span class="at"> date</span></a>
-<a class="sourceLine" id="cb18-14" data-line-number="14">    <span class="fu">label:</span><span class="at"> Date</span></a>
-<a class="sourceLine" id="cb18-15" data-line-number="15">  <span class="fu">show_plot:</span></a>
-<a class="sourceLine" id="cb18-16" data-line-number="16">    <span class="fu">input:</span><span class="at"> checkbox</span></a>
-<a class="sourceLine" id="cb18-17" data-line-number="17">    <span class="fu">label:</span><span class="at"> Plot the data?</span></a>
-<a class="sourceLine" id="cb18-18" data-line-number="18">    <span class="fu">value:</span><span class="at"> true</span></a>
-<a class="sourceLine" id="cb18-19" data-line-number="19"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1"></a><span class="pp">---</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="fu">params</span><span class="kw">:</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="at">  </span><span class="fu">data</span><span class="kw">:</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="at">    </span><span class="fu">input</span><span class="kw">:</span><span class="at"> file</span></span>
+<span id="cb18-7"><a href="#cb18-7"></a><span class="at">    </span><span class="fu">label</span><span class="kw">:</span><span class="at"> Upload Data (.csv)</span></span>
+<span id="cb18-8"><a href="#cb18-8"></a><span class="at">  </span><span class="fu">'n'</span><span class="kw">:</span></span>
+<span id="cb18-9"><a href="#cb18-9"></a><span class="at">    </span><span class="fu">input</span><span class="kw">:</span><span class="at"> numeric</span></span>
+<span id="cb18-10"><a href="#cb18-10"></a><span class="at">    </span><span class="fu">label</span><span class="kw">:</span><span class="at"> n to sample</span></span>
+<span id="cb18-11"><a href="#cb18-11"></a><span class="at">    </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="fl">10.0</span></span>
+<span id="cb18-12"><a href="#cb18-12"></a><span class="at">  </span><span class="fu">date</span><span class="kw">:</span></span>
+<span id="cb18-13"><a href="#cb18-13"></a><span class="at">    </span><span class="fu">input</span><span class="kw">:</span><span class="at"> date</span></span>
+<span id="cb18-14"><a href="#cb18-14"></a><span class="at">    </span><span class="fu">label</span><span class="kw">:</span><span class="at"> Date</span></span>
+<span id="cb18-15"><a href="#cb18-15"></a><span class="at">  </span><span class="fu">show_plot</span><span class="kw">:</span></span>
+<span id="cb18-16"><a href="#cb18-16"></a><span class="at">    </span><span class="fu">input</span><span class="kw">:</span><span class="at"> checkbox</span></span>
+<span id="cb18-17"><a href="#cb18-17"></a><span class="at">    </span><span class="fu">label</span><span class="kw">:</span><span class="at"> Plot the data?</span></span>
+<span id="cb18-18"><a href="#cb18-18"></a><span class="at">    </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb18-19"><a href="#cb18-19"></a><span class="pp">---</span></span></code></pre></div>
 </div>
 <div id="references-and-citations" class="section level2">
 <h2 class="hasAnchor">
@@ -249,11 +249,11 @@
 <p><a href="https://bookdown.org/yihui/rmarkdown/markdown-syntax.html"><strong>R Markdown</strong> has excellent support for citations</a>. The simplest way to use references in an <strong>R Markdown</strong> file is to add a bibliography file using the <code>bibliography</code> field.</p>
 <div class="sourceCode" id="cb19"><html><body><pre class="r"><span class="fu"><a href="../reference/yml.html">yml</a></span>() <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/yml_citations.html">yml_citations</a></span>(<span class="kw">bibliography</span> <span class="kw">=</span> <span class="st">"refs.bib"</span>)</pre></body></html></div>
-<div class="sourceCode" id="cb20"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="fu">author:</span><span class="at"> Malcolm Barrett</span></a>
-<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="fu">date:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></a>
-<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="fu">bibliography:</span><span class="at"> refs.bib</span></a>
-<a class="sourceLine" id="cb20-5" data-line-number="5"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1"></a><span class="pp">---</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> refs.bib</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="pp">---</span></span></code></pre></div>
 <p>However, if you only have a few references and want to keep your file self-contained, you can also specify references directly in your YAML using <code><a href="../reference/yml_reference.html">yml_reference()</a></code> and <code><a href="../reference/yml_reference.html">reference()</a></code>.</p>
 <div class="sourceCode" id="cb21"><html><body><pre class="r"><span class="no">ref</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/yml_reference.html">reference</a></span>(
   <span class="kw">id</span> <span class="kw">=</span> <span class="st">"fenner2012a"</span>,
@@ -278,48 +278,48 @@
 
 <span class="fu"><a href="../reference/yml.html">yml</a></span>() <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/yml_reference.html">yml_reference</a></span>(<span class="no">ref</span>)</pre></body></html></div>
-<div class="sourceCode" id="cb22"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="fu">author:</span><span class="at"> Malcolm Barrett</span></a>
-<a class="sourceLine" id="cb22-3" data-line-number="3"><span class="fu">date:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></a>
-<a class="sourceLine" id="cb22-4" data-line-number="4"><span class="fu">reference:</span></a>
-<a class="sourceLine" id="cb22-5" data-line-number="5"><span class="kw">-</span> <span class="fu">id:</span><span class="at"> fenner2012a</span></a>
-<a class="sourceLine" id="cb22-6" data-line-number="6">  <span class="fu">title:</span><span class="at"> One-click science marketing</span></a>
-<a class="sourceLine" id="cb22-7" data-line-number="7">  <span class="fu">author:</span></a>
-<a class="sourceLine" id="cb22-8" data-line-number="8">    <span class="fu">family:</span><span class="at"> Fenner</span></a>
-<a class="sourceLine" id="cb22-9" data-line-number="9">    <span class="fu">given:</span><span class="at"> Martin</span></a>
-<a class="sourceLine" id="cb22-10" data-line-number="10">  <span class="fu">container-title:</span><span class="at"> Nature Materials</span></a>
-<a class="sourceLine" id="cb22-11" data-line-number="11">  <span class="fu">volume:</span><span class="at"> 11</span></a>
-<a class="sourceLine" id="cb22-12" data-line-number="12">  <span class="fu">URL:</span><span class="at"> https://doi.org/10.1038/nmat3283</span></a>
-<a class="sourceLine" id="cb22-13" data-line-number="13">  <span class="fu">DOI:</span><span class="at"> 10.1038/nmat3283</span></a>
-<a class="sourceLine" id="cb22-14" data-line-number="14">  <span class="fu">issue:</span><span class="at"> 4</span></a>
-<a class="sourceLine" id="cb22-15" data-line-number="15">  <span class="fu">publisher:</span><span class="at"> Nature Publishing Group</span></a>
-<a class="sourceLine" id="cb22-16" data-line-number="16">  <span class="fu">page:</span><span class="at"> 261-263</span></a>
-<a class="sourceLine" id="cb22-17" data-line-number="17">  <span class="fu">type:</span><span class="at"> article-journal</span></a>
-<a class="sourceLine" id="cb22-18" data-line-number="18">  <span class="fu">issued:</span></a>
-<a class="sourceLine" id="cb22-19" data-line-number="19">    <span class="fu">year:</span><span class="at"> 2012.0</span></a>
-<a class="sourceLine" id="cb22-20" data-line-number="20">    <span class="fu">month:</span><span class="at"> 3.0</span></a>
-<a class="sourceLine" id="cb22-21" data-line-number="21"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb22-1"><a href="#cb22-1"></a><span class="pp">---</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a><span class="fu">reference</span><span class="kw">:</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a><span class="kw">-</span><span class="at"> </span><span class="fu">id</span><span class="kw">:</span><span class="at"> fenner2012a</span></span>
+<span id="cb22-6"><a href="#cb22-6"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> One-click science marketing</span></span>
+<span id="cb22-7"><a href="#cb22-7"></a><span class="at">  </span><span class="fu">author</span><span class="kw">:</span></span>
+<span id="cb22-8"><a href="#cb22-8"></a><span class="at">    </span><span class="fu">family</span><span class="kw">:</span><span class="at"> Fenner</span></span>
+<span id="cb22-9"><a href="#cb22-9"></a><span class="at">    </span><span class="fu">given</span><span class="kw">:</span><span class="at"> Martin</span></span>
+<span id="cb22-10"><a href="#cb22-10"></a><span class="at">  </span><span class="fu">container-title</span><span class="kw">:</span><span class="at"> Nature Materials</span></span>
+<span id="cb22-11"><a href="#cb22-11"></a><span class="at">  </span><span class="fu">volume</span><span class="kw">:</span><span class="at"> </span><span class="dv">11</span></span>
+<span id="cb22-12"><a href="#cb22-12"></a><span class="at">  </span><span class="fu">URL</span><span class="kw">:</span><span class="at"> https://doi.org/10.1038/nmat3283</span></span>
+<span id="cb22-13"><a href="#cb22-13"></a><span class="at">  </span><span class="fu">DOI</span><span class="kw">:</span><span class="at"> 10.1038/nmat3283</span></span>
+<span id="cb22-14"><a href="#cb22-14"></a><span class="at">  </span><span class="fu">issue</span><span class="kw">:</span><span class="at"> </span><span class="dv">4</span></span>
+<span id="cb22-15"><a href="#cb22-15"></a><span class="at">  </span><span class="fu">publisher</span><span class="kw">:</span><span class="at"> Nature Publishing Group</span></span>
+<span id="cb22-16"><a href="#cb22-16"></a><span class="at">  </span><span class="fu">page</span><span class="kw">:</span><span class="at"> 261-263</span></span>
+<span id="cb22-17"><a href="#cb22-17"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> article-journal</span></span>
+<span id="cb22-18"><a href="#cb22-18"></a><span class="at">  </span><span class="fu">issued</span><span class="kw">:</span></span>
+<span id="cb22-19"><a href="#cb22-19"></a><span class="at">    </span><span class="fu">year</span><span class="kw">:</span><span class="at"> </span><span class="fl">2012.0</span></span>
+<span id="cb22-20"><a href="#cb22-20"></a><span class="at">    </span><span class="fu">month</span><span class="kw">:</span><span class="at"> </span><span class="fl">3.0</span></span>
+<span id="cb22-21"><a href="#cb22-21"></a><span class="pp">---</span></span></code></pre></div>
 <p><code><a href="../reference/yml_reference.html">yml_reference()</a></code> also supports package citation using the <code>.bibentry</code> argument and <code><a href="https://rdrr.io/r/utils/citation.html">citation()</a></code>.</p>
 <div class="sourceCode" id="cb23"><html><body><pre class="r"><span class="fu"><a href="../reference/yml.html">yml</a></span>() <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/yml_reference.html">yml_reference</a></span>(<span class="kw">.bibentry</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span>(<span class="st">"purrr"</span>))</pre></body></html></div>
-<div class="sourceCode" id="cb24"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="fu">author:</span><span class="at"> Malcolm Barrett</span></a>
-<a class="sourceLine" id="cb24-3" data-line-number="3"><span class="fu">date:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></a>
-<a class="sourceLine" id="cb24-4" data-line-number="4"><span class="fu">references:</span></a>
-<a class="sourceLine" id="cb24-5" data-line-number="5"><span class="kw">-</span> <span class="fu">id:</span><span class="at"> R-purrr</span></a>
-<a class="sourceLine" id="cb24-6" data-line-number="6">  <span class="fu">type:</span><span class="at"> book</span></a>
-<a class="sourceLine" id="cb24-7" data-line-number="7">  <span class="fu">author:</span></a>
-<a class="sourceLine" id="cb24-8" data-line-number="8">  <span class="kw">-</span> <span class="fu">family:</span><span class="at"> Henry</span></a>
-<a class="sourceLine" id="cb24-9" data-line-number="9">    <span class="fu">given:</span><span class="at"> Lionel</span></a>
-<a class="sourceLine" id="cb24-10" data-line-number="10">  <span class="kw">-</span> <span class="fu">family:</span><span class="at"> Wickham</span></a>
-<a class="sourceLine" id="cb24-11" data-line-number="11">    <span class="fu">given:</span><span class="at"> Hadley</span></a>
-<a class="sourceLine" id="cb24-12" data-line-number="12">  <span class="fu">issued:</span></a>
-<a class="sourceLine" id="cb24-13" data-line-number="13">  <span class="kw">-</span> <span class="fu">year:</span><span class="at"> 2019</span></a>
-<a class="sourceLine" id="cb24-14" data-line-number="14">  <span class="fu">title:</span><span class="at"> </span><span class="st">'Purrr: Functional programming tools'</span></a>
-<a class="sourceLine" id="cb24-15" data-line-number="15">  <span class="fu">title-short:</span><span class="at"> Purrr</span></a>
-<a class="sourceLine" id="cb24-16" data-line-number="16">  <span class="fu">note:</span><span class="at"> R package version 0.3.3</span></a>
-<a class="sourceLine" id="cb24-17" data-line-number="17">  <span class="fu">URL:</span><span class="at"> https://CRAN.R-project.org/package=purrr</span></a>
-<a class="sourceLine" id="cb24-18" data-line-number="18"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb24-1"><a href="#cb24-1"></a><span class="pp">---</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a><span class="fu">references</span><span class="kw">:</span></span>
+<span id="cb24-5"><a href="#cb24-5"></a><span class="kw">-</span><span class="at"> </span><span class="fu">id</span><span class="kw">:</span><span class="at"> R-purrr</span></span>
+<span id="cb24-6"><a href="#cb24-6"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> book</span></span>
+<span id="cb24-7"><a href="#cb24-7"></a><span class="at">  </span><span class="fu">author</span><span class="kw">:</span></span>
+<span id="cb24-8"><a href="#cb24-8"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">family</span><span class="kw">:</span><span class="at"> Henry</span></span>
+<span id="cb24-9"><a href="#cb24-9"></a><span class="at">    </span><span class="fu">given</span><span class="kw">:</span><span class="at"> Lionel</span></span>
+<span id="cb24-10"><a href="#cb24-10"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">family</span><span class="kw">:</span><span class="at"> Wickham</span></span>
+<span id="cb24-11"><a href="#cb24-11"></a><span class="at">    </span><span class="fu">given</span><span class="kw">:</span><span class="at"> Hadley</span></span>
+<span id="cb24-12"><a href="#cb24-12"></a><span class="at">  </span><span class="fu">issued</span><span class="kw">:</span></span>
+<span id="cb24-13"><a href="#cb24-13"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">year</span><span class="kw">:</span><span class="at"> </span><span class="dv">2019</span></span>
+<span id="cb24-14"><a href="#cb24-14"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">'Purrr: Functional programming tools'</span></span>
+<span id="cb24-15"><a href="#cb24-15"></a><span class="at">  </span><span class="fu">title-short</span><span class="kw">:</span><span class="at"> Purrr</span></span>
+<span id="cb24-16"><a href="#cb24-16"></a><span class="at">  </span><span class="fu">note</span><span class="kw">:</span><span class="at"> R package version 0.3.3</span></span>
+<span id="cb24-17"><a href="#cb24-17"></a><span class="at">  </span><span class="fu">URL</span><span class="kw">:</span><span class="at"> https://CRAN.R-project.org/package=purrr</span></span>
+<span id="cb24-18"><a href="#cb24-18"></a><span class="pp">---</span></span></code></pre></div>
 <p>If you have an existing <code>.bib</code> file, but you want to specify it in the YAML, instead, you can convert it with <code><a href="../reference/bib2yml.html">bib2yml()</a></code>. For instance, if you wrote a <code>.bib</code> file for the packages used in your document with <code><a href="https://rdrr.io/pkg/knitr/man/write_bib.html">knitr::write_bib()</a></code>, <code><a href="../reference/bib2yml.html">bib2yml()</a></code> will translate the file to YAML you can include directly in the metadata.</p>
 </div>
 </div>
@@ -340,19 +340,19 @@
       )
     )
   )</pre></body></html></div>
-<div class="sourceCode" id="cb26"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="fu">author:</span><span class="at"> Malcolm Barrett</span></a>
-<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="fu">date:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></a>
-<a class="sourceLine" id="cb26-4" data-line-number="4"><span class="fu">title:</span><span class="at"> Presentation Ninja</span></a>
-<a class="sourceLine" id="cb26-5" data-line-number="5"><span class="fu">subtitle:</span><span class="at"> with xaringan</span></a>
-<a class="sourceLine" id="cb26-6" data-line-number="6"><span class="fu">output:</span></a>
-<a class="sourceLine" id="cb26-7" data-line-number="7">  <span class="fu">xaringan:</span><span class="at">:moon_reader:</span></a>
-<a class="sourceLine" id="cb26-8" data-line-number="8">    <span class="fu">lib_dir:</span><span class="at"> libs</span></a>
-<a class="sourceLine" id="cb26-9" data-line-number="9">    <span class="fu">nature:</span></a>
-<a class="sourceLine" id="cb26-10" data-line-number="10">      <span class="fu">highlightStyle:</span><span class="at"> github</span></a>
-<a class="sourceLine" id="cb26-11" data-line-number="11">      <span class="fu">highlightLines:</span><span class="at"> true</span></a>
-<a class="sourceLine" id="cb26-12" data-line-number="12">      <span class="fu">countIncrementalSlides:</span><span class="at"> false</span></a>
-<a class="sourceLine" id="cb26-13" data-line-number="13"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb26-1"><a href="#cb26-1"></a><span class="pp">---</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Presentation Ninja</span></span>
+<span id="cb26-5"><a href="#cb26-5"></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> with xaringan</span></span>
+<span id="cb26-6"><a href="#cb26-6"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb26-7"><a href="#cb26-7"></a><span class="at">  xaringan:</span><span class="fu">:moon_reader</span><span class="kw">:</span></span>
+<span id="cb26-8"><a href="#cb26-8"></a><span class="at">    </span><span class="fu">lib_dir</span><span class="kw">:</span><span class="at"> libs</span></span>
+<span id="cb26-9"><a href="#cb26-9"></a><span class="at">    </span><span class="fu">nature</span><span class="kw">:</span></span>
+<span id="cb26-10"><a href="#cb26-10"></a><span class="at">      </span><span class="fu">highlightStyle</span><span class="kw">:</span><span class="at"> github</span></span>
+<span id="cb26-11"><a href="#cb26-11"></a><span class="at">      </span><span class="fu">highlightLines</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb26-12"><a href="#cb26-12"></a><span class="at">      </span><span class="fu">countIncrementalSlides</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb26-13"><a href="#cb26-13"></a><span class="pp">---</span></span></code></pre></div>
 <p><strong>ymlthis</strong> can process any output function. Other packages also add additional YAML; <strong>ymlthis</strong> supports six <strong>R Markdown</strong> packages: <strong>bookdown</strong>, <strong>blogdown</strong>, <strong>pkgdown</strong>, <strong>pagedown</strong>, <strong>rticles</strong>, and <strong>distill</strong>. <strong>ymlthis</strong> also supports YAML for writing scheduled emails with RStudio Connect. You can find functions supporting these packages with the patterns <code>yml_packagename_*()</code> and <code>packagename_*()</code> (<code>rsconnect</code>, in the case of RStudio Connect functions). Functions that start with <code>yml_packagename_*()</code> document YAML fields and return <code>yml</code> objects, while functions that start with <code>packagename_*()</code> are helper functions. There are also a few template functions. <code><a href="../reference/pkgdown_template.html">pkgdown_template()</a></code>, for instance, will assemble a full template for <code>_pkgdown.yml</code> and return it as a <code>yml</code> object, and <code><a href="../reference/blogdown_template.html">blogdown_template()</a></code> will return YAML templates matching your Hugo theme.</p>
 <table class="table">
 <caption>Sources of YAML in R Markdown Extension</caption>
@@ -452,8 +452,8 @@
 <span class="kw pkg">fs</span><span class="kw ns">::</span><span class="fu"><a href="http://fs.r-lib.org/reference/create.html">dir_create</a></span>(<span class="no">path</span>)
 
 <span class="fu"><a href="../reference/use_file_yml.html">use_navbar_yml</a></span>(<span class="no">navbar_yaml</span>, <span class="kw">path</span> <span class="kw">=</span> <span class="no">path</span>)
-<span class="co">#&gt; ✔ Writing '/tmp/RtmplHM9mn/file35383f6e2/_navbar.yml'</span></pre></body></html></div>
-<p>In addition to writing to files, you can save YAML to your <code>.Rprofile</code> using <code><a href="https://rdrr.io/r/base/options.html">options(ymlthis.defaults = "{YAML}")</a></code>. <code><a href="../reference/yml.html">yml()</a></code> will return the stored YAML by default. If you pass a <code>yml</code> object to <code><a href="../reference/use_yml_defaults.html">use_yml_defaults()</a></code>, the code to do this will be placed on your clipboard, which you should paste into your <code>.Rprofile</code>. Open that file with <code><a href="https://usethis.r-lib.org/reference/edit.html">usethis::edit_r_profile()</a></code>. You can also set a default for body text for <code><a href="../reference/use_yml.html">use_rmarkdown()</a></code> by setting the <code>ymlthis.rmd_body()</code> option, e.g. <code><a href="https://rdrr.io/r/base/options.html">options(ymlthis.rmd_body = "{your text}")</a></code> (or take advantage of <code><a href="../reference/use_yml_defaults.html">use_rmd_defaults()</a></code>). Together with specifying default YAML, <code><a href="../reference/use_yml.html">use_rmarkdown()</a></code> also serves as an ad-hoc way to make R Markdown templates.</p>
+<span class="co">#&gt; ✔ Writing '/private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmp9QiyQp/file7013c40426f/_navbar.yml'</span></pre></body></html></div>
+<p>In addition to writing to files, you can save YAML to your <code>.Rprofile</code> using <code><a href="https://rdrr.io/r/base/options.html">options(ymlthis.defaults = "{YAML}")</a></code>. <code><a href="../reference/yml.html">yml()</a></code> will return the stored YAML by default. If you pass a <code>yml</code> object to <code><a href="../reference/use_yml_defaults.html">use_yml_defaults()</a></code>, the code to do this will be placed on your clipboard, which you should paste into your <code>.Rprofile</code>. Open that file with <code><a href="https://usethis.r-lib.org/reference/edit.html">usethis::edit_r_profile()</a></code>. You can also set a default for body text for <code><a href="../reference/use_yml.html">use_rmarkdown()</a></code> by setting the <code>ymlthis.rmd_body()</code> option, e.g. <code><a href="https://rdrr.io/r/base/options.html">options(ymlthis.rmd_body = "{your text}")</a></code> (or take advantage of <code><a href="../reference/use_yml_defaults.html">use_rmd_defaults()</a></code>). Together with specifying default YAML, <code><a href="../reference/use_yml.html">use_rmarkdown()</a></code> also serves as an ad-hoc way to make R Markdown templates.</p>
 <div class="sourceCode" id="cb28"><html><body><pre class="r"><span class="no">old</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span>(
   <span class="kw">ymlthis.default_yml</span> <span class="kw">=</span> <span class="st">"author: Malcolm Barrett
 date: '`r format(Sys.Date())`'
@@ -470,7 +470,7 @@ output: bookdown::pdf_document2"</span>,
 
 <span class="co">#  use temporary path set above</span>
 <span class="fu"><a href="../reference/use_yml.html">use_rmarkdown</a></span>(<span class="kw">path</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(<span class="no">path</span>, <span class="st">"analysis.Rmd"</span>))
-<span class="co">#&gt; ✔ Writing '/tmp/RtmplHM9mn/file35383f6e2/analysis.Rmd'</span>
+<span class="co">#&gt; ✔ Writing '/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmp9QiyQp/file7013c40426f/analysis.Rmd'</span>
 
 <span class="co"># reset previous option defaults</span>
 <span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span>(<span class="no">old</span>)</pre></body></html></div>
@@ -588,60 +588,60 @@ output: bookdown::pdf_document2"</span>,
   ) <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/yml_latex_opts.html">yml_latex_opts</a></span>(<span class="kw">biblio_style</span> <span class="kw">=</span> <span class="st">"apalike"</span>)</pre></body></html></div>
 <p>The resulting YAML of <code>x</code> is:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="fu">author:</span></a>
-<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="kw">-</span> <span class="fu">name:</span><span class="at"> Yihui Xie</span></a>
-<a class="sourceLine" id="cb30-4" data-line-number="4">  <span class="fu">affiliation:</span><span class="at"> RStudio</span></a>
-<a class="sourceLine" id="cb30-5" data-line-number="5"><span class="kw">-</span> <span class="fu">name:</span><span class="at"> Hadley Wickham</span></a>
-<a class="sourceLine" id="cb30-6" data-line-number="6">  <span class="fu">affiliation:</span><span class="at"> RStudio</span></a>
-<a class="sourceLine" id="cb30-7" data-line-number="7"><span class="fu">date:</span><span class="at"> 07/04/2019</span></a>
-<a class="sourceLine" id="cb30-8" data-line-number="8"><span class="fu">title:</span><span class="at"> Reproducible Research in R</span></a>
-<a class="sourceLine" id="cb30-9" data-line-number="9"><span class="fu">category:</span></a>
-<a class="sourceLine" id="cb30-10" data-line-number="10"><span class="kw">-</span> r</a>
-<a class="sourceLine" id="cb30-11" data-line-number="11"><span class="kw">-</span> reprodicibility</a>
-<a class="sourceLine" id="cb30-12" data-line-number="12"><span class="fu">output:</span></a>
-<a class="sourceLine" id="cb30-13" data-line-number="13">  <span class="fu">pdf_document:</span></a>
-<a class="sourceLine" id="cb30-14" data-line-number="14">    <span class="fu">keep_tex:</span><span class="at"> true</span></a>
-<a class="sourceLine" id="cb30-15" data-line-number="15">    <span class="fu">includes:</span></a>
-<a class="sourceLine" id="cb30-16" data-line-number="16">      <span class="fu">after_body:</span><span class="at"> footer.tex</span></a>
-<a class="sourceLine" id="cb30-17" data-line-number="17">  <span class="fu">html_document:</span><span class="at"> default</span></a>
-<a class="sourceLine" id="cb30-18" data-line-number="18"><span class="fu">biblio-style:</span><span class="at"> apalike</span></a>
-<a class="sourceLine" id="cb30-19" data-line-number="19"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb30-1"><a href="#cb30-1"></a><span class="pp">---</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="fu">author</span><span class="kw">:</span></span>
+<span id="cb30-3"><a href="#cb30-3"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Yihui Xie</span></span>
+<span id="cb30-4"><a href="#cb30-4"></a><span class="at">  </span><span class="fu">affiliation</span><span class="kw">:</span><span class="at"> RStudio</span></span>
+<span id="cb30-5"><a href="#cb30-5"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Hadley Wickham</span></span>
+<span id="cb30-6"><a href="#cb30-6"></a><span class="at">  </span><span class="fu">affiliation</span><span class="kw">:</span><span class="at"> RStudio</span></span>
+<span id="cb30-7"><a href="#cb30-7"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> 07/04/2019</span></span>
+<span id="cb30-8"><a href="#cb30-8"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Reproducible Research in R</span></span>
+<span id="cb30-9"><a href="#cb30-9"></a><span class="fu">category</span><span class="kw">:</span></span>
+<span id="cb30-10"><a href="#cb30-10"></a><span class="kw">-</span><span class="at"> r</span></span>
+<span id="cb30-11"><a href="#cb30-11"></a><span class="kw">-</span><span class="at"> reprodicibility</span></span>
+<span id="cb30-12"><a href="#cb30-12"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb30-13"><a href="#cb30-13"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span></span>
+<span id="cb30-14"><a href="#cb30-14"></a><span class="at">    </span><span class="fu">keep_tex</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb30-15"><a href="#cb30-15"></a><span class="at">    </span><span class="fu">includes</span><span class="kw">:</span></span>
+<span id="cb30-16"><a href="#cb30-16"></a><span class="at">      </span><span class="fu">after_body</span><span class="kw">:</span><span class="at"> footer.tex</span></span>
+<span id="cb30-17"><a href="#cb30-17"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb30-18"><a href="#cb30-18"></a><span class="fu">biblio-style</span><span class="kw">:</span><span class="at"> apalike</span></span>
+<span id="cb30-19"><a href="#cb30-19"></a><span class="pp">---</span></span></code></pre></div>
 <p>We can use <code><a href="../reference/yml_replace.html">yml_discard()</a></code> to remove the <code>category</code> option:</p>
 <div class="sourceCode" id="cb31"><html><body><pre class="r"><span class="no">x</span> <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/yml_replace.html">yml_discard</a></span>(<span class="st">"category"</span>)</pre></body></html></div>
-<div class="sourceCode" id="cb32"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb32-2" data-line-number="2"><span class="fu">author:</span></a>
-<a class="sourceLine" id="cb32-3" data-line-number="3"><span class="kw">-</span> <span class="fu">name:</span><span class="at"> Yihui Xie</span></a>
-<a class="sourceLine" id="cb32-4" data-line-number="4">  <span class="fu">affiliation:</span><span class="at"> RStudio</span></a>
-<a class="sourceLine" id="cb32-5" data-line-number="5"><span class="kw">-</span> <span class="fu">name:</span><span class="at"> Hadley Wickham</span></a>
-<a class="sourceLine" id="cb32-6" data-line-number="6">  <span class="fu">affiliation:</span><span class="at"> RStudio</span></a>
-<a class="sourceLine" id="cb32-7" data-line-number="7"><span class="fu">date:</span><span class="at"> 07/04/2019</span></a>
-<a class="sourceLine" id="cb32-8" data-line-number="8"><span class="fu">title:</span><span class="at"> Reproducible Research in R</span></a>
-<a class="sourceLine" id="cb32-9" data-line-number="9"><span class="fu">output:</span></a>
-<a class="sourceLine" id="cb32-10" data-line-number="10">  <span class="fu">pdf_document:</span></a>
-<a class="sourceLine" id="cb32-11" data-line-number="11">    <span class="fu">keep_tex:</span><span class="at"> true</span></a>
-<a class="sourceLine" id="cb32-12" data-line-number="12">    <span class="fu">includes:</span></a>
-<a class="sourceLine" id="cb32-13" data-line-number="13">      <span class="fu">after_body:</span><span class="at"> footer.tex</span></a>
-<a class="sourceLine" id="cb32-14" data-line-number="14">  <span class="fu">html_document:</span><span class="at"> default</span></a>
-<a class="sourceLine" id="cb32-15" data-line-number="15"><span class="fu">biblio-style:</span><span class="at"> apalike</span></a>
-<a class="sourceLine" id="cb32-16" data-line-number="16"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb32-1"><a href="#cb32-1"></a><span class="pp">---</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="fu">author</span><span class="kw">:</span></span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Yihui Xie</span></span>
+<span id="cb32-4"><a href="#cb32-4"></a><span class="at">  </span><span class="fu">affiliation</span><span class="kw">:</span><span class="at"> RStudio</span></span>
+<span id="cb32-5"><a href="#cb32-5"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Hadley Wickham</span></span>
+<span id="cb32-6"><a href="#cb32-6"></a><span class="at">  </span><span class="fu">affiliation</span><span class="kw">:</span><span class="at"> RStudio</span></span>
+<span id="cb32-7"><a href="#cb32-7"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> 07/04/2019</span></span>
+<span id="cb32-8"><a href="#cb32-8"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Reproducible Research in R</span></span>
+<span id="cb32-9"><a href="#cb32-9"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb32-10"><a href="#cb32-10"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span></span>
+<span id="cb32-11"><a href="#cb32-11"></a><span class="at">    </span><span class="fu">keep_tex</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb32-12"><a href="#cb32-12"></a><span class="at">    </span><span class="fu">includes</span><span class="kw">:</span></span>
+<span id="cb32-13"><a href="#cb32-13"></a><span class="at">      </span><span class="fu">after_body</span><span class="kw">:</span><span class="at"> footer.tex</span></span>
+<span id="cb32-14"><a href="#cb32-14"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb32-15"><a href="#cb32-15"></a><span class="fu">biblio-style</span><span class="kw">:</span><span class="at"> apalike</span></span>
+<span id="cb32-16"><a href="#cb32-16"></a><span class="pp">---</span></span></code></pre></div>
 <p>We can use <strong>purrr</strong>-style lambdas to express what to discard. How about any YAML fields with a length greater than one?</p>
 <div class="sourceCode" id="cb33"><html><body><pre class="r"><span class="no">x</span> <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/yml_replace.html">yml_discard</a></span>(~ <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="no">.x</span>) <span class="kw">&gt;</span> <span class="fl">1</span>)</pre></body></html></div>
-<div class="sourceCode" id="cb34"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb34-2" data-line-number="2"><span class="fu">date:</span><span class="at"> 07/04/2019</span></a>
-<a class="sourceLine" id="cb34-3" data-line-number="3"><span class="fu">title:</span><span class="at"> Reproducible Research in R</span></a>
-<a class="sourceLine" id="cb34-4" data-line-number="4"><span class="fu">biblio-style:</span><span class="at"> apalike</span></a>
-<a class="sourceLine" id="cb34-5" data-line-number="5"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb34-1"><a href="#cb34-1"></a><span class="pp">---</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> 07/04/2019</span></span>
+<span id="cb34-3"><a href="#cb34-3"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Reproducible Research in R</span></span>
+<span id="cb34-4"><a href="#cb34-4"></a><span class="fu">biblio-style</span><span class="kw">:</span><span class="at"> apalike</span></span>
+<span id="cb34-5"><a href="#cb34-5"></a><span class="pp">---</span></span></code></pre></div>
 <p>The <code><a href="../reference/yml_replace.html">yml_pluck()</a></code> function is useful for selectively acquiring a nested portion of the YAML:</p>
 <div class="sourceCode" id="cb35"><html><body><pre class="r"><span class="no">x</span> <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/yml_replace.html">yml_pluck</a></span>(<span class="st">"output"</span>, <span class="st">"pdf_document"</span>)</pre></body></html></div>
-<div class="sourceCode" id="cb36"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="ot">---</span></a>
-<a class="sourceLine" id="cb36-2" data-line-number="2"><span class="fu">keep_tex:</span><span class="at"> true</span></a>
-<a class="sourceLine" id="cb36-3" data-line-number="3"><span class="fu">includes:</span></a>
-<a class="sourceLine" id="cb36-4" data-line-number="4">  <span class="fu">after_body:</span><span class="at"> footer.tex</span></a>
-<a class="sourceLine" id="cb36-5" data-line-number="5"><span class="ot">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb36-1"><a href="#cb36-1"></a><span class="pp">---</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a><span class="fu">keep_tex</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb36-3"><a href="#cb36-3"></a><span class="fu">includes</span><span class="kw">:</span></span>
+<span id="cb36-4"><a href="#cb36-4"></a><span class="at">  </span><span class="fu">after_body</span><span class="kw">:</span><span class="at"> footer.tex</span></span>
+<span id="cb36-5"><a href="#cb36-5"></a><span class="pp">---</span></span></code></pre></div>
 </div>
   </div>
 
@@ -660,7 +660,7 @@ output: bookdown::pdf_document2"</span>,
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
 </div>
 
       </footer>
