@@ -46,7 +46,7 @@ ref <- reference(
   ),
   `container-title` = "Nature Materials",
   volume = 11L,
-  URL = "http://dx.doi.org/10.1038/nmat3283",
+  URL = "https://doi.org/10.1038/nmat3283",
   DOI = "10.1038/nmat3283",
   issue = 4L,
   publisher = "Nature Publishing Group",
