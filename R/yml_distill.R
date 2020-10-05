@@ -164,6 +164,7 @@ yml_distill_opts <- function(
 #' @inheritParams yml_author
 #' @param url the author URL
 #' @param affiliation_url the affiliation URL
+#' @param orcid_id the author's ORCID ID
 #'
 #' @export
 #'
@@ -173,14 +174,16 @@ yml_distill_author <- function(
   name = yml_blank(),
   url = yml_blank(),
   affiliation = yml_blank(),
-  affiliation_url = yml_blank()
+  affiliation_url = yml_blank(),
+  orcid_id = yml_blank()
 ) {
   yml_author(
     .yml,
     name = name,
     url = url,
     affiliation = affiliation,
-    affiliation_url = affiliation_url
+    affiliation_url = affiliation_url,
+    orcid_id = orcid_id
   )
 }
 

@@ -38,7 +38,8 @@ yml_distill_author(
   name = yml_blank(),
   url = yml_blank(),
   affiliation = yml_blank(),
-  affiliation_url = yml_blank()
+  affiliation_url = yml_blank(),
+  orcid_id = yml_blank()
 )
 
 distill_listing(listing_name = "posts", slugs = NULL)
@@ -129,6 +130,8 @@ you don't want to include an affiliation for a given author.Note that not
 all formats support the \code{affiliation} field.}
 
 \item{affiliation_url}{the affiliation URL}
+
+\item{orcid_id}{the author's ORCID ID}
 
 \item{listing_name}{A character vector, the name of the listing}
 
