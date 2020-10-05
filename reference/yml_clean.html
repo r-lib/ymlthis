@@ -158,7 +158,7 @@ then using Pandoc to convert to the final output. The <code>clean</code> field t
 Markdown whether or not to remove these files.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>yml_clean</span>(<span class='no'>.yml</span>, <span class='no'>clean</span>)</pre>
+    <pre class="usage"><span class='fu'>yml_clean</span><span class='op'>(</span><span class='va'>.yml</span>, <span class='va'>clean</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -187,7 +187,7 @@ the R Markdown document?</p></td>
 <code><a href='has_field.html'>has_field</a>()</code>,
 <code><a href='read_json.html'>read_json</a>()</code>,
 <code><a href='use_yml_defaults.html'>use_yml_defaults</a>()</code>,
-<code><a href='use_file_yml.html'>use_yml_file</a>()</code>,
+<code><a href='use_yml_file.html'>use_yml_file</a>()</code>,
 <code><a href='use_yml.html'>use_yml</a>()</code>,
 <code><a href='yml_author.html'>yml_author</a>()</code>,
 <code><a href='yml_blogdown_opts.html'>yml_blogdown_opts</a>()</code>,
@@ -216,9 +216,10 @@ the R Markdown document?</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='fu'><a href='yml.html'>yml</a></span>() <span class='kw'>%&gt;%</span>
+<span class='fu'><a href='yml.html'>yml</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='co'># keep intermediate files</span>
-  <span class='fu'>yml_clean</span>(<span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'>---
+  <span class='fu'>yml_clean</span><span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #555555;'>---
 #&gt; </span><span style='color: #00BB00;'>author</span><span style='color: #555555;'>:</span><span> runner
 #&gt; </span><span style='color: #00BB00;'>date</span><span style='color: #555555;'>:</span><span> '`r format(Sys.Date())`'
 #&gt; </span><span style='color: #00BB00;'>clean</span><span style='color: #555555;'>:</span><span> false
@@ -240,7 +241,7 @@ the R Markdown document?</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

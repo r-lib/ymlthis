@@ -178,29 +178,29 @@ writes to a file called <code>index.Rmd</code>. By default, <code>use_yml()</cod
 <code>use_rmarkdown()</code> use the most recently printed YAML via <code><a href='last_yml.html'>last_yml()</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>use_yml</span>(<span class='kw'>.yml</span> <span class='kw'>=</span> <span class='fu'><a href='last_yml.html'>last_yml</a></span>())
+    <pre class="usage"><span class='fu'>use_yml</span><span class='op'>(</span>.yml <span class='op'>=</span> <span class='fu'><a href='last_yml.html'>last_yml</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='fu'>use_rmarkdown</span>(
-  <span class='kw'>.yml</span> <span class='kw'>=</span> <span class='fu'><a href='last_yml.html'>last_yml</a></span>(),
-  <span class='no'>path</span>,
-  <span class='kw'>template</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>include_yaml</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>include_body</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>body</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>quiet</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>open_doc</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()
-)
+<span class='fu'>use_rmarkdown</span><span class='op'>(</span>
+  .yml <span class='op'>=</span> <span class='fu'><a href='last_yml.html'>last_yml</a></span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='va'>path</span>,
+  template <span class='op'>=</span> <span class='cn'>NULL</span>,
+  include_yaml <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  include_body <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  body <span class='op'>=</span> <span class='cn'>NULL</span>,
+  quiet <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  open_doc <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>)</span>
 
-<span class='fu'>use_index_rmd</span>(
-  <span class='kw'>.yml</span> <span class='kw'>=</span> <span class='fu'><a href='last_yml.html'>last_yml</a></span>(),
-  <span class='no'>path</span>,
-  <span class='kw'>template</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>include_yaml</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>include_body</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>body</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>quiet</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>open_doc</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()
-)</pre>
+<span class='fu'>use_index_rmd</span><span class='op'>(</span>
+  .yml <span class='op'>=</span> <span class='fu'><a href='last_yml.html'>last_yml</a></span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='va'>path</span>,
+  template <span class='op'>=</span> <span class='cn'>NULL</span>,
+  include_yaml <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  include_body <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  body <span class='op'>=</span> <span class='cn'>NULL</span>,
+  quiet <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  open_doc <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -257,7 +257,7 @@ checks that RStudio is available.</p></td>
 <code><a href='has_field.html'>has_field</a>()</code>,
 <code><a href='read_json.html'>read_json</a>()</code>,
 <code><a href='use_yml_defaults.html'>use_yml_defaults</a>()</code>,
-<code><a href='use_file_yml.html'>use_yml_file</a>()</code>,
+<code><a href='use_yml_file.html'>use_yml_file</a>()</code>,
 <code><a href='yml_author.html'>yml_author</a>()</code>,
 <code><a href='yml_blogdown_opts.html'>yml_blogdown_opts</a>()</code>,
 <code><a href='yml_bookdown_opts.html'>yml_bookdown_opts</a>()</code>,
@@ -294,7 +294,7 @@ checks that RStudio is available.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

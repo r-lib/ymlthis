@@ -168,90 +168,90 @@ pkgdown also uses the same approach to navbars as R Markdown.
 approach to writing pkgdown YAML might be to use <code><a href='pkgdown_template.html'>pkgdown_template()</a></code> to
 build a template based on your package directory, modify with
 <code>yml_pkgdown_*()</code> and <code>pkgdown_*()</code> functions or <code><a href='yml_replace.html'>yml_replace()</a></code> and
-<code><a href='yml_replace.html'>yml_discard()</a></code>, then pass the results to <code><a href='use_file_yml.html'>use_pkgdown_yml()</a></code> to write to
+<code><a href='yml_replace.html'>yml_discard()</a></code>, then pass the results to <code><a href='use_yml_file.html'>use_pkgdown_yml()</a></code> to write to
 <code>_pkgdown.yml</code></p>
     </div>
 
-    <pre class="usage"><span class='fu'>yml_pkgdown</span>(<span class='no'>.yml</span>, <span class='kw'>as_is</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(), <span class='kw'>extension</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>())
+    <pre class="usage"><span class='fu'>yml_pkgdown</span><span class='op'>(</span><span class='va'>.yml</span>, as_is <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>, extension <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='fu'>yml_pkgdown_opts</span>(
-  <span class='no'>.yml</span>,
-  <span class='kw'>site_title</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>destination</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>url</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>toc_depth</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>()
-)
+<span class='fu'>yml_pkgdown_opts</span><span class='op'>(</span>
+  <span class='va'>.yml</span>,
+  site_title <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  destination <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  url <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  toc_depth <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>)</span>
 
-<span class='fu'>yml_pkgdown_development</span>(
-  <span class='no'>.yml</span>,
-  <span class='kw'>mode</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>dev_destination</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>version_label</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>version_tooltip</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>()
-)
+<span class='fu'>yml_pkgdown_development</span><span class='op'>(</span>
+  <span class='va'>.yml</span>,
+  mode <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  dev_destination <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  version_label <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  version_tooltip <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>)</span>
 
-<span class='fu'>yml_pkgdown_template</span>(
-  <span class='no'>.yml</span>,
-  <span class='kw'>bootswatch</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>ganalytics</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>noindex</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>package</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>path</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>assets</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>default_assets</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>()
-)
+<span class='fu'>yml_pkgdown_template</span><span class='op'>(</span>
+  <span class='va'>.yml</span>,
+  bootswatch <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  ganalytics <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  noindex <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  package <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  path <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  assets <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  default_assets <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>)</span>
 
-<span class='fu'>yml_pkgdown_reference</span>(<span class='no'>.yml</span>, <span class='no'>...</span>)
+<span class='fu'>yml_pkgdown_reference</span><span class='op'>(</span><span class='va'>.yml</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>pkgdown_ref</span>(
-  <span class='kw'>title</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>desc</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>contents</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>exclude</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='no'>...</span>
-)
+<span class='fu'>pkgdown_ref</span><span class='op'>(</span>
+  title <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  desc <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  contents <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  exclude <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>yml_pkgdown_news</span>(<span class='no'>.yml</span>, <span class='kw'>one_page</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>())
+<span class='fu'>yml_pkgdown_news</span><span class='op'>(</span><span class='va'>.yml</span>, one_page <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='fu'>yml_pkgdown_articles</span>(<span class='no'>.yml</span>, <span class='no'>...</span>)
+<span class='fu'>yml_pkgdown_articles</span><span class='op'>(</span><span class='va'>.yml</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>pkgdown_article</span>(
-  <span class='kw'>title</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>desc</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>contents</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>exclude</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='no'>...</span>
-)
+<span class='fu'>pkgdown_article</span><span class='op'>(</span>
+  title <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  desc <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  contents <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  exclude <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>yml_pkgdown_tutorial</span>(<span class='no'>.yml</span>, <span class='no'>...</span>)
+<span class='fu'>yml_pkgdown_tutorial</span><span class='op'>(</span><span class='va'>.yml</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>pkgdown_tutorial</span>(
-  <span class='kw'>name</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>title</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>tutorial_url</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>source</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='no'>...</span>
-)
+<span class='fu'>pkgdown_tutorial</span><span class='op'>(</span>
+  name <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  title <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  tutorial_url <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  source <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>yml_pkgdown_figures</span>(
-  <span class='no'>.yml</span>,
-  <span class='kw'>dev</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>dpi</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>dev.args</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>fig.ext</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>fig.width</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>fig.height</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>fig.retina</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>fig.asp</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='no'>...</span>
-)
+<span class='fu'>yml_pkgdown_figures</span><span class='op'>(</span>
+  <span class='va'>.yml</span>,
+  dev <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  dpi <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  dev.args <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  fig.ext <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  fig.width <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  fig.height <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  fig.retina <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  fig.asp <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>yml_pkgdown_docsearch</span>(
-  <span class='no'>.yml</span>,
-  <span class='kw'>api_key</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>index_name</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>doc_url</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>()
-)</pre>
+<span class='fu'>yml_pkgdown_docsearch</span><span class='op'>(</span>
+  <span class='va'>.yml</span>,
+  api_key <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  index_name <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  doc_url <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -438,7 +438,7 @@ transform into YAML</p></td>
     <p>a <code>yml</code> object</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='use_file_yml.html'>use_pkgdown_yml()</a></code> <code><a href='yml_site_opts.html'>yml_navbar()</a></code></p>
+    <div class='dont-index'><p><code><a href='use_yml_file.html'>use_pkgdown_yml()</a></code> <code><a href='yml_site_opts.html'>yml_navbar()</a></code></p>
 <p>Other yml: 
 <code><a href='asis_yaml_output.html'>asis_yaml_output</a>()</code>,
 <code><a href='bib2yml.html'>bib2yml</a>()</code>,
@@ -446,7 +446,7 @@ transform into YAML</p></td>
 <code><a href='has_field.html'>has_field</a>()</code>,
 <code><a href='read_json.html'>read_json</a>()</code>,
 <code><a href='use_yml_defaults.html'>use_yml_defaults</a>()</code>,
-<code><a href='use_file_yml.html'>use_yml_file</a>()</code>,
+<code><a href='use_yml_file.html'>use_yml_file</a>()</code>,
 <code><a href='use_yml.html'>use_yml</a>()</code>,
 <code><a href='yml_author.html'>yml_author</a>()</code>,
 <code><a href='yml_blogdown_opts.html'>yml_blogdown_opts</a>()</code>,
@@ -475,22 +475,23 @@ transform into YAML</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='fu'><a href='yml.html'>yml_empty</a></span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'>yml_pkgdown</span>(
-    <span class='kw'>as_is</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-    <span class='kw'>extension</span> <span class='kw'>=</span> <span class='st'>"pdf"</span>
-  ) <span class='kw'>%&gt;%</span>
-  <span class='fu'>yml_pkgdown_reference</span>(
-    <span class='fu'>pkgdown_ref</span>(
-      <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"pkgdown functions"</span>,
-      <span class='kw'>contents</span> <span class='kw'>=</span> <span class='st'>"contains('function_name')"</span>
-    )
-  ) <span class='kw'>%&gt;%</span>
-  <span class='fu'>yml_pkgdown_articles</span>(
-    <span class='fu'>pkgdown_article</span>(
-      <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Introduction to the package"</span>
-    )
-  )</div><div class='output co'>#&gt; <span style='color: #555555;'>---
+<span class='fu'><a href='yml.html'>yml_empty</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>yml_pkgdown</span><span class='op'>(</span>
+    as_is <span class='op'>=</span> <span class='cn'>TRUE</span>,
+    extension <span class='op'>=</span> <span class='st'>"pdf"</span>
+  <span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>yml_pkgdown_reference</span><span class='op'>(</span>
+    <span class='fu'>pkgdown_ref</span><span class='op'>(</span>
+      title <span class='op'>=</span> <span class='st'>"pkgdown functions"</span>,
+      contents <span class='op'>=</span> <span class='st'>"contains('function_name')"</span>
+    <span class='op'>)</span>
+  <span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>yml_pkgdown_articles</span><span class='op'>(</span>
+    <span class='fu'>pkgdown_article</span><span class='op'>(</span>
+      title <span class='op'>=</span> <span class='st'>"Introduction to the package"</span>
+    <span class='op'>)</span>
+  <span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #555555;'>---
 #&gt; </span><span style='color: #00BB00;'>pkgdown</span><span style='color: #555555;'>:</span><span>
 #&gt;   </span><span style='color: #00BB00;'>as_is</span><span style='color: #555555;'>:</span><span> true
 #&gt;   </span><span style='color: #00BB00;'>extension</span><span style='color: #555555;'>:</span><span> pdf
@@ -517,7 +518,7 @@ transform into YAML</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

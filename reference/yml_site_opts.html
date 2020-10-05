@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Add site options for <code>_site.yml</code> and navbars for R Markdown websites — yml_site_opts • ymlthis</title>
+<title>Add site options for _site.yml and navbars for R Markdown websites — yml_site_opts • ymlthis</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Add site options for <code>_site.yml</code> and navbars for R Markdown websites — yml_site_opts" />
+<meta property="og:title" content="Add site options for _site.yml and navbars for R Markdown websites — yml_site_opts" />
 <meta property="og:description" content="R Markdown has a simple website builder baked in (see the R Markdown book
 for a detailed description). An R Markdown website must have at least have an
 index.Rmd file and a _site.yml file (which can be empty). Including YAML
@@ -170,39 +170,39 @@ with YAML (see <code>yml_navbar()</code>, as well as ?rmarkdown::render_site and
 ?rmarkdown::html_document). Pass <code>navbar_page()</code> to the <code>left</code> or <code>right</code>
 field to set up page tabs and use <code>navbar_separator()</code> to include a
 separators. In addition to writing YAML with <code>yml_*()</code> functions,
-<code><a href='use_file_yml.html'>use_site_yml()</a></code> will take the a <code>yml</code> object and write it to a <code>_site.yml</code>
+<code><a href='use_yml_file.html'>use_site_yml()</a></code> will take the a <code>yml</code> object and write it to a <code>_site.yml</code>
 file for you.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>yml_site_opts</span>(
-  <span class='no'>.yml</span>,
-  <span class='kw'>name</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>favicon</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>output_dir</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>include</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>exclude</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>new_session</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='no'>...</span>
-)
+    <pre class="usage"><span class='fu'>yml_site_opts</span><span class='op'>(</span>
+  <span class='va'>.yml</span>,
+  name <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  favicon <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  output_dir <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  include <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  exclude <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  new_session <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>yml_navbar</span>(
-  <span class='no'>.yml</span>,
-  <span class='kw'>title</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>left</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>right</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='no'>...</span>
-)
+<span class='fu'>yml_navbar</span><span class='op'>(</span>
+  <span class='va'>.yml</span>,
+  title <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  type <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  left <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  right <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>navbar_page</span>(
-  <span class='kw'>text</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>href</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>icon</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>menu</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='no'>...</span>
-)
+<span class='fu'>navbar_page</span><span class='op'>(</span>
+  text <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  href <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  icon <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  menu <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>navbar_separator</span>()</pre>
+<span class='fu'>navbar_separator</span><span class='op'>(</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -228,7 +228,7 @@ if none is specified)</p></td>
     <tr>
       <th>include, exclude</th>
       <td><p>Files to include or exclude from the copied into
-<code>output_dir</code>. You can use <code>*</code> to indicate a wildcard selection, e.g.
+<code>output_dir</code>. You can use <code><a href='https://rdrr.io/r/base/Arithmetic.html'>*</a></code> to indicate a wildcard selection, e.g.
 "*.csv".</p></td>
     </tr>
     <tr>
@@ -276,7 +276,7 @@ transform into YAML</p></td>
     <p>a <code>yml</code> object</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='use_file_yml.html'>use_site_yml()</a></code> <code><a href='use_file_yml.html'>use_navbar_yml()</a></code> <code><a href='use_yml.html'>use_index_rmd()</a></code></p>
+    <div class='dont-index'><p><code><a href='use_yml_file.html'>use_site_yml()</a></code> <code><a href='use_yml_file.html'>use_navbar_yml()</a></code> <code><a href='use_yml.html'>use_index_rmd()</a></code></p>
 <p>Other yml: 
 <code><a href='asis_yaml_output.html'>asis_yaml_output</a>()</code>,
 <code><a href='bib2yml.html'>bib2yml</a>()</code>,
@@ -284,7 +284,7 @@ transform into YAML</p></td>
 <code><a href='has_field.html'>has_field</a>()</code>,
 <code><a href='read_json.html'>read_json</a>()</code>,
 <code><a href='use_yml_defaults.html'>use_yml_defaults</a>()</code>,
-<code><a href='use_file_yml.html'>use_yml_file</a>()</code>,
+<code><a href='use_yml_file.html'>use_yml_file</a>()</code>,
 <code><a href='use_yml.html'>use_yml</a>()</code>,
 <code><a href='yml_author.html'>yml_author</a>()</code>,
 <code><a href='yml_blogdown_opts.html'>yml_blogdown_opts</a>()</code>,
@@ -315,21 +315,22 @@ transform into YAML</p></td>
 <code><a href='yml_pkgdown.html'>yml_pkgdown</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='yml.html'>yml_empty</a></span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'>yml_site_opts</span>(
-    <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"my-website"</span>,
-    <span class='kw'>output_dir</span> <span class='kw'>=</span>  <span class='st'>"_site"</span>,
-    <span class='kw'>include</span> <span class='kw'>=</span> <span class='st'>"demo.R"</span>,
-    <span class='kw'>exclude</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"docs.txt"</span>, <span class='st'>"*.csv"</span>)
-  ) <span class='kw'>%&gt;%</span>
-  <span class='fu'>yml_navbar</span>(
-    <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"My Website"</span>,
-    <span class='kw'>left</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-      <span class='fu'>navbar_page</span>(<span class='st'>"Home"</span>, <span class='kw'>href</span> <span class='kw'>=</span> <span class='st'>"index.html"</span>),
-      <span class='fu'>navbar_page</span>(<span class='fu'>navbar_separator</span>(), <span class='kw'>href</span> <span class='kw'>=</span> <span class='st'>"about.html"</span>)
-    )
-  ) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='yml_output.html'>yml_output</a></span>(<span class='fu'>html_document</span>(<span class='kw'>toc</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>highlight</span> <span class='kw'>=</span> <span class='st'>"textmate"</span>))</div><div class='output co'>#&gt; <span style='color: #555555;'>---
+    <pre class="examples"><div class='input'><span class='fu'><a href='yml.html'>yml_empty</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>yml_site_opts</span><span class='op'>(</span>
+    name <span class='op'>=</span> <span class='st'>"my-website"</span>,
+    output_dir <span class='op'>=</span>  <span class='st'>"_site"</span>,
+    include <span class='op'>=</span> <span class='st'>"demo.R"</span>,
+    exclude <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"docs.txt"</span>, <span class='st'>"*.csv"</span><span class='op'>)</span>
+  <span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>yml_navbar</span><span class='op'>(</span>
+    title <span class='op'>=</span> <span class='st'>"My Website"</span>,
+    left <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+      <span class='fu'>navbar_page</span><span class='op'>(</span><span class='st'>"Home"</span>, href <span class='op'>=</span> <span class='st'>"index.html"</span><span class='op'>)</span>,
+      <span class='fu'>navbar_page</span><span class='op'>(</span><span class='fu'>navbar_separator</span><span class='op'>(</span><span class='op'>)</span>, href <span class='op'>=</span> <span class='st'>"about.html"</span><span class='op'>)</span>
+    <span class='op'>)</span>
+  <span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='yml_output.html'>yml_output</a></span><span class='op'>(</span><span class='fu'>html_document</span><span class='op'>(</span>toc <span class='op'>=</span> <span class='cn'>TRUE</span>, highlight <span class='op'>=</span> <span class='st'>"textmate"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #555555;'>---
 #&gt; </span><span style='color: #00BB00;'>name</span><span style='color: #555555;'>:</span><span> my-website
 #&gt; </span><span style='color: #00BB00;'>output_dir</span><span style='color: #555555;'>:</span><span> _site
 #&gt; </span><span style='color: #00BB00;'>include</span><span style='color: #555555;'>:</span><span> demo.R
@@ -365,7 +366,7 @@ transform into YAML</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

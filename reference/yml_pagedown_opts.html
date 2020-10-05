@@ -158,16 +158,16 @@ top-level YAML. See <code><a href='pagedown_business_card_template.html'>pagedow
 up the YAML for a business card.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>yml_pagedown_opts</span>(
-  <span class='no'>.yml</span>,
-  <span class='kw'>toc</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>toc_title</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>lot</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>lot_title</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>chapter_name</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>links_to_footnotes</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>paged_footnotes</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>()
-)</pre>
+    <pre class="usage"><span class='fu'>yml_pagedown_opts</span><span class='op'>(</span>
+  <span class='va'>.yml</span>,
+  toc <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  toc_title <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  lot <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  lot_title <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  chapter_name <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  links_to_footnotes <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  paged_footnotes <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -223,7 +223,7 @@ actual YAML field is <code>paged-footnotes</code></p></td>
 <code><a href='has_field.html'>has_field</a>()</code>,
 <code><a href='read_json.html'>read_json</a>()</code>,
 <code><a href='use_yml_defaults.html'>use_yml_defaults</a>()</code>,
-<code><a href='use_file_yml.html'>use_yml_file</a>()</code>,
+<code><a href='use_yml_file.html'>use_yml_file</a>()</code>,
 <code><a href='use_yml.html'>use_yml</a>()</code>,
 <code><a href='yml_author.html'>yml_author</a>()</code>,
 <code><a href='yml_blogdown_opts.html'>yml_blogdown_opts</a>()</code>,
@@ -249,13 +249,14 @@ actual YAML field is <code>paged-footnotes</code></p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='fu'><a href='yml.html'>yml</a></span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'>yml_pagedown_opts</span>(
-    <span class='kw'>toc</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-    <span class='kw'>toc_title</span> <span class='kw'>=</span> <span class='st'>"TOC"</span>,
-    <span class='kw'>chapter_name</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"CHAPTER\\ "</span>, <span class='st'>"."</span>),
-    <span class='kw'>links_to_footnotes</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
-  )</div><div class='output co'>#&gt; <span style='color: #555555;'>---
+<span class='fu'><a href='yml.html'>yml</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>yml_pagedown_opts</span><span class='op'>(</span>
+    toc <span class='op'>=</span> <span class='cn'>TRUE</span>,
+    toc_title <span class='op'>=</span> <span class='st'>"TOC"</span>,
+    chapter_name <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"CHAPTER\\ "</span>, <span class='st'>"."</span><span class='op'>)</span>,
+    links_to_footnotes <span class='op'>=</span> <span class='cn'>TRUE</span>
+  <span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #555555;'>---
 #&gt; </span><span style='color: #00BB00;'>author</span><span style='color: #555555;'>:</span><span> runner
 #&gt; </span><span style='color: #00BB00;'>date</span><span style='color: #555555;'>:</span><span> '`r format(Sys.Date())`'
 #&gt; </span><span style='color: #00BB00;'>toc</span><span style='color: #555555;'>:</span><span> true
@@ -282,7 +283,7 @@ actual YAML field is <code>paged-footnotes</code></p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

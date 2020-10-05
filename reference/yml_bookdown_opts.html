@@ -161,27 +161,27 @@ the site: &quot;bookdown::bookdown_site&quot; to the YAML metadata." />
 YAML. <code>_output.yml</code> is intended for output-related YAML, such as that
 produced by <code>yml() %&gt;% yml_output(bookdown::pdf_book())</code>. <code>_bookdown.yml</code> is
 intended for configuring the build of the book. Pass the results of the
-<code>yml_*()</code> functions to <code><a href='use_yml.html'>use_index_rmd()</a></code>, <code><a href='use_file_yml.html'>use_bookdown_yml()</a></code>,
-<code><a href='use_file_yml.html'>use_output_yml()</a></code> to write them to these files. <code>yml_bookdown_site()</code> adds
+<code>yml_*()</code> functions to <code><a href='use_yml.html'>use_index_rmd()</a></code>, <code><a href='use_yml_file.html'>use_bookdown_yml()</a></code>,
+<code><a href='use_yml_file.html'>use_output_yml()</a></code> to write them to these files. <code>yml_bookdown_site()</code> adds
 the <code>site: "bookdown::bookdown_site"</code> to the YAML metadata.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>yml_bookdown_opts</span>(
-  <span class='no'>.yml</span>,
-  <span class='kw'>book_filename</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>delete_merged_file</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>before_chapter_script</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>after_chapter_script</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>edit</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>history</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>rmd_files</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>rmd_subdir</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>output_dir</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='kw'>clean</span> <span class='kw'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span>(),
-  <span class='no'>...</span>
-)
+    <pre class="usage"><span class='fu'>yml_bookdown_opts</span><span class='op'>(</span>
+  <span class='va'>.yml</span>,
+  book_filename <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  delete_merged_file <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  before_chapter_script <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  after_chapter_script <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  edit <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  history <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  rmd_files <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  rmd_subdir <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  output_dir <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  clean <span class='op'>=</span> <span class='fu'><a href='yml_blank.html'>yml_blank</a></span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
 
-<span class='fu'>yml_bookdown_site</span>(<span class='no'>.yml</span>)</pre>
+<span class='fu'>yml_bookdown_site</span><span class='op'>(</span><span class='va'>.yml</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -254,7 +254,7 @@ transform into YAML</p></td>
     <p>a <code>yml</code> object</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='use_yml.html'>use_index_rmd()</a></code> <code><a href='use_file_yml.html'>use_bookdown_yml()</a></code> <code><a href='use_file_yml.html'>use_output_yml()</a></code></p>
+    <div class='dont-index'><p><code><a href='use_yml.html'>use_index_rmd()</a></code> <code><a href='use_yml_file.html'>use_bookdown_yml()</a></code> <code><a href='use_yml_file.html'>use_output_yml()</a></code></p>
 <p>Other yml: 
 <code><a href='asis_yaml_output.html'>asis_yaml_output</a>()</code>,
 <code><a href='bib2yml.html'>bib2yml</a>()</code>,
@@ -262,7 +262,7 @@ transform into YAML</p></td>
 <code><a href='has_field.html'>has_field</a>()</code>,
 <code><a href='read_json.html'>read_json</a>()</code>,
 <code><a href='use_yml_defaults.html'>use_yml_defaults</a>()</code>,
-<code><a href='use_file_yml.html'>use_yml_file</a>()</code>,
+<code><a href='use_yml_file.html'>use_yml_file</a>()</code>,
 <code><a href='use_yml.html'>use_yml</a>()</code>,
 <code><a href='yml_author.html'>yml_author</a>()</code>,
 <code><a href='yml_blogdown_opts.html'>yml_blogdown_opts</a>()</code>,
@@ -288,15 +288,16 @@ transform into YAML</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='fu'><a href='yml.html'>yml_empty</a></span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'>yml_bookdown_opts</span>(
-    <span class='kw'>book_filename</span> <span class='kw'>=</span> <span class='st'>"my-book.Rmd"</span>,
-    <span class='kw'>before_chapter_script</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"script1.R"</span>, <span class='st'>"script2.R"</span>),
-    <span class='kw'>after_chapter_script</span> <span class='kw'>=</span> <span class='st'>"script3.R"</span>,
-    <span class='kw'>edit</span> <span class='kw'>=</span> <span class='st'>"https =//github.com/rstudio/bookdown-demo/edit/master/%s"</span>,
-    <span class='kw'>output_dir</span> <span class='kw'>=</span> <span class='st'>"book-output"</span>,
-    <span class='kw'>clean</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"my-book.bbl"</span>, <span class='st'>"R-packages.bib"</span>)
- )</div><div class='output co'>#&gt; <span style='color: #555555;'>---
+<span class='fu'><a href='yml.html'>yml_empty</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>yml_bookdown_opts</span><span class='op'>(</span>
+    book_filename <span class='op'>=</span> <span class='st'>"my-book.Rmd"</span>,
+    before_chapter_script <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"script1.R"</span>, <span class='st'>"script2.R"</span><span class='op'>)</span>,
+    after_chapter_script <span class='op'>=</span> <span class='st'>"script3.R"</span>,
+    edit <span class='op'>=</span> <span class='st'>"https =//github.com/rstudio/bookdown-demo/edit/master/%s"</span>,
+    output_dir <span class='op'>=</span> <span class='st'>"book-output"</span>,
+    clean <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"my-book.bbl"</span>, <span class='st'>"R-packages.bib"</span><span class='op'>)</span>
+ <span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #555555;'>---
 #&gt; </span><span style='color: #00BB00;'>book_filename</span><span style='color: #555555;'>:</span><span> my-book.Rmd
 #&gt; </span><span style='color: #00BB00;'>before_chapter_script</span><span style='color: #555555;'>:</span><span>
 #&gt; </span><span style='color: #555555;'>- </span><span>script1.R
@@ -309,13 +310,14 @@ transform into YAML</p></td>
 #&gt; </span><span style='color: #555555;'>- </span><span>R-packages.bib
 #&gt; </span><span style='color: #555555;'>---
 #&gt; </span><span></div><div class='input'>
-<span class='fu'><a href='yml.html'>yml_empty</a></span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'>yml_bookdown_opts</span>(
-    <span class='kw'>rmd_files</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-      <span class='kw'>html</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"index.Rmd"</span>, <span class='st'>"abstract.Rmd"</span>, <span class='st'>"intro.Rmd"</span>),
-      <span class='kw'>latex</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"abstract.Rmd"</span>, <span class='st'>"intro.Rmd"</span>)
-    )
- )</div><div class='output co'>#&gt; </span><span style='color: #555555;'>---
+<span class='fu'><a href='yml.html'>yml_empty</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>yml_bookdown_opts</span><span class='op'>(</span>
+    rmd_files <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+      html <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"index.Rmd"</span>, <span class='st'>"abstract.Rmd"</span>, <span class='st'>"intro.Rmd"</span><span class='op'>)</span>,
+      latex <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"abstract.Rmd"</span>, <span class='st'>"intro.Rmd"</span><span class='op'>)</span>
+    <span class='op'>)</span>
+ <span class='op'>)</span>
+</div><div class='output co'>#&gt; </span><span style='color: #555555;'>---
 #&gt; </span><span style='color: #00BB00;'>rmd_files</span><span style='color: #555555;'>:</span><span>
 #&gt;   </span><span style='color: #00BB00;'>html</span><span style='color: #555555;'>:</span><span>
 #&gt;   </span><span style='color: #555555;'>- </span><span>index.Rmd
@@ -326,23 +328,24 @@ transform into YAML</p></td>
 #&gt;   </span><span style='color: #555555;'>- </span><span>intro.Rmd
 #&gt; </span><span style='color: #555555;'>---
 #&gt; </span><span></div><div class='input'>
- <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='yml.html'>yml_empty</a></span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='yml_author.html'>yml_title</a></span>(<span class='st'>"A Minimal Book Example"</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='yml_author.html'>yml_date</a></span>(<span class='fu'><a href='yml_code.html'>yml_code</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span>())) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='yml_author.html'>yml_author</a></span>(<span class='st'>"Yihui Xie"</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'>yml_bookdown_site</span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='yml_latex_opts.html'>yml_latex_opts</a></span>(
-    <span class='kw'>documentclass</span> <span class='kw'>=</span> <span class='st'>"book"</span>,
-    <span class='kw'>bibliography</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"book.bib"</span>, <span class='st'>"packages.bib"</span>),
-    <span class='kw'>biblio_style</span> <span class='kw'>=</span> <span class='st'>"apalike"</span>
-  ) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='yml_citations.html'>yml_citations</a></span>(
-    <span class='kw'>link_citations</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
-  ) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='yml_author.html'>yml_description</a></span>(<span class='st'>"This is a minimal example of using
-  the bookdown package to write a book."</span>)
+ <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='yml.html'>yml_empty</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='yml_author.html'>yml_title</a></span><span class='op'>(</span><span class='st'>"A Minimal Book Example"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='yml_author.html'>yml_date</a></span><span class='op'>(</span><span class='fu'><a href='yml_code.html'>yml_code</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.Date</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='yml_author.html'>yml_author</a></span><span class='op'>(</span><span class='st'>"Yihui Xie"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>yml_bookdown_site</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='yml_latex_opts.html'>yml_latex_opts</a></span><span class='op'>(</span>
+    documentclass <span class='op'>=</span> <span class='st'>"book"</span>,
+    bibliography <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"book.bib"</span>, <span class='st'>"packages.bib"</span><span class='op'>)</span>,
+    biblio_style <span class='op'>=</span> <span class='st'>"apalike"</span>
+  <span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='yml_citations.html'>yml_citations</a></span><span class='op'>(</span>
+    link_citations <span class='op'>=</span> <span class='cn'>TRUE</span>
+  <span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='yml_author.html'>yml_description</a></span><span class='op'>(</span><span class='st'>"This is a minimal example of using
+  the bookdown package to write a book."</span><span class='op'>)</span>
 
-<span class='no'>x</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'>---
+<span class='va'>x</span>
+</div><div class='output co'>#&gt; </span><span style='color: #555555;'>---
 #&gt; </span><span style='color: #00BB00;'>title</span><span style='color: #555555;'>:</span><span> A Minimal Book Example
 #&gt; </span><span style='color: #00BB00;'>date</span><span style='color: #555555;'>:</span><span> '`r Sys.Date() `'
 #&gt; </span><span style='color: #00BB00;'>author</span><span style='color: #555555;'>:</span><span> Yihui Xie
@@ -360,17 +363,18 @@ transform into YAML</p></td>
 #&gt; </span><span></div><div class='input'>
 
 <span class='co'># \donttest{</span>
-<span class='no'>output_yml</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='yml.html'>yml_empty</a></span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='yml_output.html'>yml_output</a></span>(
-    <span class='kw pkg'>bookdown</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/bookdown/man/gitbook.html'>gitbook</a></span>(
-      <span class='kw'>lib_dir</span> <span class='kw'>=</span> <span class='st'>"assets"</span>,
-      <span class='kw'>split_by</span> <span class='kw'>=</span> <span class='st'>"section"</span>,
-      <span class='kw'>config</span> <span class='kw'>=</span> <span class='fu'><a href='gitbook_config.html'>gitbook_config</a></span>(<span class='kw'>toolbar_position</span> <span class='kw'>=</span> <span class='st'>"static"</span>)
-    ),
-    <span class='kw pkg'>bookdown</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/bookdown/man/pdf_book.html'>pdf_book</a></span>(<span class='kw'>keep_tex</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>),
-    <span class='kw pkg'>bookdown</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/bookdown/man/html_chapters.html'>html_book</a></span>(<span class='kw'>css</span> <span class='kw'>=</span> <span class='st'>"toc.css"</span>)
-  )
-<span class='no'>output_yml</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'>---
+<span class='va'>output_yml</span> <span class='op'>&lt;-</span> <span class='fu'><a href='yml.html'>yml_empty</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='yml_output.html'>yml_output</a></span><span class='op'>(</span>
+    <span class='fu'>bookdown</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/bookdown/man/gitbook.html'>gitbook</a></span><span class='op'>(</span>
+      lib_dir <span class='op'>=</span> <span class='st'>"assets"</span>,
+      split_by <span class='op'>=</span> <span class='st'>"section"</span>,
+      config <span class='op'>=</span> <span class='fu'><a href='gitbook_config.html'>gitbook_config</a></span><span class='op'>(</span>toolbar_position <span class='op'>=</span> <span class='st'>"static"</span><span class='op'>)</span>
+    <span class='op'>)</span>,
+    <span class='fu'>bookdown</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/bookdown/man/pdf_book.html'>pdf_book</a></span><span class='op'>(</span>keep_tex <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,
+    <span class='fu'>bookdown</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/bookdown/man/html_chapters.html'>html_book</a></span><span class='op'>(</span>css <span class='op'>=</span> <span class='st'>"toc.css"</span><span class='op'>)</span>
+  <span class='op'>)</span>
+<span class='va'>output_yml</span>
+</div><div class='output co'>#&gt; </span><span style='color: #555555;'>---
 #&gt; </span><span style='color: #00BB00;'>output</span><span style='color: #555555;'>:</span><span>
 #&gt;   </span><span style='color: #00BB00;'>bookdown::gitbook</span><span style='color: #555555;'>:</span><span>
 #&gt;     </span><span style='color: #00BB00;'>lib_dir</span><span style='color: #555555;'>:</span><span> assets
@@ -383,7 +387,7 @@ transform into YAML</p></td>
 #&gt;   </span><span style='color: #00BB00;'>bookdown::html_book</span><span style='color: #555555;'>:</span><span>
 #&gt;     </span><span style='color: #00BB00;'>css</span><span style='color: #555555;'>:</span><span> toc.css
 #&gt; </span><span style='color: #555555;'>---
-#&gt; </span><span></div><div class='input'># }
+#&gt; </span><span></div><div class='input'><span class='co'># }</span>
 
 
 </div></span></pre>
@@ -402,7 +406,7 @@ transform into YAML</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

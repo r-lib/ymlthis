@@ -170,9 +170,9 @@ syntax, although not every function is able to check that the input fields
 are valid for the setting they are used in.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>yml</span>(<span class='kw'>.yml</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>get_yml</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>author</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>date</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+    <pre class="usage"><span class='fu'>yml</span><span class='op'>(</span>.yml <span class='op'>=</span> <span class='cn'>NULL</span>, get_yml <span class='op'>=</span> <span class='cn'>TRUE</span>, author <span class='op'>=</span> <span class='cn'>TRUE</span>, date <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
-<span class='fu'>yml_empty</span>()</pre>
+<span class='fu'>yml_empty</span><span class='op'>(</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -210,21 +210,24 @@ function for more details.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='fu'>yml</span>()</div><div class='output co'>#&gt; <span style='color: #555555;'>---
+<span class='fu'>yml</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #555555;'>---
 #&gt; </span><span style='color: #00BB00;'>author</span><span style='color: #555555;'>:</span><span> runner
 #&gt; </span><span style='color: #00BB00;'>date</span><span style='color: #555555;'>:</span><span> '`r format(Sys.Date())`'
 #&gt; </span><span style='color: #555555;'>---
 #&gt; </span><span></div><div class='input'>
-<span class='fu'>yml</span>(<span class='kw'>date</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'>---
+<span class='fu'>yml</span><span class='op'>(</span>date <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; </span><span style='color: #555555;'>---
 #&gt; </span><span style='color: #00BB00;'>author</span><span style='color: #555555;'>:</span><span> runner
 #&gt; </span><span style='color: #555555;'>---
 #&gt; </span><span></div><div class='input'>
-<span class='st'>"author: Hadley Wickham\ndate: 2014-09-12"</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'>yml</span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='yml_author.html'>yml_title</a></span>(<span class='st'>"Tidy Data"</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='yml_author.html'>yml_keywords</a></span>(
-    <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"data cleaning"</span>, <span class='st'>"data tidying"</span>, <span class='st'>"relational databases"</span>, <span class='st'>"R"</span>)
-  )</div><div class='output co'>#&gt; </span><span style='color: #555555;'>---
+<span class='st'>"author: Hadley Wickham\ndate: 2014-09-12"</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>yml</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='yml_author.html'>yml_title</a></span><span class='op'>(</span><span class='st'>"Tidy Data"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='yml_author.html'>yml_keywords</a></span><span class='op'>(</span>
+    <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"data cleaning"</span>, <span class='st'>"data tidying"</span>, <span class='st'>"relational databases"</span>, <span class='st'>"R"</span><span class='op'>)</span>
+  <span class='op'>)</span>
+</div><div class='output co'>#&gt; </span><span style='color: #555555;'>---
 #&gt; </span><span style='color: #00BB00;'>author</span><span style='color: #555555;'>:</span><span> Hadley Wickham
 #&gt; </span><span style='color: #00BB00;'>date</span><span style='color: #555555;'>:</span><span> '2014-09-12'
 #&gt; </span><span style='color: #00BB00;'>title</span><span style='color: #555555;'>:</span><span> Tidy Data
@@ -235,19 +238,20 @@ function for more details.</p>
 #&gt; </span><span style='color: #555555;'>- </span><span>R
 #&gt; </span><span style='color: #555555;'>---
 #&gt; </span><span></div><div class='input'><span class='co'># \donttest{</span>
-<span class='fu'>yml</span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='yml_author.html'>yml_author</a></span>(
-    <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Yihui Xie"</span>, <span class='st'>"Hadley Wickham"</span>),
-    <span class='kw'>affiliation</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"RStudio"</span>, <span class='fl'>2</span>)
-  ) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='yml_author.html'>yml_date</a></span>(<span class='st'>"07/04/2019"</span>) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='yml_output.html'>yml_output</a></span>(
-    <span class='fu'>pdf_document</span>(
-    <span class='kw'>keep_tex</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-    <span class='kw'>includes</span> <span class='kw'>=</span> <span class='fu'><a href='includes2.html'>includes2</a></span>(<span class='kw'>after_body</span> <span class='kw'>=</span> <span class='st'>"footer.tex"</span>)
-   )
-  ) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='yml_latex_opts.html'>yml_latex_opts</a></span>(<span class='kw'>biblio_style</span> <span class='kw'>=</span> <span class='st'>"apalike"</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'>---
+<span class='fu'>yml</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='yml_author.html'>yml_author</a></span><span class='op'>(</span>
+    <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Yihui Xie"</span>, <span class='st'>"Hadley Wickham"</span><span class='op'>)</span>,
+    affiliation <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='st'>"RStudio"</span>, <span class='fl'>2</span><span class='op'>)</span>
+  <span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='yml_author.html'>yml_date</a></span><span class='op'>(</span><span class='st'>"07/04/2019"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='yml_output.html'>yml_output</a></span><span class='op'>(</span>
+    <span class='fu'>pdf_document</span><span class='op'>(</span>
+    keep_tex <span class='op'>=</span> <span class='cn'>TRUE</span>,
+    includes <span class='op'>=</span> <span class='fu'><a href='includes2.html'>includes2</a></span><span class='op'>(</span>after_body <span class='op'>=</span> <span class='st'>"footer.tex"</span><span class='op'>)</span>
+   <span class='op'>)</span>
+  <span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='yml_latex_opts.html'>yml_latex_opts</a></span><span class='op'>(</span>biblio_style <span class='op'>=</span> <span class='st'>"apalike"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; </span><span style='color: #555555;'>---
 #&gt; </span><span style='color: #00BB00;'>author</span><span style='color: #555555;'>:</span><span>
 #&gt; </span><span style='color: #555555;'>- </span><span style='color: #00BB00;'>name</span><span style='color: #555555;'>:</span><span> Yihui Xie
 #&gt;   </span><span style='color: #00BB00;'>affiliation</span><span style='color: #555555;'>:</span><span> RStudio
@@ -261,7 +265,7 @@ function for more details.</p>
 #&gt;       </span><span style='color: #00BB00;'>after_body</span><span style='color: #555555;'>:</span><span> footer.tex
 #&gt; </span><span style='color: #00BB00;'>biblio-style</span><span style='color: #555555;'>:</span><span> apalike
 #&gt; </span><span style='color: #555555;'>---
-#&gt; </span><span></div><div class='input'># }
+#&gt; </span><span></div><div class='input'><span class='co'># }</span>
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -278,7 +282,7 @@ function for more details.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

@@ -176,81 +176,81 @@ Markdown supports only a limited number of components; each of these is
 included as a function starting with <code>shiny_*()</code>, e.g. <code>shiny_checkbox()</code></p>
     </div>
 
-    <pre class="usage"><span class='fu'>yml_params</span>(<span class='no'>.yml</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>yml_params</span><span class='op'>(</span><span class='va'>.yml</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>shiny_params</span>(<span class='no'>.shiny</span>)
+<span class='fu'>shiny_params</span><span class='op'>(</span><span class='va'>.shiny</span><span class='op'>)</span>
 
-<span class='fu'>shiny_checkbox</span>(<span class='no'>label</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'>shiny_checkbox</span><span class='op'>(</span><span class='va'>label</span>, value <span class='op'>=</span> <span class='cn'>FALSE</span>, width <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>shiny_numeric</span>(<span class='no'>label</span>, <span class='no'>value</span>, <span class='kw'>min</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>max</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>step</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'>shiny_numeric</span><span class='op'>(</span><span class='va'>label</span>, <span class='va'>value</span>, min <span class='op'>=</span> <span class='cn'>NA</span>, max <span class='op'>=</span> <span class='cn'>NA</span>, step <span class='op'>=</span> <span class='cn'>NA</span>, width <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>shiny_slider</span>(
-  <span class='no'>label</span>,
-  <span class='no'>min</span>,
-  <span class='no'>max</span>,
-  <span class='no'>value</span>,
-  <span class='kw'>step</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>round</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>format</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>locale</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>ticks</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>animate</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>","</span>,
-  <span class='kw'>pre</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>post</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>timeFormat</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>timezone</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>dragRange</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
-)
+<span class='fu'>shiny_slider</span><span class='op'>(</span>
+  <span class='va'>label</span>,
+  <span class='va'>min</span>,
+  <span class='va'>max</span>,
+  <span class='va'>value</span>,
+  step <span class='op'>=</span> <span class='cn'>NULL</span>,
+  round <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  format <span class='op'>=</span> <span class='cn'>NULL</span>,
+  locale <span class='op'>=</span> <span class='cn'>NULL</span>,
+  ticks <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  animate <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  width <span class='op'>=</span> <span class='cn'>NULL</span>,
+  sep <span class='op'>=</span> <span class='st'>","</span>,
+  pre <span class='op'>=</span> <span class='cn'>NULL</span>,
+  post <span class='op'>=</span> <span class='cn'>NULL</span>,
+  timeFormat <span class='op'>=</span> <span class='cn'>NULL</span>,
+  timezone <span class='op'>=</span> <span class='cn'>NULL</span>,
+  dragRange <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span>
 
-<span class='fu'>shiny_date</span>(
-  <span class='no'>label</span>,
-  <span class='kw'>value</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>min</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>max</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"yyyy-mm-dd"</span>,
-  <span class='kw'>startview</span> <span class='kw'>=</span> <span class='st'>"month"</span>,
-  <span class='kw'>weekstart</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>language</span> <span class='kw'>=</span> <span class='st'>"en"</span>,
-  <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>autoclose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>datesdisabled</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>daysofweekdisabled</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
-)
+<span class='fu'>shiny_date</span><span class='op'>(</span>
+  <span class='va'>label</span>,
+  value <span class='op'>=</span> <span class='cn'>NULL</span>,
+  min <span class='op'>=</span> <span class='cn'>NULL</span>,
+  max <span class='op'>=</span> <span class='cn'>NULL</span>,
+  format <span class='op'>=</span> <span class='st'>"yyyy-mm-dd"</span>,
+  startview <span class='op'>=</span> <span class='st'>"month"</span>,
+  weekstart <span class='op'>=</span> <span class='fl'>0</span>,
+  language <span class='op'>=</span> <span class='st'>"en"</span>,
+  width <span class='op'>=</span> <span class='cn'>NULL</span>,
+  autoclose <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  datesdisabled <span class='op'>=</span> <span class='cn'>NULL</span>,
+  daysofweekdisabled <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span>
 
-<span class='fu'>shiny_text</span>(<span class='no'>label</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>placeholder</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'>shiny_text</span><span class='op'>(</span><span class='va'>label</span>, value <span class='op'>=</span> <span class='st'>""</span>, width <span class='op'>=</span> <span class='cn'>NULL</span>, placeholder <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>shiny_file</span>(
-  <span class='no'>label</span>,
-  <span class='kw'>multiple</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>accept</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>buttonLabel</span> <span class='kw'>=</span> <span class='st'>"Browse..."</span>,
-  <span class='kw'>placeholder</span> <span class='kw'>=</span> <span class='st'>"No file selected"</span>
-)
+<span class='fu'>shiny_file</span><span class='op'>(</span>
+  <span class='va'>label</span>,
+  multiple <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  accept <span class='op'>=</span> <span class='cn'>NULL</span>,
+  width <span class='op'>=</span> <span class='cn'>NULL</span>,
+  buttonLabel <span class='op'>=</span> <span class='st'>"Browse..."</span>,
+  placeholder <span class='op'>=</span> <span class='st'>"No file selected"</span>
+<span class='op'>)</span>
 
-<span class='fu'>shiny_radio</span>(
-  <span class='no'>label</span>,
-  <span class='kw'>choices</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>selected</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>inline</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>choiceNames</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>choiceValues</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
-)
+<span class='fu'>shiny_radio</span><span class='op'>(</span>
+  <span class='va'>label</span>,
+  choices <span class='op'>=</span> <span class='cn'>NULL</span>,
+  selected <span class='op'>=</span> <span class='cn'>NULL</span>,
+  inline <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  width <span class='op'>=</span> <span class='cn'>NULL</span>,
+  choiceNames <span class='op'>=</span> <span class='cn'>NULL</span>,
+  choiceValues <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span>
 
-<span class='fu'>shiny_select</span>(
-  <span class='no'>label</span>,
-  <span class='no'>choices</span>,
-  <span class='kw'>selected</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>multiple</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>selectize</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>size</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
-)
+<span class='fu'>shiny_select</span><span class='op'>(</span>
+  <span class='va'>label</span>,
+  <span class='va'>choices</span>,
+  selected <span class='op'>=</span> <span class='cn'>NULL</span>,
+  multiple <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  selectize <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  width <span class='op'>=</span> <span class='cn'>NULL</span>,
+  size <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span>
 
-<span class='fu'>shiny_password</span>(<span class='no'>label</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>placeholder</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+<span class='fu'>shiny_password</span><span class='op'>(</span><span class='va'>label</span>, value <span class='op'>=</span> <span class='st'>""</span>, width <span class='op'>=</span> <span class='cn'>NULL</span>, placeholder <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -280,7 +280,7 @@ transform into YAML</p></td>
     <tr>
       <th>width</th>
       <td><p>The width of the input, e.g. '400px', or '100%'; see
-<code><a href='https://rdrr.io/pkg/shiny/man/validateCssUnit.html'>shiny::validateCssUnit()</a></code></p></td>
+<code><a href='https://rdrr.io/pkg/htmltools/man/validateCssUnit.html'>shiny::validateCssUnit()</a></code></p></td>
     </tr>
     <tr>
       <th>min</th>
@@ -319,7 +319,7 @@ according to some simple heuristics.</p></td>
       <th>animate</th>
       <td><p><code>TRUE</code> to show simple animation controls with default
 settings; <code>FALSE</code> not to; or a custom settings list, such as those created
-using <code><a href='https://rdrr.io/pkg/shiny/man/sliderInput.html'>shiny::animationOptions()</a></code></p></td>
+using <code><a href='https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html'>shiny::animationOptions()</a></code></p></td>
     </tr>
     <tr>
       <th>sep</th>
@@ -483,7 +483,7 @@ but when <code>size</code> is set, it will be a box instead.</p></td>
 <code><a href='has_field.html'>has_field</a>()</code>,
 <code><a href='read_json.html'>read_json</a>()</code>,
 <code><a href='use_yml_defaults.html'>use_yml_defaults</a>()</code>,
-<code><a href='use_file_yml.html'>use_yml_file</a>()</code>,
+<code><a href='use_yml_file.html'>use_yml_file</a>()</code>,
 <code><a href='use_yml.html'>use_yml</a>()</code>,
 <code><a href='yml_author.html'>yml_author</a>()</code>,
 <code><a href='yml_blogdown_opts.html'>yml_blogdown_opts</a>()</code>,
@@ -514,13 +514,14 @@ but when <code>size</code> is set, it will be a box instead.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='fu'><a href='yml.html'>yml</a></span>() <span class='kw'>%&gt;%</span>
-  <span class='fu'>yml_params</span>(
-    <span class='kw'>z</span> <span class='kw'>=</span> <span class='st'>"z"</span>,
-    <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'>shiny_numeric</span>(<span class='st'>"Starting value"</span>, <span class='fl'>23</span>),
-    <span class='kw'>no</span> <span class='kw'>=</span> <span class='fu'>shiny_checkbox</span>(<span class='st'>"No option?"</span>),
-    <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'>shiny_slider</span>(<span class='st'>"Data range"</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>.5</span>, <span class='kw'>round</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-  )</div><div class='output co'>#&gt; <span style='color: #555555;'>---
+<span class='fu'><a href='yml.html'>yml</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>yml_params</span><span class='op'>(</span>
+    z <span class='op'>=</span> <span class='st'>"z"</span>,
+    x <span class='op'>=</span> <span class='fu'>shiny_numeric</span><span class='op'>(</span><span class='st'>"Starting value"</span>, <span class='fl'>23</span><span class='op'>)</span>,
+    no <span class='op'>=</span> <span class='fu'>shiny_checkbox</span><span class='op'>(</span><span class='st'>"No option?"</span><span class='op'>)</span>,
+    y <span class='op'>=</span> <span class='fu'>shiny_slider</span><span class='op'>(</span><span class='st'>"Data range"</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>.5</span>, round <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+  <span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #555555;'>---
 #&gt; </span><span style='color: #00BB00;'>author</span><span style='color: #555555;'>:</span><span> runner
 #&gt; </span><span style='color: #00BB00;'>date</span><span style='color: #555555;'>:</span><span> '`r format(Sys.Date())`'
 #&gt; </span><span style='color: #00BB00;'>params</span><span style='color: #555555;'>:</span><span>
@@ -557,7 +558,7 @@ but when <code>size</code> is set, it will be a box instead.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>
