@@ -14,7 +14,7 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # requires this to be a package directory
 #' pkgdown_template() %>%
 #'   use_pkgdown_yml()
