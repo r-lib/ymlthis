@@ -13,7 +13,7 @@
 #' placed in `_site.yml`; see [`yml_site_opts()`] for further R Markdown website
 #' build options and [`use_site_yml()`] for creating that file based on a `yml`
 #' object. distill's YAML options are discussed in greater detail in the
-#' [articles on the distill website](https://rstudio.github.io/distill).
+#' [articles on the distill website](https://rstudio.github.io/distill/).
 #'
 #' @template describe_yml_param
 #' @param draft Logical. Set the post to be a draft? Draft posts won't be

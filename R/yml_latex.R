@@ -36,7 +36,7 @@
 #'   (see [LaTeX font encodings guide](https://ctan.org/pkg/encguide))
 #' @param fontfamily font package for use with pdflatex: TeX Live includes many
 #'   options, documented in the [LaTeX Font
-#'   Catalogue](https://tug.dk/FontCatalogue/). The default is "Latin Modern".
+#'   Catalogue](https://tug.org/FontCatalogue/). The default is "Latin Modern".
 #' @param fontfamilyoptions a character vector of options for `fontfamily`.
 #' @param fontsize font size for body text. The standard classes allow "10pt",
 #'   "11pt", and "12pt".

@@ -78,7 +78,7 @@ get_params <- function(x) {
 }
 
 link_help_page <- function(x) {
-  glue::glue("<a href='https://ymlthis.r-lib.org//reference/{x}.html'>{x}</a>")
+  glue::glue("<a href='https://ymlthis.r-lib.org/reference/{x}.html'>{x}</a>")
 } 
 
 filter_kable <- function(.tbl, .pattern = NULL, caption = NULL) {
