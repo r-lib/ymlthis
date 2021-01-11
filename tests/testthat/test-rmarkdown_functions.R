@@ -32,8 +32,8 @@ test_that("shiny functions return correctly", {
   select_param <- shiny_select(label = "select", choices = c("yes", "no"))
   expect_shiny_list(select_param, input = "select", label = "select", choices = c("yes", "no"))
 
-  slider_param <- shiny_slider(label = "slider", min = 1, max = 0, value = .5)
-  expect_shiny_list(slider_param, input = "slider", label = "slider", min = 1, max = 0, value = .5)
+  slider_param <- shiny_slider(label = "slider", min = 0, max = 1, value = .5)
+  expect_shiny_list(slider_param, input = "slider", label = "slider", min = 0, max = 1, value = .5)
 
   text_param <- shiny_text(label = "text", value = "shiny text")
   expect_shiny_list(text_param, input = "text", label = "text", value = "shiny text")
