@@ -410,8 +410,15 @@ Internet Explorer 9 and earlier.</strong></p></td>
     </tr>
     <tr>
       <th>accept</th>
-      <td><p>A character vector of MIME types; gives the browser a hint of
-what kind of files the server is expecting.</p></td>
+      <td><p>A character vector of "unique file type specifiers" which
+gives the browser a hint as to the type of file the server expects.
+Many browsers use this prevent the user from selecting an invalid file.</p>
+<p>A unique file type specifier can be:</p><ul>
+<li><p>A case insensitive extension like <code>.csv</code> or <code>.rds</code>.</p></li>
+<li><p>A valid MIME type, like <code>text/plain</code> or <code>application/pdf</code></p></li>
+<li><p>One of <code>audio/*</code>, <code>video/*</code>, or <code>image/*</code> meaning any audio, video,
+or image type, respectively.</p></li>
+</ul></td>
     </tr>
     <tr>
       <th>buttonLabel</th>
