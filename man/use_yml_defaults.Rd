@@ -26,7 +26,7 @@ a \verb{yml_*()} function}
 that will save the resulting YAML as the default for \code{yml()}. The code that
 is placed on the clipboard is raw YAML passed to \code{ymlthis.default_yml} via
 \code{options()}. Saving this code to your \code{.Rprofile} (see
-\code{\link[usethis:edit_r_profile]{usethis::edit_r_profile()}})) will allow \code{\link[=yml]{yml()}} or
+\code{\link[usethis:edit]{usethis::edit_r_profile()}})) will allow \code{\link[=yml]{yml()}} or
 \code{\link[=get_yml_defaults]{get_yml_defaults()}} to return the saved YAML. \code{use_rmd_defaults()} does
 the same for \code{ymlthis.rmd_body}, which is used in \code{\link[=use_rmarkdown]{use_rmarkdown()}} as the
 body text of the created R Markdown file.

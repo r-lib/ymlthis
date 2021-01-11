@@ -94,7 +94,7 @@ pandoc)}
 (see \href{https://ctan.org/pkg/encguide}{LaTeX font encodings guide})}
 
 \item{fontfamily}{font package for use with pdflatex: TeX Live includes many
-options, documented in the \href{https://tug.dk/FontCatalogue/}{LaTeX Font Catalogue}. The default is "Latin Modern".}
+options, documented in the \href{https://tug.org/FontCatalogue/}{LaTeX Font Catalogue}. The default is "Latin Modern".}
 
 \item{fontfamilyoptions}{a character vector of options for \code{fontfamily}.}
 

@@ -104,7 +104,7 @@ transform into YAML}
 \item{value}{Initial value (\code{TRUE} or \code{FALSE}).}
 
 \item{width}{The width of the input, e.g. '400px', or '100\%'; see
-\code{\link[shiny:validateCssUnit]{shiny::validateCssUnit()}}}
+\code{\link[shiny:reexports]{shiny::validateCssUnit()}}}
 
 \item{min}{Minimum allowed value}
 
@@ -127,7 +127,7 @@ according to some simple heuristics.}
 
 \item{animate}{\code{TRUE} to show simple animation controls with default
 settings; \code{FALSE} not to; or a custom settings list, such as those created
-using \code{\link[shiny:animationOptions]{shiny::animationOptions()}}}
+using \code{\link[shiny:sliderInput]{shiny::animationOptions()}}}
 
 \item{sep}{Separator between thousands places in numbers.}
 
@@ -139,7 +139,7 @@ using \code{\link[shiny:animationOptions]{shiny::animationOptions()}}}
 format string, to be passed to the Javascript strftime library. See
 \url{https://github.com/samsonjs/strftime} for more details. The allowed
 format specifications are very similar, but not identical, to those for R's
-\code{\link[base:strftime]{base::strftime()}} function. For Dates, the default is \code{"\%F"}
+\code{\link[base:strptime]{base::strftime()}} function. For Dates, the default is \code{"\%F"}
 (like \code{"2015-07-01"}), and for POSIXt, the default is \code{"\%F \%T"}
 (like \code{"2015-07-01 15:32:10"}).}
 
@@ -186,8 +186,17 @@ option.}
 multiple files at once. \strong{Does not work on older browsers, including
 Internet Explorer 9 and earlier.}}
 
-\item{accept}{A character vector of MIME types; gives the browser a hint of
-what kind of files the server is expecting.}
+\item{accept}{A character vector of "unique file type specifiers" which
+gives the browser a hint as to the type of file the server expects.
+Many browsers use this prevent the user from selecting an invalid file.
+
+A unique file type specifier can be:
+\itemize{
+\item A case insensitive extension like \code{.csv} or \code{.rds}.
+\item A valid MIME type, like \code{text/plain} or \code{application/pdf}
+\item One of \verb{audio/*}, \verb{video/*}, or \verb{image/*} meaning any audio, video,
+or image type, respectively.
+}}
 
 \item{buttonLabel}{The label used on the button. Can be text or an HTML tag
 object.}
