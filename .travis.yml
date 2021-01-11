@@ -3,6 +3,12 @@ cache: packages
 warnings_are_errors: false
 pandoc_version: 2.3.1
 
+addons:
+  apt:
+    packages:
+      - libharfbuzz-dev
+      - libfribidi-dev
+
 notifications:
   email:
     on_success: change
