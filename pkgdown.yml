@@ -5,7 +5,7 @@ articles:
   introduction-to-ymlthis: introduction-to-ymlthis.html
   yaml-fieldguide: yaml-fieldguide.html
   yaml-overview: yaml-overview.html
-last_built: 2021-01-11T23:43Z
+last_built: 2021-01-12T16:28Z
 urls:
   reference: https://ymlthis.r-lib.org/reference
   article: https://ymlthis.r-lib.org/articles
