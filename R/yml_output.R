@@ -109,7 +109,8 @@ stop_yml_eval <- function(e, x) {
 
 eval_tidy_yml <- function(x) {
   out <- rlang::catch_cnd(
-    eval_with_rmarkdown(x)
+    eval_with_rmarkdown(x),
+    classes = "error"
   )
 
   if (!is.null(out)) stop_yml_eval(out, x)
@@ -118,6 +119,5 @@ eval_tidy_yml <- function(x) {
 }
 
 validate_output_yml <- function(.function_calls) {
-  purrr::map(.function_calls, eval_tidy_yml)
-  invisible(.function_calls)
+  purrr::walk(.function_calls, eval_tidy_yml)
 }
