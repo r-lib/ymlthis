@@ -9,7 +9,7 @@
 [![Codecov test
 coverage](https://codecov.io/gh/r-lib/ymlthis/branch/master/graph/badge.svg)](https://codecov.io/gh/r-lib/ymlthis?branch=master)
 [![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ymlthis)](https://cran.r-project.org/package=ymlthis)
 <!-- badges: end -->
