@@ -7,4 +7,4 @@
 
 0 errors | 0 warnings | 0 note
 
-* This patch addresses upcoming changes to the shiny package
+* This patch addresses minor changes to dependencies
