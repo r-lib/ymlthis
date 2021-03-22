@@ -68,6 +68,7 @@ warn_if_duplicate_fields <- function(yml_object, new_fields) {
 }
 
 capture_yml <- function(.yml) {
+  withr::local_envvar(NO_COLOR = TRUE)
   utils::capture.output(print(.yml))
 }
 
