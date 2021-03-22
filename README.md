@@ -5,14 +5,11 @@
 
 <!-- badges: start -->
 
-[![Build
-Status](https://travis-ci.org/r-lib/ymlthis.svg?branch=master)](https://travis-ci.org/r-lib/ymlthis)
-[![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/folqefg7g5afi4w1?svg=true)](https://ci.appveyor.com/project/malcolmbarrett/ymlthis/branch/master)
+[![R-CMD-check](https://github.com/r-lib/ymlthis/workflows/R-CMD-check/badge.svg)](https://github.com/r-lib/ymlthis/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/r-lib/ymlthis/branch/master/graph/badge.svg)](https://codecov.io/gh/r-lib/ymlthis?branch=master)
 [![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ymlthis)](https://cran.r-project.org/package=ymlthis)
 <!-- badges: end -->
@@ -60,24 +57,23 @@ yml() %>%
   yml_author(c("Yihui Xie", "Hadley Wickham"), affiliation = "RStudio") %>% 
   yml_date(lubridate::today()) %>% 
   yml_output(
-    pdf_document(keep_tex = TRUE, includes = includes2(after_body = "footer.tex")), 
+    word_document(keep_md = TRUE), 
     bookdown::html_document2()
   ) %>% 
-  yml_latex_opts(biblio_style = "apalike")
+  yml_citations(bibliography = "references.bib", csl = "aje.csl")
 #> ---
 #> author:
 #> - name: Yihui Xie
 #>   affiliation: RStudio
 #> - name: Hadley Wickham
 #>   affiliation: RStudio
-#> date: '2019-10-10'
+#> date: '2021-03-22'
 #> output:
-#>   pdf_document:
-#>     keep_tex: true
-#>     includes:
-#>       after_body: footer.tex
+#>   word_document:
+#>     keep_md: true
 #>   bookdown::html_document2: default
-#> biblio-style: apalike
+#> bibliography: references.bib
+#> csl: aje.csl
 #> ---
 ```
 

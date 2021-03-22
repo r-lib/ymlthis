@@ -14,7 +14,8 @@ knitr::opts_chunk$set(
   echo = FALSE,
   message = FALSE,
   collapse = TRUE,
-  comment = ""
+  comment = "", 
+  warning = FALSE
 )
 ```
 
@@ -43,7 +44,7 @@ In R, the equivalent structure is a list with named character vector: `list(auth
 
 In YAML, spaces are used to indicate nesting. When we want to specify the output function `pdf_document(toc = TRUE)`, we need to nest it under the `output` field. We also need to nest `toc` under `pdf_document` so that it gets passed to that function correctly.
 
-```{r}
+```{r, warning = FALSE}
 yml_empty() %>% 
   yml_output(pdf_document(toc = TRUE)) %>% 
   asis_yaml_output()
@@ -51,7 +52,7 @@ yml_empty() %>%
 
 In R, the equivalent structure is a nested list, each with a name: `list(output = list(pdf_document = list(toc = TRUE)))`. Similarly, you can call this in R Markdown using the `metadata` object, e.g. `metadata$output$pdf_document$toc`. The hierarchical structure (which you can see with `draw_yml_tree()`) looks like this:
 
-```{r}
+```{r, warning = FALSE}
 yml_empty() %>% 
   yml_output(pdf_document(toc = TRUE)) %>% 
   draw_yml_tree()
@@ -84,7 +85,7 @@ yml_empty() %>%
 
 However, if you're specifying more than one output type, you must use the nesting syntax. If you don't want to include additional arguments, use `"default"` as the function's value.
 
-```{r}
+```{r, warning = FALSE}
 yml_empty() %>% 
   yml_output(html_document(), pdf_document(toc = TRUE)) %>% 
   asis_yaml_output()
