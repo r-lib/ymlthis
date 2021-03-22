@@ -65,9 +65,15 @@ the site: &quot;bookdown::bookdown_site&quot; to the YAML metadata." />
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -375,7 +381,9 @@ transform into YAML</p></td>
     <span class='fu'>bookdown</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/bookdown/man/pdf_book.html'>pdf_book</a></span><span class='op'>(</span>keep_tex <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,
     <span class='fu'>bookdown</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/bookdown/man/html_chapters.html'>html_book</a></span><span class='op'>(</span>css <span class='op'>=</span> <span class='st'>"toc.css"</span><span class='op'>)</span>
   <span class='op'>)</span>
-<span class='va'>output_yml</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: </span>
+#&gt; <span class='warning'>Tool(s) not installed or not in PATH: pdfcrop, ghostcript</span>
+#&gt; <span class='warning'>-&gt; As a result, figure cropping will be disabled.</span></div><div class='input'><span class='va'>output_yml</span>
 </div><div class='output co'>#&gt; </span><span style='color: #555555;'>---
 #&gt; </span><span style='color: #00BB00;'>output</span><span style='color: #555555;'>:</span><span>
 #&gt;   </span><span style='color: #00BB00;'>bookdown::gitbook</span><span style='color: #555555;'>:</span><span>
@@ -404,11 +412,11 @@ transform into YAML</p></td>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Malcolm Barrett, Richard Iannone, <a href='https://www.rstudio.com'><img src='https://www.tidyverse.org/rstudio-logo.svg' alt='RStudio' height='24' /></a>.</p>
+  <p><p>Developed by Malcolm Barrett, Richard Iannone, <a href="https://www.rstudio.com" class="external-link"><img src="https://www.tidyverse.org/rstudio-logo.svg" alt="RStudio" height="24"></a>.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9000.</p></p>
 </div>
 
       </footer>
@@ -416,6 +424,8 @@ transform into YAML</p></td>
 
   
 
+
+  
 
   </body>
 </html>

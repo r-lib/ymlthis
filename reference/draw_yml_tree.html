@@ -59,9 +59,15 @@ object to the console." />
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -224,7 +230,9 @@ a <code>yml_*()</code> function</p></td>
     <span class='fu'>html_document</span><span class='op'>(</span><span class='op'>)</span>
   <span class='op'>)</span> <span class='op'>%&gt;%</span>
     <span class='fu'>draw_yml_tree</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; ├── </span><span style='color: #00BB00;'>author</span><span style='color: #555555;'>:</span><span> runner
+</div><div class='output co'>#&gt; <span class='warning'>Warning: </span>
+#&gt; <span class='warning'>Tool(s) not installed or not in PATH: pdfcrop, ghostcript</span>
+#&gt; <span class='warning'>-&gt; As a result, figure cropping will be disabled.</span></div><div class='output co'>#&gt; ├── </span><span style='color: #00BB00;'>author</span><span style='color: #555555;'>:</span><span> runner
 #&gt; ├── </span><span style='color: #00BB00;'>date</span><span style='color: #555555;'>:</span><span> '`r format(Sys.Date())`'
 #&gt; └── </span><span style='color: #00BB00;'>output</span><span style='color: #555555;'>:</span><span>
 #&gt;     ├── </span><span style='color: #00BB00;'>pdf_document</span><span style='color: #555555;'>:</span><span>
@@ -242,11 +250,11 @@ a <code>yml_*()</code> function</p></td>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Malcolm Barrett, Richard Iannone, <a href='https://www.rstudio.com'><img src='https://www.tidyverse.org/rstudio-logo.svg' alt='RStudio' height='24' /></a>.</p>
+  <p><p>Developed by Malcolm Barrett, Richard Iannone, <a href="https://www.rstudio.com" class="external-link"><img src="https://www.tidyverse.org/rstudio-logo.svg" alt="RStudio" height="24"></a>.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9000.</p></p>
 </div>
 
       </footer>
@@ -254,6 +262,8 @@ a <code>yml_*()</code> function</p></td>
 
   
 
+
+  
 
   </body>
 </html>

@@ -70,9 +70,15 @@ included as a function starting with shiny_*(), e.g. shiny_checkbox()" />
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -168,7 +174,7 @@ YAML field (see the <a href='https://bookdown.org/yihui/rmarkdown/parameterized-
 examples); parameterized reports are also used in RStudio Connect. The values
 of these variables can be called inside your R Markdown document using
 <code>params$field_name</code>. <a href='https://bookdown.org/yihui/rmarkdown/params-knit.html'>There are several ways to change the values of the parameters</a>: manually
-change the YAML, use the <code>params</code> argument in <code><a href='https://rdrr.io/pkg/rmarkdown/man/render.html'>rmarkdown::render()</a></code>, or knit
+change the YAML, use the <code>params</code> argument in <code><a href='https://pkgs.rstudio.com/rmarkdown/reference/render.html'>rmarkdown::render()</a></code>, or knit
 with parameters, which launches a Shiny app to select values for each.
 <code>yml_params()</code> accepts any number of named R objects to set as YAML fields.
 You can also pass arguments to the underlying Shiny functions using YAML. To
@@ -321,7 +327,7 @@ according to some simple heuristics.</p></td>
       <th>animate</th>
       <td><p><code>TRUE</code> to show simple animation controls with default
 settings; <code>FALSE</code> not to; or a custom settings list, such as those created
-using <code><a href='https://shiny.rstudio.com/reference/shiny/latest/sliderInput.html'>shiny::animationOptions()</a></code></p></td>
+using <code><a href='https://rdrr.io/pkg/shiny/man/sliderInput.html'>shiny::animationOptions()</a></code></p></td>
     </tr>
     <tr>
       <th>sep</th>
@@ -429,14 +435,15 @@ object.</p></td>
       <th>choices</th>
       <td><p>List of values to select from (if elements of the list are
 named then that name rather than the value is displayed to the user). If
-this argument is provided, then <code>choiceNames</code> and <code>choiceValues</code>
-must not be provided, and vice-versa. The values should be strings; other
-types (such as logicals and numbers) will be coerced to strings.</p></td>
+this argument is provided, then <code>choiceNames</code> and <code>choiceValues</code> must not
+be provided, and vice-versa. The values should be strings; other types
+(such as logicals and numbers) will be coerced to strings.</p></td>
     </tr>
     <tr>
       <th>selected</th>
-      <td><p>The initially selected value (if not specified then defaults
-to the first value)</p></td>
+      <td><p>The initially selected value. If not specified, then it
+defaults to the first item in <code>choices</code>. To start with no items selected,
+use <code><a href='https://rdrr.io/r/base/character.html'>character(0)</a></code>.</p></td>
     </tr>
     <tr>
       <th>inline</th>
@@ -446,25 +453,23 @@ to the first value)</p></td>
       <th>choiceNames</th>
       <td><p>List of names and values, respectively, that
 are displayed to the user in the app and correspond to the each choice (for
-this reason, <code>choiceNames</code> and <code>choiceValues</code> must have the same
-length). If either of these arguments is provided, then the other
-<em>must</em> be provided and <code>choices</code> <em>must not</em> be provided. The
-advantage of using both of these over a named list for <code>choices</code> is
-that <code>choiceNames</code> allows any type of UI object to be passed through
-(tag objects, icons, HTML code, ...), instead of just simple text. See
-Examples.</p></td>
+this reason, <code>choiceNames</code> and <code>choiceValues</code> must have the same length).
+If either of these arguments is provided, then the other <em>must</em> be provided
+and <code>choices</code> <em>must not</em> be provided. The advantage of using both of these
+over a named list for <code>choices</code> is that <code>choiceNames</code> allows any type of UI
+object to be passed through (tag objects, icons, HTML code, ...), instead
+of just simple text. See Examples.</p></td>
     </tr>
     <tr>
       <th>choiceValues</th>
       <td><p>List of names and values, respectively, that
 are displayed to the user in the app and correspond to the each choice (for
-this reason, <code>choiceNames</code> and <code>choiceValues</code> must have the same
-length). If either of these arguments is provided, then the other
-<em>must</em> be provided and <code>choices</code> <em>must not</em> be provided. The
-advantage of using both of these over a named list for <code>choices</code> is
-that <code>choiceNames</code> allows any type of UI object to be passed through
-(tag objects, icons, HTML code, ...), instead of just simple text. See
-Examples.</p></td>
+this reason, <code>choiceNames</code> and <code>choiceValues</code> must have the same length).
+If either of these arguments is provided, then the other <em>must</em> be provided
+and <code>choices</code> <em>must not</em> be provided. The advantage of using both of these
+over a named list for <code>choices</code> is that <code>choiceNames</code> allows any type of UI
+object to be passed through (tag objects, icons, HTML code, ...), instead
+of just simple text. See Examples.</p></td>
     </tr>
     <tr>
       <th>selectize</th>
@@ -563,11 +568,11 @@ but when <code>size</code> is set, it will be a box instead.</p></td>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Malcolm Barrett, Richard Iannone, <a href='https://www.rstudio.com'><img src='https://www.tidyverse.org/rstudio-logo.svg' alt='RStudio' height='24' /></a>.</p>
+  <p><p>Developed by Malcolm Barrett, Richard Iannone, <a href="https://www.rstudio.com" class="external-link"><img src="https://www.tidyverse.org/rstudio-logo.svg" alt="RStudio" height="24"></a>.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9000.</p></p>
 </div>
 
       </footer>
@@ -575,6 +580,8 @@ but when <code>size</code> is set, it will be a box instead.</p></td>
 
   
 
+
+  
 
   </body>
 </html>

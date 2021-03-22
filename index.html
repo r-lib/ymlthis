@@ -22,6 +22,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -115,18 +117,18 @@
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install ymlthis from CRAN with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"ymlthis"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"ymlthis"</span><span class="op">)</span></code></pre></div>
 <p>Or you can install the development version of ymlthis from GitHub with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("remotes")</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"r-lib/ymlthis"</span><span class="op">)</span></code></pre></div>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"r-lib/ymlthis"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
 <p><code><a href="reference/yml.html">yml()</a></code> creates a basic <code>yml</code> object returns simple YAML with the author and date.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ymlthis.r-lib.org">ymlthis</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ymlthis.r-lib.org">ymlthis</a></span><span class="op">)</span>
 
 <span class="fu"><a href="reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; ---</span>
@@ -136,27 +138,26 @@
 <p>ymlthis supports many YAML arguments, with YAML-generating functions prefixed with <code>yml_*()</code>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="reference/yml_author.html">yml_author</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Yihui Xie"</span>, <span class="st">"Hadley Wickham"</span><span class="op">)</span>, affiliation <span class="op">=</span> <span class="st">"RStudio"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="reference/yml_author.html">yml_author</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Yihui Xie"</span>, <span class="st">"Hadley Wickham"</span><span class="op">)</span>, affiliation <span class="op">=</span> <span class="st">"RStudio"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="reference/yml_author.html">yml_date</a></span><span class="op">(</span><span class="fu">lubridate</span><span class="fu">::</span><span class="fu">today</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="reference/yml_output.html">yml_output</a></span><span class="op">(</span>
-    <span class="fu">pdf_document</span><span class="op">(</span>keep_tex <span class="op">=</span> <span class="cn">TRUE</span>, includes <span class="op">=</span> <span class="fu"><a href="reference/includes2.html">includes2</a></span><span class="op">(</span>after_body <span class="op">=</span> <span class="st">"footer.tex"</span><span class="op">)</span><span class="op">)</span>, 
-    <span class="fu">bookdown</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/bookdown/man/html_document2.html">html_document2</a></span><span class="op">(</span><span class="op">)</span>
+    <span class="fu">word_document</span><span class="op">(</span>keep_md <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, 
+    <span class="fu">bookdown</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/bookdown/man/html_document2.html" class="external-link">html_document2</a></span><span class="op">(</span><span class="op">)</span>
   <span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="reference/yml_latex_opts.html">yml_latex_opts</a></span><span class="op">(</span>biblio_style <span class="op">=</span> <span class="st">"apalike"</span><span class="op">)</span>
+  <span class="fu"><a href="reference/yml_citations.html">yml_citations</a></span><span class="op">(</span>bibliography <span class="op">=</span> <span class="st">"references.bib"</span>, csl <span class="op">=</span> <span class="st">"aje.csl"</span><span class="op">)</span>
 <span class="co">#&gt; ---</span>
 <span class="co">#&gt; author:</span>
 <span class="co">#&gt; - name: Yihui Xie</span>
 <span class="co">#&gt;   affiliation: RStudio</span>
 <span class="co">#&gt; - name: Hadley Wickham</span>
 <span class="co">#&gt;   affiliation: RStudio</span>
-<span class="co">#&gt; date: '2019-10-10'</span>
+<span class="co">#&gt; date: '2021-03-22'</span>
 <span class="co">#&gt; output:</span>
-<span class="co">#&gt;   pdf_document:</span>
-<span class="co">#&gt;     keep_tex: true</span>
-<span class="co">#&gt;     includes:</span>
-<span class="co">#&gt;       after_body: footer.tex</span>
+<span class="co">#&gt;   word_document:</span>
+<span class="co">#&gt;     keep_md: true</span>
 <span class="co">#&gt;   bookdown::html_document2: default</span>
-<span class="co">#&gt; biblio-style: apalike</span>
+<span class="co">#&gt; bibliography: references.bib</span>
+<span class="co">#&gt; csl: aje.csl</span>
 <span class="co">#&gt; ---</span></code></pre></div>
 </div>
 <div id="add-in" class="section level2">
@@ -170,7 +171,7 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=ymlthis">https://​cloud.r-project.org/​package=ymlthis</a>
 </li>
@@ -180,22 +181,25 @@
 </li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
 <li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
 <div class="community">
-<h2>Community</h2>
+<h2 data-toc-skip>Community</h2>
 <ul class="list-unstyled">
 <li><a href="CONTRIBUTING.html">Contributing guide</a></li>
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Malcolm Barrett <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-0299-5825" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li>Richard Iannone <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-3925-190X" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
@@ -204,26 +208,28 @@
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://travis-ci.org/r-lib/ymlthis"><img src="https://travis-ci.org/r-lib/ymlthis.svg?branch=master" alt="Build Status"></a></li>
-<li><a href="https://ci.appveyor.com/project/malcolmbarrett/ymlthis/branch/master"><img src="https://ci.appveyor.com/api/projects/status/folqefg7g5afi4w1?svg=true" alt="AppVeyor build status"></a></li>
-<li><a href="https://codecov.io/gh/r-lib/ymlthis?branch=master"><img src="https://codecov.io/gh/r-lib/ymlthis/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a></li>
-<li><a href="https://cran.r-project.org/package=ymlthis"><img src="https://www.r-pkg.org/badges/version/ymlthis" alt="CRAN status"></a></li>
+<li><a href="https://github.com/r-lib/ymlthis/actions" class="external-link"><img src="https://github.com/r-lib/ymlthis/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://codecov.io/gh/r-lib/ymlthis?branch=master" class="external-link"><img src="https://codecov.io/gh/r-lib/ymlthis/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html" class="external-link"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a></li>
+<li><a href="https://cran.r-project.org/package=ymlthis" class="external-link"><img src="https://www.r-pkg.org/badges/version/ymlthis" alt="CRAN status"></a></li>
 </ul>
 </div>
-</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Malcolm Barrett, Richard Iannone, <a href="https://www.rstudio.com"><img src="https://www.tidyverse.org/rstudio-logo.svg" alt="RStudio" height="24"></a>.</p>
+  <p></p>
+<p>Developed by Malcolm Barrett, Richard Iannone, <a href="https://www.rstudio.com" class="external-link"><img src="https://www.tidyverse.org/rstudio-logo.svg" alt="RStudio" height="24"></a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>
@@ -231,6 +237,8 @@
 
   
 
+
+  
 
   </body>
 </html>
