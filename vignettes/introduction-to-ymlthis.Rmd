@@ -66,7 +66,7 @@ yml() %>%
 
 Passing arguments to the output functions will nest them correctly for YAML.
 
-```{r}
+```{r, warning = FALSE}
 yml() %>% 
   yml_output(pdf_document(toc = TRUE))
 ```
