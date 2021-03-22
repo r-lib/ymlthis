@@ -79,8 +79,8 @@ jobs:
 
       - name: Set Pandoc locale
         if: runner.os == 'Linux'
-        run: |
-          export LANG=en_US.UTF-8
+        env:
+          LANG: en_US.UTF-8
 
       - name: Install dependencies
         run: |
