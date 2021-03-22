@@ -77,6 +77,11 @@ jobs:
           pak::pkg_system_requirements("rcmdcheck", execute = TRUE)
         shell: Rscript {0}
 
+      - name: Set Pandoc locale
+        if: runner.os == 'Linux'
+        run: |
+          export LANG=en_US.UTF-8
+
       - name: Install dependencies
         run: |
           pak::local_install_dev_deps(upgrade = TRUE)
