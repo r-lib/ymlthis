@@ -1,6 +1,6 @@
 Package: ymlthis
 Title: Write 'YAML' for 'R Markdown', 'bookdown', 'blogdown', and More
-Version: 0.1.4
+Version: 0.1.4.9000
 Authors@R: 
     c(person(given = "Malcolm",
              family = "Barrett",
