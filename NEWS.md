@@ -1,4 +1,4 @@
-# ymlthis (development version)
+# ymlthis 0.1.4
 
 # ymlthis 0.1.3
 * Minor changes to address upcoming changes in shiny 1.6
