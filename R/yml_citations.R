@@ -212,10 +212,7 @@ as_bibentry <- function(x) {
 #'
 #' @family citations
 bib2yml <- function(.yml = NULL, path) {
-  args <- c(path, "--bib2yaml")
-
-  bib_yml <- system2(pandoc_citeproc_exec(), args = args, stdout = TRUE) %>%
-    paste(collapse = "\n") %>%
+  bib_yml <- rmarkdown::pandoc_citeproc_convert(path, type = "yaml") %>%
     as_yml()
 
   if (!is.null(.yml)) {
