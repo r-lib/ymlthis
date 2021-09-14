@@ -128,10 +128,3 @@ stop_if_pandoc_not_installed <- function() {
   }
 }
 
-pandoc_citeproc_exec <- function() {
-  citeproc_path <- paste0(rmarkdown::pandoc_exec(), "-citeproc")
-  if (file.exists(citeproc_path)) return(citeproc_path)
-
-  "pandoc-citeproc"
-}
-

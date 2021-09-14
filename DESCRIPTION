@@ -31,7 +31,7 @@ Imports:
     miniUI,
     purrr (>= 0.3.2),
     rlang (>= 0.4.0),
-    rmarkdown,
+    rmarkdown (>= 2.11.1),
     rstudioapi,
     shiny,
     shinyBS,
@@ -57,4 +57,4 @@ Encoding: UTF-8
 Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
