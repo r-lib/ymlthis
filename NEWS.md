@@ -1,6 +1,5 @@
 # ymlthis 0.1.5
-
-# ymlthis 0.1.4
+* Update citeproc functionality to rely on newer rmarkdown functions
 
 # ymlthis 0.1.3
 * Minor changes to address upcoming changes in shiny 1.6
