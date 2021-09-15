@@ -1,3 +1,5 @@
+# ymlthis (development version)
+
 # ymlthis 0.1.5
 * Update citeproc functionality to rely on newer rmarkdown functions
 
