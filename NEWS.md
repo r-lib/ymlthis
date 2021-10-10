@@ -1,4 +1,5 @@
 # ymlthis (development version)
+* `yml_author()` now correctly accepts `yml_blank()` as needed (#71)
 
 # ymlthis 0.1.5
 * Update citeproc functionality to rely on newer rmarkdown functions
