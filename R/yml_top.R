@@ -86,14 +86,25 @@ yml_author <- function(.yml, name = NULL, affiliation = NULL, email = NULL, ...)
     #  use unnamed inner list to create `-` group:
     #  - author
     #    affiliation
-    arg_list <- list(name = name, affiliation = affiliation, email = email, ...) %>%
-      purrr::map_if(is.null, ~NA)
+    arg_list <- list(
+      name = null_if_blank(name),
+      affiliation = null_if_blank(affiliation),
+      email = null_if_blank(email),
+      ...
+    ) %>%
+      purrr::map_if(is.null, ~NA) %>%
+      purrr::discard(is_yml_blank)
+
     .yml$author <- arg_list %>%
       purrr::pmap(author_list)
     return(.yml)
   }
 
-  author_list <- list(author = get_author_name(), ...)
+  extra_args <- c(...) %>%
+    purrr::discard(is_yml_blank)
+
+
+  author_list <- list(author = get_author_name(), extra_args)
   warn_if_duplicate_fields(.yml, author_list)
   .yml[names(author_list)] <- author_list
 
