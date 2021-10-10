@@ -30,7 +30,6 @@ shiny_slider(
   step = NULL,
   round = FALSE,
   format = NULL,
-  locale = NULL,
   ticks = TRUE,
   animate = FALSE,
   width = NULL,

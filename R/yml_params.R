@@ -213,7 +213,7 @@ shiny_numeric <- function(label, value, min = NA, max = NA, step = NA,  width = 
 #' @export
 #' @rdname yml_params
 shiny_slider <- function(label, min, max, value, step = NULL,
-                         round = FALSE, format = NULL, locale = NULL, ticks = TRUE,
+                         round = FALSE, format = NULL, ticks = TRUE,
                          animate = FALSE, width = NULL, sep = ",", pre = NULL,
                          post = NULL, timeFormat = NULL, timezone = NULL,
                          dragRange = TRUE) {
@@ -240,7 +240,7 @@ shiny_slider <- function(label, min, max, value, step = NULL,
     )
   )
 
-  remove_default_values(param_list, shiny::sliderInput, drop = c("format", "locale"))
+  remove_default_values(param_list, shiny::sliderInput, drop = "format")
 }
 
 #' @inheritParams shiny::dateInput
