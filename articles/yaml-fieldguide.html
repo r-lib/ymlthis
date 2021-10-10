@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ymlthis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.5.9000</span>
       </span>
     </div>
 
@@ -41,7 +41,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
+    <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -78,7 +78,8 @@
       <a href="https://malco.io/2019/10/10/introducing-ymlthis/" class="external-link">ymlthis 0.1.0</a>
     </li>
     <li class="divider">
-    <li>
+    </li>
+<li>
       <a href="../news/index.html">Change log</a>
     </li>
   </ul>
@@ -117,7 +118,7 @@
 <p><strong>ymlthis</strong> attempts to write common YAML for you in the right way and to document the many YAML field options in one place. The fieldguide is a collection of all the fields documented in the <strong>ymlthis</strong> help pages, organized by source. Note that some argument names do not match the YAML field name exactly in order because not all field names are valid R names (e.g. the <code>link-citations</code> YAML field needs to be <code>link_citations</code> in R); these differences are noted in the argument description. Additionally, not all of these arguments are top-level YAML; see the linked help pages for more details.</p>
 <div id="basic-yaml" class="section level2">
 <h2 class="hasAnchor">
-<a href="#basic-yaml" class="anchor"></a>Basic YAML</h2>
+<a href="#basic-yaml" class="anchor" aria-hidden="true"></a>Basic YAML</h2>
 <table class="table">
 <caption>Basic YAML</caption>
 <colgroup>
@@ -227,7 +228,7 @@
 </div>
 <div id="latexpdf-options" class="section level2">
 <h2 class="hasAnchor">
-<a href="#latexpdf-options" class="anchor"></a>LaTeX/PDF Options</h2>
+<a href="#latexpdf-options" class="anchor" aria-hidden="true"></a>LaTeX/PDF Options</h2>
 <table class="table">
 <caption>LaTeX/PDF Options</caption>
 <colgroup>
@@ -276,7 +277,7 @@
 <td align="left">
 <code>margin_left</code>, <code>margin_right</code>, <code>margin_top</code>, <code>margin_bottom</code>
 </td>
-<td align="left">sets margins if <code>geometry</code> is not used, otherwise <code>geometry</code> overrides these. Note that the actual YAML fields use <code><a href="https://rdrr.io/r/base/Arithmetic.html" class="external-link">-</a></code> instead of <code>_</code>, e.g. <code>margin-left</code>.</td>
+<td align="left">sets margins if <code>geometry</code> is not used, otherwise <code>geometry</code> overrides these. Note that the actual YAML fields use <code>-</code> instead of <code>_</code>, e.g. <code>margin-left</code>.</td>
 </tr>
 <tr class="even">
 <td align="left"><a href="https://ymlthis.r-lib.org//reference/yml_latex_opts.html">yml_latex_opts</a></td>
@@ -406,7 +407,7 @@
 </div>
 <div id="r-markdown-websites" class="section level2">
 <h2 class="hasAnchor">
-<a href="#r-markdown-websites" class="anchor"></a>R Markdown Websites</h2>
+<a href="#r-markdown-websites" class="anchor" aria-hidden="true"></a>R Markdown Websites</h2>
 <table class="table">
 <caption>R Markdown Websites</caption>
 <colgroup>
@@ -455,7 +456,7 @@
 <td align="left">
 <code>include</code>, <code>exclude</code>
 </td>
-<td align="left">Files to include or exclude from the copied into <code>output_dir</code>. You can use <code><a href="https://rdrr.io/r/base/Arithmetic.html" class="external-link">*</a></code> to indicate a wildcard selection, e.g. "*.csv".</td>
+<td align="left">Files to include or exclude from the copied into <code>output_dir</code>. You can use <code>*</code> to indicate a wildcard selection, e.g. "*.csv".</td>
 </tr>
 <tr class="even">
 <td align="left"><a href="https://ymlthis.r-lib.org//reference/yml_site_opts.html">yml_site_opts</a></td>
@@ -505,7 +506,7 @@
 </div>
 <div id="citations" class="section level2">
 <h2 class="hasAnchor">
-<a href="#citations" class="anchor"></a>Citations</h2>
+<a href="#citations" class="anchor" aria-hidden="true"></a>Citations</h2>
 <table class="table">
 <caption>Citations</caption>
 <colgroup>
@@ -554,7 +555,7 @@
 </div>
 <div id="blogdown-yaml" class="section level2">
 <h2 class="hasAnchor">
-<a href="#blogdown-yaml" class="anchor"></a>blogdown YAML</h2>
+<a href="#blogdown-yaml" class="anchor" aria-hidden="true"></a>blogdown YAML</h2>
 <table class="table">
 <caption>blogdown YAML</caption>
 <colgroup>
@@ -686,7 +687,7 @@
 </div>
 <div id="bookdown-yaml" class="section level2">
 <h2 class="hasAnchor">
-<a href="#bookdown-yaml" class="anchor"></a>bookdown YAML</h2>
+<a href="#bookdown-yaml" class="anchor" aria-hidden="true"></a>bookdown YAML</h2>
 <table class="table">
 <caption>bookdown YAML</caption>
 <colgroup>
@@ -745,14 +746,14 @@
 <tr class="odd">
 <td align="left"><a href="https://ymlthis.r-lib.org//reference/yml_bookdown_opts.html">yml_bookdown_opts</a></td>
 <td align="left"><code>clean</code></td>
-<td align="left">a character vector of files and directories to be cleaned by the <code><a href="https://rdrr.io/pkg/bookdown/man/clean_book.html" class="external-link">bookdown::clean_book()</a></code> function.</td>
+<td align="left">a character vector of files and directories to be cleaned by the <code><a href="https://pkgs.rstudio.com/bookdown/reference/clean_book.html" class="external-link">bookdown::clean_book()</a></code> function.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="pkgdown-yaml" class="section level2">
 <h2 class="hasAnchor">
-<a href="#pkgdown-yaml" class="anchor"></a>pkgdown YAML</h2>
+<a href="#pkgdown-yaml" class="anchor" aria-hidden="true"></a>pkgdown YAML</h2>
 <table class="table">
 <caption>pkgdown YAML</caption>
 <colgroup>
@@ -954,7 +955,7 @@
 </div>
 <div id="pagedown-yaml" class="section level2">
 <h2 class="hasAnchor">
-<a href="#pagedown-yaml" class="anchor"></a>pagedown YAML</h2>
+<a href="#pagedown-yaml" class="anchor" aria-hidden="true"></a>pagedown YAML</h2>
 <table class="table">
 <caption>pagedown YAML</caption>
 <colgroup>
@@ -1015,7 +1016,7 @@
 <tr class="odd">
 <td align="left"><a href="https://ymlthis.r-lib.org//reference/pagedown_business_card_template.html">pagedown_business_card_template</a></td>
 <td align="left"><code>person</code></td>
-<td align="left">When you are creating business cards for numerous people with shared information, passing values to the <code>person</code> field can override the default values, which can be any of the values accepted by this function. Use <code><a href="../reference/pagedown_business_card_template.html">pagedown_person()</a></code> to do so or manually provide them using <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list(field = value)</a></code>.</td>
+<td align="left">When you are creating business cards for numerous people with shared information, passing values to the <code>person</code> field can override the default values, which can be any of the values accepted by this function. Use <code><a href="../reference/pagedown_business_card_template.html">pagedown_person()</a></code> to do so or manually provide them using <code>list(field = value)</code>.</td>
 </tr>
 <tr class="even">
 <td align="left"><a href="https://ymlthis.r-lib.org//reference/pagedown_business_card_template.html">pagedown_business_card_template</a></td>
@@ -1097,7 +1098,7 @@
 </div>
 <div id="distill-yaml" class="section level2">
 <h2 class="hasAnchor">
-<a href="#distill-yaml" class="anchor"></a>distill YAML</h2>
+<a href="#distill-yaml" class="anchor" aria-hidden="true"></a>distill YAML</h2>
 <table class="table">
 <caption>distill YAML</caption>
 <colgroup>
@@ -1283,7 +1284,7 @@
 </div>
 <div id="rticles-yaml" class="section level2">
 <h2 class="hasAnchor">
-<a href="#rticles-yaml" class="anchor"></a>rticles YAML</h2>
+<a href="#rticles-yaml" class="anchor" aria-hidden="true"></a>rticles YAML</h2>
 <table class="table">
 <caption>rticles YAML</caption>
 <colgroup>
@@ -1401,7 +1402,7 @@
 </div>
 <div id="rstudio-connect-scheduled-email-yaml" class="section level2">
 <h2 class="hasAnchor">
-<a href="#rstudio-connect-scheduled-email-yaml" class="anchor"></a>RStudio Connect Scheduled Email YAML</h2>
+<a href="#rstudio-connect-scheduled-email-yaml" class="anchor" aria-hidden="true"></a>RStudio Connect Scheduled Email YAML</h2>
 <table class="table">
 <caption>RStudio Connect Scheduled Email YAML</caption>
 <colgroup>
@@ -1479,7 +1480,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.6.1.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.9000.9000.9000.</p>
 </div>
 
       </footer>

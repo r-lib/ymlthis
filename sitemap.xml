@@ -1,7 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://ymlthis.r-lib.org/404.html</loc>
+  </url>
+  <url>
+    <loc>https://ymlthis.r-lib.org/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>https://ymlthis.r-lib.org/CONTRIBUTING.html</loc>
+  </url>
+  <url>
+    <loc>https://ymlthis.r-lib.org/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://ymlthis.r-lib.org/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://ymlthis.r-lib.org/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://ymlthis.r-lib.org/articles/introduction-to-ymlthis.html</loc>
+  </url>
+  <url>
+    <loc>https://ymlthis.r-lib.org/articles/yaml-fieldguide.html</loc>
+  </url>
+  <url>
+    <loc>https://ymlthis.r-lib.org/articles/yaml-overview.html</loc>
+  </url>
+  <url>
+    <loc>https://ymlthis.r-lib.org/authors.html</loc>
+  </url>
+  <url>
     <loc>https://ymlthis.r-lib.org/index.html</loc>
+  </url>
+  <url>
+    <loc>https://ymlthis.r-lib.org/news/index.html</loc>
   </url>
   <url>
     <loc>https://ymlthis.r-lib.org/reference/as_yml.html</loc>
@@ -29,6 +62,9 @@
   </url>
   <url>
     <loc>https://ymlthis.r-lib.org/reference/includes2.html</loc>
+  </url>
+  <url>
+    <loc>https://ymlthis.r-lib.org/reference/index.html</loc>
   </url>
   <url>
     <loc>https://ymlthis.r-lib.org/reference/is_yml.html</loc>
@@ -137,14 +173,5 @@
   </url>
   <url>
     <loc>https://ymlthis.r-lib.org/reference/yml_vignette.html</loc>
-  </url>
-  <url>
-    <loc>https://ymlthis.r-lib.org/articles/introduction-to-ymlthis.html</loc>
-  </url>
-  <url>
-    <loc>https://ymlthis.r-lib.org/articles/yaml-fieldguide.html</loc>
-  </url>
-  <url>
-    <loc>https://ymlthis.r-lib.org/articles/yaml-overview.html</loc>
   </url>
 </urlset>

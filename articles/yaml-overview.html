@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ymlthis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.5.9000</span>
       </span>
     </div>
 
@@ -41,7 +41,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
+    <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -78,7 +78,8 @@
       <a href="https://malco.io/2019/10/10/introducing-ymlthis/" class="external-link">ymlthis 0.1.0</a>
     </li>
     <li class="divider">
-    <li>
+    </li>
+<li>
       <a href="../news/index.html">Change log</a>
     </li>
   </ul>
@@ -116,22 +117,24 @@
     
 <div id="basic-syntax" class="section level1">
 <h1 class="hasAnchor">
-<a href="#basic-syntax" class="anchor"></a>Basic syntax</h1>
+<a href="#basic-syntax" class="anchor" aria-hidden="true"></a>Basic syntax</h1>
 <p>The basic syntax of YAML is to use key-value pairs in the format <code>key: value</code>. A YAML code block should be fenced in with <code>---</code> before and after (you can also use <code>...</code> to end the YAML block, but this is not very common in <strong>R Markdown</strong>).</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1"></a><span class="pp">---</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="pp">---</span></span></code></pre></div>
-<p>In R, the equivalent structure is a list with named character vector: <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list(author = "Malcolm Barrett")</a></code>. In fact, you can call this list in <strong>R Markdown</strong> using the <code>metadata</code> object; in this case, <code>metadata$author</code> will return <code>"Malcolm Barrett"</code></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1"></a><span class="at"> [90m---</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="at"> [39m [32mauthor [39m [90m: [39m Malcolm Barrett</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="at"> [90m---</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="at"> [39m</span></span></code></pre></div>
+<p>In R, the equivalent structure is a list with named character vector: <code>list(author = "Malcolm Barrett")</code>. In fact, you can call this list in <strong>R Markdown</strong> using the <code>metadata</code> object; in this case, <code>metadata$author</code> will return <code>"Malcolm Barrett"</code></p>
 <p>In YAML, spaces are used to indicate nesting. When we want to specify the output function <code>pdf_document(toc = TRUE)</code>, we need to nest it under the <code>output</code> field. We also need to nest <code>toc</code> under <code>pdf_document</code> so that it gets passed to that function correctly.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1"></a><span class="pp">---</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="pp">---</span></span></code></pre></div>
-<p>In R, the equivalent structure is a nested list, each with a name: <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list(output = list(pdf_document = list(toc = TRUE)))</a></code>. Similarly, you can call this in R Markdown using the <code>metadata</code> object, e.g. <code>metadata$output$pdf_document$toc</code>. The hierarchical structure (which you can see with <code><a href="../reference/draw_yml_tree.html">draw_yml_tree()</a></code>) looks like this:</p>
-<pre><code>└── output:
-    └── pdf_document:
-        └── toc: true</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1"></a><span class="at"> [90m---</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="at"> [39m [32moutput [39m [90m: [39m</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="at">   [32mpdf_document [39m [90m: [39m</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="at">     [32mtoc [39m [90m: [39m true</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="at"> [90m---</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="at"> [39m</span></span></code></pre></div>
+<p>In R, the equivalent structure is a nested list, each with a name: <code>list(output = list(pdf_document = list(toc = TRUE)))</code>. Similarly, you can call this in R Markdown using the <code>metadata</code> object, e.g. <code>metadata$output$pdf_document$toc</code>. The hierarchical structure (which you can see with <code><a href="../reference/draw_yml_tree.html">draw_yml_tree()</a></code>) looks like this:</p>
+<pre><code>└──  [32moutput [39m [90m: [39m
+    └──  [32mpdf_document [39m [90m: [39m
+        └──  [32mtoc [39m [90m: [39m true</code></pre>
 <p>Without the extra indents, YAML doesn’t know <code>toc</code> is connected to <code>pdf_document</code> and thinks the value of <code>pdf_document</code> is <code>NULL</code>. YAML that looks like this:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1"></a><span class="pp">---</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="fu">output</span><span class="kw">:</span></span>
@@ -139,52 +142,57 @@
 <span id="cb4-4"><a href="#cb4-4"></a><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
 <span id="cb4-5"><a href="#cb4-5"></a><span class="pp">---</span></span></code></pre></div>
 <p>has a hierarchy that looks like this:</p>
-<pre><code>├── output:
-│   └── pdf_document: null
-└── toc: true</code></pre>
+<pre><code>├──  [32moutput [39m [90m: [39m
+│   └──  [32mpdf_document [39m [90m: [39m null
+└──  [32mtoc [39m [90m: [39m true</code></pre>
 <p>If you use output functions without additional arguments, the value of <code>output</code> can simply be the name of the function.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1"></a><span class="pp">---</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1"></a><span class="at"> [90m---</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="at"> [39m [32moutput [39m [90m: [39m html_document</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="at"> [90m---</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="at"> [39m</span></span></code></pre></div>
 <p>However, if you’re specifying more than one output type, you must use the nesting syntax. If you don’t want to include additional arguments, use <code>"default"</code> as the function’s value.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1"></a><span class="pp">---</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span><span class="at"> default</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="pp">---</span></span></code></pre></div>
-<p>Some YAML fields take unnamed vectors as their value. You can specify an element of the vector by adding a new line and <code><a href="https://rdrr.io/r/base/Arithmetic.html" class="external-link">-</a></code> (note that the values are not indented below <code>category</code> here).</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1"></a><span class="pp">---</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">category</span><span class="kw">:</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="kw">-</span><span class="at"> R</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="kw">-</span><span class="at"> Reprodicible Research</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="pp">---</span></span></code></pre></div>
-<p>In R, the equivalent structure is a list with a named vector: <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list(categories = c("R", "Reprodicible Research"))</a></code>. <code>metadata$category</code> will return <code><a href="https://rdrr.io/r/base/c.html" class="external-link">c("R", "Reprodicible Research")</a></code>. Another way to specify vectors is to use <code>[]</code> with each object separated by a column, as in the syntax for <code><a href="https://rdrr.io/r/base/c.html" class="external-link">c()</a></code>. This YAML is equivalent to the YAML above:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1"></a><span class="at"> [90m---</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="at"> [39m [32moutput [39m [90m: [39m</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="at">   [32mhtml_document [39m [90m: [39m default</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="at">   [32mpdf_document [39m [90m: [39m</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="at">     [32mtoc [39m [90m: [39m true</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="at"> [90m---</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="at"> [39m</span></span></code></pre></div>
+<p>Some YAML fields take unnamed vectors as their value. You can specify an element of the vector by adding a new line and <code>-</code> (note that the values are not indented below <code>category</code> here).</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1"></a><span class="at"> [90m---</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="at"> [39m [32mcategory [39m [90m: [39m</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="at"> [90m-  [39mR</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="at"> [90m-  [39mReprodicible Research</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="at"> [90m---</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="at"> [39m</span></span></code></pre></div>
+<p>In R, the equivalent structure is a list with a named vector: <code>list(categories = c("R", "Reprodicible Research"))</code>. <code>metadata$category</code> will return <code>c("R", "Reprodicible Research")</code>. Another way to specify vectors is to use <code>[]</code> with each object separated by a column, as in the syntax for <code><a href="https://rdrr.io/r/base/c.html" class="external-link">c()</a></code>. This YAML is equivalent to the YAML above:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1"></a><span class="pp">---</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="fu">category</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">R</span><span class="kw">,</span><span class="at"> Reprodicible Research</span><span class="kw">]</span></span>
 <span id="cb9-3"><a href="#cb9-3"></a><span class="pp">---</span></span></code></pre></div>
-<p>By default, <strong>ymlthis</strong> uses the <code><a href="https://rdrr.io/r/base/Arithmetic.html" class="external-link">-</a></code> syntax for vectors.<code><a href="https://rdrr.io/r/base/Arithmetic.html" class="external-link">-</a></code> is also used to group elements together. For instance, in the <code>params</code> field for parameterized reports, we group parameter information together by using <code><a href="https://rdrr.io/r/base/Arithmetic.html" class="external-link">-</a></code>. The first line is the name and value of the parameter, while all the lines until the next <code><a href="https://rdrr.io/r/base/Arithmetic.html" class="external-link">-</a></code> are extra information about the parameter. While you can use <code>metadata</code> to call objects in <code>params</code>, <code>params</code> has it’s own object you can call directly: <code>params$a</code> and <code>params$data</code> will return the values of <code>a</code> and <code>data</code>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1"></a><span class="pp">---</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">params</span><span class="kw">:</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="kw">-</span><span class="at"> </span><span class="fu">a</span><span class="kw">:</span><span class="at"> </span><span class="fl">1.0</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="at">  </span><span class="fu">input</span><span class="kw">:</span><span class="at"> numeric</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="kw">-</span><span class="at"> </span><span class="fu">data</span><span class="kw">:</span><span class="at"> data.csv</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="at">  </span><span class="fu">input</span><span class="kw">:</span><span class="at"> text</span></span>
-<span id="cb10-7"><a href="#cb10-7"></a><span class="pp">---</span></span></code></pre></div>
-<p>In R, the equivalent structure is a nested list that contains a list of unnamed lists: <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list(param = list(list(a = 1, input = numeric), list(data = "data.csv", input = "file")))</a></code>. The inner-most lists group items together, e.g. <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list(a = 1, input = numeric)</a></code> groups <code>a</code> and <code>input</code>.</p>
-<pre><code>└── params:
-    ├── a: 1.0
-    └── input: numeric
-    ├── data: data.csv
-    └── input: text</code></pre>
+<p>By default, <strong>ymlthis</strong> uses the <code>-</code> syntax for vectors.<code>-</code> is also used to group elements together. For instance, in the <code>params</code> field for parameterized reports, we group parameter information together by using <code>-</code>. The first line is the name and value of the parameter, while all the lines until the next <code>-</code> are extra information about the parameter. While you can use <code>metadata</code> to call objects in <code>params</code>, <code>params</code> has it’s own object you can call directly: <code>params$a</code> and <code>params$data</code> will return the values of <code>a</code> and <code>data</code>.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1"></a><span class="at"> [90m---</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="at"> [39m [32mparams [39m [90m: [39m</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="at"> [90m-  [39m [32ma [39m [90m: [39m 1.0</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="at">   [32minput [39m [90m: [39m numeric</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="at"> [90m-  [39m [32mdata [39m [90m: [39m data.csv</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="at">   [32minput [39m [90m: [39m text</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="at"> [90m---</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="at"> [39m</span></span></code></pre></div>
+<p>In R, the equivalent structure is a nested list that contains a list of unnamed lists: <code>list(param = list(list(a = 1, input = numeric), list(data = "data.csv", input = "file")))</code>. The inner-most lists group items together, e.g. <code>list(a = 1, input = numeric)</code> groups <code>a</code> and <code>input</code>.</p>
+<pre><code>└──  [32mparams [39m [90m: [39m
+    ├──  [32ma [39m [90m: [39m 1.0
+    └──  [32minput [39m [90m: [39m numeric
+    ├──  [32mdata [39m [90m: [39m data.csv
+    └──  [32minput [39m [90m: [39m text</code></pre>
 </div>
 <div id="types-in-yaml" class="section level1">
 <h1 class="hasAnchor">
-<a href="#types-in-yaml" class="anchor"></a>Types in YAML</h1>
-<p>You may have noticed that strings in YAML don’t always need to be quoted. However, it can be useful to explicitly wrap strings in quotes when they contain special characters like <code><a href="https://rdrr.io/r/base/Colon.html" class="external-link">:</a></code> and <code><a href="https://rdrr.io/r/base/slotOp.html" class="external-link">@</a></code>.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1"></a><span class="pp">---</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">'R Markdown: An Introduction'</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="pp">---</span></span></code></pre></div>
+<a href="#types-in-yaml" class="anchor" aria-hidden="true"></a>Types in YAML</h1>
+<p>You may have noticed that strings in YAML don’t always need to be quoted. However, it can be useful to explicitly wrap strings in quotes when they contain special characters like <code>:</code> and <code>@</code>.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1"></a><span class="at"> [90m---</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="at"> [39m [32mtitle [39m [90m: [39m 'R Markdown [90m: [39m An Introduction'</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="at"> [90m---</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="at"> [39m</span></span></code></pre></div>
 <p>R code can be written as inline expressions <code>`r expr`</code>. <code><a href="../reference/yml_code.html">yml_code()</a></code> will capture R code for you and put it in a valid format. R code in <code>params</code> needs to be slightly different: use <code>!r</code> (e.g. <code>!r expr</code>) to call an R object.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r whoami::fullname()`'</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a><span class="fu">params</span><span class="kw">:</span></span>
@@ -194,15 +202,16 @@
 <span id="cb14-2"><a href="#cb14-2"></a><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
 <span id="cb14-3"><a href="#cb14-3"></a><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">on</span></span></code></pre></div>
 <p>By default, <strong>ymlthis</strong> uses <code>true/false</code>. If you want to use any of these values literally (e.g. you want a string equal to <code>"yes"</code>), you need to wrap them in quotation marks:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1"></a><span class="pp">---</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">params</span><span class="kw">:</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="at">  </span><span class="fu">x</span><span class="kw">:</span><span class="at"> </span><span class="st">'yes'</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="pp">---</span></span></code></pre></div>
-<p><code>NULL</code> can be specified using <code>null</code> or <code><a href="https://rdrr.io/r/base/tilde.html" class="external-link">~</a></code>. By default, <strong>ymlthis</strong> uses <code>null</code>. If you want to specify an empty vector, use <code>[]</code>, e.g. <code>category: []</code>. For an empty string, just use empty quotation marks (<code>""</code>).</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1"></a><span class="at"> [90m---</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="at"> [39m [32mparams [39m [90m: [39m</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="at">   [32mx [39m [90m: [39m 'yes'</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="at"> [90m---</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="at"> [39m</span></span></code></pre></div>
+<p><code>NULL</code> can be specified using <code>null</code> or <code>~</code>. By default, <strong>ymlthis</strong> uses <code>null</code>. If you want to specify an empty vector, use <code>[]</code>, e.g. <code>category: []</code>. For an empty string, just use empty quotation marks (<code>""</code>).</p>
 </div>
 <div id="sources-of-yaml" class="section level1">
 <h1 class="hasAnchor">
-<a href="#sources-of-yaml" class="anchor"></a>Sources of YAML</h1>
+<a href="#sources-of-yaml" class="anchor" aria-hidden="true"></a>Sources of YAML</h1>
 <p>Where do the YAML fields you use in <strong>R Markdown</strong> come from? Many YAML fields that we use come from Pandoc from the <strong>rmarkdown</strong> package. These both use YAML to specify the build of the document and to pass information to be printed in a template. Pandoc templates can also be customized to add new YAML. The most common sources of YAML are:</p>
 <ol style="list-style-type: decimal">
 <li>Pandoc</li>
@@ -234,7 +243,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.6.1.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.9000.9000.9000.</p>
 </div>
 
       </footer>
