@@ -77,7 +77,7 @@ test_that("Code chunk is rendered correctly", {
 })
 
 test_that("blanks are correctly cleared from author list", {
-  author_yml <- yml() %>%
+  author_yml <- yml_empty() %>%
   yml_distill_author(
     name = "John Doe",
     affiliation = "My Uni"

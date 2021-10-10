@@ -16,6 +16,5 @@
       author:
       - name: John Doe
         affiliation: My Uni
-      date: '`r format(Sys.Date())`'
       ---
 
