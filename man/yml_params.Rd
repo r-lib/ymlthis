@@ -118,9 +118,8 @@ number of digits (for example, 1 will round to the nearest 10, and -2 will
 round to the nearest .01). Any rounding will be applied after snapping to
 the nearest step.}
 
-\item{format}{Deprecated.}
-
-\item{locale}{Deprecated.}
+\item{format}{The format of the date to display in the browser. Defaults to
+\code{"yyyy-mm-dd"}.}
 
 \item{ticks}{\code{FALSE} to hide tick marks, \code{TRUE} to show them
 according to some simple heuristics.}
