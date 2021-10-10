@@ -1,4 +1,3 @@
-context("test-blogdown_yaml")
 if (!rmarkdown::pandoc_available()) testthat::skip("Pandoc not found")
 if (!requireNamespace("blogdown")) testthat::skip("blogdown not found")
 

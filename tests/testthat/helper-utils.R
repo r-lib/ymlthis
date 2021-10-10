@@ -1,4 +1,3 @@
-context("helper-utils")
 library(ymlthis)
 stringify_yaml <- function(x) {
   x %>%

@@ -49,7 +49,7 @@ Suggests:
     prettydoc,
     roxygen2 (>= 7.0.0),
     spelling,
-    testthat,
+    testthat (>= 3.0.0),
     xaringan
 VignetteBuilder: 
     knitr
@@ -58,3 +58,4 @@ Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
+Config/testthat/edition: 3

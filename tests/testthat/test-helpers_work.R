@@ -1,4 +1,3 @@
-context("test-helpers_work")
 if (!rmarkdown::pandoc_available()) testthat::skip("Pandoc not found")
 
 test_that("multiplication works", {

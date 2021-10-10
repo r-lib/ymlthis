@@ -1,5 +1,3 @@
-context("test-basic_yaml_results")
-
 if (!rmarkdown::pandoc_available()) testthat::skip("Pandoc not found")
 
 test_that("Basic YAML is rendered correctly", {
@@ -75,9 +73,16 @@ test_that("Code chunk is rendered correctly", {
       yml_output(pdf_document())
   }, chunk_name = "yml_example")
 
-  yaml_string <- '```{r yml_example}
-yml_empty() %>% yml_author("Malcolm Barrett") %>% yml_output(pdf_document())
-```'
-  expect_equal(rslt, yaml_string)
+  expect_snapshot(rslt)
+})
+
+test_that("blanks are correctly cleared from author list", {
+  author_yml <- yml() %>%
+  yml_distill_author(
+    name = "John Doe",
+    affiliation = "My Uni"
+  )
+
+  expect_snapshot(author_yml)
 })
 
