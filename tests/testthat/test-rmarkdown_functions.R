@@ -1,6 +1,3 @@
-context("test-rmarkdown_functions")
-
-
 if (!requireNamespace("shiny", quietly = TRUE)) skip()
 
 expect_shiny_list <- function(x, ...) {

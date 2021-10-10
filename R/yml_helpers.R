@@ -23,6 +23,14 @@ yml_blank <- function() {
   structure(list(), class = "yml_blank")
 }
 
+null_if_blank <- function(.x) {
+  if (is_yml_blank(.x)) {
+    return(NULL)
+  }
+
+  .x
+}
+
 
 #' @export
 #' @rdname yml_blank
