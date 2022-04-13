@@ -1,11 +1,11 @@
 pandoc: 2.7.3
-pkgdown: 1.9000.9000.9000
-pkgdown_sha: 31939caeb87846bc75e0cb5eccc0d610405c4580
+pkgdown: 2.0.2
+pkgdown_sha: ~
 articles:
   introduction-to-ymlthis: introduction-to-ymlthis.html
   yaml-fieldguide: yaml-fieldguide.html
   yaml-overview: yaml-overview.html
-last_built: 2021-10-10T03:21Z
+last_built: 2022-04-13T20:05Z
 urls:
   reference: https://ymlthis.r-lib.org/reference
   article: https://ymlthis.r-lib.org/articles
