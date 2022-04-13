@@ -1,4 +1,6 @@
 url: https://ymlthis.r-lib.org
+template:
+  bootstrap: 5
 reference:
 - title: Basic YAML
   desc: null
