@@ -210,6 +210,10 @@ color_yml <- function(x, handlers = yml_handlers()) {
     column.major = FALSE
   )
 
+  if (!isTRUE(getOption("crayon.enabled", TRUE))) {
+    return(yml_txt)
+  }
+
   field_names <- x %>%
     flatten_yml_names() %>%
     paste(collapse = "|")
@@ -236,7 +240,11 @@ flatten_yml_names <- function(x) {
 }
 
 cat_silver <- function(x) {
-  cat(crayon::silver(x))
+  if (!isTRUE(getOption("crayon.enabled", TRUE))) {
+    cat(x)
+  } else {
+    cat(crayon::silver(x))
+  }
 }
 
 #' Export yml object as a YAML knitr code chunk
