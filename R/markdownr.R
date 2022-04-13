@@ -79,6 +79,14 @@ splice_args <- function(x) {
   #  preserve calls without evaluating
   if (rlang::quo_is_null(x)) return("")
   args <- rlang::call_args(x)
-  purrr::map2_chr(names(args), args, ~glue::glue("{.x} = {.y}")) %>%
+  purrr::map2_chr(names(args), args, glue_args) %>%
     glue::glue_collapse(", ")
+}
+
+glue_args <- function(.x, .y) {
+  if (is.character(.y)) {
+    glue::glue("{.x} = \"{.y}\"")
+  } else {
+    glue::glue("{.x} = {.y}")
+  }
 }
