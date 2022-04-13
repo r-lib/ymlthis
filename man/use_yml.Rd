@@ -16,7 +16,8 @@ use_rmarkdown(
   include_body = TRUE,
   body = NULL,
   quiet = FALSE,
-  open_doc = interactive()
+  open_doc = interactive(),
+  overwrite = getOption("usethis.overwrite", FALSE)
 )
 
 use_index_rmd(
@@ -51,6 +52,11 @@ no template is set, checks \code{getOption("ymlthis.rmd_body")} (see
 \item{open_doc}{Logical. Open the document after it's created? By default,
 this is \code{TRUE} if it is an interactive session and \code{FALSE} if not. Also
 checks that RStudio is available.}
+
+\item{overwrite}{Logical. If \code{TRUE}, overwrites the file without asking for
+permission. If \code{FALSE}, asks interactively if the user wishes to do so.
+Checks the user's \code{usethis.overwrite} option if set and is otherwise
+\code{FALSE} by default.}
 }
 \value{
 \code{use_yml()} invisibly returns the input \code{yml} object

@@ -27,6 +27,10 @@
 #' @param open_doc Logical. Open the document after it's created? By default,
 #'   this is `TRUE` if it is an interactive session and `FALSE` if not. Also
 #'   checks that RStudio is available.
+#' @param overwrite Logical. If `TRUE`, overwrites the file without asking for
+#'   permission. If `FALSE`, asks interactively if the user wishes to do so.
+#'   Checks the user's `usethis.overwrite` option if set and is otherwise
+#'   `FALSE` by default.
 #'
 #' @return `use_yml()` invisibly returns the input `yml` object
 #' @export
@@ -39,7 +43,9 @@ use_yml <- function(.yml = last_yml()) {
 #' @rdname use_yml
 #' @export
 use_rmarkdown <- function(.yml = last_yml(), path, template = NULL, include_yaml = TRUE,
-                          include_body = TRUE, body = NULL, quiet = FALSE, open_doc = interactive()) {
+                          include_body = TRUE, body = NULL, quiet = FALSE,
+                          open_doc = interactive(),
+                          overwrite = getOption("usethis.overwrite", FALSE)) {
 
   if (!is.null(template) && fs::is_dir(template)) {
     template_skeleton <- file.path(template, "skeleton", "skeleton.Rmd")
@@ -65,6 +71,9 @@ use_rmarkdown <- function(.yml = last_yml(), path, template = NULL, include_yaml
     rmarkdown_txt <- c(rmarkdown_txt, existing_body)
   }
 
+  if (fs::file_exists(path) && isTRUE(overwrite)) {
+    fs::file_delete(path)
+  }
   usethis::write_over(path, rmarkdown_txt, quiet = quiet)
   if (rstudioapi::isAvailable() && open_doc) rstudioapi::navigateToFile(path, line = 2)
 
