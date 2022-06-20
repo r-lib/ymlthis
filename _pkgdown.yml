@@ -1,112 +1,86 @@
 url: https://ymlthis.r-lib.org
 template:
   bootstrap: 5
+
 reference:
 - title: Basic YAML
-  desc: null
   contents:
-  - '`yml`'
-  - '`yml_author`'
-  - '`yml_output`'
-  - '`yml_latex_opts`'
-  - '`yml_runtime`'
-  - '`yml_clean`'
-  - '`yml_resource_files`'
-  - '`includes2`'
-  - '`yml_toc`'
-- title: Parameterized R Markdown Reports
-  desc: null
-  contents:
-  - '`yml_params`'
-- title: Websites
-  desc: null
-  contents:
-  - '`yml_site_opts`'
-  - '`yml_vignette`'
-- title: References and Citations
-  desc: null
-  contents:
-  - '`bib2yml`'
-  - '`yml_citations`'
-  - '`yml_reference`'
-- title: Working with YAML
-  desc: null
-  contents:
-  - '`as_yml`'
-  - '`yml_load`'
-  - '`draw_yml_tree`'
-  - '`is_yml`'
-  - '`has_field`'
-  - '`last_yml`'
-  - '`yml_blank`'
-  - '`yml_code`'
-  - '`yml_handlers`'
-  - '`yml_replace`'
-  - '`yml_verbatim`'
-  - '`asis_yaml_output`'
-- title: Writing to YAML and R Markdown files
-  desc: null
-  contents:
-  - '`pandoc_template_types`'
-  - '`use_yml_file`'
-  - '`use_yml`'
-  - '`code_chunk`'
-  - '`use_yml_defaults`'
-  - '`read_json`'
-- title: R Markdown Extensions
-  desc: null
-  contents:
-  - '`yml_blogdown_opts`'
-  - '`blogdown_template`'
-  - '`yml_bookdown_opts`'
-  - '`gitbook_config`'
-  - '`yml_distill_opts`'
-  - '`yml_pagedown_opts`'
-  - '`pagedown_business_card_template`'
-  - '`yml_pkgdown`'
-  - '`pkgdown_template`'
-  - '`yml_rsconnect_email`'
-  - '`yml_rticles_opts`'
-articles:
-- title: All vignettes
-  desc: null
-  contents: '`introduction-to-ymlthis`'
-navbar:
-  structure:
-    left:
-    - home
-    - intro
-    - reference
-    - articles
-    - tutorials
-    - news
-    right: github
-  components:
-    home:
-      icon: fa-home fa-lg
-      href: index.html
-    reference:
-      text: Reference
-      href: reference/index.html
-    articles:
-      text: Articles
-      menu:
-      - text: An Introduction to ymlthis
-        href: articles/introduction-to-ymlthis.html
-      - text: "YAML: An Overview"
-        href: articles/yaml-overview.html
-      - text: The YAML Fieldguide
-        href: articles/yaml-fieldguide.html
-    news:
-      text: News
-      menu:
-      - text: "Blog posts"
-      - text: "ymlthis 0.1.0"
-        href: https://malco.io/2019/10/10/introducing-ymlthis/
-      - text: "------------------"
-      - text: "Change log"
-        href: news/index.html
-      github:
-        icon: fa-github fa-lg
-        href: https://github.com/r-lib/ymlthis
+  - yml
+  - yml_author
+  - yml_output
+  - yml_latex_opts
+  - yml_runtime
+  - yml_clean
+  - yml_resource_files
+  - includes2
+  - yml_toc
 
+- title: Parameterized R Markdown Reports
+  contents:
+  - yml_params
+
+- title: Websites
+  contents:
+  - yml_site_opts
+  - yml_vignette
+
+- title: References and Citations
+  contents:
+  - bib2yml
+  - yml_citations
+  - yml_reference
+
+- title: Working with YAML
+  contents:
+  - as_yml
+  - yml_load
+  - draw_yml_tree
+  - is_yml
+  - has_field
+  - last_yml
+  - yml_blank
+  - yml_code
+  - yml_handlers
+  - yml_replace
+  - yml_verbatim
+  - asis_yaml_output
+
+- title: Writing to YAML and R Markdown files
+  contents:
+  - pandoc_template_types
+  - use_yml_file
+  - use_yml
+  - code_chunk
+  - use_yml_defaults
+  - read_json
+
+- title: R Markdown Extensions
+  contents:
+  - yml_blogdown_opts
+  - blogdown_template
+  - yml_bookdown_opts
+  - gitbook_config
+  - yml_distill_opts
+  - yml_pagedown_opts
+  - pagedown_business_card_template
+  - yml_pkgdown
+  - pkgdown_template
+  - yml_rsconnect_email
+  - yml_rticles_opts
+
+
+articles:
+- title: Get started
+  navbar: ~
+  contents:
+  - ymlthis
+  - yaml-overview
+  - yaml-fieldguide
+
+news:
+  releases:
+  - text: "Version 0.1.0"
+    href: https://malco.io/2019/10/10/introducing-ymlthis/
+
+redirects:
+  - ["articles/introduction-to-ymlthis.html", "articles/ymlthis.html"]
