@@ -37,7 +37,7 @@ to specify the citation style; see the \href{https://github.com/citation-style-l
 files of dozens of journals.}
 
 \item{citation_abbreviations}{Path to a CSL abbreviations JSON file. See the
-\href{http://manpages.ubuntu.com/manpages/xenial/man1/pandoc-citeproc.1.html}{pandoc-citeproc documentation}.
+\href{https://manpages.ubuntu.com/manpages/xenial/man1/pandoc-citeproc.1.html}{pandoc-citeproc documentation}.
 Note that the actual YAML field is \code{citation-abbreviations}.}
 
 \item{link_citations}{Logical. Add citations hyperlinks to the corresponding
