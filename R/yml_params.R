@@ -240,7 +240,7 @@ shiny_slider <- function(label, min, max, value, step = NULL,
     )
   )
 
-  remove_default_values(param_list, shiny::sliderInput, drop = "format")
+  remove_default_values(param_list, shiny::sliderInput)
 }
 
 #' @inheritParams shiny::dateInput
@@ -379,14 +379,24 @@ shiny_password <- function(label, value = "", width = NULL, placeholder = NULL) 
   remove_default_values(param_list, shiny::passwordInput)
 }
 
-remove_default_values <- function(args, .f, drop = NULL) {
+remove_default_values <- function(args, .f) {
   fmls <- as.list(formals(.f))
-  if (!is.null(drop)) {
-    fmls <- fmls[!(names(fmls) %in% drop)]
-    args <- args[!(names(args) %in% drop)]
-  }
-  same <- purrr::map2_lgl(args[-1], fmls[-1], identical)
-  same <- c(FALSE, same)
 
-  args[!same]
+  # The first argument (input/inputId) is required, so always include it
+  result <- args[1]
+
+  for (nm in names(args)[-1]) {
+    if (!nm %in% names(fmls)) {
+      stop(
+        "The following arguments don't exist in the function that they're",
+        " trying to be used in: ", nm,
+        call. = FALSE
+      )
+    }
+    if (!identical(args[nm], fmls[nm])) {
+      result <- c(result, args[nm])
+    }
+  }
+
+  result
 }
