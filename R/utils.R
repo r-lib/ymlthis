@@ -1,15 +1,5 @@
 stop_if_not_installed <- function(pkg) {
-  if (!requireNamespace(pkg, quietly = TRUE)) {
-    stop(
-      pkg,
-      " must be installed to use this function.\n",
-      "install.packages('",
-      pkg,
-      "')"
-    )
-  }
-
-  invisible()
+  rlang::check_installed(pkg, "Must be installed to use this function.")
 }
 
 stop_if_shiny_not_installed <- function() {

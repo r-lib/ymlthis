@@ -30,7 +30,7 @@ Imports:
     magrittr,
     miniUI,
     purrr (>= 0.3.2),
-    rlang (>= 0.4.0),
+    rlang (>= 0.4.10),
     rmarkdown (>= 2.10),
     rstudioapi,
     shiny,
