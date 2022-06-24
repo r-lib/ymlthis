@@ -1,19 +1,13 @@
 Package: ymlthis
 Title: Write 'YAML' for 'R Markdown', 'bookdown', 'blogdown', and More
 Version: 0.1.5.9000
-Authors@R: 
-    c(person(given = "Malcolm",
-             family = "Barrett",
-             role = c("aut", "cre"),
-             email = "malcolmbarrett@gmail.com",
-             comment = c(ORCID = "0000-0003-0299-5825")),
-      person(given = "Richard",
-             family = "Iannone",
-             role = "aut",
-             email = "rich@rstudio.com",
-             comment = c(ORCID = "0000-0003-3925-190X")),
-      person(given = "RStudio",
-             role = c("cph", "fnd")))
+Authors@R: c(
+    person("Malcolm", "Barrett", , "malcolmbarrett@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-0299-5825")),
+    person("Richard", "Iannone", , "rich@rstudio.com", role = "aut",
+           comment = c(ORCID = "0000-0003-3925-190X")),
+    person("RStudio", role = c("cph", "fnd"))
+  )
 Description: Write 'YAML' front matter for R Markdown and related
     documents. Work with 'YAML' objects more naturally and write the
     resulting 'YAML' to your clipboard or to 'YAML' files related to your
@@ -28,13 +22,10 @@ Imports:
     fs,
     glue,
     magrittr,
-    miniUI,
     purrr (>= 0.3.2),
     rlang (>= 0.4.10),
     rmarkdown (>= 2.10),
     rstudioapi,
-    shiny,
-    shinyBS,
     stringr,
     usethis (>= 1.5.0),
     whoami,
@@ -45,16 +36,19 @@ Suggests:
     bookdown,
     covr,
     knitr,
+    miniUI,
     pkgdown,
     prettydoc,
     roxygen2 (>= 7.0.0),
+    shiny,
+    shinyBS,
     spelling,
     testthat (>= 3.0.0),
     xaringan
 VignetteBuilder: 
     knitr
+Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.0
-Config/testthat/edition: 3
