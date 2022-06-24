@@ -1,80 +1,60 @@
-url: https://ymlthis.r-lib.org
-template:
-  bootstrap: 5
 reference:
-- title: Basic YAML
-  desc: null
-  contents:
-  - '`yml`'
-  - '`yml_author`'
-  - '`yml_output`'
-  - '`yml_latex_opts`'
-  - '`yml_runtime`'
-  - '`yml_clean`'
-  - '`yml_resource_files`'
-  - '`includes2`'
-  - '`yml_toc`'
-- title: Parameterized R Markdown Reports
-  desc: null
-  contents:
-  - '`yml_params`'
-- title: Websites
-  desc: null
-  contents:
-  - '`yml_site_opts`'
-  - '`yml_vignette`'
-- title: References and Citations
-  desc: null
-  contents:
-  - '`bib2yml`'
-  - '`yml_citations`'
-  - '`yml_reference`'
-- title: Working with YAML
-  desc: null
+- title: All functions
   contents:
   - '`as_yml`'
-  - '`yml_load`'
-  - '`draw_yml_tree`'
-  - '`is_yml`'
-  - '`has_field`'
-  - '`last_yml`'
-  - '`yml_blank`'
-  - '`yml_code`'
-  - '`yml_handlers`'
-  - '`yml_replace`'
-  - '`yml_verbatim`'
   - '`asis_yaml_output`'
-- title: Writing to YAML and R Markdown files
-  desc: null
-  contents:
+  - '`bib2yml`'
+  - '`blogdown_template`'
+  - '`code_chunk`'
+  - '`draw_yml_tree`'
+  - '`gitbook_config`'
+  - '`has_field`'
+  - '`includes2`'
+  - '`is_yml`'
+  - '`last_yml`'
+  - '`pagedown_business_card_template`'
   - '`pandoc_template_types`'
+  - '`pkgdown_template`'
+  - '`read_json`'
   - '`use_yml_file`'
   - '`use_yml`'
-  - '`code_chunk`'
   - '`use_yml_defaults`'
-  - '`read_json`'
-- title: R Markdown Extensions
-  desc: null
-  contents:
+  - '`yml`'
+  - '`yml_author`'
+  - '`yml_blank`'
   - '`yml_blogdown_opts`'
-  - '`blogdown_template`'
   - '`yml_bookdown_opts`'
-  - '`gitbook_config`'
+  - '`yml_citations`'
+  - '`yml_clean`'
+  - '`yml_code`'
   - '`yml_distill_opts`'
+  - '`yml_handlers`'
+  - '`yml_latex_opts`'
+  - '`yml_load`'
+  - '`yml_output`'
   - '`yml_pagedown_opts`'
-  - '`pagedown_business_card_template`'
+  - '`yml_params`'
   - '`yml_pkgdown`'
-  - '`pkgdown_template`'
+  - '`yml_reference`'
+  - '`yml_replace`'
+  - '`yml_resource_files`'
   - '`yml_rsconnect_email`'
   - '`yml_rticles_opts`'
+  - '`yml_runtime`'
+  - '`yml_site_opts`'
+  - '`yml_toc`'
+  - '`yml_verbatim`'
+  - '`yml_vignette`'
 articles:
 - title: All vignettes
   desc: null
-  contents: '`introduction-to-ymlthis`'
+  contents:
+  - '`introduction-to-ymlthis`'
+  - '`yaml-fieldguide`'
+  - '`yaml-overview`'
 navbar:
   structure:
     left:
-    - home
     - intro
     - reference
     - articles
@@ -82,31 +62,23 @@ navbar:
     - news
     right: github
   components:
-    home:
-      icon: fa-home fa-lg
-      href: index.html
     reference:
       text: Reference
       href: reference/index.html
+    news:
+      text: Changelog
+      href: news/index.html
+    github:
+      icon: fab fa-github fa-lg
+      href: https://github.com/r-lib/ymlthis/
+      aria-label: github
     articles:
       text: Articles
       menu:
       - text: An Introduction to ymlthis
         href: articles/introduction-to-ymlthis.html
-      - text: "YAML: An Overview"
-        href: articles/yaml-overview.html
       - text: The YAML Fieldguide
         href: articles/yaml-fieldguide.html
-    news:
-      text: News
-      menu:
-      - text: "Blog posts"
-      - text: "ymlthis 0.1.0"
-        href: https://malco.io/2019/10/10/introducing-ymlthis/
-      - text: "------------------"
-      - text: "Change log"
-        href: news/index.html
-      github:
-        icon: fa-github fa-lg
-        href: https://github.com/r-lib/ymlthis
+      - text: 'YAML: an Overview'
+        href: articles/yaml-overview.html
 
