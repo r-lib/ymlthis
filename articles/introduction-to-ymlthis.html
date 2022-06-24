@@ -4,91 +4,92 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="ymlthis">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>An Introduction to ymlthis • ymlthis</title>
-<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="An Introduction to ymlthis">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script><meta property="og:title" content="An Introduction to ymlthis">
 <meta property="og:description" content="ymlthis">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
-    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
+<body data-spy="scroll" data-target="#toc">
     
 
-    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
-    
-    <a class="navbar-brand me-2" href="../index.html">ymlthis</a>
+    <div class="container template-article">
+      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">ymlthis</a>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.5.9000</span>
+      </span>
+    </div>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.5.9000</small>
-
-    
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div id="navbar" class="collapse navbar-collapse ms-3">
-      <ul class="navbar-nav me-auto">
-<li class="nav-item">
-  <a class="nav-link" href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+<li>
+  <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Articles
      
+    <span class="caret"></span>
   </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="../articles/introduction-to-ymlthis.html">An Introduction to ymlthis</a>
+    </li>
+    <li>
+      <a href="../articles/yaml-fieldguide.html">The YAML Fieldguide</a>
+    </li>
+    <li>
+      <a href="../articles/yaml-overview.html">YAML: an Overview</a>
+    </li>
+  </ul>
 </li>
-<li class="nav-item">
-  <a class="nav-link" href="../reference/index.html">Reference</a>
-</li>
-<li class="active nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/introduction-to-ymlthis.html">An Introduction to ymlthis</a>
-    <a class="dropdown-item" href="../articles/yaml-overview.html">YAML: An Overview</a>
-    <a class="dropdown-item" href="../articles/yaml-fieldguide.html">The YAML Fieldguide</a>
-  </div>
-</li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-news">News</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-news">
-    <h6 class="dropdown-header" data-toc-skip>Blog posts</h6>
-    <a class="external-link dropdown-item" href="https://malco.io/2019/10/10/introducing-ymlthis/">ymlthis 0.1.0</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="../news/index.html">Change log</a>
-  </div>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-<form class="form-inline my-2 my-lg-0" role="search">
-        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
-</form>
-
-      <ul class="navbar-nav">
-<li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/r-lib/ymlthis/" aria-label="github">
-    <span class="fab fa fab fa-github fa-lg"></span>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/r-lib/ymlthis/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
       </ul>
 </div>
-
-    
+<!--/.nav-collapse -->
   </div>
-</nav><div class="container template-article">
+<!--/.container -->
+</div>
+<!--/.navbar -->
 
+      
 
-
-<script src="introduction-to-ymlthis_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
-  <main id="main"><div class="page-header">
-      <img src="" class="logo" alt=""><h1>An Introduction to ymlthis</h1>
+      </header><script src="introduction-to-ymlthis_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+  <div class="col-md-9 contents">
+    <div class="page-header toc-ignore">
+      <h1 data-toc-skip>An Introduction to ymlthis</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/r-lib/ymlthis/blob/HEAD/vignettes/introduction-to-ymlthis.Rmd" class="external-link"><code>vignettes/introduction-to-ymlthis.Rmd</code></a></small>
-      <div class="d-none name"><code>introduction-to-ymlthis.Rmd</code></div>
+      <div class="hidden name"><code>introduction-to-ymlthis.Rmd</code></div>
+
     </div>
 
     
@@ -99,15 +100,15 @@
 </h2>
 <p><strong>ymlthis</strong> makes it easy to write valid YAML by handling the syntax and documenting the majority of YAML fields in one place. <code><a href="../reference/yml.html">yml()</a></code> creates a <code>yml</code> object that, by default, sets the author name and date. <strong>ymlthis</strong> uses name options in <strong>devtools</strong> and <strong>usethis</strong> (<code>options(devtools.name = "name")</code> and <code>options(usethis.full_name = "name")</code>, respectively), as well as the <strong>whoami</strong> package, to try to find the author’s name. By default, the date is set to <code>`r format(Sys.Date())`</code>, which will update the date when knitting.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1"></a><span class="pp">---</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
 <span id="cb2-4"><a href="#cb2-4"></a><span class="pp">---</span></span></code></pre></div>
 <p>Functions that start with <code>yml_*()</code> take and return <code>yml</code> objects, so they can be used to add or modify YAML fields. For instance, to add a title, use <code><a href="../reference/yml_author.html">yml_title()</a></code></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/yml_author.html">yml_title</a></span><span class="op">(</span><span class="st">"An introduction to ymlthis"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/yml_author.html">yml_title</a></span><span class="op">(</span><span class="st">"An introduction to ymlthis"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1"></a><span class="pp">---</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
@@ -117,8 +118,8 @@
 <div class="sourceCode" id="cb5"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span></code></pre></div>
 <p>which calls <code><a href="https://pkgs.rstudio.com/rmarkdown/reference/html_document.html" class="external-link">rmarkdown::html_document()</a></code> when knitting. All of the nested fields passed to <code>output</code> come from the output function you are using (so you can check <code>?pkg::output_function()</code> to see what the options are). <strong>ymlthis</strong> writes and validates output YAML by parsing calls to these functions. We can, for example, nest <strong>R Markdown</strong>’s <code>pdf_document()</code> inside <code><a href="../reference/yml_output.html">yml_output()</a></code>:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/yml_output.html">yml_output</a></span><span class="op">(</span><span class="fu">pdf_document</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/yml_output.html">yml_output</a></span><span class="op">(</span><span class="fu">pdf_document</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1"></a><span class="pp">---</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
@@ -126,8 +127,8 @@
 <span id="cb7-5"><a href="#cb7-5"></a><span class="pp">---</span></span></code></pre></div>
 <p>Passing arguments to the output functions will nest them correctly for YAML.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/yml_output.html">yml_output</a></span><span class="op">(</span><span class="fu">pdf_document</span><span class="op">(</span>toc <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/yml_output.html">yml_output</a></span><span class="op">(</span><span class="fu">pdf_document</span><span class="op">(</span>toc <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1"></a><span class="pp">---</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
 <span id="cb9-3"><a href="#cb9-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
@@ -137,11 +138,11 @@
 <span id="cb9-7"><a href="#cb9-7"></a><span class="pp">---</span></span></code></pre></div>
 <p>And we can pass multiple output functions to facilitate rendering R Markdown files to multiple formats:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/yml_output.html">yml_output</a></span><span class="op">(</span>
-    <span class="fu">pdf_document</span><span class="op">(</span>toc <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
-    <span class="fu">html_document</span><span class="op">(</span><span class="op">)</span>
-  <span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/yml_output.html">yml_output</a></span><span class="op">(</span></span>
+<span>    <span class="fu">pdf_document</span><span class="op">(</span>toc <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>    <span class="fu">html_document</span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb11"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1"></a><span class="pp">---</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
 <span id="cb11-3"><a href="#cb11-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
@@ -152,21 +153,21 @@
 <span id="cb11-8"><a href="#cb11-8"></a><span class="pp">---</span></span></code></pre></div>
 <p>YAML fields can come from a variety of places: <strong>R Markdown</strong> itself, the output function, Pandoc (for example, as options used in LaTeX), and custom templates. Many of these fields are documented in <code>yml_*()</code> functions.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/yml_author.html">yml_author</a></span><span class="op">(</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Yihui Xie"</span>, <span class="st">"Hadley Wickham"</span><span class="op">)</span>,
-    affiliation <span class="op">=</span> <span class="st">"RStudio"</span>
-  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/yml_author.html">yml_date</a></span><span class="op">(</span><span class="st">"07/04/2019"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/yml_author.html">yml_title</a></span><span class="op">(</span><span class="st">"Reproducible Research in R"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/yml_author.html">yml_category</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"r"</span>, <span class="st">"reprodicibility"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/yml_output.html">yml_output</a></span><span class="op">(</span>
-    <span class="fu">pdf_document</span><span class="op">(</span>
-      keep_tex <span class="op">=</span> <span class="cn">TRUE</span>,
-      includes <span class="op">=</span> <span class="fu"><a href="../reference/includes2.html">includes2</a></span><span class="op">(</span>after_body <span class="op">=</span> <span class="st">"footer.tex"</span><span class="op">)</span>
-    <span class="op">)</span>
-  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/yml_latex_opts.html">yml_latex_opts</a></span><span class="op">(</span>biblio_style <span class="op">=</span> <span class="st">"apalike"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/yml_author.html">yml_author</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Yihui Xie"</span>, <span class="st">"Hadley Wickham"</span><span class="op">)</span>,</span>
+<span>    affiliation <span class="op">=</span> <span class="st">"RStudio"</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/yml_author.html">yml_date</a></span><span class="op">(</span><span class="st">"07/04/2019"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/yml_author.html">yml_title</a></span><span class="op">(</span><span class="st">"Reproducible Research in R"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/yml_author.html">yml_category</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"r"</span>, <span class="st">"reprodicibility"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/yml_output.html">yml_output</a></span><span class="op">(</span></span>
+<span>    <span class="fu">pdf_document</span><span class="op">(</span></span>
+<span>      keep_tex <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>      includes <span class="op">=</span> <span class="fu"><a href="../reference/includes2.html">includes2</a></span><span class="op">(</span>after_body <span class="op">=</span> <span class="st">"footer.tex"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/yml_latex_opts.html">yml_latex_opts</a></span><span class="op">(</span>biblio_style <span class="op">=</span> <span class="st">"apalike"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb13"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1"></a><span class="pp">---</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a><span class="fu">author</span><span class="kw">:</span></span>
 <span id="cb13-3"><a href="#cb13-3"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Yihui Xie</span></span>
@@ -194,8 +195,8 @@
 <span id="cb14-2"><a href="#cb14-2"></a><span class="at">  </span><span class="fu">country</span><span class="kw">:</span><span class="at"> </span><span class="st">"Turkey"</span></span></code></pre></div>
 <p>Calling <code>params$country</code> in the <strong>R Markdown</strong> document will thus return <code>"Turkey"</code>. <code><a href="../reference/yml_params.html">yml_params()</a></code> will write this for you:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/yml_params.html">yml_params</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"Turkey"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/yml_params.html">yml_params</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"Turkey"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb16"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1"></a><span class="pp">---</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
 <span id="cb16-3"><a href="#cb16-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
@@ -204,13 +205,13 @@
 <span id="cb16-6"><a href="#cb16-6"></a><span class="pp">---</span></span></code></pre></div>
 <p>You can also fill in parameters using a <strong>Shiny</strong> app with the “Knit with Parameters” button in the RStudio IDE or by passing <code>"ask"</code> to the <code>params</code> argument in <code><a href="https://pkgs.rstudio.com/rmarkdown/reference/render.html" class="external-link">rmarkdown::render()</a></code>. While <strong>R Markdown</strong> will try to guess the Shiny widget type by the value of the parameter, you can specify them yourself with <strong>ymlthis</strong> functions that start with <code>shiny_*()</code>.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/yml_params.html">yml_params</a></span><span class="op">(</span>
-    data <span class="op">=</span> <span class="fu"><a href="../reference/yml_params.html">shiny_file</a></span><span class="op">(</span><span class="st">"Upload Data (.csv)"</span><span class="op">)</span>,
-    n <span class="op">=</span> <span class="fu"><a href="../reference/yml_params.html">shiny_numeric</a></span><span class="op">(</span><span class="st">"n to sample"</span>, <span class="fl">10</span><span class="op">)</span>,
-    date <span class="op">=</span> <span class="fu"><a href="../reference/yml_params.html">shiny_date</a></span><span class="op">(</span><span class="st">"Date"</span><span class="op">)</span>,
-    show_plot <span class="op">=</span> <span class="fu"><a href="../reference/yml_params.html">shiny_checkbox</a></span><span class="op">(</span><span class="st">"Plot the data?"</span>, <span class="cn">TRUE</span><span class="op">)</span>
-  <span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/yml_params.html">yml_params</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="fu"><a href="../reference/yml_params.html">shiny_file</a></span><span class="op">(</span><span class="st">"Upload Data (.csv)"</span><span class="op">)</span>,</span>
+<span>    n <span class="op">=</span> <span class="fu"><a href="../reference/yml_params.html">shiny_numeric</a></span><span class="op">(</span><span class="st">"n to sample"</span>, <span class="fl">10</span><span class="op">)</span>,</span>
+<span>    date <span class="op">=</span> <span class="fu"><a href="../reference/yml_params.html">shiny_date</a></span><span class="op">(</span><span class="st">"Date"</span><span class="op">)</span>,</span>
+<span>    show_plot <span class="op">=</span> <span class="fu"><a href="../reference/yml_params.html">shiny_checkbox</a></span><span class="op">(</span><span class="st">"Plot the data?"</span>, <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb18"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1"></a><span class="pp">---</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
 <span id="cb18-3"><a href="#cb18-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
@@ -236,8 +237,8 @@
 </h3>
 <p><a href="https://bookdown.org/yihui/rmarkdown/markdown-syntax.html" class="external-link"><strong>R Markdown</strong> has excellent support for citations</a>. The simplest way to use references in an <strong>R Markdown</strong> file is to add a bibliography file using the <code>bibliography</code> field.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/yml_citations.html">yml_citations</a></span><span class="op">(</span>bibliography <span class="op">=</span> <span class="st">"refs.bib"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/yml_citations.html">yml_citations</a></span><span class="op">(</span>bibliography <span class="op">=</span> <span class="st">"refs.bib"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb20"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1"></a><span class="pp">---</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
 <span id="cb20-3"><a href="#cb20-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
@@ -245,29 +246,29 @@
 <span id="cb20-5"><a href="#cb20-5"></a><span class="pp">---</span></span></code></pre></div>
 <p>However, if you only have a few references and want to keep your file self-contained, you can also specify references directly in your YAML using <code><a href="../reference/yml_reference.html">yml_reference()</a></code> and <code><a href="../reference/yml_reference.html">reference()</a></code>.</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ref</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/yml_reference.html">reference</a></span><span class="op">(</span>
-  id <span class="op">=</span> <span class="st">"fenner2012a"</span>,
-  title <span class="op">=</span> <span class="st">"One-click science marketing"</span>,
-  author <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>
-    family <span class="op">=</span> <span class="st">"Fenner"</span>,
-    given <span class="op">=</span> <span class="st">"Martin"</span>
-  <span class="op">)</span>,
-  `container-title` <span class="op">=</span> <span class="st">"Nature Materials"</span>,
-  volume <span class="op">=</span> <span class="fl">11L</span>,
-  URL <span class="op">=</span> <span class="st">"https://doi.org/10.1038/nmat3283"</span>,
-  DOI <span class="op">=</span> <span class="st">"10.1038/nmat3283"</span>,
-  issue <span class="op">=</span> <span class="fl">4L</span>,
-  publisher <span class="op">=</span> <span class="st">"Nature Publishing Group"</span>,
-  page <span class="op">=</span> <span class="st">"261-263"</span>,
-  type <span class="op">=</span> <span class="st">"article-journal"</span>,
-  issued <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>
-    year <span class="op">=</span> <span class="fl">2012</span>,
-    month <span class="op">=</span> <span class="fl">3</span>
-  <span class="op">)</span>
-<span class="op">)</span>
-
-<span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/yml_reference.html">yml_reference</a></span><span class="op">(</span><span class="va">ref</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">ref</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/yml_reference.html">reference</a></span><span class="op">(</span></span>
+<span>  id <span class="op">=</span> <span class="st">"fenner2012a"</span>,</span>
+<span>  title <span class="op">=</span> <span class="st">"One-click science marketing"</span>,</span>
+<span>  author <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    family <span class="op">=</span> <span class="st">"Fenner"</span>,</span>
+<span>    given <span class="op">=</span> <span class="st">"Martin"</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  `container-title` <span class="op">=</span> <span class="st">"Nature Materials"</span>,</span>
+<span>  volume <span class="op">=</span> <span class="fl">11L</span>,</span>
+<span>  URL <span class="op">=</span> <span class="st">"https://doi.org/10.1038/nmat3283"</span>,</span>
+<span>  DOI <span class="op">=</span> <span class="st">"10.1038/nmat3283"</span>,</span>
+<span>  issue <span class="op">=</span> <span class="fl">4L</span>,</span>
+<span>  publisher <span class="op">=</span> <span class="st">"Nature Publishing Group"</span>,</span>
+<span>  page <span class="op">=</span> <span class="st">"261-263"</span>,</span>
+<span>  type <span class="op">=</span> <span class="st">"article-journal"</span>,</span>
+<span>  issued <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    year <span class="op">=</span> <span class="fl">2012</span>,</span>
+<span>    month <span class="op">=</span> <span class="fl">3</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/yml_reference.html">yml_reference</a></span><span class="op">(</span><span class="va">ref</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb22"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb22-1"><a href="#cb22-1"></a><span class="pp">---</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
 <span id="cb22-3"><a href="#cb22-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
@@ -291,8 +292,8 @@
 <span id="cb22-21"><a href="#cb22-21"></a><span class="pp">---</span></span></code></pre></div>
 <p><code><a href="../reference/yml_reference.html">yml_reference()</a></code> also supports package citation using the <code>.bibentry</code> argument and <code><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation()</a></code>.</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/yml_reference.html">yml_reference</a></span><span class="op">(</span>.bibentry <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"purrr"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/yml_reference.html">yml_reference</a></span><span class="op">(</span>.bibentry <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"purrr"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb24"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb24-1"><a href="#cb24-1"></a><span class="pp">---</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
 <span id="cb24-3"><a href="#cb24-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
@@ -305,19 +306,19 @@
 </h2>
 <p>Packages that extend <strong>R Markdown</strong>, such as <strong>bookdown</strong> and <strong>blogdown</strong>, also extend the YAML used to make documents. One of the main ways that other packages introduce YAML is through new output functions. <a href="https://bookdown.org/yihui/rmarkdown/xaringan.html" class="external-link"><strong>xaringan</strong></a>, for instance, doesn’t use custom YAML outside of its output function, so <strong>ymlthis</strong> supports it out-of-box. Passing <code><a href="https://rdrr.io/pkg/xaringan/man/moon_reader.html" class="external-link">xaringan::moon_reader()</a></code> to <code><a href="../reference/yml_output.html">yml_output()</a></code> will write the YAML for you.</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/yml_author.html">yml_title</a></span><span class="op">(</span><span class="st">"Presentation Ninja"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/yml_author.html">yml_subtitle</a></span><span class="op">(</span><span class="st">"with xaringan"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/yml_output.html">yml_output</a></span><span class="op">(</span>
-    <span class="fu">xaringan</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/xaringan/man/moon_reader.html" class="external-link">moon_reader</a></span><span class="op">(</span>
-      lib_dir <span class="op">=</span> <span class="st">"libs"</span>,
-      nature <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>
-        highlightStyle <span class="op">=</span> <span class="st">"github"</span>,
-        highlightLines <span class="op">=</span> <span class="cn">TRUE</span>,
-        countIncrementalSlides <span class="op">=</span> <span class="cn">FALSE</span>
-      <span class="op">)</span>
-    <span class="op">)</span>
-  <span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/yml_author.html">yml_title</a></span><span class="op">(</span><span class="st">"Presentation Ninja"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/yml_author.html">yml_subtitle</a></span><span class="op">(</span><span class="st">"with xaringan"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/yml_output.html">yml_output</a></span><span class="op">(</span></span>
+<span>    <span class="fu">xaringan</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/xaringan/man/moon_reader.html" class="external-link">moon_reader</a></span><span class="op">(</span></span>
+<span>      lib_dir <span class="op">=</span> <span class="st">"libs"</span>,</span>
+<span>      nature <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>        highlightStyle <span class="op">=</span> <span class="st">"github"</span>,</span>
+<span>        highlightLines <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>        countIncrementalSlides <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb26"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb26-1"><a href="#cb26-1"></a><span class="pp">---</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Malcolm Barrett</span></span>
 <span id="cb26-3"><a href="#cb26-3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">'`r format(Sys.Date())`'</span></span>
@@ -410,50 +411,50 @@
 <p><strong>ymlthis</strong> also supports YAML files. For instance, using <code>pkgdown_template() %&gt;% use_pkgdown_yml()</code> will write the YAML for your <strong>pkgdown</strong> site to <code>_pkgdown.yml</code> based on your package directory. <strong>ymlthis</strong> also has some helper functions for working with Pandoc templates and highlighting themes.</p>
 <p>As an example, let’s set up the navbar YAML for an <strong>R Markdown</strong> website and then pass it to <code><a href="../reference/use_file_yml.html">use_navbar_yml()</a></code>.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">navbar_yaml</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/yml.html">yml_empty</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/yml_site_opts.html">yml_site_opts</a></span><span class="op">(</span>
-    name <span class="op">=</span> <span class="st">"my-website"</span>,
-    output_dir <span class="op">=</span>  <span class="st">"_site"</span>,
-    include <span class="op">=</span> <span class="st">"demo.R"</span>,
-    exclude <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"docs.txt"</span>, <span class="st">"*.csv"</span><span class="op">)</span>
-  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/yml_site_opts.html">yml_navbar</a></span><span class="op">(</span>
-    title <span class="op">=</span> <span class="st">"My Website"</span>,
-    left <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>
-      <span class="fu"><a href="../reference/yml_site_opts.html">navbar_page</a></span><span class="op">(</span><span class="st">"Home"</span>, href <span class="op">=</span> <span class="st">"index.html"</span><span class="op">)</span>,
-      <span class="fu"><a href="../reference/yml_site_opts.html">navbar_page</a></span><span class="op">(</span><span class="fu"><a href="../reference/yml_site_opts.html">navbar_separator</a></span><span class="op">(</span><span class="op">)</span>, href <span class="op">=</span> <span class="st">"about.html"</span><span class="op">)</span>
-    <span class="op">)</span>
-  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/yml_output.html">yml_output</a></span><span class="op">(</span><span class="fu">html_document</span><span class="op">(</span>toc <span class="op">=</span> <span class="cn">TRUE</span>, highlight <span class="op">=</span> <span class="st">"textmate"</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co"># save to temporary directory since this is not interactive</span>
-<span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span>
-<span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/create.html" class="external-link">dir_create</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span>
-
-<span class="fu"><a href="../reference/use_file_yml.html">use_navbar_yml</a></span><span class="op">(</span><span class="va">navbar_yaml</span>, path <span class="op">=</span> <span class="va">path</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Writing <span style="color: #0000BB;">'/tmp/RtmpVPc2cb/file3ce865399242/_navbar.yml'</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">navbar_yaml</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/yml.html">yml_empty</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/yml_site_opts.html">yml_site_opts</a></span><span class="op">(</span></span>
+<span>    name <span class="op">=</span> <span class="st">"my-website"</span>,</span>
+<span>    output_dir <span class="op">=</span>  <span class="st">"_site"</span>,</span>
+<span>    include <span class="op">=</span> <span class="st">"demo.R"</span>,</span>
+<span>    exclude <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"docs.txt"</span>, <span class="st">"*.csv"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/yml_site_opts.html">yml_navbar</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"My Website"</span>,</span>
+<span>    left <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="../reference/yml_site_opts.html">navbar_page</a></span><span class="op">(</span><span class="st">"Home"</span>, href <span class="op">=</span> <span class="st">"index.html"</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="../reference/yml_site_opts.html">navbar_page</a></span><span class="op">(</span><span class="fu"><a href="../reference/yml_site_opts.html">navbar_separator</a></span><span class="op">(</span><span class="op">)</span>, href <span class="op">=</span> <span class="st">"about.html"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/yml_output.html">yml_output</a></span><span class="op">(</span><span class="fu">html_document</span><span class="op">(</span>toc <span class="op">=</span> <span class="cn">TRUE</span>, highlight <span class="op">=</span> <span class="st">"textmate"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># save to temporary directory since this is not interactive</span></span>
+<span><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/create.html" class="external-link">dir_create</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/use_file_yml.html">use_navbar_yml</a></span><span class="op">(</span><span class="va">navbar_yaml</span>, path <span class="op">=</span> <span class="va">path</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Writing <span style="color: #0000BB;">'/tmp/RtmpGm6p0N/file43c2a0f218f/_navbar.yml'</span></span></span></code></pre></div>
 <p>In addition to writing to files, you can save YAML to your <code>.Rprofile</code> using <code>options(ymlthis.defaults = "{YAML}")</code>. <code><a href="../reference/yml.html">yml()</a></code> will return the stored YAML by default. If you pass a <code>yml</code> object to <code><a href="../reference/use_yml_defaults.html">use_yml_defaults()</a></code>, the code to do this will be placed on your clipboard, which you should paste into your <code>.Rprofile</code>. Open that file with <code><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">usethis::edit_r_profile()</a></code>. You can also set a default for body text for <code><a href="../reference/use_yml.html">use_rmarkdown()</a></code> by setting the <code>ymlthis.rmd_body()</code> option, e.g. <code>options(ymlthis.rmd_body = "{your text}")</code> (or take advantage of <code><a href="../reference/use_yml_defaults.html">use_rmd_defaults()</a></code>). Together with specifying default YAML, <code><a href="../reference/use_yml.html">use_rmarkdown()</a></code> also serves as an ad-hoc way to make R Markdown templates.</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">old</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>
-  ymlthis.default_yml <span class="op">=</span> <span class="st">"author: Malcolm Barrett
-date: '`r format(Sys.Date())`'
-output: bookdown::pdf_document2"</span>,
-  ymlthis.rmd_body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
-    <span class="st">""</span>,
-    <span class="fu">ymlthis</span><span class="fu">::</span><span class="fu"><a href="../reference/code_chunk.html">setup_chunk</a></span><span class="op">(</span><span class="op">)</span>,
-    <span class="st">""</span>,
-    <span class="fu">ymlthis</span><span class="fu">::</span><span class="fu"><a href="../reference/code_chunk.html">code_chunk</a></span><span class="op">(</span>
-      <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ymlthis.r-lib.org">ymlthis</a></span><span class="op">)</span>
-    <span class="op">)</span>
-  <span class="op">)</span>
-<span class="op">)</span>
-
-<span class="co">#  use temporary path set above</span>
-<span class="fu"><a href="../reference/use_yml.html">use_rmarkdown</a></span><span class="op">(</span>path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">path</span>, <span class="st">"analysis.Rmd"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> Writing <span style="color: #0000BB;">'/tmp/RtmpVPc2cb/file3ce865399242/analysis.Rmd'</span></span>
-
-<span class="co"># reset previous option defaults</span>
-<span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">old</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">old</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span></span>
+<span>  ymlthis.default_yml <span class="op">=</span> <span class="st">"author: Malcolm Barrett</span></span>
+<span><span class="st">date: '`r format(Sys.Date())`'</span></span>
+<span><span class="st">output: bookdown::pdf_document2"</span>,</span>
+<span>  ymlthis.rmd_body <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>    <span class="st">""</span>,</span>
+<span>    <span class="fu">ymlthis</span><span class="fu">::</span><span class="fu"><a href="../reference/code_chunk.html">setup_chunk</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    <span class="st">""</span>,</span>
+<span>    <span class="fu">ymlthis</span><span class="fu">::</span><span class="fu"><a href="../reference/code_chunk.html">code_chunk</a></span><span class="op">(</span></span>
+<span>      <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ymlthis.r-lib.org" class="external-link">ymlthis</a></span><span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#  use temporary path set above</span></span>
+<span><span class="fu"><a href="../reference/use_yml.html">use_rmarkdown</a></span><span class="op">(</span>path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">path</span>, <span class="st">"analysis.Rmd"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Writing <span style="color: #0000BB;">'/tmp/RtmpGm6p0N/file43c2a0f218f/analysis.Rmd'</span></span></span>
+<span></span>
+<span><span class="co"># reset previous option defaults</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">old</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <caption>ymlthis <code>use_*()</code> functions to write to <code>.yml</code> files</caption>
 <thead><tr class="header">
@@ -551,23 +552,23 @@ output: bookdown::pdf_document2"</span>,
 </h2>
 <p>Under the hood, <code>yml</code> objects are lists of types that match the corresponding YAML and are only converted to YAML when printing or writing to files. Because <code>yml</code> objects are just lists, you can work with them as such. <strong>ymlthis</strong> also includes several <strong>purrr</strong>-like functions for working with <code>yml</code> objects. Let’s define a <code>yml</code> object that has a fairly comprehensive set of options:</p>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> 
-  <span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/yml_author.html">yml_author</a></span><span class="op">(</span>
-    <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Yihui Xie"</span>, <span class="st">"Hadley Wickham"</span><span class="op">)</span>,
-    affiliation <span class="op">=</span> <span class="st">"RStudio"</span>
-  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/yml_author.html">yml_date</a></span><span class="op">(</span><span class="st">"07/04/2019"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/yml_author.html">yml_title</a></span><span class="op">(</span><span class="st">"Reproducible Research in R"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/yml_author.html">yml_category</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"r"</span>, <span class="st">"reprodicibility"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/yml_output.html">yml_output</a></span><span class="op">(</span>
-    <span class="fu">pdf_document</span><span class="op">(</span>
-      keep_tex <span class="op">=</span> <span class="cn">TRUE</span>,
-      includes <span class="op">=</span> <span class="fu"><a href="../reference/includes2.html">includes2</a></span><span class="op">(</span>after_body <span class="op">=</span> <span class="st">"footer.tex"</span><span class="op">)</span>
-    <span class="op">)</span>,
-    <span class="fu">html_document</span><span class="op">(</span><span class="op">)</span>
-  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/yml_latex_opts.html">yml_latex_opts</a></span><span class="op">(</span>biblio_style <span class="op">=</span> <span class="st">"apalike"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="../reference/yml.html">yml</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/yml_author.html">yml_author</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Yihui Xie"</span>, <span class="st">"Hadley Wickham"</span><span class="op">)</span>,</span>
+<span>    affiliation <span class="op">=</span> <span class="st">"RStudio"</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/yml_author.html">yml_date</a></span><span class="op">(</span><span class="st">"07/04/2019"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/yml_author.html">yml_title</a></span><span class="op">(</span><span class="st">"Reproducible Research in R"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/yml_author.html">yml_category</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"r"</span>, <span class="st">"reprodicibility"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/yml_output.html">yml_output</a></span><span class="op">(</span></span>
+<span>    <span class="fu">pdf_document</span><span class="op">(</span></span>
+<span>      keep_tex <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>      includes <span class="op">=</span> <span class="fu"><a href="../reference/includes2.html">includes2</a></span><span class="op">(</span>after_body <span class="op">=</span> <span class="st">"footer.tex"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu">html_document</span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/yml_latex_opts.html">yml_latex_opts</a></span><span class="op">(</span>biblio_style <span class="op">=</span> <span class="st">"apalike"</span><span class="op">)</span></span></code></pre></div>
 <p>The resulting YAML of <code>x</code> is:</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb30-1"><a href="#cb30-1"></a><span class="pp">---</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a><span class="fu">author</span><span class="kw">:</span></span>
@@ -590,8 +591,8 @@ output: bookdown::pdf_document2"</span>,
 <span id="cb30-19"><a href="#cb30-19"></a><span class="pp">---</span></span></code></pre></div>
 <p>We can use <code><a href="../reference/yml_replace.html">yml_discard()</a></code> to remove the <code>category</code> option:</p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/yml_replace.html">yml_discard</a></span><span class="op">(</span><span class="st">"category"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/yml_replace.html">yml_discard</a></span><span class="op">(</span><span class="st">"category"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb32"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb32-1"><a href="#cb32-1"></a><span class="pp">---</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a><span class="fu">author</span><span class="kw">:</span></span>
 <span id="cb32-3"><a href="#cb32-3"></a><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Yihui Xie</span></span>
@@ -610,8 +611,8 @@ output: bookdown::pdf_document2"</span>,
 <span id="cb32-16"><a href="#cb32-16"></a><span class="pp">---</span></span></code></pre></div>
 <p>We can use <strong>purrr</strong>-style lambdas to express what to discard. How about any YAML fields with a length greater than one?</p>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/yml_replace.html">yml_discard</a></span><span class="op">(</span><span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/yml_replace.html">yml_discard</a></span><span class="op">(</span><span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb34"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb34-1"><a href="#cb34-1"></a><span class="pp">---</span></span>
 <span id="cb34-2"><a href="#cb34-2"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> 07/04/2019</span></span>
 <span id="cb34-3"><a href="#cb34-3"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Reproducible Research in R</span></span>
@@ -619,34 +620,41 @@ output: bookdown::pdf_document2"</span>,
 <span id="cb34-5"><a href="#cb34-5"></a><span class="pp">---</span></span></code></pre></div>
 <p>The <code><a href="../reference/yml_replace.html">yml_pluck()</a></code> function is useful for selectively acquiring a nested portion of the YAML:</p>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/yml_replace.html">yml_pluck</a></span><span class="op">(</span><span class="st">"output"</span>, <span class="st">"pdf_document"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/yml_replace.html">yml_pluck</a></span><span class="op">(</span><span class="st">"output"</span>, <span class="st">"pdf_document"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb36"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb36-1"><a href="#cb36-1"></a><span class="pp">---</span></span>
 <span id="cb36-2"><a href="#cb36-2"></a><span class="fu">keep_tex</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
 <span id="cb36-3"><a href="#cb36-3"></a><span class="fu">includes</span><span class="kw">:</span></span>
 <span id="cb36-4"><a href="#cb36-4"></a><span class="at">  </span><span class="fu">after_body</span><span class="kw">:</span><span class="at"> footer.tex</span></span>
 <span id="cb36-5"><a href="#cb36-5"></a><span class="pp">---</span></span></code></pre></div>
 </div>
-  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
-    </nav></aside>
+  </div>
+
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
+</div>
+
 </div>
 
 
 
-    <footer><div class="pkgdown-footer-left">
+      <footer><div class="copyright">
   <p></p>
 <p>Developed by Malcolm Barrett, Richard Iannone, RStudio.</p>
 </div>
 
-<div class="pkgdown-footer-right">
+<div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
-    </footer>
+      </footer>
 </div>
 
   
+
 
   
 

@@ -1,177 +1,177 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ymlthis.r-lib.org/404.html</loc>
+    <loc>/404.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/CODE_OF_CONDUCT.html</loc>
+    <loc>/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/CONTRIBUTING.html</loc>
+    <loc>/CONTRIBUTING.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/LICENSE-text.html</loc>
+    <loc>/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/LICENSE.html</loc>
+    <loc>/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/articles/index.html</loc>
+    <loc>/articles/index.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/articles/introduction-to-ymlthis.html</loc>
+    <loc>/articles/introduction-to-ymlthis.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/articles/yaml-fieldguide.html</loc>
+    <loc>/articles/yaml-fieldguide.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/articles/yaml-overview.html</loc>
+    <loc>/articles/yaml-overview.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/authors.html</loc>
+    <loc>/authors.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/index.html</loc>
+    <loc>/index.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/news/index.html</loc>
+    <loc>/news/index.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/as_yml.html</loc>
+    <loc>/reference/as_yml.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/asis_yaml_output.html</loc>
+    <loc>/reference/asis_yaml_output.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/bib2yml.html</loc>
+    <loc>/reference/bib2yml.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/blogdown_template.html</loc>
+    <loc>/reference/blogdown_template.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/code_chunk.html</loc>
+    <loc>/reference/code_chunk.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/draw_yml_tree.html</loc>
+    <loc>/reference/draw_yml_tree.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/gitbook_config.html</loc>
+    <loc>/reference/gitbook_config.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/has_field.html</loc>
+    <loc>/reference/has_field.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/includes2.html</loc>
+    <loc>/reference/includes2.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/index.html</loc>
+    <loc>/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/is_yml.html</loc>
+    <loc>/reference/is_yml.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/last_yml.html</loc>
+    <loc>/reference/last_yml.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/pagedown_business_card_template.html</loc>
+    <loc>/reference/pagedown_business_card_template.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/pandoc_template_types.html</loc>
+    <loc>/reference/pandoc_template_types.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/pipe.html</loc>
+    <loc>/reference/pipe.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/pkgdown_template.html</loc>
+    <loc>/reference/pkgdown_template.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/read_json.html</loc>
+    <loc>/reference/read_json.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/use_file_yml.html</loc>
+    <loc>/reference/use_file_yml.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/use_yml.html</loc>
+    <loc>/reference/use_yml.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/use_yml_defaults.html</loc>
+    <loc>/reference/use_yml_defaults.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml.html</loc>
+    <loc>/reference/yml.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_author.html</loc>
+    <loc>/reference/yml_author.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_blank.html</loc>
+    <loc>/reference/yml_blank.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_blogdown_opts.html</loc>
+    <loc>/reference/yml_blogdown_opts.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_bookdown_opts.html</loc>
+    <loc>/reference/yml_bookdown_opts.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_citations.html</loc>
+    <loc>/reference/yml_citations.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_clean.html</loc>
+    <loc>/reference/yml_clean.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_code.html</loc>
+    <loc>/reference/yml_code.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_distill_opts.html</loc>
+    <loc>/reference/yml_distill_opts.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_handlers.html</loc>
+    <loc>/reference/yml_handlers.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_latex_opts.html</loc>
+    <loc>/reference/yml_latex_opts.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_load.html</loc>
+    <loc>/reference/yml_load.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_output.html</loc>
+    <loc>/reference/yml_output.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_pagedown_opts.html</loc>
+    <loc>/reference/yml_pagedown_opts.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_params.html</loc>
+    <loc>/reference/yml_params.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_pkgdown.html</loc>
+    <loc>/reference/yml_pkgdown.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_reference.html</loc>
+    <loc>/reference/yml_reference.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_replace.html</loc>
+    <loc>/reference/yml_replace.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_resource_files.html</loc>
+    <loc>/reference/yml_resource_files.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_rsconnect_email.html</loc>
+    <loc>/reference/yml_rsconnect_email.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_rticles_opts.html</loc>
+    <loc>/reference/yml_rticles_opts.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_runtime.html</loc>
+    <loc>/reference/yml_runtime.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_site_opts.html</loc>
+    <loc>/reference/yml_site_opts.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_toc.html</loc>
+    <loc>/reference/yml_toc.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_verbatim.html</loc>
+    <loc>/reference/yml_verbatim.html</loc>
   </url>
   <url>
-    <loc>https://ymlthis.r-lib.org/reference/yml_vignette.html</loc>
+    <loc>/reference/yml_vignette.html</loc>
   </url>
 </urlset>
