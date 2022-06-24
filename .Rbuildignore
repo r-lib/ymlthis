@@ -18,3 +18,4 @@ docs
 ^rhub\.R$
 ^revdep$
 ^/Users/malcolmbarrett/core/active/reference/ymlthis/_pkgdown\.yml$
+^CRAN-SUBMISSION$
