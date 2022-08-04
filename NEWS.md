@@ -1,4 +1,6 @@
 # ymlthis (development version)
+* Fix typo in add-in checking for miniUI (#84, #85, thanks @tonycmac &
+  @lquayle88)
 
 # ymlthis 0.1.6
 * `yml_author()` now correctly accepts `yml_blank()` as needed (#71)
