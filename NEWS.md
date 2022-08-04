@@ -1,4 +1,4 @@
-# ymlthis (development version)
+# ymlthis 0.1.7
 * Fix typo in add-in checking for miniUI (#84, #85, thanks @tonycmac &
   @lquayle88)
 
