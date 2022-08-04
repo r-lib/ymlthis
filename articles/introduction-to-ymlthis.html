@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ymlthis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.6.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.7</span>
       </span>
     </div>
 
@@ -432,7 +432,7 @@
 <span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/create.html" class="external-link">dir_create</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/use_file_yml.html">use_navbar_yml</a></span><span class="op">(</span><span class="va">navbar_yaml</span>, path <span class="op">=</span> <span class="va">path</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Writing <span style="color: #0000BB;">'/tmp/RtmpknMzng/file3f4940870d1c/_navbar.yml'</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Writing <span style="color: #0000BB;">'/tmp/RtmpeF3j4b/file3f3b505e424b/_navbar.yml'</span></span></span></code></pre></div>
 <p>In addition to writing to files, you can save YAML to your <code>.Rprofile</code> using <code>options(ymlthis.defaults = "{YAML}")</code>. <code><a href="../reference/yml.html">yml()</a></code> will return the stored YAML by default. If you pass a <code>yml</code> object to <code><a href="../reference/use_yml_defaults.html">use_yml_defaults()</a></code>, the code to do this will be placed on your clipboard, which you should paste into your <code>.Rprofile</code>. Open that file with <code><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">usethis::edit_r_profile()</a></code>. You can also set a default for body text for <code><a href="../reference/use_yml.html">use_rmarkdown()</a></code> by setting the <code>ymlthis.rmd_body()</code> option, e.g. <code>options(ymlthis.rmd_body = "{your text}")</code> (or take advantage of <code><a href="../reference/use_yml_defaults.html">use_rmd_defaults()</a></code>). Together with specifying default YAML, <code><a href="../reference/use_yml.html">use_rmarkdown()</a></code> also serves as an ad-hoc way to make R Markdown templates.</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">old</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span></span>
@@ -451,7 +451,7 @@
 <span></span>
 <span><span class="co">#  use temporary path set above</span></span>
 <span><span class="fu"><a href="../reference/use_yml.html">use_rmarkdown</a></span><span class="op">(</span>path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">path</span>, <span class="st">"analysis.Rmd"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Writing <span style="color: #0000BB;">'/tmp/RtmpknMzng/file3f4940870d1c/analysis.Rmd'</span></span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Writing <span style="color: #0000BB;">'/tmp/RtmpeF3j4b/file3f3b505e424b/analysis.Rmd'</span></span></span>
 <span></span>
 <span><span class="co"># reset previous option defaults</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">old</span><span class="op">)</span></span></code></pre></div>
