@@ -76,7 +76,7 @@ transform into YAML}
 a \code{yml} object
 }
 \description{
-R Markdown has a simple website builder baked in (see the R \href{https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#site_navigation}{Markdown book}
+R Markdown has a simple website builder baked in (see the R \href{https://yihui.org/rmarkdown/rmarkdown-site.html#site_navigation}{Markdown book}
 for a detailed description). An R Markdown website must have at least have an
 \code{index.Rmd} file and a \verb{_site.yml} file (which can be empty). Including YAML
 in \verb{_site.yml} will apply it to all R Markdown files for the website, e.g.

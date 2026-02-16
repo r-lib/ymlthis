@@ -122,12 +122,12 @@ return_yml_code <- function(.yml) {
 #' top-level fields will be ignored. `use_site_yml` creates `_site.yml` for use
 #' with R Markdown websites and third-party tools like the distill package (see
 #' [the R Markdown book for
-#' more](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#)).
+#' more](https://yihui.org/rmarkdown/rmarkdown-site.html#)).
 #' `use_navbar_yml` is a special type of site YAML that only specifies the
 #' navbar in `_navbar.yml` `use_pkgdown_yml()` and `use_bookdown_yml()` write
 #' YAML files specific to those packages; see the
 #' [pkgdown](https://pkgdown.r-lib.org/articles/pkgdown.html) and
-#' [blogdown](https://bookdown.org/yihui/bookdown/configuration.html)
+#' [blogdown](https://yihui.org/bookdown/configuration.html)
 #' documentation for more.
 #'
 #' By default, the yaml package adds a new line to the end of files. Some

@@ -5,8 +5,8 @@
 #' that tells RStudio Connect about the email output. Several `rsc_*` fields
 #' exist to specify different components of the email, which can be set in the
 #' YAML header or programmatically using `rmarkdown::output_metadata()`. See the
-#' [RStudio Connect
-#' documentation](https://docs.rstudio.com/connect/1.7.2/user/r-markdown.html)
+#' [Posit Connect
+#' documentation](https://docs.posit.co/connect/user/rmarkdown/)
 #' for more. `yml_output_metadata()` allows you to add any type of content to
 #' the `rmd_output_metadata` field.
 #'

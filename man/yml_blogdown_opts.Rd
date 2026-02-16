@@ -38,7 +38,7 @@ a \verb{yml_*()} function}
 \item{draft}{Logical. Set post as a draft? Draft posts will not be rendered
 if the site is built via \code{blogdown::build_site()} or
 \code{blogdown::hugo_build()} but will be rendered in the local preview mode.
-See \href{https://bookdown.org/yihui/blogdown/local-preview.html#local-preview}{Section D.3 of the blogdown book}.}
+See \href{https://yihui.org/blogdown/local-preview.html#local-preview}{Section D.3 of the blogdown book}.}
 
 \item{publishdate}{A future date to publish the post. Future posts are only
 rendered in the local preview mode}
@@ -50,7 +50,7 @@ weights to them to get your desired order on the list}
 
 \item{slug}{A character string used as the tail of the post URL. It is
 particularly useful when you define custom rules for permanent URLs. See
-\href{https://bookdown.org/yihui/blogdown/configuration.html#options}{Section 2.2.2 of the blogdown book}.}
+\href{https://yihui.org/blogdown/configuration.html#options}{Section 2.2.2 of the blogdown book}.}
 
 \item{aliases}{A character vector of one or more aliases (e.g., old published
 paths of renamed content) that will be created in the output directory
@@ -75,7 +75,7 @@ published by Hugo. Note that the actual YAML field is \code{expiryDate}}
 
 \item{layout}{The layout Hugo should use while rendering the content. By
 default, \code{layout} matches \code{type} and is thus based on the directory.
-However, it's possible to use additional layouts within a type. See \href{https://gohugo.io/content-management/types/#defining-a-content-type}{Hugo's Defining a Content Type documentation}.}
+However, it's possible to use additional layouts within a type. See \href{https://gohugo.io/configuration/content-types/}{Hugo's content types documentation}.}
 
 \item{lastmod}{The date the content was last modified at}
 
@@ -109,7 +109,7 @@ a \code{yml} object
 }
 \description{
 YAML in blogdown comes from a variety of sources. Most YAML will be for your
-posts, as described in the \href{https://bookdown.org/yihui/blogdown/content.html#yaml-metadata}{blogdown book}).
+posts, as described in the \href{https://yihui.org/blogdown/content.html#yaml-metadata}{blogdown book}).
 Common R Markdown fields can be used, but there are two other main sources
 for YAML fields: Hugo itself and the Hugo theme you are using. Hugo has
 numerous top-level YAML to control the output (see the \href{https://gohugo.io/content-management/front-matter/}{Hugo documentation}).
@@ -117,7 +117,7 @@ numerous top-level YAML to control the output (see the \href{https://gohugo.io/c
 to use. To find YAML specific to your theme, see \code{\link[=blogdown_template]{blogdown_template()}}. In
 addition to these sources of YAML, the configuration file for your blog can
 also be in YAML, but this is not very common; most use a \code{config.toml} file,
-based on TOML (see the \href{https://bookdown.org/yihui/blogdown/configuration.html}{blogdown book} for more).
+based on TOML (see the \href{https://yihui.org/blogdown/configuration.html}{blogdown book} for more).
 }
 \examples{
 

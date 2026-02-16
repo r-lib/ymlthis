@@ -2,11 +2,11 @@
 #'
 #' R Markdown lets you add dynamic parameters to your report using the `params`
 #' YAML field (see the [R Markdown
-#' book](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html) for
+#' book](https://yihui.org/rmarkdown/parameterized-reports.html) for
 #' examples); parameterized reports are also used in RStudio Connect. The values
 #' of these variables can be called inside your R Markdown document using
 #' `params$field_name`. [There are several ways to change the values of the
-#' parameters](https://bookdown.org/yihui/rmarkdown/params-knit.html): manually
+#' parameters](https://yihui.org/rmarkdown/params-knit.html): manually
 #' change the YAML, use the `params` argument in `rmarkdown::render()`, or knit
 #' with parameters, which launches a Shiny app to select values for each.
 #' `yml_params()` accepts any number of named R objects to set as YAML fields.

@@ -66,7 +66,7 @@ transform into YAML}
 a \code{yml} object
 }
 \description{
-bookdown uses YAML in three main places, as described in the \href{https://bookdown.org/yihui/rmarkdown/bookdown-project.html}{bookdown book}:
+bookdown uses YAML in three main places, as described in the \href{https://yihui.org/rmarkdown/bookdown-project.html}{bookdown book}:
 \code{index.Rmd}, \verb{_output.yml}, and \verb{_bookdown.yml}. \code{index.Rmd} can take most
 YAML. \verb{_output.yml} is intended for output-related YAML, such as that
 produced by \code{yml() \%>\% yml_output(bookdown::pdf_book())}. \verb{_bookdown.yml} is

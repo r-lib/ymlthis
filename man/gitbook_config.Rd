@@ -88,7 +88,7 @@ a list to use in the \code{config} argument of \code{\link[bookdown:gitbook]{boo
 }
 \description{
 \code{gitbook_config()} is a helper function to specify the \code{config} argument in
-\code{\link[bookdown:gitbook]{bookdown::gitbook()}}, as described in the \href{https://bookdown.org/yihui/bookdown/html.html}{bookdown book}.
+\code{\link[bookdown:gitbook]{bookdown::gitbook()}}, as described in the \href{https://yihui.org/bookdown/html.html}{bookdown book}.
 }
 \seealso{
 Other bookdown: 

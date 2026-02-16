@@ -9,10 +9,19 @@
 [![Codecov test
 coverage](https://codecov.io/gh/r-lib/ymlthis/branch/main/graph/badge.svg)](https://app.codecov.io/gh/r-lib/ymlthis?branch=main)
 [![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
+retired](https://img.shields.io/badge/lifecycle-retired-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#retired)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ymlthis)](https://cran.r-project.org/package=ymlthis)
 <!-- badges: end -->
+
+## Status: Retired
+
+ymlthis is now retired: only changes necessary to keep it on CRAN will
+be made. ymlthis was created when managing YAML in R Markdown was
+difficult. [Quarto](https://quarto.org/) has since resolved these issues
+with autocomplete, validation, and helpful error messages for YAML. We
+recommend Quarto for new projects. Existing ymlthis code will continue
+to work, and the package will remain on CRAN.
 
 ymlthis makes it easy to write YAML front matter for R Markdown and
 related documents. `yml_*()` functions write functions and `use_*()`
@@ -67,7 +76,7 @@ yml() %>%
 #>   affiliation: RStudio
 #> - name: Hadley Wickham
 #>   affiliation: RStudio
-#> date: '2022-06-24'
+#> date: '2026-02-16'
 #> output:
 #>   word_document:
 #>     keep_md: true

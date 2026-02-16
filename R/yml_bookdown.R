@@ -1,7 +1,7 @@
 #' Set Top-level YAML options for bookdown
 #'
 #' bookdown uses YAML in three main places, as described in the [bookdown
-#' book](https://bookdown.org/yihui/rmarkdown/bookdown-project.html):
+#' book](https://yihui.org/rmarkdown/bookdown-project.html):
 #' `index.Rmd`, `_output.yml`, and `_bookdown.yml`. `index.Rmd` can take most
 #' YAML. `_output.yml` is intended for output-related YAML, such as that
 #' produced by `yml() %>% yml_output(bookdown::pdf_book())`. `_bookdown.yml` is
@@ -145,7 +145,7 @@ yml_bookdown_site <- function(.yml) {
 #'
 #' `gitbook_config()` is a helper function to specify the `config` argument in
 #' [bookdown::gitbook()], as described in the [bookdown
-#' book](https://bookdown.org/yihui/bookdown/html.html).
+#' book](https://yihui.org/bookdown/html.html).
 #'
 #' @param toc_collapse Collapse some items initially when a page is loaded via
 #'   the collapse option. Its possible values are "subsection" (the default),
