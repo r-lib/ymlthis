@@ -6,8 +6,8 @@ test_that("setup_chunk() captures chunk_code expressions", {
   expect_snapshot(cat(with_code))
 
   with_braces <- setup_chunk(chunk_code = {
-    library(dplyr)
-    library(ggplot2)
+    x <- 1
+    y <- x + 1
   })
   expect_snapshot(cat(with_braces))
 })

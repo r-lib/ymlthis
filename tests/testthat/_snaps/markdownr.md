@@ -22,8 +22,8 @@
       cat(with_braces)
     Output
       ```{r setup, include = FALSE}
-      library(dplyr)
-      library(ggplot2)
+      x <- 1
+      y <- x + 1
       ```
 
 # argument types are respected in code_chunk()
