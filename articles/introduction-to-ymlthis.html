@@ -225,7 +225,7 @@ fields not covered in <strong>ymlthis</strong>.</p>
 <div class="section level3">
 <h3 id="parameterized-reports">Parameterized reports<a class="anchor" aria-label="anchor" href="#parameterized-reports"></a>
 </h3>
-<p><a href="https://bookdown.org/yihui/rmarkdown/parameterized-reports.html" class="external-link">Parameterized
+<p><a href="https://yihui.org/rmarkdown/parameterized-reports.html" class="external-link">Parameterized
 reports</a> are a powerful feature of <strong>R Markdown</strong> that
 lets you specify variables in the YAML metadata used in your report,
 letting you re-use reports for a variety of settings. To set parameters,
@@ -284,7 +284,7 @@ start with <code>shiny_*()</code>.</p>
 <div class="section level3">
 <h3 id="references-and-citations">References and citations<a class="anchor" aria-label="anchor" href="#references-and-citations"></a>
 </h3>
-<p><a href="https://bookdown.org/yihui/rmarkdown/markdown-syntax.html" class="external-link"><strong>R
+<p><a href="https://yihui.org/rmarkdown/markdown-syntax.html" class="external-link"><strong>R
 Markdown</strong> has excellent support for citations</a>. The simplest
 way to use references in an <strong>R Markdown</strong> file is to add a
 bibliography file using the <code>bibliography</code> field.</p>
@@ -367,7 +367,7 @@ the file to YAML you can include directly in the metadata.</p>
 <p>Packages that extend <strong>R Markdown</strong>, such as
 <strong>bookdown</strong> and <strong>blogdown</strong>, also extend the
 YAML used to make documents. One of the main ways that other packages
-introduce YAML is through new output functions. <a href="https://bookdown.org/yihui/rmarkdown/xaringan.html" class="external-link"><strong>xaringan</strong></a>,
+introduce YAML is through new output functions. <a href="https://yihui.org/rmarkdown/xaringan.html" class="external-link"><strong>xaringan</strong></a>,
 for instance, doesn’t use custom YAML outside of its output function, so
 <strong>ymlthis</strong> supports it out-of-box. Passing
 <code><a href="https://rdrr.io/pkg/xaringan/man/moon_reader.html" class="external-link">xaringan::moon_reader()</a></code> to <code><a href="../reference/yml_output.html">yml_output()</a></code> will
@@ -542,7 +542,7 @@ Markdown</strong> website and then pass it to
 <span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/create.html" class="external-link">dir_create</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/use_file_yml.html">use_navbar_yml</a></span><span class="op">(</span><span class="va">navbar_yaml</span>, path <span class="op">=</span> <span class="va">path</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Writing <span style="color: #0000BB;">/tmp/RtmpxFXOva/file1dbe5d555bd0/_navbar.yml</span>.</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Writing <span style="color: #0000BB;">/tmp/RtmpDlhTkH/file1dee431e89c5/_navbar.yml</span>.</span></span></code></pre></div>
 <p>In addition to writing to files, you can save YAML to your
 <code>.Rprofile</code> using
 <code>options(ymlthis.defaults = "{YAML}")</code>. <code><a href="../reference/yml.html">yml()</a></code>
@@ -574,7 +574,7 @@ to make R Markdown templates.</p>
 <span></span>
 <span><span class="co">#  use temporary path set above</span></span>
 <span><span class="fu"><a href="../reference/use_yml.html">use_rmarkdown</a></span><span class="op">(</span>path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">path</span>, <span class="st">"analysis.Rmd"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Writing <span style="color: #0000BB;">/tmp/RtmpxFXOva/file1dbe5d555bd0/analysis.Rmd</span>.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Writing <span style="color: #0000BB;">/tmp/RtmpDlhTkH/file1dee431e89c5/analysis.Rmd</span>.</span></span>
 <span></span>
 <span><span class="co"># reset previous option defaults</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">old</span><span class="op">)</span></span></code></pre></div>

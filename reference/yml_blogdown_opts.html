@@ -75,7 +75,7 @@ based on TOML (see the blogdown book for more)."><!-- mathjax --><script src="ht
 
     <div class="ref-description">
     <p>YAML in blogdown comes from a variety of sources. Most YAML will be for your
-posts, as described in the <a href="https://bookdown.org/yihui/blogdown/content.html#yaml-metadata" class="external-link">blogdown book</a>).
+posts, as described in the <a href="https://yihui.org/blogdown/content.html#yaml-metadata" class="external-link">blogdown book</a>).
 Common R Markdown fields can be used, but there are two other main sources
 for YAML fields: Hugo itself and the Hugo theme you are using. Hugo has
 numerous top-level YAML to control the output (see the <a href="https://gohugo.io/content-management/front-matter/" class="external-link">Hugo documentation</a>).
@@ -83,7 +83,7 @@ numerous top-level YAML to control the output (see the <a href="https://gohugo.i
 to use. To find YAML specific to your theme, see <code><a href="blogdown_template.html">blogdown_template()</a></code>. In
 addition to these sources of YAML, the configuration file for your blog can
 also be in YAML, but this is not very common; most use a <code>config.toml</code> file,
-based on TOML (see the <a href="https://bookdown.org/yihui/blogdown/configuration.html" class="external-link">blogdown book</a> for more).</p>
+based on TOML (see the <a href="https://yihui.org/blogdown/configuration.html" class="external-link">blogdown book</a> for more).</p>
     </div>
 
     <div id="ref-usage">
@@ -128,7 +128,7 @@ a <code>yml_*()</code> function</p></dd>
 <dd><p>Logical. Set post as a draft? Draft posts will not be rendered
 if the site is built via <code><a href="https://pkgs.rstudio.com/blogdown/reference/build_site.html" class="external-link">blogdown::build_site()</a></code> or
 <code><a href="https://pkgs.rstudio.com/blogdown/reference/hugo_cmd.html" class="external-link">blogdown::hugo_build()</a></code> but will be rendered in the local preview mode.
-See <a href="https://bookdown.org/yihui/blogdown/local-preview.html#local-preview" class="external-link">Section D.3 of the blogdown book</a>.</p></dd>
+See <a href="https://yihui.org/blogdown/local-preview.html#local-preview" class="external-link">Section D.3 of the blogdown book</a>.</p></dd>
 
 
 <dt id="arg-publishdate">publishdate<a class="anchor" aria-label="anchor" href="#arg-publishdate"></a></dt>
@@ -146,7 +146,7 @@ weights to them to get your desired order on the list</p></dd>
 <dt id="arg-slug">slug<a class="anchor" aria-label="anchor" href="#arg-slug"></a></dt>
 <dd><p>A character string used as the tail of the post URL. It is
 particularly useful when you define custom rules for permanent URLs. See
-<a href="https://bookdown.org/yihui/blogdown/configuration.html#options" class="external-link">Section 2.2.2 of the blogdown book</a>.</p></dd>
+<a href="https://yihui.org/blogdown/configuration.html#options" class="external-link">Section 2.2.2 of the blogdown book</a>.</p></dd>
 
 
 <dt id="arg-aliases">aliases<a class="anchor" aria-label="anchor" href="#arg-aliases"></a></dt>
@@ -189,7 +189,7 @@ published by Hugo. Note that the actual YAML field is <code>expiryDate</code></p
 <dt id="arg-layout">layout<a class="anchor" aria-label="anchor" href="#arg-layout"></a></dt>
 <dd><p>The layout Hugo should use while rendering the content. By
 default, <code>layout</code> matches <code>type</code> and is thus based on the directory.
-However, it's possible to use additional layouts within a type. See <a href="https://gohugo.io/content-management/types/#defining-a-content-type" class="external-link">Hugo's Defining a Content Type documentation</a>.</p></dd>
+However, it's possible to use additional layouts within a type. See <a href="https://gohugo.io/configuration/content-types/" class="external-link">Hugo's content types documentation</a>.</p></dd>
 
 
 <dt id="arg-lastmod">lastmod<a class="anchor" aria-label="anchor" href="#arg-lastmod"></a></dt>
