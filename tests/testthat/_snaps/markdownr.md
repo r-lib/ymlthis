@@ -1,3 +1,31 @@
+# setup_chunk() captures chunk_code expressions
+
+    Code
+      cat(default)
+    Output
+      ```{r setup, include = FALSE}
+      knitr::opts_chunk$set(echo = TRUE)
+      ```
+
+---
+
+    Code
+      cat(with_code)
+    Output
+      ```{r setup, include = FALSE}
+      1 + 1
+      ```
+
+---
+
+    Code
+      cat(with_braces)
+    Output
+      ```{r setup, include = FALSE}
+      x <- 1
+      y <- x + 1
+      ```
+
 # argument types are respected in code_chunk()
 
     Code
