@@ -35,7 +35,7 @@ duplicating top-level fields with other functions, explicitly replacing them
 with \code{yml_replace()} will not raise a warning. \code{yml_discard()} removes values
 given either a character vector of names or a purrr-style lambda with a
 predicate (~ predicate); see the examples. \code{yml_pluck()} and \code{yml_chuck()}
-are wrappers around \code{\link[purrr:pluck]{purrr::pluck()}} and \code{\link[purrr:pluck]{purrr::chuck()}} that return \code{yml}
+are wrappers around \code{\link[purrr:pluck]{purrr::pluck()}} and \code{\link[purrr:chuck]{purrr::chuck()}} that return \code{yml}
 objects.
 }
 \examples{
@@ -61,9 +61,9 @@ Other yml:
 \code{\link{draw_yml_tree}()},
 \code{\link{has_field}()},
 \code{\link{read_json}()},
+\code{\link{use_yml}()},
 \code{\link{use_yml_defaults}()},
 \code{\link{use_yml_file}()},
-\code{\link{use_yml}()},
 \code{\link{yml_author}()},
 \code{\link{yml_blogdown_opts}()},
 \code{\link{yml_bookdown_opts}()},

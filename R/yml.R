@@ -234,7 +234,7 @@ color_yml <- function(x, handlers = yml_handlers()) {
 }
 
 flatten_yml_names <- function(x) {
-  seq(from = 0, to = purrr::vec_depth(x) - 1) %>%
+  seq(from = 0, to = purrr::pluck_depth(x) - 1) %>%
     purrr::map(~purrr::map_depth(x, .x, names, .ragged = TRUE)) %>%
     unlist(use.names = FALSE)
 }
