@@ -55,8 +55,8 @@ code_chunk <- function(chunk_code, chunk_name = NULL, chunk_args = NULL) {
 #' @rdname code_chunk
 #' @export
 setup_chunk <- function(chunk_code = NULL, chunk_args = list(include = FALSE)) {
-  arg_null <- rlang::enquo(chunk_code) %>%
-    rlang::quo_is_null()
+  chunk_code_expr <- rlang::enexpr(chunk_code)
+  arg_null <- is.null(chunk_code_expr)
 
   if (arg_null) {
     code_chunk_txt <- code_chunk(
@@ -66,7 +66,7 @@ setup_chunk <- function(chunk_code = NULL, chunk_args = list(include = FALSE)) {
     )
   } else {
     code_chunk_txt <- code_chunk(
-      chunk_code = chunk_code,
+      chunk_code = !!chunk_code_expr,
       chunk_name = "setup",
       chunk_args = !!rlang::enquo(chunk_args)
     )
