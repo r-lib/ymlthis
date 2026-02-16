@@ -106,7 +106,7 @@ You can also use `yml_toplevel()` to append any YAML fields not covered in **yml
 
 ## Parameterized reports
 
-[Parameterized reports](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html) are a powerful feature of **R Markdown** that lets you specify variables in the YAML metadata used in your report, letting you re-use reports for a variety of settings. To set parameters, you use the `params` YAML field and access the parameter in your report by calling `params$variable_name`. Basic YAML for parameters looks like this
+[Parameterized reports](https://yihui.org/rmarkdown/parameterized-reports.html) are a powerful feature of **R Markdown** that lets you specify variables in the YAML metadata used in your report, letting you re-use reports for a variety of settings. To set parameters, you use the `params` YAML field and access the parameter in your report by calling `params$variable_name`. Basic YAML for parameters looks like this
 
 ```yaml
 params:
@@ -134,7 +134,7 @@ yml() %>%
 
 ## References and citations
 
-[**R Markdown** has excellent support for citations](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html). The simplest way to use references in an **R Markdown** file is to add a bibliography file using the `bibliography` field.
+[**R Markdown** has excellent support for citations](https://yihui.org/rmarkdown/markdown-syntax.html). The simplest way to use references in an **R Markdown** file is to add a bibliography file using the `bibliography` field.
 
 ```{r}
 yml() %>% 
@@ -180,7 +180,7 @@ If you have an existing `.bib` file, but you want to specify it in the YAML, ins
 
 # R Markdown extensions
 
-Packages that extend **R Markdown**, such as **bookdown** and **blogdown**, also extend the YAML used to make documents. One of the main ways that other packages introduce YAML is through new output functions. [**xaringan**](https://bookdown.org/yihui/rmarkdown/xaringan.html), for instance, doesn't use custom YAML outside of its output function, so **ymlthis** supports it out-of-box. Passing `xaringan::moon_reader()` to `yml_output()` will write the YAML for you.
+Packages that extend **R Markdown**, such as **bookdown** and **blogdown**, also extend the YAML used to make documents. One of the main ways that other packages introduce YAML is through new output functions. [**xaringan**](https://yihui.org/rmarkdown/xaringan.html), for instance, doesn't use custom YAML outside of its output function, so **ymlthis** supports it out-of-box. Passing `xaringan::moon_reader()` to `yml_output()` will write the YAML for you.
 
 ```{r}
 yml() %>% 

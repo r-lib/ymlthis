@@ -2,7 +2,7 @@
 #'
 #' YAML in blogdown comes from a variety of sources. Most YAML will be for your
 #' posts, as described in the [blogdown
-#' book](https://bookdown.org/yihui/blogdown/content.html#yaml-metadata)).
+#' book](https://yihui.org/blogdown/content.html#yaml-metadata)).
 #' Common R Markdown fields can be used, but there are two other main sources
 #' for YAML fields: Hugo itself and the Hugo theme you are using. Hugo has
 #' numerous top-level YAML to control the output (see the [Hugo
@@ -12,14 +12,14 @@
 #' addition to these sources of YAML, the configuration file for your blog can
 #' also be in YAML, but this is not very common; most use a `config.toml` file,
 #' based on TOML (see the [blogdown
-#' book](https://bookdown.org/yihui/blogdown/configuration.html) for more).
+#' book](https://yihui.org/blogdown/configuration.html) for more).
 #'
 #' @template describe_yml_param
 #' @param draft Logical. Set post as a draft? Draft posts will not be rendered
 #'   if the site is built via `blogdown::build_site()` or
 #'   `blogdown::hugo_build()` but will be rendered in the local preview mode.
 #'   See [Section D.3 of the blogdown
-#'   book](https://bookdown.org/yihui/blogdown/local-preview.html#local-preview).
+#'   book](https://yihui.org/blogdown/local-preview.html#local-preview).
 #'
 #' @param publishdate A future date to publish the post. Future posts are only
 #'   rendered in the local preview mode
@@ -30,7 +30,7 @@
 #' @param slug A character string used as the tail of the post URL. It is
 #'   particularly useful when you define custom rules for permanent URLs. See
 #'   [Section 2.2.2 of the blogdown
-#'   book](https://bookdown.org/yihui/blogdown/configuration.html#options).
+#'   book](https://yihui.org/blogdown/configuration.html#options).
 #' @param aliases A character vector of one or more aliases (e.g., old published
 #'   paths of renamed content) that will be created in the output directory
 #'   structure
@@ -48,8 +48,8 @@
 #' @param layout The layout Hugo should use while rendering the content. By
 #'   default, `layout` matches `type` and is thus based on the directory.
 #'   However, it's possible to use additional layouts within a type. See [Hugo's
-#'   Defining a Content Type
-#'   documentation](https://gohugo.io/content-management/types/#defining-a-content-type).
+#'   content types
+#'   documentation](https://gohugo.io/configuration/content-types/).
 #'
 #' @param lastmod The date the content was last modified at
 #' @param link_title used for creating links to content.  Note that the actual

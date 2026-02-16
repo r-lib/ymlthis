@@ -2,7 +2,7 @@
 #'
 #' The `runtime` field lets you use Shiny in your R Markdown document, making it
 #' interactive. See the [R Markdown
-#' book](https://bookdown.org/yihui/rmarkdown/interactive-documents.html) for
+#' book](https://yihui.org/rmarkdown/interactive-documents.html) for
 #' examples.
 #'
 #' @template describe_yml_param
@@ -170,7 +170,7 @@ yml_resource_files <- function(.yml, resource_files) {
 #' Add site options for `_site.yml` and navbars for R Markdown websites
 #'
 #' R Markdown has a simple website builder baked in (see the R [Markdown
-#' book](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#site_navigation)
+#' book](https://yihui.org/rmarkdown/rmarkdown-site.html#site_navigation)
 #' for a detailed description). An R Markdown website must have at least have an
 #' `index.Rmd` file and a `_site.yml` file (which can be empty). Including YAML
 #' in `_site.yml` will apply it to all R Markdown files for the website, e.g.

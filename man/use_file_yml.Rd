@@ -79,12 +79,12 @@ document YAML headers will override those specified in \verb{_output.yml}. Note
 that \code{use_output_yml()} plucks the output field from \code{yml}; any other YAML
 top-level fields will be ignored. \code{use_site_yml} creates \verb{_site.yml} for use
 with R Markdown websites and third-party tools like the distill package (see
-\href{https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html#}{the R Markdown book for more}).
+\href{https://yihui.org/rmarkdown/rmarkdown-site.html#}{the R Markdown book for more}).
 \code{use_navbar_yml} is a special type of site YAML that only specifies the
 navbar in \verb{_navbar.yml} \code{use_pkgdown_yml()} and \code{use_bookdown_yml()} write
 YAML files specific to those packages; see the
 \href{https://pkgdown.r-lib.org/articles/pkgdown.html}{pkgdown} and
-\href{https://bookdown.org/yihui/bookdown/configuration.html}{blogdown}
+\href{https://yihui.org/bookdown/configuration.html}{blogdown}
 documentation for more.
 }
 \details{
