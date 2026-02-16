@@ -1,6 +1,6 @@
 Package: ymlthis
 Title: Write 'YAML' for 'R Markdown', 'bookdown', 'blogdown', and More
-Version: 2.0.0
+Version: 1.0.0
 Authors@R: c(
     person("Malcolm", "Barrett", , "malcolmbarrett@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-0299-5825")),
@@ -17,7 +17,7 @@ URL: https://ymlthis.r-lib.org, https://github.com/r-lib/ymlthis
 BugReports: https://github.com/r-lib/ymlthis/issues
 Depends:
     R (>= 3.2)
-Imports: 
+Imports:
     crayon,
     fs,
     glue,
@@ -31,7 +31,7 @@ Imports:
     whoami,
     withr,
     yaml
-Suggests: 
+Suggests:
     blogdown,
     bookdown,
     covr,
@@ -45,7 +45,7 @@ Suggests:
     spelling,
     testthat (>= 3.0.0),
     xaringan
-VignetteBuilder: 
+VignetteBuilder:
     knitr
 Config/testthat/edition: 3
 Encoding: UTF-8
